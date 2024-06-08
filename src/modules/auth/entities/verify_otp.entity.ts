@@ -17,15 +17,12 @@ export class VerifyOTP {
   })
   verify_type: VerifyType;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   verify_info: string;
 
-  @Column({ type: 'varchar', length: 6, nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   current_otp: string;
 
   @Column({ type: 'timestamp', nullable: true })
   otp_expiry: Date;
-
-  @Column({ type: 'boolean', default: false })
-  is_verified: boolean;
 }

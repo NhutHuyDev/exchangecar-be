@@ -1,4 +1,4 @@
-import { AuthCredential } from 'src/auth/entities/auth_credential.entity';
+import { AuthCredential } from 'src/modules/auth/entities/auth_credential.entity';
 import {
   Column,
   Entity,
@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from './address.entity';
-import { CarPost } from 'src/posts/entities/car_post.entity';
+import { CarPost } from 'src/modules/posts/entities/car_post.entity';
 
 export enum StaffType {
   INFORMATION = 'information',

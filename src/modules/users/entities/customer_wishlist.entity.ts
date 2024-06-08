@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Customer } from './customer.entity';
-import { CarPost } from 'src/posts/entities/car_post.entity';
+import { CarPost } from 'src/modules/posts/entities/car_post.entity';
 
 @Entity('Customer_Wishlists')
 export class CustomerWishlist {

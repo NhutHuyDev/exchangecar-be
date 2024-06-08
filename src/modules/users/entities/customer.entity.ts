@@ -1,4 +1,4 @@
-import { AuthCredential } from 'src/auth/entities/auth_credential.entity';
+import { AuthCredential } from 'src/modules/auth/entities/auth_credential.entity';
 import {
   Column,
   Entity,
@@ -8,7 +8,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from './address.entity';
-import { CarPost } from 'src/posts/entities/car_post.entity';
+import { CarPost } from 'src/modules/posts/entities/car_post.entity';
+import { Exclude } from 'class-transformer';
 
 export enum CustomerType {
   INDIVIDUAL = 'individual',
@@ -26,7 +27,7 @@ export class Customer {
   @Column({ type: 'varchar' })
   last_name: string;
 
-  @Column({ type: 'varchar', length: 10 })
+  @Column({ type: 'varchar', unique: true })
   mobile_phone: string;
 
   @Column({ type: 'text', nullable: true })
@@ -42,6 +43,7 @@ export class Customer {
   @Column({ type: 'text', nullable: true })
   about: string;
 
+  @Exclude()
   @OneToOne(() => AuthCredential)
   @JoinColumn()
   auth_credential: AuthCredential;

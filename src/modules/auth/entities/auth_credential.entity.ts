@@ -3,10 +3,12 @@ import { Session } from './session.entity';
 
 @Entity('Auth_Credentials')
 export class AuthCredential {
+  static readonly SaltOrRounds = 10;
+
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   cred_login: string;
 
   @Column({ type: 'varchar' })

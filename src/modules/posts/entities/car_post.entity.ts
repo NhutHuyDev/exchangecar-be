@@ -1,6 +1,6 @@
-import { Car } from 'src/cars/entities/car.entity';
-import { Customer } from 'src/users/entities/customer.entity';
-import { Staff } from 'src/users/entities/staff.entity';
+import { Car } from 'src/modules/cars/entities/car.entity';
+import { Customer } from 'src/modules/users/entities/customer.entity';
+import { Staff } from 'src/modules/users/entities/staff.entity';
 import {
   Column,
   Entity,
@@ -13,7 +13,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { CarPostCommitments } from './post_commitment.entity';
-import { CustomerWishlist } from 'src/users/entities/customer_wishlist.entity';
+import { CustomerWishlist } from 'src/modules/users/entities/customer_wishlist.entity';
 
 export enum CarPostStatus {
   DRAFT = 'draft',
