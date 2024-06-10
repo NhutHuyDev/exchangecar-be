@@ -15,10 +15,13 @@ import * as bcrypt from 'bcrypt';
 import { plainToClass } from 'class-transformer';
 import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './interfaces/jwtPayload.interface';
+import { Role } from './entities/role.entity';
 
 @Injectable()
 export class AuthService {
   constructor(
+    @InjectRepository(Role)
+    private RoleRepository: Repository<Role>,
     @InjectRepository(VerifyOTP)
     private verifyOTPRepository: Repository<VerifyOTP>,
     @InjectRepository(Customer)

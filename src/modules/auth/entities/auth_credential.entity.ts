@@ -14,7 +14,7 @@ export class AuthCredential {
   @Column({ type: 'varchar' })
   cred_password: string;
 
-  @Column({ type: 'varchar', length: 6, nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   password_reset_otp: string;
 
   @Column({ type: 'timestamp', nullable: true })

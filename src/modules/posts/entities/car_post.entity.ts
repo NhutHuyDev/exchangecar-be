@@ -1,6 +1,6 @@
 import { Car } from 'src/modules/cars/entities/car.entity';
 import { Customer } from 'src/modules/users/entities/customer.entity';
-import { Staff } from 'src/modules/users/entities/staff.entity';
+import { Staff } from 'src/modules/staffs/entities/staff.entity';
 import {
   Column,
   Entity,

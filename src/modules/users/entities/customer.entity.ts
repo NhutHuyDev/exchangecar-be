@@ -3,6 +3,8 @@ import {
   Column,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -10,11 +12,7 @@ import {
 import { Address } from './address.entity';
 import { CarPost } from 'src/modules/posts/entities/car_post.entity';
 import { Exclude } from 'class-transformer';
-
-export enum CustomerType {
-  INDIVIDUAL = 'individual',
-  SHOWROOM = 'showroom',
-}
+import { Role } from 'src/modules/auth/entities/role.entity';
 
 @Entity('Customers')
 export class Customer {
@@ -51,12 +49,9 @@ export class Customer {
   @OneToMany(() => CarPost, (CarPost) => CarPost.customer)
   car_posts: CarPost[];
 
-  @Column({
-    type: 'enum',
-    enum: CustomerType,
-    default: CustomerType.INDIVIDUAL,
-  })
-  customer_type: CustomerType;
+  @ManyToMany(() => Role)
+  @JoinTable({ name: 'Customer_Roles' })
+  roles: Role[];
 
   @Column({
     type: 'timestamp',
