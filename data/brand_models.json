@@ -1,0 +1,682 @@
+[
+    {
+        "model_name": "Vios",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Camry",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Fortuner",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Innova",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Corolla Altis",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Hilux",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Raize",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Wigo",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Veloz Cross",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Corolla Cross",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Land Cruiser",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Land Cruiser Prado",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Avanza",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Yaris",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "Zace",
+        "car_brand": "Toyota"
+    },
+    {
+        "model_name": "City",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "Civic",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "CR-V",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "Accord",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "Brio",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "HR-V",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "Jazz",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "Odyssey",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "Civic Type R",
+        "car_brand": "Honda"
+    },
+    {
+        "model_name": "Accent",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Avante",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Creta",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Elantra",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Getz",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Grand i10",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "i20",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Kona",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Santa Fe",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Tucson",
+        "car_brand": "Hyundai"
+    },
+    {
+        "model_name": "Morning",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Sorento",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Sportage",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Cerato",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Carnival",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "K3",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "K5",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Sonet",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Soluto",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Sedona",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Optima",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Rio",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Forte",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Carens",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Seltos",
+        "car_brand": "Kia"
+    },
+    {
+        "model_name": "Ranger",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Everest",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "EcoSport",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Territory",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Explorer",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Ranger Raptor",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "F-150",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Transit",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Focus",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Fiesta",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Escape",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Mondeo",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Aspire",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Laser",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "Mustang",
+        "car_brand": "Ford"
+    },
+    {
+        "model_name": "2",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "3",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "6",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "BT-50",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "CX-3",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "CX-30",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "CX-5",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "CX-8",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "CX-9",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "323",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "626",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "Premacy",
+        "car_brand": "Mazda"
+    },
+    {
+        "model_name": "Xpander",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Pajero",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Attrage",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Outlander Sport",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Xpander Cross",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Pajero Sport",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Triton",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Outlander",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Mirage",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Jolie",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Lancer",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Zinger",
+        "car_brand": "Mitsubishi"
+    },
+    {
+        "model_name": "Navara",
+        "car_brand": "Nissan"
+    },
+    {
+        "model_name": "Sunny",
+        "car_brand": "Nissan"
+    },
+    {
+        "model_name": "Almera",
+        "car_brand": "Nissan"
+    },
+    {
+        "model_name": "X trail",
+        "car_brand": "Nissan"
+    },
+    {
+        "model_name": "Terra",
+        "car_brand": "Nissan"
+    },
+    {
+        "model_name": "Teana",
+        "car_brand": "Nissan"
+    },
+    {
+        "model_name": "LUX A2.0",
+        "car_brand": "Vinfast"
+    },
+    {
+        "model_name": "LUX SA2.0",
+        "car_brand": "Vinfast"
+    },
+    {
+        "model_name": "Fadil",
+        "car_brand": "Vinfast"
+    },
+    {
+        "model_name": "VF e34",
+        "car_brand": "Vinfast"
+    },
+    {
+        "model_name": "VF8",
+        "car_brand": "Vinfast"
+    },
+    {
+        "model_name": "VF9",
+        "car_brand": "Vinfast"
+    },
+    {
+        "model_name": "XL7",
+        "car_brand": "Suzuki"
+    },
+    {
+        "model_name": "Swift",
+        "car_brand": "Suzuki"
+    },
+    {
+        "model_name": "Super Carry Pro",
+        "car_brand": "Suzuki"
+    },
+    {
+        "model_name": "Ertiga",
+        "car_brand": "Suzuki"
+    },
+    {
+        "model_name": "Ciaz",
+        "car_brand": "Suzuki"
+    },
+    {
+        "model_name": "Super Carry Truck",
+        "car_brand": "Suzuki"
+    },
+    {
+        "model_name": "mu-X",
+        "car_brand": "Isuzu"
+    },
+    {
+        "model_name": "D-Max",
+        "car_brand": "Isuzu"
+    },
+    {
+        "model_name": "QKR",
+        "car_brand": "Isuzu"
+    },
+    {
+        "model_name": "Hi Lander",
+        "car_brand": "Isuzu"
+    },
+    {
+        "model_name": "NQR",
+        "car_brand": "Isuzu"
+    },
+    {
+        "model_name": "Amigo",
+        "car_brand": "Isuzu"
+    },
+    {
+        "model_name": "C-Class",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "E-Class",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "S-Class",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "V-Class",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "GLA",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "GLB",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "GLC",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "GLE",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "GLS",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "Maybach",
+        "car_brand": "Mercedes-Benz"
+    },
+    {
+        "model_name": "RX",
+        "car_brand": "Lexus"
+    },
+    {
+        "model_name": "LX",
+        "car_brand": "Lexus"
+    },
+    {
+        "model_name": "GX",
+        "car_brand": "Lexus"
+    },
+    {
+        "model_name": "3-Series",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "4-Series",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "5-Series",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "7-Series",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "X3",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "X5",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "X7",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "X6",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "X4",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "X2",
+        "car_brand": "BMW"
+    },
+    {
+        "model_name": "Range Rover",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "Range Rover Sport",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "Range Rover Evoque",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "Range Rover Velar",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "Discovery",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "Discovery Sport",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "Freelander",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "Defender",
+        "car_brand": "Land Rover"
+    },
+    {
+        "model_name": "A4",
+        "car_brand": "Audi"
+    },
+    {
+        "model_name": "A5",
+        "car_brand": "Audi"
+    },
+    {
+        "model_name": "Q5",
+        "car_brand": "Audi"
+    },
+    {
+        "model_name": "A6",
+        "car_brand": "Audi"
+    },
+    {
+        "model_name": "A8",
+        "car_brand": "Audi"
+    },
+    {
+        "model_name": "Q7",
+        "car_brand": "Audi"
+    },
+    {
+        "model_name": "2008",
+        "car_brand": "Peugeot"
+    },
+    {
+        "model_name": "3008",
+        "car_brand": "Peugeot"
+    },
+    {
+        "model_name": "5008",
+        "car_brand": "Peugeot"
+    },
+    {
+        "model_name": "Tiguan",
+        "car_brand": "Volkswagen"
+    },
+    {
+        "model_name": "Polo",
+        "car_brand": "Volkswagen"
+    },
+    {
+        "model_name": "Teramont",
+        "car_brand": "Volkswagen"
+    },
+    {
+        "model_name": "Touareg",
+        "car_brand": "Volkswagen"
+    },
+    {
+        "model_name": "T-Cross",
+        "car_brand": "Volkswagen"
+    },
+    {
+        "model_name": "Beetle",
+        "car_brand": "Volkswagen"
+    },
+    {
+        "model_name": "XC40",
+        "car_brand": "Volvo"
+    },
+    {
+        "model_name": "XC60",
+        "car_brand": "Volvo"
+    },
+    {
+        "model_name": "XC90",
+        "car_brand": "Volvo"
+    },
+    {
+        "model_name": "V60",
+        "car_brand": "Volvo"
+    },
+    {
+        "model_name": "V90",
+        "car_brand": "Volvo"
+    },
+    {
+        "model_name": "S90",
+        "car_brand": "Volvo"
+    },
+    {
+        "model_name": "718",
+        "car_brand": "Porsche"
+    },
+    {
+        "model_name": "Macan",
+        "car_brand": "Porsche"
+    },
+    {
+        "model_name": "Panamera",
+        "car_brand": "Porsche"
+    },
+    {
+        "model_name": "911",
+        "car_brand": "Porsche"
+    },
+    {
+        "model_name": "Cayenne",
+        "car_brand": "Porsche"
+    },
+    {
+        "model_name": "Taycan",
+        "car_brand": "Porsche"
+    }
+]

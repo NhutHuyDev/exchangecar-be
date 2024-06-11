@@ -5,8 +5,8 @@ import { Role } from '@/modules/auth/entities/role.entity';
 import { SeederInterface } from '../seeder.interface';
 import { Staff } from '@/modules/staffs/entities/staff.entity';
 import { AuthCredential } from '@/modules/auth/entities/auth_credential.entity';
-import { SystemRole } from '@/constraints/systemRoles.enum';
-import * as bcrypt from 'bcrypt';
+import { SystemRole } from '@/constraints/systemRoles.enum.constraint';
+import { hash } from '@/utils/hash.util';
 
 @Injectable()
 export class AdminSeeder implements SeederInterface {
@@ -32,7 +32,7 @@ export class AdminSeeder implements SeederInterface {
 
     const authCredential = await this.authCredentialRepository.save({
       cred_login: process.env.ADMIN_PHONE_NUMBER,
-      cred_password: await bcrypt.hash(process.env.ADMIN_PASSWORD, 10),
+      cred_password: hash(process.env.ADMIN_PASSWORD),
     });
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

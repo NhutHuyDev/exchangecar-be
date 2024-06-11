@@ -2,6 +2,8 @@ import { Injectable, Logger } from '@nestjs/common';
 import { SeederInterface } from './seeder.interface';
 import { AdminSeeder } from './seeders/admin.seeder';
 import { RolesSeeder } from './seeders/roles.seeder';
+import { CarBrandsSeeder } from './seeders/carBrands.seeder';
+import { CarModelsSeeder } from './seeders/carModels.seeder';
 
 @Injectable()
 export class SeedService {
@@ -11,8 +13,10 @@ export class SeedService {
   constructor(
     private readonly rolesSeeder: RolesSeeder,
     private readonly adminSeeder: AdminSeeder,
+    private readonly carBrandsSeeder: CarBrandsSeeder,
+    private readonly carModelsSeeder: CarModelsSeeder,
   ) {
-    this.seeders = [rolesSeeder, adminSeeder];
+    this.seeders = [carModelsSeeder];
   }
 
   async seed() {

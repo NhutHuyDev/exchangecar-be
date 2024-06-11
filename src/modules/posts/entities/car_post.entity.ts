@@ -1,5 +1,5 @@
 import { Car } from 'src/modules/cars/entities/car.entity';
-import { Customer } from 'src/modules/users/entities/customer.entity';
+import { Customer } from '@/modules/customer/entities/customer.entity';
 import { Staff } from 'src/modules/staffs/entities/staff.entity';
 import {
   Column,
@@ -13,7 +13,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { CarPostCommitments } from './post_commitment.entity';
-import { CustomerWishlist } from 'src/modules/users/entities/customer_wishlist.entity';
+import { CustomerWishlist } from '@/modules/customer/entities/customer_wishlist.entity';
 
 export enum CarPostStatus {
   DRAFT = 'draft',

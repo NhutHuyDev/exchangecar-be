@@ -10,7 +10,8 @@ import { RequestVerifyPhoneDTO } from './dto/request-verify-phone.dto';
 import { AuthService } from './auth.service';
 import { SignUpDTO } from './dto/sign-up.dto';
 import { LocalAuthGuard } from './guards/local.guard';
-import { RequestWithJwtPayload } from './interfaces/reqWithJwtPayload.type';
+import { RequestWithUser } from '@/types/requests.type';
+import { JwtRefreshTokenGuard } from './guards/jwt-refresh-token.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -36,10 +37,19 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('sign-in')
-  // @HttpCode(200)
-  async signIn(@Req() request: RequestWithJwtPayload) {
+  @HttpCode(200)
+  async signIn(@Req() request: RequestWithUser) {
     return {
-      data: this.authService.signIn(request.user.jwtPayload),
+      data: await this.authService.signIn(request.user),
+    };
+  }
+
+  @UseGuards(JwtRefreshTokenGuard)
+  @Post('refresh')
+  @HttpCode(200)
+  async refresh(@Req() request: RequestWithUser) {
+    return {
+      accessToken: this.authService.generateRefreshToken(request.user),
     };
   }
 }

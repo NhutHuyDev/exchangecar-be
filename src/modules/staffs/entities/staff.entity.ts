@@ -3,20 +3,12 @@ import {
   Column,
   Entity,
   JoinColumn,
-  JoinTable,
-  ManyToMany,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Address } from '../../users/entities/address.entity';
+import { Address } from '../../customer/entities/address.entity';
 import { CarPost } from 'src/modules/posts/entities/car_post.entity';
-import { Role } from 'src/modules/auth/entities/role.entity';
-
-export enum StaffType {
-  INFORMATION = 'information',
-  MARKETING = 'marketing',
-}
 
 @Entity('Staffs')
 export class Staff {
@@ -48,10 +40,6 @@ export class Staff {
 
   @OneToMany(() => CarPost, (CarPost) => CarPost.staff)
   car_posts: CarPost[];
-
-  @ManyToMany(() => Role, (Role) => Role.staffs)
-  @JoinTable({ name: 'Staff_Roles' })
-  roles: Role[];
 
   @Column({
     type: 'timestamp',

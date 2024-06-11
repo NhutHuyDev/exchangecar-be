@@ -1,3 +1,6 @@
+import { SystemRole } from '@/constraints/systemRoles.enum.constraint';
+
 export type JwtPayload = {
-  userId: number;
+  authId: number;
+  roles: SystemRole[];
 };
