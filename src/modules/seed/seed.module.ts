@@ -12,6 +12,11 @@ import { CarBrand } from '../cars/entities/car_brand.entity';
 import { CarBrandsSeeder } from './seeders/carBrands.seeder';
 import { CarModel } from '../cars/entities/car_model.entity';
 import { CarModelsSeeder } from './seeders/carModels.seeder';
+import { CarVariantSpec } from '../cars/entities/Car_Variant_Specs.entity';
+import { CarVariantSpecsSeeder } from './seeders/carVariantSpecs.seeder';
+import { City } from '../customer/entities/city.entity';
+import { District } from '../customer/entities/district.entity';
+import { CitiesSeeder } from './seeders/cities.seeder';
 
 @Module({
   imports: [
@@ -24,7 +29,16 @@ import { CarModelsSeeder } from './seeders/carModels.seeder';
       useFactory: async (configService: ConfigService) =>
         configService.get('postgres'),
     }),
-    TypeOrmModule.forFeature([Role, AuthCredential, Staff, CarBrand, CarModel]),
+    TypeOrmModule.forFeature([
+      Role,
+      AuthCredential,
+      Staff,
+      CarBrand,
+      CarModel,
+      CarVariantSpec,
+      City,
+      District,
+    ]),
   ],
   controllers: [],
   providers: [
@@ -33,6 +47,8 @@ import { CarModelsSeeder } from './seeders/carModels.seeder';
     AdminSeeder,
     CarBrandsSeeder,
     CarModelsSeeder,
+    CarVariantSpecsSeeder,
+    CitiesSeeder,
   ],
 })
 export class SeedModule {}

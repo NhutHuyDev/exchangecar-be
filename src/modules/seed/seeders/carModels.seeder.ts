@@ -6,6 +6,7 @@ import * as path from 'node:path';
 import * as fs from 'fs';
 import { CarBrand } from '@/modules/cars/entities/car_brand.entity';
 import { CarModel } from '@/modules/cars/entities/car_model.entity';
+import slugify from 'slugify';
 
 @Injectable()
 export class CarModelsSeeder implements SeederInterface {
@@ -19,7 +20,7 @@ export class CarModelsSeeder implements SeederInterface {
   async seed() {
     const brandModelsPath = path.join(
       __dirname,
-      '../../../../data/brand_models.json',
+      '../../../../data/car_models.json',
     );
 
     const carBrands = await this.carBrandRepository.find();
@@ -27,9 +28,11 @@ export class CarModelsSeeder implements SeederInterface {
     const brandModelsJson: { model_name: string; car_brand: string }[] =
       JSON.parse(fs.readFileSync(brandModelsPath, 'utf-8'));
 
-    const carModels = brandModelsJson.map((carModel) => {
+    const carModels = brandModelsJson.map((carModel, index) => {
       return this.carModelRepository.create({
+        id: index,
         model_name: carModel.model_name,
+        model_param: slugify(carModel.model_name.toLowerCase()),
         car_brand: this.returnCarBrandOfModel(carBrands, carModel.car_brand),
       });
     });

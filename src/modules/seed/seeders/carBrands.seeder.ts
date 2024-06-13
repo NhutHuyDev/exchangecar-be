@@ -5,6 +5,7 @@ import { SeederInterface } from '../seeder.interface';
 import * as path from 'node:path';
 import * as fs from 'fs';
 import { CarBrand } from '@/modules/cars/entities/car_brand.entity';
+import slugify from 'slugify';
 
 @Injectable()
 export class CarBrandsSeeder implements SeederInterface {
@@ -14,19 +15,18 @@ export class CarBrandsSeeder implements SeederInterface {
   ) {}
 
   async seed() {
-    const carBrandPath = path.join(
-      __dirname,
-      '../../../../data/car_brands.json',
-    );
+    const carBrandPath = path.join(__dirname, '../../../../data/cities.json');
 
     const carBrandJson: CarBrand[] = JSON.parse(
       fs.readFileSync(carBrandPath, 'utf-8'),
     );
 
-    const carBrands = carBrandJson.map((carBrand) => {
+    const carBrands = carBrandJson.map((carBrand, index) => {
       return this.carBrandRepository.create({
+        id: index,
         brand_name: carBrand.brand_name,
-        brand_url: carBrand.brand_url,
+        brand_param: slugify(carBrand.brand_name.toLowerCase()),
+        logo_url: carBrand.logo_url,
       });
     });
 

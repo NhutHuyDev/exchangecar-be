@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { City } from './city.entity';
+import { District } from './district.entity';
 
 @Entity('Addresses')
 export class Address {
@@ -8,9 +10,9 @@ export class Address {
   @Column({ type: 'text', nullable: true })
   specific_address: string;
 
-  @Column({ type: 'varchar' })
-  city: string;
+  @ManyToOne(() => City, (City) => City.Addresses)
+  city: City;
 
-  @Column({ type: 'varchar' })
-  district: string;
+  @ManyToOne(() => District, (District) => District.Addresses)
+  district: District;
 }

@@ -1,0 +1,317 @@
+[
+    {
+        "city_code": 1,
+        "city_name": "H\u00e0 N\u1ed9i",
+        "city_param": "ha-noi"
+    },
+    {
+        "city_code": 2,
+        "city_name": "H\u00e0 Giang",
+        "city_param": "ha-giang"
+    },
+    {
+        "city_code": 4,
+        "city_name": "Cao B\u1eb1ng",
+        "city_param": "cao-bang"
+    },
+    {
+        "city_code": 6,
+        "city_name": "B\u1eafc K\u1ea1n",
+        "city_param": "bac-kan"
+    },
+    {
+        "city_code": 8,
+        "city_name": "Tuy\u00ean Quang",
+        "city_param": "tuyen-quang"
+    },
+    {
+        "city_code": 10,
+        "city_name": "L\u00e0o Cai",
+        "city_param": "lao-cai"
+    },
+    {
+        "city_code": 11,
+        "city_name": "\u0110i\u1ec7n Bi\u00ean",
+        "city_param": "dien-bien"
+    },
+    {
+        "city_code": 12,
+        "city_name": "Lai Ch\u00e2u",
+        "city_param": "lai-chau"
+    },
+    {
+        "city_code": 14,
+        "city_name": "S\u01a1n La",
+        "city_param": "son-la"
+    },
+    {
+        "city_code": 15,
+        "city_name": "Y\u00ean B\u00e1i",
+        "city_param": "yen-bai"
+    },
+    {
+        "city_code": 17,
+        "city_name": "Ho\u00e0 B\u00ecnh",
+        "city_param": "hoa-binh"
+    },
+    {
+        "city_code": 19,
+        "city_name": "Th\u00e1i Nguy\u00ean",
+        "city_param": "thai-nguyen"
+    },
+    {
+        "city_code": 20,
+        "city_name": "L\u1ea1ng S\u01a1n",
+        "city_param": "lang-son"
+    },
+    {
+        "city_code": 22,
+        "city_name": "Qu\u1ea3ng Ninh",
+        "city_param": "quang-ninh"
+    },
+    {
+        "city_code": 24,
+        "city_name": "B\u1eafc Giang",
+        "city_param": "bac-giang"
+    },
+    {
+        "city_code": 25,
+        "city_name": "Ph\u00fa Th\u1ecd",
+        "city_param": "phu-tho"
+    },
+    {
+        "city_code": 26,
+        "city_name": "V\u0129nh Ph\u00fac",
+        "city_param": "vinh-phuc"
+    },
+    {
+        "city_code": 27,
+        "city_name": "B\u1eafc Ninh",
+        "city_param": "bac-ninh"
+    },
+    {
+        "city_code": 30,
+        "city_name": "H\u1ea3i D\u01b0\u01a1ng",
+        "city_param": "hai-duong"
+    },
+    {
+        "city_code": 31,
+        "city_name": "H\u1ea3i Ph\u00f2ng",
+        "city_param": "hai-phong"
+    },
+    {
+        "city_code": 33,
+        "city_name": "H\u01b0ng Y\u00ean",
+        "city_param": "hung-yen"
+    },
+    {
+        "city_code": 34,
+        "city_name": "Th\u00e1i B\u00ecnh",
+        "city_param": "thai-binh"
+    },
+    {
+        "city_code": 35,
+        "city_name": "H\u00e0 Nam",
+        "city_param": "ha-nam"
+    },
+    {
+        "city_code": 36,
+        "city_name": "Nam \u0110\u1ecbnh",
+        "city_param": "nam-dinh"
+    },
+    {
+        "city_code": 37,
+        "city_name": "Ninh B\u00ecnh",
+        "city_param": "ninh-binh"
+    },
+    {
+        "city_code": 38,
+        "city_name": "Thanh H\u00f3a",
+        "city_param": "thanh-hoa"
+    },
+    {
+        "city_code": 40,
+        "city_name": "Ngh\u1ec7 An",
+        "city_param": "nghe-an"
+    },
+    {
+        "city_code": 42,
+        "city_name": "H\u00e0 T\u0129nh",
+        "city_param": "ha-tinh"
+    },
+    {
+        "city_code": 44,
+        "city_name": "Qu\u1ea3ng B\u00ecnh",
+        "city_param": "quang-binh"
+    },
+    {
+        "city_code": 45,
+        "city_name": "Qu\u1ea3ng Tr\u1ecb",
+        "city_param": "quang-tri"
+    },
+    {
+        "city_code": 46,
+        "city_name": "Th\u1eeba Thi\u00ean Hu\u1ebf",
+        "city_param": "thua-thien-hue"
+    },
+    {
+        "city_code": 48,
+        "city_name": "\u0110\u00e0 N\u1eb5ng",
+        "city_param": "da-nang"
+    },
+    {
+        "city_code": 49,
+        "city_name": "Qu\u1ea3ng Nam",
+        "city_param": "quang-nam"
+    },
+    {
+        "city_code": 51,
+        "city_name": "Qu\u1ea3ng Ng\u00e3i",
+        "city_param": "quang-ngai"
+    },
+    {
+        "city_code": 52,
+        "city_name": "B\u00ecnh \u0110\u1ecbnh",
+        "city_param": "binh-dinh"
+    },
+    {
+        "city_code": 54,
+        "city_name": "Ph\u00fa Y\u00ean",
+        "city_param": "phu-yen"
+    },
+    {
+        "city_code": 56,
+        "city_name": "Kh\u00e1nh H\u00f2a",
+        "city_param": "khanh-hoa"
+    },
+    {
+        "city_code": 58,
+        "city_name": "Ninh Thu\u1eadn",
+        "city_param": "ninh-thuan"
+    },
+    {
+        "city_code": 60,
+        "city_name": "B\u00ecnh Thu\u1eadn",
+        "city_param": "binh-thuan"
+    },
+    {
+        "city_code": 62,
+        "city_name": "Kon Tum",
+        "city_param": "kon-tum"
+    },
+    {
+        "city_code": 64,
+        "city_name": "Gia Lai",
+        "city_param": "gia-lai"
+    },
+    {
+        "city_code": 66,
+        "city_name": "\u0110\u1eafk L\u1eafk",
+        "city_param": "dak-lak"
+    },
+    {
+        "city_code": 67,
+        "city_name": "\u0110\u1eafk N\u00f4ng",
+        "city_param": "dak-nong"
+    },
+    {
+        "city_code": 68,
+        "city_name": "L\u00e2m \u0110\u1ed3ng",
+        "city_param": "lam-dong"
+    },
+    {
+        "city_code": 70,
+        "city_name": "B\u00ecnh Ph\u01b0\u1edbc",
+        "city_param": "binh-phuoc"
+    },
+    {
+        "city_code": 72,
+        "city_name": "T\u00e2y Ninh",
+        "city_param": "tay-ninh"
+    },
+    {
+        "city_code": 74,
+        "city_name": "B\u00ecnh D\u01b0\u01a1ng",
+        "city_param": "binh-duong"
+    },
+    {
+        "city_code": 75,
+        "city_name": "\u0110\u1ed3ng Nai",
+        "city_param": "dong-nai"
+    },
+    {
+        "city_code": 77,
+        "city_name": "B\u00e0 R\u1ecba - V\u0169ng T\u00e0u",
+        "city_param": "ba-ria-vung-tau"
+    },
+    {
+        "city_code": 79,
+        "city_name": "H\u1ed3 Ch\u00ed Minh",
+        "city_param": "ho-chi-minh"
+    },
+    {
+        "city_code": 80,
+        "city_name": "Long An",
+        "city_param": "long-an"
+    },
+    {
+        "city_code": 82,
+        "city_name": "Ti\u1ec1n Giang",
+        "city_param": "tien-giang"
+    },
+    {
+        "city_code": 83,
+        "city_name": "B\u1ebfn Tre",
+        "city_param": "ben-tre"
+    },
+    {
+        "city_code": 84,
+        "city_name": "Tr\u00e0 Vinh",
+        "city_param": "tra-vinh"
+    },
+    {
+        "city_code": 86,
+        "city_name": "V\u0129nh Long",
+        "city_param": "vinh-long"
+    },
+    {
+        "city_code": 87,
+        "city_name": "\u0110\u1ed3ng Th\u00e1p",
+        "city_param": "dong-thap"
+    },
+    {
+        "city_code": 89,
+        "city_name": "An Giang",
+        "city_param": "an-giang"
+    },
+    {
+        "city_code": 91,
+        "city_name": "Ki\u00ean Giang",
+        "city_param": "kien-giang"
+    },
+    {
+        "city_code": 92,
+        "city_name": "C\u1ea7n Th\u01a1",
+        "city_param": "can-tho"
+    },
+    {
+        "city_code": 93,
+        "city_name": "H\u1eadu Giang",
+        "city_param": "hau-giang"
+    },
+    {
+        "city_code": 94,
+        "city_name": "S\u00f3c Tr\u0103ng",
+        "city_param": "soc-trang"
+    },
+    {
+        "city_code": 95,
+        "city_name": "B\u1ea1c Li\u00eau",
+        "city_param": "bac-lieu"
+    },
+    {
+        "city_code": 96,
+        "city_name": "C\u00e0 Mau",
+        "city_param": "ca-mau"
+    }
+]

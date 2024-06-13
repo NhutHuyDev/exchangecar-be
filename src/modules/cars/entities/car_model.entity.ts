@@ -16,8 +16,11 @@ export class CarModel {
   @ManyToOne(() => CarBrand, (CarBrand) => CarBrand.car_models)
   car_brand: CarBrand;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   model_name: string;
+
+  @Column({ type: 'varchar', unique: true })
+  model_param: string;
 
   @OneToMany(() => CarVariantSpec, (CarVariantSpec) => CarVariantSpec.car_model)
   car_variant_specs: CarVariantSpec[];

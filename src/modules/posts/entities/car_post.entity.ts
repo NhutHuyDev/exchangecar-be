@@ -18,7 +18,7 @@ import { CustomerWishlist } from '@/modules/customer/entities/customer_wishlist.
 export enum CarPostStatus {
   DRAFT = 'draft',
   WAITING_APPROVAL = 'waiting approval',
-  APPROVED = 'approved',
+  POSTED = 'posted',
   EXPRIED = 'expired',
 }
 

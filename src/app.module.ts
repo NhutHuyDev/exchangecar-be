@@ -10,6 +10,7 @@ import { DataSource } from 'typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { StaffsModule } from './modules/staffs/staffs.module';
 import postgres from './configs/postgres.config';
+import { FiltersModule } from './modules/filters/filters.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import postgres from './configs/postgres.config';
     PostsModule,
     CarsModule,
     StaffsModule,
+    FiltersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

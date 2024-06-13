@@ -18,27 +18,36 @@ export class CarVariantSpec {
   @Column({ type: 'int' })
   manufacturing_date: number;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'varchar' })
+  body_type: string;
+
+  @Column({ type: 'int', nullable: true })
   doors: number;
 
-  @Column({ type: 'real' })
+  @Column({ type: 'int', nullable: true })
+  total_seating: number;
+
+  @Column({ type: 'real', nullable: true })
   wheelbase: number;
 
-  @Column({ type: 'varchar' })
-  drive_type: string;
-
-  @Column({ type: 'varchar' })
-  transmission: string;
-
-  @Column({ type: 'real' })
+  @Column({ type: 'real', nullable: true })
   engine_size: number;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', nullable: true })
   horsepower_hp: number;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', nullable: true })
   touque: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', nullable: true })
+  drive_type: string;
+
+  @Column({ type: 'varchar', nullable: true })
+  transmission: string;
+
+  @Column({ type: 'varchar', nullable: true })
+  engine_type: string;
+
+  @Column({ type: 'varchar', nullable: true })
   fuel_type: string;
 }

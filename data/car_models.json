@@ -60,6 +60,10 @@
         "car_brand": "Toyota"
     },
     {
+        "model_name": "Prius",
+        "car_brand": "Toyota"
+    },
+    {
         "model_name": "City",
         "car_brand": "Honda"
     },

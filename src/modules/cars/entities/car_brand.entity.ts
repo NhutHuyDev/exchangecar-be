@@ -6,11 +6,14 @@ export class CarBrand {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', unique: true })
   brand_name: string;
 
+  @Column({ type: 'varchar', unique: true })
+  brand_param: string;
+
   @Column({ type: 'text' })
-  brand_url: string;
+  logo_url: string;
 
   @OneToMany(() => CarModel, (CarModel) => CarModel.car_brand)
   car_models: CarModel[];
