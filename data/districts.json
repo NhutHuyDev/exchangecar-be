@@ -1,0 +1,4232 @@
+[
+    {
+        "district_code": 1,
+        "city": 1,
+        "district_name": "Ba \u0110\u00ecnh",
+        "district_param": "ba-dinh"
+    },
+    {
+        "district_code": 2,
+        "city": 1,
+        "district_name": "Ho\u00e0n Ki\u1ebfm",
+        "district_param": "hoan-kiem"
+    },
+    {
+        "district_code": 3,
+        "city": 1,
+        "district_name": "T\u00e2y H\u1ed3",
+        "district_param": "tay-ho"
+    },
+    {
+        "district_code": 4,
+        "city": 1,
+        "district_name": "Long Bi\u00ean",
+        "district_param": "long-bien"
+    },
+    {
+        "district_code": 5,
+        "city": 1,
+        "district_name": "C\u1ea7u Gi\u1ea5y",
+        "district_param": "cau-giay"
+    },
+    {
+        "district_code": 6,
+        "city": 1,
+        "district_name": "\u0110\u1ed1ng \u0110a",
+        "district_param": "dong-da"
+    },
+    {
+        "district_code": 7,
+        "city": 1,
+        "district_name": "Hai B\u00e0 Tr\u01b0ng",
+        "district_param": "hai-ba-trung"
+    },
+    {
+        "district_code": 8,
+        "city": 1,
+        "district_name": "Ho\u00e0ng Mai",
+        "district_param": "hoang-mai"
+    },
+    {
+        "district_code": 9,
+        "city": 1,
+        "district_name": "Thanh Xu\u00e2n",
+        "district_param": "thanh-xuan"
+    },
+    {
+        "district_code": 16,
+        "city": 1,
+        "district_name": "S\u00f3c S\u01a1n",
+        "district_param": "soc-son"
+    },
+    {
+        "district_code": 17,
+        "city": 1,
+        "district_name": "\u0110\u00f4ng Anh",
+        "district_param": "dong-anh"
+    },
+    {
+        "district_code": 18,
+        "city": 1,
+        "district_name": "Gia L\u00e2m",
+        "district_param": "gia-lam"
+    },
+    {
+        "district_code": 19,
+        "city": 1,
+        "district_name": "Nam T\u1eeb Li\u00eam",
+        "district_param": "nam-tu-liem"
+    },
+    {
+        "district_code": 20,
+        "city": 1,
+        "district_name": "Thanh Tr\u00ec",
+        "district_param": "thanh-tri"
+    },
+    {
+        "district_code": 21,
+        "city": 1,
+        "district_name": "B\u1eafc T\u1eeb Li\u00eam",
+        "district_param": "bac-tu-liem"
+    },
+    {
+        "district_code": 24,
+        "city": 2,
+        "district_name": "H\u00e0 Giang",
+        "district_param": "ha-giang"
+    },
+    {
+        "district_code": 26,
+        "city": 2,
+        "district_name": "\u0110\u1ed3ng V\u0103n",
+        "district_param": "dong-van"
+    },
+    {
+        "district_code": 27,
+        "city": 2,
+        "district_name": "M\u00e8o V\u1ea1c",
+        "district_param": "meo-vac"
+    },
+    {
+        "district_code": 28,
+        "city": 2,
+        "district_name": "Y\u00ean Minh",
+        "district_param": "yen-minh"
+    },
+    {
+        "district_code": 29,
+        "city": 2,
+        "district_name": "Qu\u1ea3n B\u1ea1",
+        "district_param": "quan-ba"
+    },
+    {
+        "district_code": 30,
+        "city": 2,
+        "district_name": "V\u1ecb Xuy\u00ean",
+        "district_param": "vi-xuyen"
+    },
+    {
+        "district_code": 31,
+        "city": 2,
+        "district_name": "B\u1eafc M\u00ea",
+        "district_param": "bac-me"
+    },
+    {
+        "district_code": 32,
+        "city": 2,
+        "district_name": "Ho\u00e0ng Su Ph\u00ec",
+        "district_param": "hoang-su-phi"
+    },
+    {
+        "district_code": 33,
+        "city": 2,
+        "district_name": "X\u00edn M\u1ea7n",
+        "district_param": "xin-man"
+    },
+    {
+        "district_code": 34,
+        "city": 2,
+        "district_name": "B\u1eafc Quang",
+        "district_param": "bac-quang"
+    },
+    {
+        "district_code": 35,
+        "city": 2,
+        "district_name": "Quang B\u00ecnh",
+        "district_param": "quang-binh"
+    },
+    {
+        "district_code": 40,
+        "city": 4,
+        "district_name": "Cao B\u1eb1ng",
+        "district_param": "cao-bang"
+    },
+    {
+        "district_code": 42,
+        "city": 4,
+        "district_name": "B\u1ea3o L\u00e2m",
+        "district_param": "bao-lam"
+    },
+    {
+        "district_code": 43,
+        "city": 4,
+        "district_name": "B\u1ea3o L\u1ea1c",
+        "district_param": "bao-lac"
+    },
+    {
+        "district_code": 45,
+        "city": 4,
+        "district_name": "H\u00e0 Qu\u1ea3ng",
+        "district_param": "ha-quang"
+    },
+    {
+        "district_code": 47,
+        "city": 4,
+        "district_name": "Tr\u00f9ng Kh\u00e1nh",
+        "district_param": "trung-khanh"
+    },
+    {
+        "district_code": 48,
+        "city": 4,
+        "district_name": "H\u1ea1 Lang",
+        "district_param": "ha-lang"
+    },
+    {
+        "district_code": 49,
+        "city": 4,
+        "district_name": "Qu\u1ea3ng H\u00f2a",
+        "district_param": "quang-hoa"
+    },
+    {
+        "district_code": 51,
+        "city": 4,
+        "district_name": "Ho\u00e0 An",
+        "district_param": "hoa-an"
+    },
+    {
+        "district_code": 52,
+        "city": 4,
+        "district_name": "Nguy\u00ean B\u00ecnh",
+        "district_param": "nguyen-binh"
+    },
+    {
+        "district_code": 53,
+        "city": 4,
+        "district_name": "Th\u1ea1ch An",
+        "district_param": "thach-an"
+    },
+    {
+        "district_code": 58,
+        "city": 6,
+        "district_name": "B\u1eafc K\u1ea1n",
+        "district_param": "bac-kan"
+    },
+    {
+        "district_code": 60,
+        "city": 6,
+        "district_name": "P\u00e1c N\u1eb7m",
+        "district_param": "pac-nam"
+    },
+    {
+        "district_code": 61,
+        "city": 6,
+        "district_name": "Ba B\u1ec3",
+        "district_param": "ba-be"
+    },
+    {
+        "district_code": 62,
+        "city": 6,
+        "district_name": "Ng\u00e2n S\u01a1n",
+        "district_param": "ngan-son"
+    },
+    {
+        "district_code": 63,
+        "city": 6,
+        "district_name": "B\u1ea1ch Th\u00f4ng",
+        "district_param": "bach-thong"
+    },
+    {
+        "district_code": 64,
+        "city": 6,
+        "district_name": "Ch\u1ee3 \u0110\u1ed3n",
+        "district_param": "cho-don"
+    },
+    {
+        "district_code": 65,
+        "city": 6,
+        "district_name": "Ch\u1ee3 M\u1edbi",
+        "district_param": "cho-moi"
+    },
+    {
+        "district_code": 66,
+        "city": 6,
+        "district_name": "Na R\u00ec",
+        "district_param": "na-ri"
+    },
+    {
+        "district_code": 70,
+        "city": 8,
+        "district_name": "Tuy\u00ean Quang",
+        "district_param": "tuyen-quang"
+    },
+    {
+        "district_code": 71,
+        "city": 8,
+        "district_name": "L\u00e2m B\u00ecnh",
+        "district_param": "lam-binh"
+    },
+    {
+        "district_code": 72,
+        "city": 8,
+        "district_name": "Na Hang",
+        "district_param": "na-hang"
+    },
+    {
+        "district_code": 73,
+        "city": 8,
+        "district_name": "Chi\u00eam H\u00f3a",
+        "district_param": "chiem-hoa"
+    },
+    {
+        "district_code": 74,
+        "city": 8,
+        "district_name": "H\u00e0m Y\u00ean",
+        "district_param": "ham-yen"
+    },
+    {
+        "district_code": 75,
+        "city": 8,
+        "district_name": "Y\u00ean S\u01a1n",
+        "district_param": "yen-son"
+    },
+    {
+        "district_code": 76,
+        "city": 8,
+        "district_name": "S\u01a1n D\u01b0\u01a1ng",
+        "district_param": "son-duong"
+    },
+    {
+        "district_code": 80,
+        "city": 10,
+        "district_name": "L\u00e0o Cai",
+        "district_param": "lao-cai"
+    },
+    {
+        "district_code": 82,
+        "city": 10,
+        "district_name": "B\u00e1t X\u00e1t",
+        "district_param": "bat-xat"
+    },
+    {
+        "district_code": 83,
+        "city": 10,
+        "district_name": "M\u01b0\u1eddng Kh\u01b0\u01a1ng",
+        "district_param": "muong-khuong"
+    },
+    {
+        "district_code": 84,
+        "city": 10,
+        "district_name": "Si Ma Cai",
+        "district_param": "si-ma-cai"
+    },
+    {
+        "district_code": 85,
+        "city": 10,
+        "district_name": "B\u1eafc H\u00e0",
+        "district_param": "bac-ha"
+    },
+    {
+        "district_code": 86,
+        "city": 10,
+        "district_name": "B\u1ea3o Th\u1eafng",
+        "district_param": "bao-thang"
+    },
+    {
+        "district_code": 87,
+        "city": 10,
+        "district_name": "B\u1ea3o Y\u00ean",
+        "district_param": "bao-yen"
+    },
+    {
+        "district_code": 88,
+        "city": 10,
+        "district_name": "Sa Pa",
+        "district_param": "sa-pa"
+    },
+    {
+        "district_code": 89,
+        "city": 10,
+        "district_name": "V\u0103n B\u00e0n",
+        "district_param": "van-ban"
+    },
+    {
+        "district_code": 94,
+        "city": 11,
+        "district_name": "\u0110i\u1ec7n Bi\u00ean Ph\u1ee7",
+        "district_param": "dien-bien-phu"
+    },
+    {
+        "district_code": 95,
+        "city": 11,
+        "district_name": "M\u01b0\u1eddng Lay",
+        "district_param": "muong-lay"
+    },
+    {
+        "district_code": 96,
+        "city": 11,
+        "district_name": "M\u01b0\u1eddng Nh\u00e9",
+        "district_param": "muong-nhe"
+    },
+    {
+        "district_code": 97,
+        "city": 11,
+        "district_name": "M\u01b0\u1eddng Ch\u00e0",
+        "district_param": "muong-cha"
+    },
+    {
+        "district_code": 98,
+        "city": 11,
+        "district_name": "T\u1ee7a Ch\u00f9a",
+        "district_param": "tua-chua"
+    },
+    {
+        "district_code": 99,
+        "city": 11,
+        "district_name": "Tu\u1ea7n Gi\u00e1o",
+        "district_param": "tuan-giao"
+    },
+    {
+        "district_code": 100,
+        "city": 11,
+        "district_name": "\u0110i\u1ec7n Bi\u00ean",
+        "district_param": "dien-bien"
+    },
+    {
+        "district_code": 101,
+        "city": 11,
+        "district_name": "\u0110i\u1ec7n Bi\u00ean \u0110\u00f4ng",
+        "district_param": "dien-bien-dong"
+    },
+    {
+        "district_code": 102,
+        "city": 11,
+        "district_name": "M\u01b0\u1eddng \u1ea2ng",
+        "district_param": "muong-ang"
+    },
+    {
+        "district_code": 103,
+        "city": 11,
+        "district_name": "N\u1eadm P\u1ed3",
+        "district_param": "nam-po"
+    },
+    {
+        "district_code": 105,
+        "city": 12,
+        "district_name": "Lai Ch\u00e2u",
+        "district_param": "lai-chau"
+    },
+    {
+        "district_code": 106,
+        "city": 12,
+        "district_name": "Tam \u0110\u01b0\u1eddng",
+        "district_param": "tam-duong"
+    },
+    {
+        "district_code": 107,
+        "city": 12,
+        "district_name": "M\u01b0\u1eddng T\u00e8",
+        "district_param": "muong-te"
+    },
+    {
+        "district_code": 108,
+        "city": 12,
+        "district_name": "S\u00ecn H\u1ed3",
+        "district_param": "sin-ho"
+    },
+    {
+        "district_code": 109,
+        "city": 12,
+        "district_name": "Phong Th\u1ed5",
+        "district_param": "phong-tho"
+    },
+    {
+        "district_code": 110,
+        "city": 12,
+        "district_name": "Than Uy\u00ean",
+        "district_param": "than-uyen"
+    },
+    {
+        "district_code": 111,
+        "city": 12,
+        "district_name": "T\u00e2n Uy\u00ean",
+        "district_param": "tan-uyen"
+    },
+    {
+        "district_code": 112,
+        "city": 12,
+        "district_name": "N\u1eadm Nh\u00f9n",
+        "district_param": "nam-nhun"
+    },
+    {
+        "district_code": 116,
+        "city": 14,
+        "district_name": "S\u01a1n La",
+        "district_param": "son-la"
+    },
+    {
+        "district_code": 118,
+        "city": 14,
+        "district_name": "Qu\u1ef3nh Nhai",
+        "district_param": "quynh-nhai"
+    },
+    {
+        "district_code": 119,
+        "city": 14,
+        "district_name": "Thu\u1eadn Ch\u00e2u",
+        "district_param": "thuan-chau"
+    },
+    {
+        "district_code": 120,
+        "city": 14,
+        "district_name": "M\u01b0\u1eddng La",
+        "district_param": "muong-la"
+    },
+    {
+        "district_code": 121,
+        "city": 14,
+        "district_name": "B\u1eafc Y\u00ean",
+        "district_param": "bac-yen"
+    },
+    {
+        "district_code": 122,
+        "city": 14,
+        "district_name": "Ph\u00f9 Y\u00ean",
+        "district_param": "phu-yen"
+    },
+    {
+        "district_code": 123,
+        "city": 14,
+        "district_name": "M\u1ed9c Ch\u00e2u",
+        "district_param": "moc-chau"
+    },
+    {
+        "district_code": 124,
+        "city": 14,
+        "district_name": "Y\u00ean Ch\u00e2u",
+        "district_param": "yen-chau"
+    },
+    {
+        "district_code": 125,
+        "city": 14,
+        "district_name": "Mai S\u01a1n",
+        "district_param": "mai-son"
+    },
+    {
+        "district_code": 126,
+        "city": 14,
+        "district_name": "S\u00f4ng M\u00e3",
+        "district_param": "song-ma"
+    },
+    {
+        "district_code": 127,
+        "city": 14,
+        "district_name": "S\u1ed1p C\u1ed9p",
+        "district_param": "sop-cop"
+    },
+    {
+        "district_code": 128,
+        "city": 14,
+        "district_name": "V\u00e2n H\u1ed3",
+        "district_param": "van-ho"
+    },
+    {
+        "district_code": 132,
+        "city": 15,
+        "district_name": "Y\u00ean B\u00e1i",
+        "district_param": "yen-bai"
+    },
+    {
+        "district_code": 133,
+        "city": 15,
+        "district_name": "Ngh\u0129a L\u1ed9",
+        "district_param": "nghia-lo"
+    },
+    {
+        "district_code": 135,
+        "city": 15,
+        "district_name": "L\u1ee5c Y\u00ean",
+        "district_param": "luc-yen"
+    },
+    {
+        "district_code": 136,
+        "city": 15,
+        "district_name": "V\u0103n Y\u00ean",
+        "district_param": "van-yen"
+    },
+    {
+        "district_code": 137,
+        "city": 15,
+        "district_name": "M\u00f9 C\u0103ng Ch\u1ea3i",
+        "district_param": "mu-cang-chai"
+    },
+    {
+        "district_code": 138,
+        "city": 15,
+        "district_name": "Tr\u1ea5n Y\u00ean",
+        "district_param": "tran-yen"
+    },
+    {
+        "district_code": 139,
+        "city": 15,
+        "district_name": "Tr\u1ea1m T\u1ea5u",
+        "district_param": "tram-tau"
+    },
+    {
+        "district_code": 140,
+        "city": 15,
+        "district_name": "V\u0103n Ch\u1ea5n",
+        "district_param": "van-chan"
+    },
+    {
+        "district_code": 141,
+        "city": 15,
+        "district_name": "Y\u00ean B\u00ecnh",
+        "district_param": "yen-binh"
+    },
+    {
+        "district_code": 148,
+        "city": 17,
+        "district_name": "H\u00f2a B\u00ecnh",
+        "district_param": "hoa-binh"
+    },
+    {
+        "district_code": 150,
+        "city": 17,
+        "district_name": "\u0110\u00e0 B\u1eafc",
+        "district_param": "da-bac"
+    },
+    {
+        "district_code": 152,
+        "city": 17,
+        "district_name": "L\u01b0\u01a1ng S\u01a1n",
+        "district_param": "luong-son"
+    },
+    {
+        "district_code": 153,
+        "city": 17,
+        "district_name": "Kim B\u00f4i",
+        "district_param": "kim-boi"
+    },
+    {
+        "district_code": 154,
+        "city": 17,
+        "district_name": "Cao Phong",
+        "district_param": "cao-phong"
+    },
+    {
+        "district_code": 155,
+        "city": 17,
+        "district_name": "T\u00e2n L\u1ea1c",
+        "district_param": "tan-lac"
+    },
+    {
+        "district_code": 156,
+        "city": 17,
+        "district_name": "Mai Ch\u00e2u",
+        "district_param": "mai-chau"
+    },
+    {
+        "district_code": 157,
+        "city": 17,
+        "district_name": "L\u1ea1c S\u01a1n",
+        "district_param": "lac-son"
+    },
+    {
+        "district_code": 158,
+        "city": 17,
+        "district_name": "Y\u00ean Th\u1ee7y",
+        "district_param": "yen-thuy"
+    },
+    {
+        "district_code": 159,
+        "city": 17,
+        "district_name": "L\u1ea1c Th\u1ee7y",
+        "district_param": "lac-thuy"
+    },
+    {
+        "district_code": 164,
+        "city": 19,
+        "district_name": "Th\u00e1i Nguy\u00ean",
+        "district_param": "thai-nguyen"
+    },
+    {
+        "district_code": 165,
+        "city": 19,
+        "district_name": "S\u00f4ng C\u00f4ng",
+        "district_param": "song-cong"
+    },
+    {
+        "district_code": 167,
+        "city": 19,
+        "district_name": "\u0110\u1ecbnh H\u00f3a",
+        "district_param": "dinh-hoa"
+    },
+    {
+        "district_code": 168,
+        "city": 19,
+        "district_name": "Ph\u00fa L\u01b0\u01a1ng",
+        "district_param": "phu-luong"
+    },
+    {
+        "district_code": 169,
+        "city": 19,
+        "district_name": "\u0110\u1ed3ng H\u1ef7",
+        "district_param": "dong-hy"
+    },
+    {
+        "district_code": 170,
+        "city": 19,
+        "district_name": "V\u00f5 Nhai",
+        "district_param": "vo-nhai"
+    },
+    {
+        "district_code": 171,
+        "city": 19,
+        "district_name": "\u0110\u1ea1i T\u1eeb",
+        "district_param": "dai-tu"
+    },
+    {
+        "district_code": 172,
+        "city": 19,
+        "district_name": "Ph\u1ed5 Y\u00ean",
+        "district_param": "pho-yen"
+    },
+    {
+        "district_code": 173,
+        "city": 19,
+        "district_name": "Ph\u00fa B\u00ecnh",
+        "district_param": "phu-binh"
+    },
+    {
+        "district_code": 178,
+        "city": 20,
+        "district_name": "L\u1ea1ng S\u01a1n",
+        "district_param": "lang-son"
+    },
+    {
+        "district_code": 180,
+        "city": 20,
+        "district_name": "Tr\u00e0ng \u0110\u1ecbnh",
+        "district_param": "trang-dinh"
+    },
+    {
+        "district_code": 181,
+        "city": 20,
+        "district_name": "B\u00ecnh Gia",
+        "district_param": "binh-gia"
+    },
+    {
+        "district_code": 182,
+        "city": 20,
+        "district_name": "V\u0103n L\u00e3ng",
+        "district_param": "van-lang"
+    },
+    {
+        "district_code": 183,
+        "city": 20,
+        "district_name": "Cao L\u1ed9c",
+        "district_param": "cao-loc"
+    },
+    {
+        "district_code": 184,
+        "city": 20,
+        "district_name": "V\u0103n Quan",
+        "district_param": "van-quan"
+    },
+    {
+        "district_code": 185,
+        "city": 20,
+        "district_name": "B\u1eafc S\u01a1n",
+        "district_param": "bac-son"
+    },
+    {
+        "district_code": 186,
+        "city": 20,
+        "district_name": "H\u1eefu L\u0169ng",
+        "district_param": "huu-lung"
+    },
+    {
+        "district_code": 187,
+        "city": 20,
+        "district_name": "Chi L\u0103ng",
+        "district_param": "chi-lang"
+    },
+    {
+        "district_code": 188,
+        "city": 20,
+        "district_name": "L\u1ed9c B\u00ecnh",
+        "district_param": "loc-binh"
+    },
+    {
+        "district_code": 189,
+        "city": 20,
+        "district_name": "\u0110\u00ecnh L\u1eadp",
+        "district_param": "dinh-lap"
+    },
+    {
+        "district_code": 193,
+        "city": 22,
+        "district_name": "H\u1ea1 Long",
+        "district_param": "ha-long"
+    },
+    {
+        "district_code": 194,
+        "city": 22,
+        "district_name": "M\u00f3ng C\u00e1i",
+        "district_param": "mong-cai"
+    },
+    {
+        "district_code": 195,
+        "city": 22,
+        "district_name": "C\u1ea9m Ph\u1ea3",
+        "district_param": "cam-pha"
+    },
+    {
+        "district_code": 196,
+        "city": 22,
+        "district_name": "U\u00f4ng B\u00ed",
+        "district_param": "uong-bi"
+    },
+    {
+        "district_code": 198,
+        "city": 22,
+        "district_name": "B\u00ecnh Li\u00eau",
+        "district_param": "binh-lieu"
+    },
+    {
+        "district_code": 199,
+        "city": 22,
+        "district_name": "Ti\u00ean Y\u00ean",
+        "district_param": "tien-yen"
+    },
+    {
+        "district_code": 200,
+        "city": 22,
+        "district_name": "\u0110\u1ea7m H\u00e0",
+        "district_param": "dam-ha"
+    },
+    {
+        "district_code": 201,
+        "city": 22,
+        "district_name": "H\u1ea3i H\u00e0",
+        "district_param": "hai-ha"
+    },
+    {
+        "district_code": 202,
+        "city": 22,
+        "district_name": "Ba Ch\u1ebd",
+        "district_param": "ba-che"
+    },
+    {
+        "district_code": 203,
+        "city": 22,
+        "district_name": "V\u00e2n \u0110\u1ed3n",
+        "district_param": "van-don"
+    },
+    {
+        "district_code": 205,
+        "city": 22,
+        "district_name": "\u0110\u00f4ng Tri\u1ec1u",
+        "district_param": "dong-trieu"
+    },
+    {
+        "district_code": 206,
+        "city": 22,
+        "district_name": "Qu\u1ea3ng Y\u00ean",
+        "district_param": "quang-yen"
+    },
+    {
+        "district_code": 207,
+        "city": 22,
+        "district_name": "C\u00f4 T\u00f4",
+        "district_param": "co-to"
+    },
+    {
+        "district_code": 213,
+        "city": 24,
+        "district_name": "B\u1eafc Giang",
+        "district_param": "bac-giang"
+    },
+    {
+        "district_code": 215,
+        "city": 24,
+        "district_name": "Y\u00ean Th\u1ebf",
+        "district_param": "yen-the"
+    },
+    {
+        "district_code": 216,
+        "city": 24,
+        "district_name": "T\u00e2n Y\u00ean",
+        "district_param": "tan-yen"
+    },
+    {
+        "district_code": 217,
+        "city": 24,
+        "district_name": "L\u1ea1ng Giang",
+        "district_param": "lang-giang"
+    },
+    {
+        "district_code": 218,
+        "city": 24,
+        "district_name": "L\u1ee5c Nam",
+        "district_param": "luc-nam"
+    },
+    {
+        "district_code": 219,
+        "city": 24,
+        "district_name": "L\u1ee5c Ng\u1ea1n",
+        "district_param": "luc-ngan"
+    },
+    {
+        "district_code": 220,
+        "city": 24,
+        "district_name": "S\u01a1n \u0110\u1ed9ng",
+        "district_param": "son-dong"
+    },
+    {
+        "district_code": 221,
+        "city": 24,
+        "district_name": "Y\u00ean D\u0169ng",
+        "district_param": "yen-dung"
+    },
+    {
+        "district_code": 222,
+        "city": 24,
+        "district_name": "Vi\u1ec7t Y\u00ean",
+        "district_param": "viet-yen"
+    },
+    {
+        "district_code": 223,
+        "city": 24,
+        "district_name": "Hi\u1ec7p H\u00f2a",
+        "district_param": "hiep-hoa"
+    },
+    {
+        "district_code": 227,
+        "city": 25,
+        "district_name": "Vi\u1ec7t Tr\u00ec",
+        "district_param": "viet-tri"
+    },
+    {
+        "district_code": 228,
+        "city": 25,
+        "district_name": "Ph\u00fa Th\u1ecd",
+        "district_param": "phu-tho"
+    },
+    {
+        "district_code": 230,
+        "city": 25,
+        "district_name": "\u0110oan H\u00f9ng",
+        "district_param": "doan-hung"
+    },
+    {
+        "district_code": 231,
+        "city": 25,
+        "district_name": "H\u1ea1 Ho\u00e0",
+        "district_param": "ha-hoa"
+    },
+    {
+        "district_code": 232,
+        "city": 25,
+        "district_name": "Thanh Ba",
+        "district_param": "thanh-ba"
+    },
+    {
+        "district_code": 233,
+        "city": 25,
+        "district_name": "Ph\u00f9 Ninh",
+        "district_param": "phu-ninh"
+    },
+    {
+        "district_code": 234,
+        "city": 25,
+        "district_name": "Y\u00ean L\u1eadp",
+        "district_param": "yen-lap"
+    },
+    {
+        "district_code": 235,
+        "city": 25,
+        "district_name": "C\u1ea9m Kh\u00ea",
+        "district_param": "cam-khe"
+    },
+    {
+        "district_code": 236,
+        "city": 25,
+        "district_name": "Tam N\u00f4ng",
+        "district_param": "tam-nong"
+    },
+    {
+        "district_code": 237,
+        "city": 25,
+        "district_name": "L\u00e2m Thao",
+        "district_param": "lam-thao"
+    },
+    {
+        "district_code": 238,
+        "city": 25,
+        "district_name": "Thanh S\u01a1n",
+        "district_param": "thanh-son"
+    },
+    {
+        "district_code": 239,
+        "city": 25,
+        "district_name": "Thanh Thu\u1ef7",
+        "district_param": "thanh-thuy"
+    },
+    {
+        "district_code": 240,
+        "city": 25,
+        "district_name": "T\u00e2n S\u01a1n",
+        "district_param": "tan-son"
+    },
+    {
+        "district_code": 243,
+        "city": 26,
+        "district_name": "V\u0129nh Y\u00ean",
+        "district_param": "vinh-yen"
+    },
+    {
+        "district_code": 244,
+        "city": 26,
+        "district_name": "Ph\u00fac Y\u00ean",
+        "district_param": "phuc-yen"
+    },
+    {
+        "district_code": 246,
+        "city": 26,
+        "district_name": "L\u1eadp Th\u1ea1ch",
+        "district_param": "lap-thach"
+    },
+    {
+        "district_code": 247,
+        "city": 26,
+        "district_name": "Tam D\u01b0\u01a1ng",
+        "district_param": "tam-duong"
+    },
+    {
+        "district_code": 248,
+        "city": 26,
+        "district_name": "Tam \u0110\u1ea3o",
+        "district_param": "tam-dao"
+    },
+    {
+        "district_code": 249,
+        "city": 26,
+        "district_name": "B\u00ecnh Xuy\u00ean",
+        "district_param": "binh-xuyen"
+    },
+    {
+        "district_code": 250,
+        "city": 1,
+        "district_name": "M\u00ea Linh",
+        "district_param": "me-linh"
+    },
+    {
+        "district_code": 251,
+        "city": 26,
+        "district_name": "Y\u00ean L\u1ea1c",
+        "district_param": "yen-lac"
+    },
+    {
+        "district_code": 252,
+        "city": 26,
+        "district_name": "V\u0129nh T\u01b0\u1eddng",
+        "district_param": "vinh-tuong"
+    },
+    {
+        "district_code": 253,
+        "city": 26,
+        "district_name": "S\u00f4ng L\u00f4",
+        "district_param": "song-lo"
+    },
+    {
+        "district_code": 256,
+        "city": 27,
+        "district_name": "B\u1eafc Ninh",
+        "district_param": "bac-ninh"
+    },
+    {
+        "district_code": 258,
+        "city": 27,
+        "district_name": "Y\u00ean Phong",
+        "district_param": "yen-phong"
+    },
+    {
+        "district_code": 259,
+        "city": 27,
+        "district_name": "Qu\u1ebf V\u00f5",
+        "district_param": "que-vo"
+    },
+    {
+        "district_code": 260,
+        "city": 27,
+        "district_name": "Ti\u00ean Du",
+        "district_param": "tien-du"
+    },
+    {
+        "district_code": 261,
+        "city": 27,
+        "district_name": "T\u1eeb S\u01a1n",
+        "district_param": "tu-son"
+    },
+    {
+        "district_code": 262,
+        "city": 27,
+        "district_name": "Thu\u1eadn Th\u00e0nh",
+        "district_param": "thuan-thanh"
+    },
+    {
+        "district_code": 263,
+        "city": 27,
+        "district_name": "Gia B\u00ecnh",
+        "district_param": "gia-binh"
+    },
+    {
+        "district_code": 264,
+        "city": 27,
+        "district_name": "L\u01b0\u01a1ng T\u00e0i",
+        "district_param": "luong-tai"
+    },
+    {
+        "district_code": 268,
+        "city": 1,
+        "district_name": "H\u00e0 \u0110\u00f4ng",
+        "district_param": "ha-dong"
+    },
+    {
+        "district_code": 269,
+        "city": 1,
+        "district_name": "S\u01a1n T\u00e2y",
+        "district_param": "son-tay"
+    },
+    {
+        "district_code": 271,
+        "city": 1,
+        "district_name": "Ba V\u00ec",
+        "district_param": "ba-vi"
+    },
+    {
+        "district_code": 272,
+        "city": 1,
+        "district_name": "Ph\u00fac Th\u1ecd",
+        "district_param": "phuc-tho"
+    },
+    {
+        "district_code": 273,
+        "city": 1,
+        "district_name": "\u0110an Ph\u01b0\u1ee3ng",
+        "district_param": "dan-phuong"
+    },
+    {
+        "district_code": 274,
+        "city": 1,
+        "district_name": "Ho\u00e0i \u0110\u1ee9c",
+        "district_param": "hoai-duc"
+    },
+    {
+        "district_code": 275,
+        "city": 1,
+        "district_name": "Qu\u1ed1c Oai",
+        "district_param": "quoc-oai"
+    },
+    {
+        "district_code": 276,
+        "city": 1,
+        "district_name": "Th\u1ea1ch Th\u1ea5t",
+        "district_param": "thach-that"
+    },
+    {
+        "district_code": 277,
+        "city": 1,
+        "district_name": "Ch\u01b0\u01a1ng M\u1ef9",
+        "district_param": "chuong-my"
+    },
+    {
+        "district_code": 278,
+        "city": 1,
+        "district_name": "Thanh Oai",
+        "district_param": "thanh-oai"
+    },
+    {
+        "district_code": 279,
+        "city": 1,
+        "district_name": "Th\u01b0\u1eddng T\u00edn",
+        "district_param": "thuong-tin"
+    },
+    {
+        "district_code": 280,
+        "city": 1,
+        "district_name": "Ph\u00fa Xuy\u00ean",
+        "district_param": "phu-xuyen"
+    },
+    {
+        "district_code": 281,
+        "city": 1,
+        "district_name": "\u1ee8ng H\u00f2a",
+        "district_param": "ung-hoa"
+    },
+    {
+        "district_code": 282,
+        "city": 1,
+        "district_name": "M\u1ef9 \u0110\u1ee9c",
+        "district_param": "my-duc"
+    },
+    {
+        "district_code": 288,
+        "city": 30,
+        "district_name": "H\u1ea3i D\u01b0\u01a1ng",
+        "district_param": "hai-duong"
+    },
+    {
+        "district_code": 290,
+        "city": 30,
+        "district_name": "Ch\u00ed Linh",
+        "district_param": "chi-linh"
+    },
+    {
+        "district_code": 291,
+        "city": 30,
+        "district_name": "Nam S\u00e1ch",
+        "district_param": "nam-sach"
+    },
+    {
+        "district_code": 292,
+        "city": 30,
+        "district_name": "Kinh M\u00f4n",
+        "district_param": "kinh-mon"
+    },
+    {
+        "district_code": 293,
+        "city": 30,
+        "district_name": "Kim Th\u00e0nh",
+        "district_param": "kim-thanh"
+    },
+    {
+        "district_code": 294,
+        "city": 30,
+        "district_name": "Thanh H\u00e0",
+        "district_param": "thanh-ha"
+    },
+    {
+        "district_code": 295,
+        "city": 30,
+        "district_name": "C\u1ea9m Gi\u00e0ng",
+        "district_param": "cam-giang"
+    },
+    {
+        "district_code": 296,
+        "city": 30,
+        "district_name": "B\u00ecnh Giang",
+        "district_param": "binh-giang"
+    },
+    {
+        "district_code": 297,
+        "city": 30,
+        "district_name": "Gia L\u1ed9c",
+        "district_param": "gia-loc"
+    },
+    {
+        "district_code": 298,
+        "city": 30,
+        "district_name": "T\u1ee9 K\u1ef3",
+        "district_param": "tu-ky"
+    },
+    {
+        "district_code": 299,
+        "city": 30,
+        "district_name": "Ninh Giang",
+        "district_param": "ninh-giang"
+    },
+    {
+        "district_code": 300,
+        "city": 30,
+        "district_name": "Thanh Mi\u1ec7n",
+        "district_param": "thanh-mien"
+    },
+    {
+        "district_code": 303,
+        "city": 31,
+        "district_name": "H\u1ed3ng B\u00e0ng",
+        "district_param": "hong-bang"
+    },
+    {
+        "district_code": 304,
+        "city": 31,
+        "district_name": "Ng\u00f4 Quy\u1ec1n",
+        "district_param": "ngo-quyen"
+    },
+    {
+        "district_code": 305,
+        "city": 31,
+        "district_name": "L\u00ea Ch\u00e2n",
+        "district_param": "le-chan"
+    },
+    {
+        "district_code": 306,
+        "city": 31,
+        "district_name": "H\u1ea3i An",
+        "district_param": "hai-an"
+    },
+    {
+        "district_code": 307,
+        "city": 31,
+        "district_name": "Ki\u1ebfn An",
+        "district_param": "kien-an"
+    },
+    {
+        "district_code": 308,
+        "city": 31,
+        "district_name": "\u0110\u1ed3 S\u01a1n",
+        "district_param": "do-son"
+    },
+    {
+        "district_code": 309,
+        "city": 31,
+        "district_name": "D\u01b0\u01a1ng Kinh",
+        "district_param": "duong-kinh"
+    },
+    {
+        "district_code": 311,
+        "city": 31,
+        "district_name": "Thu\u1ef7 Nguy\u00ean",
+        "district_param": "thuy-nguyen"
+    },
+    {
+        "district_code": 312,
+        "city": 31,
+        "district_name": "An D\u01b0\u01a1ng",
+        "district_param": "an-duong"
+    },
+    {
+        "district_code": 313,
+        "city": 31,
+        "district_name": "An L\u00e3o",
+        "district_param": "an-lao"
+    },
+    {
+        "district_code": 314,
+        "city": 31,
+        "district_name": "Ki\u1ebfn Thu\u1ef5",
+        "district_param": "kien-thuy"
+    },
+    {
+        "district_code": 315,
+        "city": 31,
+        "district_name": "Ti\u00ean L\u00e3ng",
+        "district_param": "tien-lang"
+    },
+    {
+        "district_code": 316,
+        "city": 31,
+        "district_name": "V\u0129nh B\u1ea3o",
+        "district_param": "vinh-bao"
+    },
+    {
+        "district_code": 317,
+        "city": 31,
+        "district_name": "C\u00e1t H\u1ea3i",
+        "district_param": "cat-hai"
+    },
+    {
+        "district_code": 318,
+        "city": 31,
+        "district_name": "B\u1ea1ch Long V\u0129",
+        "district_param": "bach-long-vi"
+    },
+    {
+        "district_code": 323,
+        "city": 33,
+        "district_name": "H\u01b0ng Y\u00ean",
+        "district_param": "hung-yen"
+    },
+    {
+        "district_code": 325,
+        "city": 33,
+        "district_name": "V\u0103n L\u00e2m",
+        "district_param": "van-lam"
+    },
+    {
+        "district_code": 326,
+        "city": 33,
+        "district_name": "V\u0103n Giang",
+        "district_param": "van-giang"
+    },
+    {
+        "district_code": 327,
+        "city": 33,
+        "district_name": "Y\u00ean M\u1ef9",
+        "district_param": "yen-my"
+    },
+    {
+        "district_code": 328,
+        "city": 33,
+        "district_name": "M\u1ef9 H\u00e0o",
+        "district_param": "my-hao"
+    },
+    {
+        "district_code": 329,
+        "city": 33,
+        "district_name": "\u00c2n Thi",
+        "district_param": "an-thi"
+    },
+    {
+        "district_code": 330,
+        "city": 33,
+        "district_name": "Kho\u00e1i Ch\u00e2u",
+        "district_param": "khoai-chau"
+    },
+    {
+        "district_code": 331,
+        "city": 33,
+        "district_name": "Kim \u0110\u1ed9ng",
+        "district_param": "kim-dong"
+    },
+    {
+        "district_code": 332,
+        "city": 33,
+        "district_name": "Ti\u00ean L\u1eef",
+        "district_param": "tien-lu"
+    },
+    {
+        "district_code": 333,
+        "city": 33,
+        "district_name": "Ph\u00f9 C\u1eeb",
+        "district_param": "phu-cu"
+    },
+    {
+        "district_code": 336,
+        "city": 34,
+        "district_name": "Th\u00e1i B\u00ecnh",
+        "district_param": "thai-binh"
+    },
+    {
+        "district_code": 338,
+        "city": 34,
+        "district_name": "Qu\u1ef3nh Ph\u1ee5",
+        "district_param": "quynh-phu"
+    },
+    {
+        "district_code": 339,
+        "city": 34,
+        "district_name": "H\u01b0ng H\u00e0",
+        "district_param": "hung-ha"
+    },
+    {
+        "district_code": 340,
+        "city": 34,
+        "district_name": "\u0110\u00f4ng H\u01b0ng",
+        "district_param": "dong-hung"
+    },
+    {
+        "district_code": 341,
+        "city": 34,
+        "district_name": "Th\u00e1i Th\u1ee5y",
+        "district_param": "thai-thuy"
+    },
+    {
+        "district_code": 342,
+        "city": 34,
+        "district_name": "Ti\u1ec1n H\u1ea3i",
+        "district_param": "tien-hai"
+    },
+    {
+        "district_code": 343,
+        "city": 34,
+        "district_name": "Ki\u1ebfn X\u01b0\u01a1ng",
+        "district_param": "kien-xuong"
+    },
+    {
+        "district_code": 344,
+        "city": 34,
+        "district_name": "V\u0169 Th\u01b0",
+        "district_param": "vu-thu"
+    },
+    {
+        "district_code": 347,
+        "city": 35,
+        "district_name": "Ph\u1ee7 L\u00fd",
+        "district_param": "phu-ly"
+    },
+    {
+        "district_code": 349,
+        "city": 35,
+        "district_name": "Duy Ti\u00ean",
+        "district_param": "duy-tien"
+    },
+    {
+        "district_code": 350,
+        "city": 35,
+        "district_name": "Kim B\u1ea3ng",
+        "district_param": "kim-bang"
+    },
+    {
+        "district_code": 351,
+        "city": 35,
+        "district_name": "Thanh Li\u00eam",
+        "district_param": "thanh-liem"
+    },
+    {
+        "district_code": 352,
+        "city": 35,
+        "district_name": "B\u00ecnh L\u1ee5c",
+        "district_param": "binh-luc"
+    },
+    {
+        "district_code": 353,
+        "city": 35,
+        "district_name": "L\u00fd Nh\u00e2n",
+        "district_param": "ly-nhan"
+    },
+    {
+        "district_code": 356,
+        "city": 36,
+        "district_name": "Nam \u0110\u1ecbnh",
+        "district_param": "nam-dinh"
+    },
+    {
+        "district_code": 358,
+        "city": 36,
+        "district_name": "M\u1ef9 L\u1ed9c",
+        "district_param": "my-loc"
+    },
+    {
+        "district_code": 359,
+        "city": 36,
+        "district_name": "V\u1ee5 B\u1ea3n",
+        "district_param": "vu-ban"
+    },
+    {
+        "district_code": 360,
+        "city": 36,
+        "district_name": "\u00dd Y\u00ean",
+        "district_param": "y-yen"
+    },
+    {
+        "district_code": 361,
+        "city": 36,
+        "district_name": "Ngh\u0129a H\u01b0ng",
+        "district_param": "nghia-hung"
+    },
+    {
+        "district_code": 362,
+        "city": 36,
+        "district_name": "Nam Tr\u1ef1c",
+        "district_param": "nam-truc"
+    },
+    {
+        "district_code": 363,
+        "city": 36,
+        "district_name": "Tr\u1ef1c Ninh",
+        "district_param": "truc-ninh"
+    },
+    {
+        "district_code": 364,
+        "city": 36,
+        "district_name": "Xu\u00e2n Tr\u01b0\u1eddng",
+        "district_param": "xuan-truong"
+    },
+    {
+        "district_code": 365,
+        "city": 36,
+        "district_name": "Giao Th\u1ee7y",
+        "district_param": "giao-thuy"
+    },
+    {
+        "district_code": 366,
+        "city": 36,
+        "district_name": "H\u1ea3i H\u1eadu",
+        "district_param": "hai-hau"
+    },
+    {
+        "district_code": 369,
+        "city": 37,
+        "district_name": "Ninh B\u00ecnh",
+        "district_param": "ninh-binh"
+    },
+    {
+        "district_code": 370,
+        "city": 37,
+        "district_name": "Tam \u0110i\u1ec7p",
+        "district_param": "tam-diep"
+    },
+    {
+        "district_code": 372,
+        "city": 37,
+        "district_name": "Nho Quan",
+        "district_param": "nho-quan"
+    },
+    {
+        "district_code": 373,
+        "city": 37,
+        "district_name": "Gia Vi\u1ec5n",
+        "district_param": "gia-vien"
+    },
+    {
+        "district_code": 374,
+        "city": 37,
+        "district_name": "Hoa L\u01b0",
+        "district_param": "hoa-lu"
+    },
+    {
+        "district_code": 375,
+        "city": 37,
+        "district_name": "Y\u00ean Kh\u00e1nh",
+        "district_param": "yen-khanh"
+    },
+    {
+        "district_code": 376,
+        "city": 37,
+        "district_name": "Kim S\u01a1n",
+        "district_param": "kim-son"
+    },
+    {
+        "district_code": 377,
+        "city": 37,
+        "district_name": "Y\u00ean M\u00f4",
+        "district_param": "yen-mo"
+    },
+    {
+        "district_code": 380,
+        "city": 38,
+        "district_name": "Thanh H\u00f3a",
+        "district_param": "thanh-hoa"
+    },
+    {
+        "district_code": 381,
+        "city": 38,
+        "district_name": "B\u1ec9m S\u01a1n",
+        "district_param": "bim-son"
+    },
+    {
+        "district_code": 382,
+        "city": 38,
+        "district_name": "S\u1ea7m S\u01a1n",
+        "district_param": "sam-son"
+    },
+    {
+        "district_code": 384,
+        "city": 38,
+        "district_name": "M\u01b0\u1eddng L\u00e1t",
+        "district_param": "muong-lat"
+    },
+    {
+        "district_code": 385,
+        "city": 38,
+        "district_name": "Quan H\u00f3a",
+        "district_param": "quan-hoa"
+    },
+    {
+        "district_code": 386,
+        "city": 38,
+        "district_name": "B\u00e1 Th\u01b0\u1edbc",
+        "district_param": "ba-thuoc"
+    },
+    {
+        "district_code": 387,
+        "city": 38,
+        "district_name": "Quan S\u01a1n",
+        "district_param": "quan-son"
+    },
+    {
+        "district_code": 388,
+        "city": 38,
+        "district_name": "Lang Ch\u00e1nh",
+        "district_param": "lang-chanh"
+    },
+    {
+        "district_code": 389,
+        "city": 38,
+        "district_name": "Ng\u1ecdc L\u1eb7c",
+        "district_param": "ngoc-lac"
+    },
+    {
+        "district_code": 390,
+        "city": 38,
+        "district_name": "C\u1ea9m Th\u1ee7y",
+        "district_param": "cam-thuy"
+    },
+    {
+        "district_code": 391,
+        "city": 38,
+        "district_name": "Th\u1ea1ch Th\u00e0nh",
+        "district_param": "thach-thanh"
+    },
+    {
+        "district_code": 392,
+        "city": 38,
+        "district_name": "H\u00e0 Trung",
+        "district_param": "ha-trung"
+    },
+    {
+        "district_code": 393,
+        "city": 38,
+        "district_name": "V\u0129nh L\u1ed9c",
+        "district_param": "vinh-loc"
+    },
+    {
+        "district_code": 394,
+        "city": 38,
+        "district_name": "Y\u00ean \u0110\u1ecbnh",
+        "district_param": "yen-dinh"
+    },
+    {
+        "district_code": 395,
+        "city": 38,
+        "district_name": "Th\u1ecd Xu\u00e2n",
+        "district_param": "tho-xuan"
+    },
+    {
+        "district_code": 396,
+        "city": 38,
+        "district_name": "Th\u01b0\u1eddng Xu\u00e2n",
+        "district_param": "thuong-xuan"
+    },
+    {
+        "district_code": 397,
+        "city": 38,
+        "district_name": "Tri\u1ec7u S\u01a1n",
+        "district_param": "trieu-son"
+    },
+    {
+        "district_code": 398,
+        "city": 38,
+        "district_name": "Thi\u1ec7u H\u00f3a",
+        "district_param": "thieu-hoa"
+    },
+    {
+        "district_code": 399,
+        "city": 38,
+        "district_name": "Ho\u1eb1ng H\u00f3a",
+        "district_param": "hoang-hoa"
+    },
+    {
+        "district_code": 400,
+        "city": 38,
+        "district_name": "H\u1eadu L\u1ed9c",
+        "district_param": "hau-loc"
+    },
+    {
+        "district_code": 401,
+        "city": 38,
+        "district_name": "Nga S\u01a1n",
+        "district_param": "nga-son"
+    },
+    {
+        "district_code": 402,
+        "city": 38,
+        "district_name": "Nh\u01b0 Xu\u00e2n",
+        "district_param": "nhu-xuan"
+    },
+    {
+        "district_code": 403,
+        "city": 38,
+        "district_name": "Nh\u01b0 Thanh",
+        "district_param": "nhu-thanh"
+    },
+    {
+        "district_code": 404,
+        "city": 38,
+        "district_name": "N\u00f4ng C\u1ed1ng",
+        "district_param": "nong-cong"
+    },
+    {
+        "district_code": 405,
+        "city": 38,
+        "district_name": "\u0110\u00f4ng S\u01a1n",
+        "district_param": "dong-son"
+    },
+    {
+        "district_code": 406,
+        "city": 38,
+        "district_name": "Qu\u1ea3ng X\u01b0\u01a1ng",
+        "district_param": "quang-xuong"
+    },
+    {
+        "district_code": 407,
+        "city": 38,
+        "district_name": "Nghi S\u01a1n",
+        "district_param": "nghi-son"
+    },
+    {
+        "district_code": 412,
+        "city": 40,
+        "district_name": "Vinh",
+        "district_param": "vinh"
+    },
+    {
+        "district_code": 413,
+        "city": 40,
+        "district_name": "C\u1eeda L\u00f2",
+        "district_param": "cua-lo"
+    },
+    {
+        "district_code": 414,
+        "city": 40,
+        "district_name": "Th\u00e1i Ho\u00e0",
+        "district_param": "thai-hoa"
+    },
+    {
+        "district_code": 415,
+        "city": 40,
+        "district_name": "Qu\u1ebf Phong",
+        "district_param": "que-phong"
+    },
+    {
+        "district_code": 416,
+        "city": 40,
+        "district_name": "Qu\u1ef3 Ch\u00e2u",
+        "district_param": "quy-chau"
+    },
+    {
+        "district_code": 417,
+        "city": 40,
+        "district_name": "K\u1ef3 S\u01a1n",
+        "district_param": "ky-son"
+    },
+    {
+        "district_code": 418,
+        "city": 40,
+        "district_name": "T\u01b0\u01a1ng D\u01b0\u01a1ng",
+        "district_param": "tuong-duong"
+    },
+    {
+        "district_code": 419,
+        "city": 40,
+        "district_name": "Ngh\u0129a \u0110\u00e0n",
+        "district_param": "nghia-dan"
+    },
+    {
+        "district_code": 420,
+        "city": 40,
+        "district_name": "Qu\u1ef3 H\u1ee3p",
+        "district_param": "quy-hop"
+    },
+    {
+        "district_code": 421,
+        "city": 40,
+        "district_name": "Qu\u1ef3nh L\u01b0u",
+        "district_param": "quynh-luu"
+    },
+    {
+        "district_code": 422,
+        "city": 40,
+        "district_name": "Con Cu\u00f4ng",
+        "district_param": "con-cuong"
+    },
+    {
+        "district_code": 423,
+        "city": 40,
+        "district_name": "T\u00e2n K\u1ef3",
+        "district_param": "tan-ky"
+    },
+    {
+        "district_code": 424,
+        "city": 40,
+        "district_name": "Anh S\u01a1n",
+        "district_param": "anh-son"
+    },
+    {
+        "district_code": 425,
+        "city": 40,
+        "district_name": "Di\u1ec5n Ch\u00e2u",
+        "district_param": "dien-chau"
+    },
+    {
+        "district_code": 426,
+        "city": 40,
+        "district_name": "Y\u00ean Th\u00e0nh",
+        "district_param": "yen-thanh"
+    },
+    {
+        "district_code": 427,
+        "city": 40,
+        "district_name": "\u0110\u00f4 L\u01b0\u01a1ng",
+        "district_param": "do-luong"
+    },
+    {
+        "district_code": 428,
+        "city": 40,
+        "district_name": "Thanh Ch\u01b0\u01a1ng",
+        "district_param": "thanh-chuong"
+    },
+    {
+        "district_code": 429,
+        "city": 40,
+        "district_name": "Nghi L\u1ed9c",
+        "district_param": "nghi-loc"
+    },
+    {
+        "district_code": 430,
+        "city": 40,
+        "district_name": "Nam \u0110\u00e0n",
+        "district_param": "nam-dan"
+    },
+    {
+        "district_code": 431,
+        "city": 40,
+        "district_name": "H\u01b0ng Nguy\u00ean",
+        "district_param": "hung-nguyen"
+    },
+    {
+        "district_code": 432,
+        "city": 40,
+        "district_name": "Ho\u00e0ng Mai",
+        "district_param": "hoang-mai"
+    },
+    {
+        "district_code": 436,
+        "city": 42,
+        "district_name": "H\u00e0 T\u0129nh",
+        "district_param": "ha-tinh"
+    },
+    {
+        "district_code": 437,
+        "city": 42,
+        "district_name": "H\u1ed3ng L\u0129nh",
+        "district_param": "hong-linh"
+    },
+    {
+        "district_code": 439,
+        "city": 42,
+        "district_name": "H\u01b0\u01a1ng S\u01a1n",
+        "district_param": "huong-son"
+    },
+    {
+        "district_code": 440,
+        "city": 42,
+        "district_name": "\u0110\u1ee9c Th\u1ecd",
+        "district_param": "duc-tho"
+    },
+    {
+        "district_code": 441,
+        "city": 42,
+        "district_name": "V\u0169 Quang",
+        "district_param": "vu-quang"
+    },
+    {
+        "district_code": 442,
+        "city": 42,
+        "district_name": "Nghi Xu\u00e2n",
+        "district_param": "nghi-xuan"
+    },
+    {
+        "district_code": 443,
+        "city": 42,
+        "district_name": "Can L\u1ed9c",
+        "district_param": "can-loc"
+    },
+    {
+        "district_code": 444,
+        "city": 42,
+        "district_name": "H\u01b0\u01a1ng Kh\u00ea",
+        "district_param": "huong-khe"
+    },
+    {
+        "district_code": 445,
+        "city": 42,
+        "district_name": "Th\u1ea1ch H\u00e0",
+        "district_param": "thach-ha"
+    },
+    {
+        "district_code": 446,
+        "city": 42,
+        "district_name": "C\u1ea9m Xuy\u00ean",
+        "district_param": "cam-xuyen"
+    },
+    {
+        "district_code": 447,
+        "city": 42,
+        "district_name": "K\u1ef3 Anh",
+        "district_param": "ky-anh"
+    },
+    {
+        "district_code": 448,
+        "city": 42,
+        "district_name": "L\u1ed9c H\u00e0",
+        "district_param": "loc-ha"
+    },
+    {
+        "district_code": 449,
+        "city": 42,
+        "district_name": "K\u1ef3 Anh",
+        "district_param": "ky-anh"
+    },
+    {
+        "district_code": 450,
+        "city": 44,
+        "district_name": "\u0110\u1ed3ng H\u1edbi",
+        "district_param": "dong-hoi"
+    },
+    {
+        "district_code": 452,
+        "city": 44,
+        "district_name": "Minh H\u00f3a",
+        "district_param": "minh-hoa"
+    },
+    {
+        "district_code": 453,
+        "city": 44,
+        "district_name": "Tuy\u00ean H\u00f3a",
+        "district_param": "tuyen-hoa"
+    },
+    {
+        "district_code": 454,
+        "city": 44,
+        "district_name": "Qu\u1ea3ng Tr\u1ea1ch",
+        "district_param": "quang-trach"
+    },
+    {
+        "district_code": 455,
+        "city": 44,
+        "district_name": "B\u1ed1 Tr\u1ea1ch",
+        "district_param": "bo-trach"
+    },
+    {
+        "district_code": 456,
+        "city": 44,
+        "district_name": "Qu\u1ea3ng Ninh",
+        "district_param": "quang-ninh"
+    },
+    {
+        "district_code": 457,
+        "city": 44,
+        "district_name": "L\u1ec7 Th\u1ee7y",
+        "district_param": "le-thuy"
+    },
+    {
+        "district_code": 458,
+        "city": 44,
+        "district_name": "Ba \u0110\u1ed3n",
+        "district_param": "ba-don"
+    },
+    {
+        "district_code": 461,
+        "city": 45,
+        "district_name": "\u0110\u00f4ng H\u00e0",
+        "district_param": "dong-ha"
+    },
+    {
+        "district_code": 462,
+        "city": 45,
+        "district_name": "Qu\u1ea3ng Tr\u1ecb",
+        "district_param": "quang-tri"
+    },
+    {
+        "district_code": 464,
+        "city": 45,
+        "district_name": "V\u0129nh Linh",
+        "district_param": "vinh-linh"
+    },
+    {
+        "district_code": 465,
+        "city": 45,
+        "district_name": "H\u01b0\u1edbng H\u00f3a",
+        "district_param": "huong-hoa"
+    },
+    {
+        "district_code": 466,
+        "city": 45,
+        "district_name": "Gio Linh",
+        "district_param": "gio-linh"
+    },
+    {
+        "district_code": 467,
+        "city": 45,
+        "district_name": "\u0110a Kr\u00f4ng",
+        "district_param": "da-krong"
+    },
+    {
+        "district_code": 468,
+        "city": 45,
+        "district_name": "Cam L\u1ed9",
+        "district_param": "cam-lo"
+    },
+    {
+        "district_code": 469,
+        "city": 45,
+        "district_name": "Tri\u1ec7u Phong",
+        "district_param": "trieu-phong"
+    },
+    {
+        "district_code": 470,
+        "city": 45,
+        "district_name": "H\u1ea3i L\u0103ng",
+        "district_param": "hai-lang"
+    },
+    {
+        "district_code": 471,
+        "city": 45,
+        "district_name": "C\u1ed3n C\u1ecf",
+        "district_param": "con-co"
+    },
+    {
+        "district_code": 474,
+        "city": 46,
+        "district_name": "Hu\u1ebf",
+        "district_param": "hue"
+    },
+    {
+        "district_code": 476,
+        "city": 46,
+        "district_name": "Phong \u0110i\u1ec1n",
+        "district_param": "phong-dien"
+    },
+    {
+        "district_code": 477,
+        "city": 46,
+        "district_name": "Qu\u1ea3ng \u0110i\u1ec1n",
+        "district_param": "quang-dien"
+    },
+    {
+        "district_code": 478,
+        "city": 46,
+        "district_name": "Ph\u00fa Vang",
+        "district_param": "phu-vang"
+    },
+    {
+        "district_code": 479,
+        "city": 46,
+        "district_name": "H\u01b0\u01a1ng Th\u1ee7y",
+        "district_param": "huong-thuy"
+    },
+    {
+        "district_code": 480,
+        "city": 46,
+        "district_name": "H\u01b0\u01a1ng Tr\u00e0",
+        "district_param": "huong-tra"
+    },
+    {
+        "district_code": 481,
+        "city": 46,
+        "district_name": "A L\u01b0\u1edbi",
+        "district_param": "a-luoi"
+    },
+    {
+        "district_code": 482,
+        "city": 46,
+        "district_name": "Ph\u00fa L\u1ed9c",
+        "district_param": "phu-loc"
+    },
+    {
+        "district_code": 483,
+        "city": 46,
+        "district_name": "Nam \u0110\u00f4ng",
+        "district_param": "nam-dong"
+    },
+    {
+        "district_code": 490,
+        "city": 48,
+        "district_name": "Li\u00ean Chi\u1ec3u",
+        "district_param": "lien-chieu"
+    },
+    {
+        "district_code": 491,
+        "city": 48,
+        "district_name": "Thanh Kh\u00ea",
+        "district_param": "thanh-khe"
+    },
+    {
+        "district_code": 492,
+        "city": 48,
+        "district_name": "H\u1ea3i Ch\u00e2u",
+        "district_param": "hai-chau"
+    },
+    {
+        "district_code": 493,
+        "city": 48,
+        "district_name": "S\u01a1n Tr\u00e0",
+        "district_param": "son-tra"
+    },
+    {
+        "district_code": 494,
+        "city": 48,
+        "district_name": "Ng\u0169 H\u00e0nh S\u01a1n",
+        "district_param": "ngu-hanh-son"
+    },
+    {
+        "district_code": 495,
+        "city": 48,
+        "district_name": "C\u1ea9m L\u1ec7",
+        "district_param": "cam-le"
+    },
+    {
+        "district_code": 497,
+        "city": 48,
+        "district_name": "H\u00f2a Vang",
+        "district_param": "hoa-vang"
+    },
+    {
+        "district_code": 498,
+        "city": 48,
+        "district_name": "Ho\u00e0ng Sa",
+        "district_param": "hoang-sa"
+    },
+    {
+        "district_code": 502,
+        "city": 49,
+        "district_name": "Tam K\u1ef3",
+        "district_param": "tam-ky"
+    },
+    {
+        "district_code": 503,
+        "city": 49,
+        "district_name": "H\u1ed9i An",
+        "district_param": "hoi-an"
+    },
+    {
+        "district_code": 504,
+        "city": 49,
+        "district_name": "T\u00e2y Giang",
+        "district_param": "tay-giang"
+    },
+    {
+        "district_code": 505,
+        "city": 49,
+        "district_name": "\u0110\u00f4ng Giang",
+        "district_param": "dong-giang"
+    },
+    {
+        "district_code": 506,
+        "city": 49,
+        "district_name": "\u0110\u1ea1i L\u1ed9c",
+        "district_param": "dai-loc"
+    },
+    {
+        "district_code": 507,
+        "city": 49,
+        "district_name": "\u0110i\u1ec7n B\u00e0n",
+        "district_param": "dien-ban"
+    },
+    {
+        "district_code": 508,
+        "city": 49,
+        "district_name": "Duy Xuy\u00ean",
+        "district_param": "duy-xuyen"
+    },
+    {
+        "district_code": 509,
+        "city": 49,
+        "district_name": "Qu\u1ebf S\u01a1n",
+        "district_param": "que-son"
+    },
+    {
+        "district_code": 510,
+        "city": 49,
+        "district_name": "Nam Giang",
+        "district_param": "nam-giang"
+    },
+    {
+        "district_code": 511,
+        "city": 49,
+        "district_name": "Ph\u01b0\u1edbc S\u01a1n",
+        "district_param": "phuoc-son"
+    },
+    {
+        "district_code": 512,
+        "city": 49,
+        "district_name": "Hi\u1ec7p \u0110\u1ee9c",
+        "district_param": "hiep-duc"
+    },
+    {
+        "district_code": 513,
+        "city": 49,
+        "district_name": "Th\u0103ng B\u00ecnh",
+        "district_param": "thang-binh"
+    },
+    {
+        "district_code": 514,
+        "city": 49,
+        "district_name": "Ti\u00ean Ph\u01b0\u1edbc",
+        "district_param": "tien-phuoc"
+    },
+    {
+        "district_code": 515,
+        "city": 49,
+        "district_name": "B\u1eafc Tr\u00e0 My",
+        "district_param": "bac-tra-my"
+    },
+    {
+        "district_code": 516,
+        "city": 49,
+        "district_name": "Nam Tr\u00e0 My",
+        "district_param": "nam-tra-my"
+    },
+    {
+        "district_code": 517,
+        "city": 49,
+        "district_name": "N\u00fai Th\u00e0nh",
+        "district_param": "nui-thanh"
+    },
+    {
+        "district_code": 518,
+        "city": 49,
+        "district_name": "Ph\u00fa Ninh",
+        "district_param": "phu-ninh"
+    },
+    {
+        "district_code": 519,
+        "city": 49,
+        "district_name": "N\u00f4ng S\u01a1n",
+        "district_param": "nong-son"
+    },
+    {
+        "district_code": 522,
+        "city": 51,
+        "district_name": "Qu\u1ea3ng Ng\u00e3i",
+        "district_param": "quang-ngai"
+    },
+    {
+        "district_code": 524,
+        "city": 51,
+        "district_name": "B\u00ecnh S\u01a1n",
+        "district_param": "binh-son"
+    },
+    {
+        "district_code": 525,
+        "city": 51,
+        "district_name": "Tr\u00e0 B\u1ed3ng",
+        "district_param": "tra-bong"
+    },
+    {
+        "district_code": 527,
+        "city": 51,
+        "district_name": "S\u01a1n T\u1ecbnh",
+        "district_param": "son-tinh"
+    },
+    {
+        "district_code": 528,
+        "city": 51,
+        "district_name": "T\u01b0 Ngh\u0129a",
+        "district_param": "tu-nghia"
+    },
+    {
+        "district_code": 529,
+        "city": 51,
+        "district_name": "S\u01a1n H\u00e0",
+        "district_param": "son-ha"
+    },
+    {
+        "district_code": 530,
+        "city": 51,
+        "district_name": "S\u01a1n T\u00e2y",
+        "district_param": "son-tay"
+    },
+    {
+        "district_code": 531,
+        "city": 51,
+        "district_name": "Minh Long",
+        "district_param": "minh-long"
+    },
+    {
+        "district_code": 532,
+        "city": 51,
+        "district_name": "Ngh\u0129a H\u00e0nh",
+        "district_param": "nghia-hanh"
+    },
+    {
+        "district_code": 533,
+        "city": 51,
+        "district_name": "M\u1ed9 \u0110\u1ee9c",
+        "district_param": "mo-duc"
+    },
+    {
+        "district_code": 534,
+        "city": 51,
+        "district_name": "\u0110\u1ee9c Ph\u1ed5",
+        "district_param": "duc-pho"
+    },
+    {
+        "district_code": 535,
+        "city": 51,
+        "district_name": "Ba T\u01a1",
+        "district_param": "ba-to"
+    },
+    {
+        "district_code": 536,
+        "city": 51,
+        "district_name": "L\u00fd S\u01a1n",
+        "district_param": "ly-son"
+    },
+    {
+        "district_code": 540,
+        "city": 52,
+        "district_name": "Quy Nh\u01a1n",
+        "district_param": "quy-nhon"
+    },
+    {
+        "district_code": 542,
+        "city": 52,
+        "district_name": "An L\u00e3o",
+        "district_param": "an-lao"
+    },
+    {
+        "district_code": 543,
+        "city": 52,
+        "district_name": "Ho\u00e0i Nh\u01a1n",
+        "district_param": "hoai-nhon"
+    },
+    {
+        "district_code": 544,
+        "city": 52,
+        "district_name": "Ho\u00e0i \u00c2n",
+        "district_param": "hoai-an"
+    },
+    {
+        "district_code": 545,
+        "city": 52,
+        "district_name": "Ph\u00f9 M\u1ef9",
+        "district_param": "phu-my"
+    },
+    {
+        "district_code": 546,
+        "city": 52,
+        "district_name": "V\u0129nh Th\u1ea1nh",
+        "district_param": "vinh-thanh"
+    },
+    {
+        "district_code": 547,
+        "city": 52,
+        "district_name": "T\u00e2y S\u01a1n",
+        "district_param": "tay-son"
+    },
+    {
+        "district_code": 548,
+        "city": 52,
+        "district_name": "Ph\u00f9 C\u00e1t",
+        "district_param": "phu-cat"
+    },
+    {
+        "district_code": 549,
+        "city": 52,
+        "district_name": "An Nh\u01a1n",
+        "district_param": "an-nhon"
+    },
+    {
+        "district_code": 550,
+        "city": 52,
+        "district_name": "Tuy Ph\u01b0\u1edbc",
+        "district_param": "tuy-phuoc"
+    },
+    {
+        "district_code": 551,
+        "city": 52,
+        "district_name": "V\u00e2n Canh",
+        "district_param": "van-canh"
+    },
+    {
+        "district_code": 555,
+        "city": 54,
+        "district_name": "Tuy Ho\u00e0",
+        "district_param": "tuy-hoa"
+    },
+    {
+        "district_code": 557,
+        "city": 54,
+        "district_name": "S\u00f4ng C\u1ea7u",
+        "district_param": "song-cau"
+    },
+    {
+        "district_code": 558,
+        "city": 54,
+        "district_name": "\u0110\u1ed3ng Xu\u00e2n",
+        "district_param": "dong-xuan"
+    },
+    {
+        "district_code": 559,
+        "city": 54,
+        "district_name": "Tuy An",
+        "district_param": "tuy-an"
+    },
+    {
+        "district_code": 560,
+        "city": 54,
+        "district_name": "S\u01a1n H\u00f2a",
+        "district_param": "son-hoa"
+    },
+    {
+        "district_code": 561,
+        "city": 54,
+        "district_name": "S\u00f4ng Hinh",
+        "district_param": "song-hinh"
+    },
+    {
+        "district_code": 562,
+        "city": 54,
+        "district_name": "T\u00e2y Ho\u00e0",
+        "district_param": "tay-hoa"
+    },
+    {
+        "district_code": 563,
+        "city": 54,
+        "district_name": "Ph\u00fa Ho\u00e0",
+        "district_param": "phu-hoa"
+    },
+    {
+        "district_code": 564,
+        "city": 54,
+        "district_name": "\u0110\u00f4ng H\u00f2a",
+        "district_param": "dong-hoa"
+    },
+    {
+        "district_code": 568,
+        "city": 56,
+        "district_name": "Nha Trang",
+        "district_param": "nha-trang"
+    },
+    {
+        "district_code": 569,
+        "city": 56,
+        "district_name": "Cam Ranh",
+        "district_param": "cam-ranh"
+    },
+    {
+        "district_code": 570,
+        "city": 56,
+        "district_name": "Cam L\u00e2m",
+        "district_param": "cam-lam"
+    },
+    {
+        "district_code": 571,
+        "city": 56,
+        "district_name": "V\u1ea1n Ninh",
+        "district_param": "van-ninh"
+    },
+    {
+        "district_code": 572,
+        "city": 56,
+        "district_name": "Ninh H\u00f2a",
+        "district_param": "ninh-hoa"
+    },
+    {
+        "district_code": 573,
+        "city": 56,
+        "district_name": "Kh\u00e1nh V\u0129nh",
+        "district_param": "khanh-vinh"
+    },
+    {
+        "district_code": 574,
+        "city": 56,
+        "district_name": "Di\u00ean Kh\u00e1nh",
+        "district_param": "dien-khanh"
+    },
+    {
+        "district_code": 575,
+        "city": 56,
+        "district_name": "Kh\u00e1nh S\u01a1n",
+        "district_param": "khanh-son"
+    },
+    {
+        "district_code": 576,
+        "city": 56,
+        "district_name": "Tr\u01b0\u1eddng Sa",
+        "district_param": "truong-sa"
+    },
+    {
+        "district_code": 582,
+        "city": 58,
+        "district_name": "Phan Rang-Th\u00e1p Ch\u00e0m",
+        "district_param": "phan-rang-thap-cham"
+    },
+    {
+        "district_code": 584,
+        "city": 58,
+        "district_name": "B\u00e1c \u00c1i",
+        "district_param": "bac-ai"
+    },
+    {
+        "district_code": 585,
+        "city": 58,
+        "district_name": "Ninh S\u01a1n",
+        "district_param": "ninh-son"
+    },
+    {
+        "district_code": 586,
+        "city": 58,
+        "district_name": "Ninh H\u1ea3i",
+        "district_param": "ninh-hai"
+    },
+    {
+        "district_code": 587,
+        "city": 58,
+        "district_name": "Ninh Ph\u01b0\u1edbc",
+        "district_param": "ninh-phuoc"
+    },
+    {
+        "district_code": 588,
+        "city": 58,
+        "district_name": "Thu\u1eadn B\u1eafc",
+        "district_param": "thuan-bac"
+    },
+    {
+        "district_code": 589,
+        "city": 58,
+        "district_name": "Thu\u1eadn Nam",
+        "district_param": "thuan-nam"
+    },
+    {
+        "district_code": 593,
+        "city": 60,
+        "district_name": "Phan Thi\u1ebft",
+        "district_param": "phan-thiet"
+    },
+    {
+        "district_code": 594,
+        "city": 60,
+        "district_name": "La Gi",
+        "district_param": "la-gi"
+    },
+    {
+        "district_code": 595,
+        "city": 60,
+        "district_name": "Tuy Phong",
+        "district_param": "tuy-phong"
+    },
+    {
+        "district_code": 596,
+        "city": 60,
+        "district_name": "B\u1eafc B\u00ecnh",
+        "district_param": "bac-binh"
+    },
+    {
+        "district_code": 597,
+        "city": 60,
+        "district_name": "H\u00e0m Thu\u1eadn B\u1eafc",
+        "district_param": "ham-thuan-bac"
+    },
+    {
+        "district_code": 598,
+        "city": 60,
+        "district_name": "H\u00e0m Thu\u1eadn Nam",
+        "district_param": "ham-thuan-nam"
+    },
+    {
+        "district_code": 599,
+        "city": 60,
+        "district_name": "T\u00e1nh Linh",
+        "district_param": "tanh-linh"
+    },
+    {
+        "district_code": 600,
+        "city": 60,
+        "district_name": "\u0110\u1ee9c Linh",
+        "district_param": "duc-linh"
+    },
+    {
+        "district_code": 601,
+        "city": 60,
+        "district_name": "H\u00e0m T\u00e2n",
+        "district_param": "ham-tan"
+    },
+    {
+        "district_code": 602,
+        "city": 60,
+        "district_name": "Ph\u00fa Qu\u00ed",
+        "district_param": "phu-qui"
+    },
+    {
+        "district_code": 608,
+        "city": 62,
+        "district_name": "Kon Tum",
+        "district_param": "kon-tum"
+    },
+    {
+        "district_code": 610,
+        "city": 62,
+        "district_name": "\u0110\u1eafk Glei",
+        "district_param": "dak-glei"
+    },
+    {
+        "district_code": 611,
+        "city": 62,
+        "district_name": "Ng\u1ecdc H\u1ed3i",
+        "district_param": "ngoc-hoi"
+    },
+    {
+        "district_code": 612,
+        "city": 62,
+        "district_name": "\u0110\u1eafk T\u00f4",
+        "district_param": "dak-to"
+    },
+    {
+        "district_code": 613,
+        "city": 62,
+        "district_name": "Kon Pl\u00f4ng",
+        "district_param": "kon-plong"
+    },
+    {
+        "district_code": 614,
+        "city": 62,
+        "district_name": "Kon R\u1eaby",
+        "district_param": "kon-ray"
+    },
+    {
+        "district_code": 615,
+        "city": 62,
+        "district_name": "\u0110\u1eafk H\u00e0",
+        "district_param": "dak-ha"
+    },
+    {
+        "district_code": 616,
+        "city": 62,
+        "district_name": "Sa Th\u1ea7y",
+        "district_param": "sa-thay"
+    },
+    {
+        "district_code": 617,
+        "city": 62,
+        "district_name": "Tu M\u01a1 R\u00f4ng",
+        "district_param": "tu-mo-rong"
+    },
+    {
+        "district_code": 618,
+        "city": 62,
+        "district_name": "Ia H' Drai",
+        "district_param": "ia-h-drai"
+    },
+    {
+        "district_code": 622,
+        "city": 64,
+        "district_name": "Pleiku",
+        "district_param": "pleiku"
+    },
+    {
+        "district_code": 623,
+        "city": 64,
+        "district_name": "An Kh\u00ea",
+        "district_param": "an-khe"
+    },
+    {
+        "district_code": 624,
+        "city": 64,
+        "district_name": "Ayun Pa",
+        "district_param": "ayun-pa"
+    },
+    {
+        "district_code": 625,
+        "city": 64,
+        "district_name": "KBang",
+        "district_param": "kbang"
+    },
+    {
+        "district_code": 626,
+        "city": 64,
+        "district_name": "\u0110\u0103k \u0110oa",
+        "district_param": "dak-doa"
+    },
+    {
+        "district_code": 627,
+        "city": 64,
+        "district_name": "Ch\u01b0 P\u0103h",
+        "district_param": "chu-pah"
+    },
+    {
+        "district_code": 628,
+        "city": 64,
+        "district_name": "Ia Grai",
+        "district_param": "ia-grai"
+    },
+    {
+        "district_code": 629,
+        "city": 64,
+        "district_name": "Mang Yang",
+        "district_param": "mang-yang"
+    },
+    {
+        "district_code": 630,
+        "city": 64,
+        "district_name": "K\u00f4ng Chro",
+        "district_param": "kong-chro"
+    },
+    {
+        "district_code": 631,
+        "city": 64,
+        "district_name": "\u0110\u1ee9c C\u01a1",
+        "district_param": "duc-co"
+    },
+    {
+        "district_code": 632,
+        "city": 64,
+        "district_name": "Ch\u01b0 Pr\u00f4ng",
+        "district_param": "chu-prong"
+    },
+    {
+        "district_code": 633,
+        "city": 64,
+        "district_name": "Ch\u01b0 S\u00ea",
+        "district_param": "chu-se"
+    },
+    {
+        "district_code": 634,
+        "city": 64,
+        "district_name": "\u0110\u0103k P\u01a1",
+        "district_param": "dak-po"
+    },
+    {
+        "district_code": 635,
+        "city": 64,
+        "district_name": "Ia Pa",
+        "district_param": "ia-pa"
+    },
+    {
+        "district_code": 637,
+        "city": 64,
+        "district_name": "Kr\u00f4ng Pa",
+        "district_param": "krong-pa"
+    },
+    {
+        "district_code": 638,
+        "city": 64,
+        "district_name": "Ph\u00fa Thi\u1ec7n",
+        "district_param": "phu-thien"
+    },
+    {
+        "district_code": 639,
+        "city": 64,
+        "district_name": "Ch\u01b0 P\u01b0h",
+        "district_param": "chu-puh"
+    },
+    {
+        "district_code": 643,
+        "city": 66,
+        "district_name": "Bu\u00f4n Ma Thu\u1ed9t",
+        "district_param": "buon-ma-thuot"
+    },
+    {
+        "district_code": 644,
+        "city": 66,
+        "district_name": "Bu\u00f4n H\u1ed3",
+        "district_param": "buon-ho"
+    },
+    {
+        "district_code": 645,
+        "city": 66,
+        "district_name": "Ea H'leo",
+        "district_param": "ea-h-leo"
+    },
+    {
+        "district_code": 646,
+        "city": 66,
+        "district_name": "Ea S\u00fap",
+        "district_param": "ea-sup"
+    },
+    {
+        "district_code": 647,
+        "city": 66,
+        "district_name": "Bu\u00f4n \u0110\u00f4n",
+        "district_param": "buon-don"
+    },
+    {
+        "district_code": 648,
+        "city": 66,
+        "district_name": "C\u01b0 M'gar",
+        "district_param": "cu-m-gar"
+    },
+    {
+        "district_code": 649,
+        "city": 66,
+        "district_name": "Kr\u00f4ng B\u00fak",
+        "district_param": "krong-buk"
+    },
+    {
+        "district_code": 650,
+        "city": 66,
+        "district_name": "Kr\u00f4ng N\u0103ng",
+        "district_param": "krong-nang"
+    },
+    {
+        "district_code": 651,
+        "city": 66,
+        "district_name": "Ea Kar",
+        "district_param": "ea-kar"
+    },
+    {
+        "district_code": 652,
+        "city": 66,
+        "district_name": "M'\u0110r\u1eafk",
+        "district_param": "m-drak"
+    },
+    {
+        "district_code": 653,
+        "city": 66,
+        "district_name": "Kr\u00f4ng B\u00f4ng",
+        "district_param": "krong-bong"
+    },
+    {
+        "district_code": 654,
+        "city": 66,
+        "district_name": "Kr\u00f4ng P\u1eafc",
+        "district_param": "krong-pac"
+    },
+    {
+        "district_code": 655,
+        "city": 66,
+        "district_name": "Kr\u00f4ng A Na",
+        "district_param": "krong-a-na"
+    },
+    {
+        "district_code": 656,
+        "city": 66,
+        "district_name": "L\u1eafk",
+        "district_param": "lak"
+    },
+    {
+        "district_code": 657,
+        "city": 66,
+        "district_name": "C\u01b0 Kuin",
+        "district_param": "cu-kuin"
+    },
+    {
+        "district_code": 660,
+        "city": 67,
+        "district_name": "Gia Ngh\u0129a",
+        "district_param": "gia-nghia"
+    },
+    {
+        "district_code": 661,
+        "city": 67,
+        "district_name": "\u0110\u0103k Glong",
+        "district_param": "dak-glong"
+    },
+    {
+        "district_code": 662,
+        "city": 67,
+        "district_name": "C\u01b0 J\u00fat",
+        "district_param": "cu-jut"
+    },
+    {
+        "district_code": 663,
+        "city": 67,
+        "district_name": "\u0110\u1eafk Mil",
+        "district_param": "dak-mil"
+    },
+    {
+        "district_code": 664,
+        "city": 67,
+        "district_name": "Kr\u00f4ng N\u00f4",
+        "district_param": "krong-no"
+    },
+    {
+        "district_code": 665,
+        "city": 67,
+        "district_name": "\u0110\u1eafk Song",
+        "district_param": "dak-song"
+    },
+    {
+        "district_code": 666,
+        "city": 67,
+        "district_name": "\u0110\u1eafk R'L\u1ea5p",
+        "district_param": "dak-r-lap"
+    },
+    {
+        "district_code": 667,
+        "city": 67,
+        "district_name": "Tuy \u0110\u1ee9c",
+        "district_param": "tuy-duc"
+    },
+    {
+        "district_code": 672,
+        "city": 68,
+        "district_name": "\u0110\u00e0 L\u1ea1t",
+        "district_param": "da-lat"
+    },
+    {
+        "district_code": 673,
+        "city": 68,
+        "district_name": "B\u1ea3o L\u1ed9c",
+        "district_param": "bao-loc"
+    },
+    {
+        "district_code": 674,
+        "city": 68,
+        "district_name": "\u0110am R\u00f4ng",
+        "district_param": "dam-rong"
+    },
+    {
+        "district_code": 675,
+        "city": 68,
+        "district_name": "L\u1ea1c D\u01b0\u01a1ng",
+        "district_param": "lac-duong"
+    },
+    {
+        "district_code": 676,
+        "city": 68,
+        "district_name": "L\u00e2m H\u00e0",
+        "district_param": "lam-ha"
+    },
+    {
+        "district_code": 677,
+        "city": 68,
+        "district_name": "\u0110\u01a1n D\u01b0\u01a1ng",
+        "district_param": "don-duong"
+    },
+    {
+        "district_code": 678,
+        "city": 68,
+        "district_name": "\u0110\u1ee9c Tr\u1ecdng",
+        "district_param": "duc-trong"
+    },
+    {
+        "district_code": 679,
+        "city": 68,
+        "district_name": "Di Linh",
+        "district_param": "di-linh"
+    },
+    {
+        "district_code": 680,
+        "city": 68,
+        "district_name": "B\u1ea3o L\u00e2m",
+        "district_param": "bao-lam"
+    },
+    {
+        "district_code": 681,
+        "city": 68,
+        "district_name": "\u0110\u1ea1 Huoai",
+        "district_param": "da-huoai"
+    },
+    {
+        "district_code": 682,
+        "city": 68,
+        "district_name": "\u0110\u1ea1 T\u1ebbh",
+        "district_param": "da-teh"
+    },
+    {
+        "district_code": 683,
+        "city": 68,
+        "district_name": "C\u00e1t Ti\u00ean",
+        "district_param": "cat-tien"
+    },
+    {
+        "district_code": 688,
+        "city": 70,
+        "district_name": "Ph\u01b0\u1edbc Long",
+        "district_param": "phuoc-long"
+    },
+    {
+        "district_code": 689,
+        "city": 70,
+        "district_name": "\u0110\u1ed3ng Xo\u00e0i",
+        "district_param": "dong-xoai"
+    },
+    {
+        "district_code": 690,
+        "city": 70,
+        "district_name": "B\u00ecnh Long",
+        "district_param": "binh-long"
+    },
+    {
+        "district_code": 691,
+        "city": 70,
+        "district_name": "B\u00f9 Gia M\u1eadp",
+        "district_param": "bu-gia-map"
+    },
+    {
+        "district_code": 692,
+        "city": 70,
+        "district_name": "L\u1ed9c Ninh",
+        "district_param": "loc-ninh"
+    },
+    {
+        "district_code": 693,
+        "city": 70,
+        "district_name": "B\u00f9 \u0110\u1ed1p",
+        "district_param": "bu-dop"
+    },
+    {
+        "district_code": 694,
+        "city": 70,
+        "district_name": "H\u1edbn Qu\u1ea3n",
+        "district_param": "hon-quan"
+    },
+    {
+        "district_code": 695,
+        "city": 70,
+        "district_name": "\u0110\u1ed3ng Ph\u00fa",
+        "district_param": "dong-phu"
+    },
+    {
+        "district_code": 696,
+        "city": 70,
+        "district_name": "B\u00f9 \u0110\u0103ng",
+        "district_param": "bu-dang"
+    },
+    {
+        "district_code": 697,
+        "city": 70,
+        "district_name": "Ch\u01a1n Th\u00e0nh",
+        "district_param": "chon-thanh"
+    },
+    {
+        "district_code": 698,
+        "city": 70,
+        "district_name": "Ph\u00fa Ri\u1ec1ng",
+        "district_param": "phu-rieng"
+    },
+    {
+        "district_code": 703,
+        "city": 72,
+        "district_name": "T\u00e2y Ninh",
+        "district_param": "tay-ninh"
+    },
+    {
+        "district_code": 705,
+        "city": 72,
+        "district_name": "T\u00e2n Bi\u00ean",
+        "district_param": "tan-bien"
+    },
+    {
+        "district_code": 706,
+        "city": 72,
+        "district_name": "T\u00e2n Ch\u00e2u",
+        "district_param": "tan-chau"
+    },
+    {
+        "district_code": 707,
+        "city": 72,
+        "district_name": "D\u01b0\u01a1ng Minh Ch\u00e2u",
+        "district_param": "duong-minh-chau"
+    },
+    {
+        "district_code": 708,
+        "city": 72,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 709,
+        "city": 72,
+        "district_name": "H\u00f2a Th\u00e0nh",
+        "district_param": "hoa-thanh"
+    },
+    {
+        "district_code": 710,
+        "city": 72,
+        "district_name": "G\u00f2 D\u1ea7u",
+        "district_param": "go-dau"
+    },
+    {
+        "district_code": 711,
+        "city": 72,
+        "district_name": "B\u1ebfn C\u1ea7u",
+        "district_param": "ben-cau"
+    },
+    {
+        "district_code": 712,
+        "city": 72,
+        "district_name": "Tr\u1ea3ng B\u00e0ng",
+        "district_param": "trang-bang"
+    },
+    {
+        "district_code": 718,
+        "city": 74,
+        "district_name": "Th\u1ee7 D\u1ea7u M\u1ed9t",
+        "district_param": "thu-dau-mot"
+    },
+    {
+        "district_code": 719,
+        "city": 74,
+        "district_name": "B\u00e0u B\u00e0ng",
+        "district_param": "bau-bang"
+    },
+    {
+        "district_code": 720,
+        "city": 74,
+        "district_name": "D\u1ea7u Ti\u1ebfng",
+        "district_param": "dau-tieng"
+    },
+    {
+        "district_code": 721,
+        "city": 74,
+        "district_name": "B\u1ebfn C\u00e1t",
+        "district_param": "ben-cat"
+    },
+    {
+        "district_code": 722,
+        "city": 74,
+        "district_name": "Ph\u00fa Gi\u00e1o",
+        "district_param": "phu-giao"
+    },
+    {
+        "district_code": 723,
+        "city": 74,
+        "district_name": "T\u00e2n Uy\u00ean",
+        "district_param": "tan-uyen"
+    },
+    {
+        "district_code": 724,
+        "city": 74,
+        "district_name": "D\u0129 An",
+        "district_param": "di-an"
+    },
+    {
+        "district_code": 725,
+        "city": 74,
+        "district_name": "Thu\u1eadn An",
+        "district_param": "thuan-an"
+    },
+    {
+        "district_code": 726,
+        "city": 74,
+        "district_name": "B\u1eafc T\u00e2n Uy\u00ean",
+        "district_param": "bac-tan-uyen"
+    },
+    {
+        "district_code": 731,
+        "city": 75,
+        "district_name": "Bi\u00ean H\u00f2a",
+        "district_param": "bien-hoa"
+    },
+    {
+        "district_code": 732,
+        "city": 75,
+        "district_name": "Long Kh\u00e1nh",
+        "district_param": "long-khanh"
+    },
+    {
+        "district_code": 734,
+        "city": 75,
+        "district_name": "T\u00e2n Ph\u00fa",
+        "district_param": "tan-phu"
+    },
+    {
+        "district_code": 735,
+        "city": 75,
+        "district_name": "V\u0129nh C\u1eedu",
+        "district_param": "vinh-cuu"
+    },
+    {
+        "district_code": 736,
+        "city": 75,
+        "district_name": "\u0110\u1ecbnh Qu\u00e1n",
+        "district_param": "dinh-quan"
+    },
+    {
+        "district_code": 737,
+        "city": 75,
+        "district_name": "Tr\u1ea3ng Bom",
+        "district_param": "trang-bom"
+    },
+    {
+        "district_code": 738,
+        "city": 75,
+        "district_name": "Th\u1ed1ng Nh\u1ea5t",
+        "district_param": "thong-nhat"
+    },
+    {
+        "district_code": 739,
+        "city": 75,
+        "district_name": "C\u1ea9m M\u1ef9",
+        "district_param": "cam-my"
+    },
+    {
+        "district_code": 740,
+        "city": 75,
+        "district_name": "Long Th\u00e0nh",
+        "district_param": "long-thanh"
+    },
+    {
+        "district_code": 741,
+        "city": 75,
+        "district_name": "Xu\u00e2n L\u1ed9c",
+        "district_param": "xuan-loc"
+    },
+    {
+        "district_code": 742,
+        "city": 75,
+        "district_name": "Nh\u01a1n Tr\u1ea1ch",
+        "district_param": "nhon-trach"
+    },
+    {
+        "district_code": 747,
+        "city": 77,
+        "district_name": "V\u0169ng T\u00e0u",
+        "district_param": "vung-tau"
+    },
+    {
+        "district_code": 748,
+        "city": 77,
+        "district_name": "B\u00e0 R\u1ecba",
+        "district_param": "ba-ria"
+    },
+    {
+        "district_code": 750,
+        "city": 77,
+        "district_name": "Ch\u00e2u \u0110\u1ee9c",
+        "district_param": "chau-duc"
+    },
+    {
+        "district_code": 751,
+        "city": 77,
+        "district_name": "Xuy\u00ean M\u1ed9c",
+        "district_param": "xuyen-moc"
+    },
+    {
+        "district_code": 752,
+        "city": 77,
+        "district_name": "Long \u0110i\u1ec1n",
+        "district_param": "long-dien"
+    },
+    {
+        "district_code": 753,
+        "city": 77,
+        "district_name": "\u0110\u1ea5t \u0110\u1ecf",
+        "district_param": "dat-do"
+    },
+    {
+        "district_code": 754,
+        "city": 77,
+        "district_name": "Ph\u00fa M\u1ef9",
+        "district_param": "phu-my"
+    },
+    {
+        "district_code": 755,
+        "city": 77,
+        "district_name": "C\u00f4n \u0110\u1ea3o",
+        "district_param": "con-dao"
+    },
+    {
+        "district_code": 760,
+        "city": 79,
+        "district_name": "1",
+        "district_param": "1"
+    },
+    {
+        "district_code": 761,
+        "city": 79,
+        "district_name": "12",
+        "district_param": "12"
+    },
+    {
+        "district_code": 764,
+        "city": 79,
+        "district_name": "G\u00f2 V\u1ea5p",
+        "district_param": "go-vap"
+    },
+    {
+        "district_code": 765,
+        "city": 79,
+        "district_name": "B\u00ecnh Th\u1ea1nh",
+        "district_param": "binh-thanh"
+    },
+    {
+        "district_code": 766,
+        "city": 79,
+        "district_name": "T\u00e2n B\u00ecnh",
+        "district_param": "tan-binh"
+    },
+    {
+        "district_code": 767,
+        "city": 79,
+        "district_name": "T\u00e2n Ph\u00fa",
+        "district_param": "tan-phu"
+    },
+    {
+        "district_code": 768,
+        "city": 79,
+        "district_name": "Ph\u00fa Nhu\u1eadn",
+        "district_param": "phu-nhuan"
+    },
+    {
+        "district_code": 769,
+        "city": 79,
+        "district_name": "Th\u1ee7 \u0110\u1ee9c",
+        "district_param": "thu-duc"
+    },
+    {
+        "district_code": 770,
+        "city": 79,
+        "district_name": "3",
+        "district_param": "3"
+    },
+    {
+        "district_code": 771,
+        "city": 79,
+        "district_name": "10",
+        "district_param": "10"
+    },
+    {
+        "district_code": 772,
+        "city": 79,
+        "district_name": "11",
+        "district_param": "11"
+    },
+    {
+        "district_code": 773,
+        "city": 79,
+        "district_name": "4",
+        "district_param": "4"
+    },
+    {
+        "district_code": 774,
+        "city": 79,
+        "district_name": "5",
+        "district_param": "5"
+    },
+    {
+        "district_code": 775,
+        "city": 79,
+        "district_name": "6",
+        "district_param": "6"
+    },
+    {
+        "district_code": 776,
+        "city": 79,
+        "district_name": "8",
+        "district_param": "8"
+    },
+    {
+        "district_code": 777,
+        "city": 79,
+        "district_name": "B\u00ecnh T\u00e2n",
+        "district_param": "binh-tan"
+    },
+    {
+        "district_code": 778,
+        "city": 79,
+        "district_name": "7",
+        "district_param": "7"
+    },
+    {
+        "district_code": 783,
+        "city": 79,
+        "district_name": "C\u1ee7 Chi",
+        "district_param": "cu-chi"
+    },
+    {
+        "district_code": 784,
+        "city": 79,
+        "district_name": "H\u00f3c M\u00f4n",
+        "district_param": "hoc-mon"
+    },
+    {
+        "district_code": 785,
+        "city": 79,
+        "district_name": "B\u00ecnh Ch\u00e1nh",
+        "district_param": "binh-chanh"
+    },
+    {
+        "district_code": 786,
+        "city": 79,
+        "district_name": "Nh\u00e0 B\u00e8",
+        "district_param": "nha-be"
+    },
+    {
+        "district_code": 787,
+        "city": 79,
+        "district_name": "C\u1ea7n Gi\u1edd",
+        "district_param": "can-gio"
+    },
+    {
+        "district_code": 794,
+        "city": 80,
+        "district_name": "T\u00e2n An",
+        "district_param": "tan-an"
+    },
+    {
+        "district_code": 795,
+        "city": 80,
+        "district_name": "Ki\u1ebfn T\u01b0\u1eddng",
+        "district_param": "kien-tuong"
+    },
+    {
+        "district_code": 796,
+        "city": 80,
+        "district_name": "T\u00e2n H\u01b0ng",
+        "district_param": "tan-hung"
+    },
+    {
+        "district_code": 797,
+        "city": 80,
+        "district_name": "V\u0129nh H\u01b0ng",
+        "district_param": "vinh-hung"
+    },
+    {
+        "district_code": 798,
+        "city": 80,
+        "district_name": "M\u1ed9c H\u00f3a",
+        "district_param": "moc-hoa"
+    },
+    {
+        "district_code": 799,
+        "city": 80,
+        "district_name": "T\u00e2n Th\u1ea1nh",
+        "district_param": "tan-thanh"
+    },
+    {
+        "district_code": 800,
+        "city": 80,
+        "district_name": "Th\u1ea1nh H\u00f3a",
+        "district_param": "thanh-hoa"
+    },
+    {
+        "district_code": 801,
+        "city": 80,
+        "district_name": "\u0110\u1ee9c Hu\u1ec7",
+        "district_param": "duc-hue"
+    },
+    {
+        "district_code": 802,
+        "city": 80,
+        "district_name": "\u0110\u1ee9c H\u00f2a",
+        "district_param": "duc-hoa"
+    },
+    {
+        "district_code": 803,
+        "city": 80,
+        "district_name": "B\u1ebfn L\u1ee9c",
+        "district_param": "ben-luc"
+    },
+    {
+        "district_code": 804,
+        "city": 80,
+        "district_name": "Th\u1ee7 Th\u1eeba",
+        "district_param": "thu-thua"
+    },
+    {
+        "district_code": 805,
+        "city": 80,
+        "district_name": "T\u00e2n Tr\u1ee5",
+        "district_param": "tan-tru"
+    },
+    {
+        "district_code": 806,
+        "city": 80,
+        "district_name": "C\u1ea7n \u0110\u01b0\u1edbc",
+        "district_param": "can-duoc"
+    },
+    {
+        "district_code": 807,
+        "city": 80,
+        "district_name": "C\u1ea7n Giu\u1ed9c",
+        "district_param": "can-giuoc"
+    },
+    {
+        "district_code": 808,
+        "city": 80,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 815,
+        "city": 82,
+        "district_name": "M\u1ef9 Tho",
+        "district_param": "my-tho"
+    },
+    {
+        "district_code": 816,
+        "city": 82,
+        "district_name": "G\u00f2 C\u00f4ng",
+        "district_param": "go-cong"
+    },
+    {
+        "district_code": 817,
+        "city": 82,
+        "district_name": "Cai L\u1eady",
+        "district_param": "cai-lay"
+    },
+    {
+        "district_code": 818,
+        "city": 82,
+        "district_name": "T\u00e2n Ph\u01b0\u1edbc",
+        "district_param": "tan-phuoc"
+    },
+    {
+        "district_code": 819,
+        "city": 82,
+        "district_name": "C\u00e1i B\u00e8",
+        "district_param": "cai-be"
+    },
+    {
+        "district_code": 820,
+        "city": 82,
+        "district_name": "Cai L\u1eady",
+        "district_param": "cai-lay"
+    },
+    {
+        "district_code": 821,
+        "city": 82,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 822,
+        "city": 82,
+        "district_name": "Ch\u1ee3 G\u1ea1o",
+        "district_param": "cho-gao"
+    },
+    {
+        "district_code": 823,
+        "city": 82,
+        "district_name": "G\u00f2 C\u00f4ng T\u00e2y",
+        "district_param": "go-cong-tay"
+    },
+    {
+        "district_code": 824,
+        "city": 82,
+        "district_name": "G\u00f2 C\u00f4ng \u0110\u00f4ng",
+        "district_param": "go-cong-dong"
+    },
+    {
+        "district_code": 825,
+        "city": 82,
+        "district_name": "T\u00e2n Ph\u00fa \u0110\u00f4ng",
+        "district_param": "tan-phu-dong"
+    },
+    {
+        "district_code": 829,
+        "city": 83,
+        "district_name": "B\u1ebfn Tre",
+        "district_param": "ben-tre"
+    },
+    {
+        "district_code": 831,
+        "city": 83,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 832,
+        "city": 83,
+        "district_name": "Ch\u1ee3 L\u00e1ch",
+        "district_param": "cho-lach"
+    },
+    {
+        "district_code": 833,
+        "city": 83,
+        "district_name": "M\u1ecf C\u00e0y Nam",
+        "district_param": "mo-cay-nam"
+    },
+    {
+        "district_code": 834,
+        "city": 83,
+        "district_name": "Gi\u1ed3ng Tr\u00f4m",
+        "district_param": "giong-trom"
+    },
+    {
+        "district_code": 835,
+        "city": 83,
+        "district_name": "B\u00ecnh \u0110\u1ea1i",
+        "district_param": "binh-dai"
+    },
+    {
+        "district_code": 836,
+        "city": 83,
+        "district_name": "Ba Tri",
+        "district_param": "ba-tri"
+    },
+    {
+        "district_code": 837,
+        "city": 83,
+        "district_name": "Th\u1ea1nh Ph\u00fa",
+        "district_param": "thanh-phu"
+    },
+    {
+        "district_code": 838,
+        "city": 83,
+        "district_name": "M\u1ecf C\u00e0y B\u1eafc",
+        "district_param": "mo-cay-bac"
+    },
+    {
+        "district_code": 842,
+        "city": 84,
+        "district_name": "Tr\u00e0 Vinh",
+        "district_param": "tra-vinh"
+    },
+    {
+        "district_code": 844,
+        "city": 84,
+        "district_name": "C\u00e0ng Long",
+        "district_param": "cang-long"
+    },
+    {
+        "district_code": 845,
+        "city": 84,
+        "district_name": "C\u1ea7u K\u00e8",
+        "district_param": "cau-ke"
+    },
+    {
+        "district_code": 846,
+        "city": 84,
+        "district_name": "Ti\u1ec3u C\u1ea7n",
+        "district_param": "tieu-can"
+    },
+    {
+        "district_code": 847,
+        "city": 84,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 848,
+        "city": 84,
+        "district_name": "C\u1ea7u Ngang",
+        "district_param": "cau-ngang"
+    },
+    {
+        "district_code": 849,
+        "city": 84,
+        "district_name": "Tr\u00e0 C\u00fa",
+        "district_param": "tra-cu"
+    },
+    {
+        "district_code": 850,
+        "city": 84,
+        "district_name": "Duy\u00ean H\u1ea3i",
+        "district_param": "duyen-hai"
+    },
+    {
+        "district_code": 851,
+        "city": 84,
+        "district_name": "Duy\u00ean H\u1ea3i",
+        "district_param": "duyen-hai"
+    },
+    {
+        "district_code": 855,
+        "city": 86,
+        "district_name": "V\u0129nh Long",
+        "district_param": "vinh-long"
+    },
+    {
+        "district_code": 857,
+        "city": 86,
+        "district_name": "Long H\u1ed3",
+        "district_param": "long-ho"
+    },
+    {
+        "district_code": 858,
+        "city": 86,
+        "district_name": "Mang Th\u00edt",
+        "district_param": "mang-thit"
+    },
+    {
+        "district_code": 859,
+        "city": 86,
+        "district_name": "V\u0169ng Li\u00eam",
+        "district_param": "vung-liem"
+    },
+    {
+        "district_code": 860,
+        "city": 86,
+        "district_name": "Tam B\u00ecnh",
+        "district_param": "tam-binh"
+    },
+    {
+        "district_code": 861,
+        "city": 86,
+        "district_name": "B\u00ecnh Minh",
+        "district_param": "binh-minh"
+    },
+    {
+        "district_code": 862,
+        "city": 86,
+        "district_name": "Tr\u00e0 \u00d4n",
+        "district_param": "tra-on"
+    },
+    {
+        "district_code": 863,
+        "city": 86,
+        "district_name": "B\u00ecnh T\u00e2n",
+        "district_param": "binh-tan"
+    },
+    {
+        "district_code": 866,
+        "city": 87,
+        "district_name": "Cao L\u00e3nh",
+        "district_param": "cao-lanh"
+    },
+    {
+        "district_code": 867,
+        "city": 87,
+        "district_name": "Sa \u0110\u00e9c",
+        "district_param": "sa-dec"
+    },
+    {
+        "district_code": 868,
+        "city": 87,
+        "district_name": "H\u1ed3ng Ng\u1ef1",
+        "district_param": "hong-ngu"
+    },
+    {
+        "district_code": 869,
+        "city": 87,
+        "district_name": "T\u00e2n H\u1ed3ng",
+        "district_param": "tan-hong"
+    },
+    {
+        "district_code": 870,
+        "city": 87,
+        "district_name": "H\u1ed3ng Ng\u1ef1",
+        "district_param": "hong-ngu"
+    },
+    {
+        "district_code": 871,
+        "city": 87,
+        "district_name": "Tam N\u00f4ng",
+        "district_param": "tam-nong"
+    },
+    {
+        "district_code": 872,
+        "city": 87,
+        "district_name": "Th\u00e1p M\u01b0\u1eddi",
+        "district_param": "thap-muoi"
+    },
+    {
+        "district_code": 873,
+        "city": 87,
+        "district_name": "Cao L\u00e3nh",
+        "district_param": "cao-lanh"
+    },
+    {
+        "district_code": 874,
+        "city": 87,
+        "district_name": "Thanh B\u00ecnh",
+        "district_param": "thanh-binh"
+    },
+    {
+        "district_code": 875,
+        "city": 87,
+        "district_name": "L\u1ea5p V\u00f2",
+        "district_param": "lap-vo"
+    },
+    {
+        "district_code": 876,
+        "city": 87,
+        "district_name": "Lai Vung",
+        "district_param": "lai-vung"
+    },
+    {
+        "district_code": 877,
+        "city": 87,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 883,
+        "city": 89,
+        "district_name": "Long Xuy\u00ean",
+        "district_param": "long-xuyen"
+    },
+    {
+        "district_code": 884,
+        "city": 89,
+        "district_name": "Ch\u00e2u \u0110\u1ed1c",
+        "district_param": "chau-doc"
+    },
+    {
+        "district_code": 886,
+        "city": 89,
+        "district_name": "An Ph\u00fa",
+        "district_param": "an-phu"
+    },
+    {
+        "district_code": 887,
+        "city": 89,
+        "district_name": "T\u00e2n Ch\u00e2u",
+        "district_param": "tan-chau"
+    },
+    {
+        "district_code": 888,
+        "city": 89,
+        "district_name": "Ph\u00fa T\u00e2n",
+        "district_param": "phu-tan"
+    },
+    {
+        "district_code": 889,
+        "city": 89,
+        "district_name": "Ch\u00e2u Ph\u00fa",
+        "district_param": "chau-phu"
+    },
+    {
+        "district_code": 890,
+        "city": 89,
+        "district_name": "T\u1ecbnh Bi\u00ean",
+        "district_param": "tinh-bien"
+    },
+    {
+        "district_code": 891,
+        "city": 89,
+        "district_name": "Tri T\u00f4n",
+        "district_param": "tri-ton"
+    },
+    {
+        "district_code": 892,
+        "city": 89,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 893,
+        "city": 89,
+        "district_name": "Ch\u1ee3 M\u1edbi",
+        "district_param": "cho-moi"
+    },
+    {
+        "district_code": 894,
+        "city": 89,
+        "district_name": "Tho\u1ea1i S\u01a1n",
+        "district_param": "thoai-son"
+    },
+    {
+        "district_code": 899,
+        "city": 91,
+        "district_name": "R\u1ea1ch Gi\u00e1",
+        "district_param": "rach-gia"
+    },
+    {
+        "district_code": 900,
+        "city": 91,
+        "district_name": "H\u00e0 Ti\u00ean",
+        "district_param": "ha-tien"
+    },
+    {
+        "district_code": 902,
+        "city": 91,
+        "district_name": "Ki\u00ean L\u01b0\u01a1ng",
+        "district_param": "kien-luong"
+    },
+    {
+        "district_code": 903,
+        "city": 91,
+        "district_name": "H\u00f2n \u0110\u1ea5t",
+        "district_param": "hon-dat"
+    },
+    {
+        "district_code": 904,
+        "city": 91,
+        "district_name": "T\u00e2n Hi\u1ec7p",
+        "district_param": "tan-hiep"
+    },
+    {
+        "district_code": 905,
+        "city": 91,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 906,
+        "city": 91,
+        "district_name": "Gi\u1ed3ng Ri\u1ec1ng",
+        "district_param": "giong-rieng"
+    },
+    {
+        "district_code": 907,
+        "city": 91,
+        "district_name": "G\u00f2 Quao",
+        "district_param": "go-quao"
+    },
+    {
+        "district_code": 908,
+        "city": 91,
+        "district_name": "An Bi\u00ean",
+        "district_param": "an-bien"
+    },
+    {
+        "district_code": 909,
+        "city": 91,
+        "district_name": "An Minh",
+        "district_param": "an-minh"
+    },
+    {
+        "district_code": 910,
+        "city": 91,
+        "district_name": "V\u0129nh Thu\u1eadn",
+        "district_param": "vinh-thuan"
+    },
+    {
+        "district_code": 911,
+        "city": 91,
+        "district_name": "Ph\u00fa Qu\u1ed1c",
+        "district_param": "phu-quoc"
+    },
+    {
+        "district_code": 912,
+        "city": 91,
+        "district_name": "Ki\u00ean H\u1ea3i",
+        "district_param": "kien-hai"
+    },
+    {
+        "district_code": 913,
+        "city": 91,
+        "district_name": "U Minh Th\u01b0\u1ee3ng",
+        "district_param": "u-minh-thuong"
+    },
+    {
+        "district_code": 914,
+        "city": 91,
+        "district_name": "Giang Th\u00e0nh",
+        "district_param": "giang-thanh"
+    },
+    {
+        "district_code": 916,
+        "city": 92,
+        "district_name": "Ninh Ki\u1ec1u",
+        "district_param": "ninh-kieu"
+    },
+    {
+        "district_code": 917,
+        "city": 92,
+        "district_name": "\u00d4 M\u00f4n",
+        "district_param": "o-mon"
+    },
+    {
+        "district_code": 918,
+        "city": 92,
+        "district_name": "B\u00ecnh Thu\u1ef7",
+        "district_param": "binh-thuy"
+    },
+    {
+        "district_code": 919,
+        "city": 92,
+        "district_name": "C\u00e1i R\u0103ng",
+        "district_param": "cai-rang"
+    },
+    {
+        "district_code": 923,
+        "city": 92,
+        "district_name": "Th\u1ed1t N\u1ed1t",
+        "district_param": "thot-not"
+    },
+    {
+        "district_code": 924,
+        "city": 92,
+        "district_name": "V\u0129nh Th\u1ea1nh",
+        "district_param": "vinh-thanh"
+    },
+    {
+        "district_code": 925,
+        "city": 92,
+        "district_name": "C\u1edd \u0110\u1ecf",
+        "district_param": "co-do"
+    },
+    {
+        "district_code": 926,
+        "city": 92,
+        "district_name": "Phong \u0110i\u1ec1n",
+        "district_param": "phong-dien"
+    },
+    {
+        "district_code": 927,
+        "city": 92,
+        "district_name": "Th\u1edbi Lai",
+        "district_param": "thoi-lai"
+    },
+    {
+        "district_code": 930,
+        "city": 93,
+        "district_name": "V\u1ecb Thanh",
+        "district_param": "vi-thanh"
+    },
+    {
+        "district_code": 931,
+        "city": 93,
+        "district_name": "Ng\u00e3 B\u1ea3y",
+        "district_param": "nga-bay"
+    },
+    {
+        "district_code": 932,
+        "city": 93,
+        "district_name": "Ch\u00e2u Th\u00e0nh A",
+        "district_param": "chau-thanh-a"
+    },
+    {
+        "district_code": 933,
+        "city": 93,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 934,
+        "city": 93,
+        "district_name": "Ph\u1ee5ng Hi\u1ec7p",
+        "district_param": "phung-hiep"
+    },
+    {
+        "district_code": 935,
+        "city": 93,
+        "district_name": "V\u1ecb Thu\u1ef7",
+        "district_param": "vi-thuy"
+    },
+    {
+        "district_code": 936,
+        "city": 93,
+        "district_name": "Long M\u1ef9",
+        "district_param": "long-my"
+    },
+    {
+        "district_code": 937,
+        "city": 93,
+        "district_name": "Long M\u1ef9",
+        "district_param": "long-my"
+    },
+    {
+        "district_code": 941,
+        "city": 94,
+        "district_name": "S\u00f3c Tr\u0103ng",
+        "district_param": "soc-trang"
+    },
+    {
+        "district_code": 942,
+        "city": 94,
+        "district_name": "Ch\u00e2u Th\u00e0nh",
+        "district_param": "chau-thanh"
+    },
+    {
+        "district_code": 943,
+        "city": 94,
+        "district_name": "K\u1ebf S\u00e1ch",
+        "district_param": "ke-sach"
+    },
+    {
+        "district_code": 944,
+        "city": 94,
+        "district_name": "M\u1ef9 T\u00fa",
+        "district_param": "my-tu"
+    },
+    {
+        "district_code": 945,
+        "city": 94,
+        "district_name": "C\u00f9 Lao Dung",
+        "district_param": "cu-lao-dung"
+    },
+    {
+        "district_code": 946,
+        "city": 94,
+        "district_name": "Long Ph\u00fa",
+        "district_param": "long-phu"
+    },
+    {
+        "district_code": 947,
+        "city": 94,
+        "district_name": "M\u1ef9 Xuy\u00ean",
+        "district_param": "my-xuyen"
+    },
+    {
+        "district_code": 948,
+        "city": 94,
+        "district_name": "Ng\u00e3 N\u0103m",
+        "district_param": "nga-nam"
+    },
+    {
+        "district_code": 949,
+        "city": 94,
+        "district_name": "Th\u1ea1nh Tr\u1ecb",
+        "district_param": "thanh-tri"
+    },
+    {
+        "district_code": 950,
+        "city": 94,
+        "district_name": "V\u0129nh Ch\u00e2u",
+        "district_param": "vinh-chau"
+    },
+    {
+        "district_code": 951,
+        "city": 94,
+        "district_name": "Tr\u1ea7n \u0110\u1ec1",
+        "district_param": "tran-de"
+    },
+    {
+        "district_code": 954,
+        "city": 95,
+        "district_name": "B\u1ea1c Li\u00eau",
+        "district_param": "bac-lieu"
+    },
+    {
+        "district_code": 956,
+        "city": 95,
+        "district_name": "H\u1ed3ng D\u00e2n",
+        "district_param": "hong-dan"
+    },
+    {
+        "district_code": 957,
+        "city": 95,
+        "district_name": "Ph\u01b0\u1edbc Long",
+        "district_param": "phuoc-long"
+    },
+    {
+        "district_code": 958,
+        "city": 95,
+        "district_name": "V\u0129nh L\u1ee3i",
+        "district_param": "vinh-loi"
+    },
+    {
+        "district_code": 959,
+        "city": 95,
+        "district_name": "Gi\u00e1 Rai",
+        "district_param": "gia-rai"
+    },
+    {
+        "district_code": 960,
+        "city": 95,
+        "district_name": "\u0110\u00f4ng H\u1ea3i",
+        "district_param": "dong-hai"
+    },
+    {
+        "district_code": 961,
+        "city": 95,
+        "district_name": "Ho\u00e0 B\u00ecnh",
+        "district_param": "hoa-binh"
+    },
+    {
+        "district_code": 964,
+        "city": 96,
+        "district_name": "C\u00e0 Mau",
+        "district_param": "ca-mau"
+    },
+    {
+        "district_code": 966,
+        "city": 96,
+        "district_name": "U Minh",
+        "district_param": "u-minh"
+    },
+    {
+        "district_code": 967,
+        "city": 96,
+        "district_name": "Th\u1edbi B\u00ecnh",
+        "district_param": "thoi-binh"
+    },
+    {
+        "district_code": 968,
+        "city": 96,
+        "district_name": "Tr\u1ea7n V\u0103n Th\u1eddi",
+        "district_param": "tran-van-thoi"
+    },
+    {
+        "district_code": 969,
+        "city": 96,
+        "district_name": "C\u00e1i N\u01b0\u1edbc",
+        "district_param": "cai-nuoc"
+    },
+    {
+        "district_code": 970,
+        "city": 96,
+        "district_name": "\u0110\u1ea7m D\u01a1i",
+        "district_param": "dam-doi"
+    },
+    {
+        "district_code": 971,
+        "city": 96,
+        "district_name": "N\u0103m C\u0103n",
+        "district_param": "nam-can"
+    },
+    {
+        "district_code": 972,
+        "city": 96,
+        "district_name": "Ph\u00fa T\u00e2n",
+        "district_param": "phu-tan"
+    },
+    {
+        "district_code": 973,
+        "city": 96,
+        "district_name": "Ng\u1ecdc Hi\u1ec3n",
+        "district_param": "ngoc-hien"
+    }
+]

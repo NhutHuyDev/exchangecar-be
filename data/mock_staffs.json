@@ -1,0 +1,23 @@
+[
+    {
+        "first_name": "Mock",
+        "last_name": "Staff (1)",
+        "mobile_phone": "+840301117771",
+        "email": "mockstaff01@gmai.com",
+        "password": "12345689"
+    },
+    {
+        "first_name": "Mock",
+        "last_name": "Staff (2)",
+        "mobile_phone": "+840301117772",
+        "email": "mockstaff02@gmai.com",
+        "password": "12345689"
+    },
+    {
+        "first_name": "Mock",
+        "last_name": "Staff (3)",
+        "mobile_phone": "+840301117773",
+        "email": "mockstaff03@gmai.com",
+        "password": "12345689"
+    }
+]

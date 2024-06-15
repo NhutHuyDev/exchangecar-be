@@ -1,0 +1,37 @@
+[
+    {
+        "first_name": "Mock",
+        "last_name": "Customer (1)",
+        "mobile_phone": "+840301119991",
+        "email": "mockcustomer01@gmai.com",
+        "password": "12345689"
+    },
+    {
+        "first_name": "Mock",
+        "last_name": "Customer (2)",
+        "mobile_phone": "+840301119992",
+        "email": "mockcustomer02@gmai.com",
+        "password": "12345689"
+    },
+    {
+        "first_name": "Mock",
+        "last_name": "Customer (3)",
+        "mobile_phone": "+840301119993",
+        "email": "mockcustomer03@gmai.com",
+        "password": "12345689"
+    },
+    {
+        "first_name": "Mock",
+        "last_name": "Customer (4)",
+        "mobile_phone": "+840301119994",
+        "email": "mockcustomer04@gmai.com",
+        "password": "12345689"
+    },
+    {
+        "first_name": "Mock",
+        "last_name": "Customer (5)",
+        "mobile_phone": "+840301119995",
+        "email": "mockcustomer05@gmai.com",
+        "password": "12345689"
+    }
+]

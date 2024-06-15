@@ -13,13 +13,16 @@ export class District {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', unique: true })
+  @Column({ type: 'varchar' })
   district_name: string;
 
-  @Column({ type: 'varchar', unique: true })
+  @Column({ type: 'varchar' })
   district_param: string;
 
-  @ManyToOne(() => City, (CarBrand) => CarBrand.districts)
+  @Column({ type: 'int', unique: true })
+  district_code: number;
+
+  @ManyToOne(() => City, (City) => City.districts)
   city: City;
 
   @OneToMany(() => Address, (Address) => Address.district)

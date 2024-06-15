@@ -47,13 +47,16 @@ export class CarPost {
   created_at: Date;
 
   @Column({ type: 'timestamp' })
+  posted_at: Date;
+
+  @Column({ type: 'timestamp', nullable: true })
   expired_at: Date;
 
   @Column({
     type: 'enum',
     enum: CarPostStatus,
   })
-  status: CarPostStatus;
+  post_status: CarPostStatus;
 
   @ManyToMany(
     () => CustomerWishlist,

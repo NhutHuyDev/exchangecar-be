@@ -54,6 +54,6 @@ export class CarAttributeOptionsSeeder implements SeederInterface {
       }
     }
 
-    throw new BadRequestException("car's brand is not supported");
+    throw new BadRequestException("car's attribute is not supported");
   }
 }

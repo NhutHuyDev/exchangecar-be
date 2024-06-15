@@ -21,6 +21,14 @@ import { CarAttribute } from '../cars/entities/car_attribute.entity';
 import { CarAttributeOption } from '../cars/entities/car_attribute_option.entity';
 import { CarAttributesSeeder } from './seeders/carAttributes.seeder';
 import { CarAttributeOptionsSeeder } from './seeders/carAttributeOptions.seeder';
+import { DistrictsSeeder } from './seeders/districts.seeder';
+import { StaffsSeeder } from './seeders/staffs.seeder';
+import { Customer } from '../customer/entities/customer.entity';
+import { CustomersSeeder } from './seeders/customers.seeder';
+import { CarPostsSeeder } from './seeders/carPosts.seeder';
+import { Car } from '../cars/entities/car.entity';
+import { CarPost } from '../posts/entities/car_post.entity';
+import { CarGallery } from '../cars/entities/car_galleries.entity';
 
 @Module({
   imports: [
@@ -36,6 +44,7 @@ import { CarAttributeOptionsSeeder } from './seeders/carAttributeOptions.seeder'
     TypeOrmModule.forFeature([
       Role,
       AuthCredential,
+      Customer,
       Staff,
       CarBrand,
       CarModel,
@@ -44,6 +53,9 @@ import { CarAttributeOptionsSeeder } from './seeders/carAttributeOptions.seeder'
       District,
       CarAttribute,
       CarAttributeOption,
+      Car,
+      CarPost,
+      CarGallery,
     ]),
   ],
   controllers: [],
@@ -51,12 +63,16 @@ import { CarAttributeOptionsSeeder } from './seeders/carAttributeOptions.seeder'
     SeedService,
     RolesSeeder,
     AdminSeeder,
+    StaffsSeeder,
+    CustomersSeeder,
     CarBrandsSeeder,
     CarModelsSeeder,
     CarVariantSpecsSeeder,
     CitiesSeeder,
+    DistrictsSeeder,
     CarAttributesSeeder,
     CarAttributeOptionsSeeder,
+    CarPostsSeeder,
   ],
 })
 export class SeedModule {}

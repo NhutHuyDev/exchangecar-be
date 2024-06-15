@@ -24,11 +24,9 @@ export class CarBrandsSeeder implements SeederInterface {
       fs.readFileSync(carBrandPath, 'utf-8'),
     );
 
-    const carBrands = carBrandJson.map((carBrand, index) => {
+    const carBrands = carBrandJson.map((carBrand) => {
       return this.carBrandRepository.create({
-        id: index,
-        // brand_name: carBrand.brand_name,
-        ['brand_name']: carBrand.brand_name,
+        brand_name: carBrand.brand_name,
         brand_param: slugify(carBrand.brand_name.toLowerCase()),
         logo_url: carBrand.logo_url,
       });
