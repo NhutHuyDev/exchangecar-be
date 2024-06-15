@@ -19,7 +19,7 @@ import { Role } from './entities/role.entity';
 import { CustomerWishlist } from '../customer/entities/customer_wishlist.entity';
 import { LocalAuthGuard } from './guards/local.guard';
 import { compare, hash } from '@/utils/hash.util';
-import { SystemRole } from '@/constraints/systemRoles.enum.constraint';
+import SystemRole from '@/constraints/systemRoles.enum.constraint';
 import { Session } from './entities/session.entity';
 import { Staff } from '../staffs/entities/staff.entity';
 import {

@@ -6,6 +6,8 @@ import { CarBrandsSeeder } from './seeders/carBrands.seeder';
 import { CarModelsSeeder } from './seeders/carModels.seeder';
 import { CarVariantSpecsSeeder } from './seeders/carVariantSpecs.seeder';
 import { CitiesSeeder } from './seeders/cities.seeder';
+import { CarAttributesSeeder } from './seeders/carAttributes.seeder';
+import { CarAttributeOptionsSeeder } from './seeders/carAttributeOptions.seeder';
 
 @Injectable()
 export class SeedService {
@@ -19,8 +21,10 @@ export class SeedService {
     private readonly carModelsSeeder: CarModelsSeeder,
     private readonly carVariantSpecsSeeder: CarVariantSpecsSeeder,
     private readonly citiesSeeder: CitiesSeeder,
+    private readonly carAttributesSeeder: CarAttributesSeeder,
+    private readonly carAttributeOptionsSeeder: CarAttributeOptionsSeeder,
   ) {
-    this.seeders = [citiesSeeder];
+    this.seeders = [carAttributesSeeder, carAttributeOptionsSeeder];
   }
 
   async seed() {

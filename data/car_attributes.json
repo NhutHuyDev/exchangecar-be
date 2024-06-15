@@ -4,31 +4,31 @@
         "attribute_title": "Dẫn động"
     },
     {
-        "attribute_name": "carOrigin",
+        "attribute_name": "car_origin",
         "attribute_title": "Xuất xứ"
     },
     {
-        "attribute_name": "carStatus",
+        "attribute_name": "car_status",
         "attribute_title": "Tình trạng"
     },
     {
-        "attribute_name": "engineType",
+        "attribute_name": "engine_type",
         "attribute_title": "Loại nhiên liệu"
     },
     {
-        "attribute_name": "outColor",
+        "attribute_name": "out_color",
         "attribute_title": "Màu ngoại thất"
     },
     {
-        "attribute_name": "bodyType",
+        "attribute_name": "body_type",
         "attribute_title": "Kiểu dáng"
     },
     {
-        "attribute_name": "totalSeating",
-        "attribute_title": "Số chổ ngồi"
+        "attribute_name": "total_seating",
+        "attribute_title": "Số chổ"
     },
     {
-        "attribute_name": "totalDoor",
-        "attribute_title": "Số chổ ngồi"
+        "attribute_name": "total_door",
+        "attribute_title": "Số cửa"
     }
 ]

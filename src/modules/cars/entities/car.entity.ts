@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { CarVariantSpec } from './Car_Variant_Specs.entity';
 import { CarGallery } from './car_galleries.entity';
+import { CarBrand } from './car_brand.entity';
 
 export enum CarOrigin {
   CKD = 'Completely Knocked Down (CKD)',
@@ -27,8 +28,8 @@ export class Car {
   @Column({ type: 'varchar' })
   car_name: string;
 
-  @Column({ type: 'varchar' })
-  car_brand: string;
+  @ManyToOne(() => CarBrand)
+  car_brand: CarBrand;
 
   @Column({ type: 'varchar' })
   car_model: string;

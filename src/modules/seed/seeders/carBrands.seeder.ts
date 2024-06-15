@@ -15,7 +15,10 @@ export class CarBrandsSeeder implements SeederInterface {
   ) {}
 
   async seed() {
-    const carBrandPath = path.join(__dirname, '../../../../data/cities.json');
+    const carBrandPath = path.join(
+      __dirname,
+      '../../../../data/car_brands.json',
+    );
 
     const carBrandJson: CarBrand[] = JSON.parse(
       fs.readFileSync(carBrandPath, 'utf-8'),
@@ -24,7 +27,8 @@ export class CarBrandsSeeder implements SeederInterface {
     const carBrands = carBrandJson.map((carBrand, index) => {
       return this.carBrandRepository.create({
         id: index,
-        brand_name: carBrand.brand_name,
+        // brand_name: carBrand.brand_name,
+        ['brand_name']: carBrand.brand_name,
         brand_param: slugify(carBrand.brand_name.toLowerCase()),
         logo_url: carBrand.logo_url,
       });

@@ -17,6 +17,10 @@ import { CarVariantSpecsSeeder } from './seeders/carVariantSpecs.seeder';
 import { City } from '../customer/entities/city.entity';
 import { District } from '../customer/entities/district.entity';
 import { CitiesSeeder } from './seeders/cities.seeder';
+import { CarAttribute } from '../cars/entities/car_attribute.entity';
+import { CarAttributeOption } from '../cars/entities/car_attribute_option.entity';
+import { CarAttributesSeeder } from './seeders/carAttributes.seeder';
+import { CarAttributeOptionsSeeder } from './seeders/carAttributeOptions.seeder';
 
 @Module({
   imports: [
@@ -38,6 +42,8 @@ import { CitiesSeeder } from './seeders/cities.seeder';
       CarVariantSpec,
       City,
       District,
+      CarAttribute,
+      CarAttributeOption,
     ]),
   ],
   controllers: [],
@@ -49,6 +55,8 @@ import { CitiesSeeder } from './seeders/cities.seeder';
     CarModelsSeeder,
     CarVariantSpecsSeeder,
     CitiesSeeder,
+    CarAttributesSeeder,
+    CarAttributeOptionsSeeder,
   ],
 })
 export class SeedModule {}

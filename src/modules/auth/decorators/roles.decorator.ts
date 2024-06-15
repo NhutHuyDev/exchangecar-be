@@ -1,4 +1,4 @@
-import { SystemRole } from '@/constraints/systemRoles.enum.constraint';
+import SystemRole from '@/constraints/systemRoles.enum.constraint';
 import { SetMetadata } from '@nestjs/common';
 
 export const ROLES = 'roles';

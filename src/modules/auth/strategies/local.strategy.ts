@@ -3,7 +3,7 @@ import { Strategy } from 'passport-local';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from '../auth.service';
 import { JwtPayload } from '../interfaces/jwtPayload.interface';
-import { SystemRole } from '@/constraints/systemRoles.enum.constraint';
+import SystemRole from '@/constraints/systemRoles.enum.constraint';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {

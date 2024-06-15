@@ -5,7 +5,7 @@ import { Role } from '@/modules/auth/entities/role.entity';
 import { SeederInterface } from '../seeder.interface';
 import { Staff } from '@/modules/staffs/entities/staff.entity';
 import { AuthCredential } from '@/modules/auth/entities/auth_credential.entity';
-import { SystemRole } from '@/constraints/systemRoles.enum.constraint';
+import SystemRole from '@/constraints/systemRoles.enum.constraint';
 import { hash } from '@/utils/hash.util';
 
 @Injectable()

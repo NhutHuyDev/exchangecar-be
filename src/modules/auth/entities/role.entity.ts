@@ -1,4 +1,4 @@
-import { SystemRole } from '@/constraints/systemRoles.enum.constraint';
+import SystemRole from '@/constraints/systemRoles.enum.constraint';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('Roles')
