@@ -26,6 +26,7 @@ import {
   access_token_private_key,
   refresh_token_private_key,
 } from '@/constraints/jwt.constraint';
+import { ResetPasswordDTO } from './dto/reset-password.dto';
 
 @Injectable()
 export class AuthService {
@@ -254,5 +255,59 @@ export class AuthService {
       authId: authCredential.id,
       roles: roles,
     };
+  }
+
+  async requestResetPassword(requestResetPasswordDTO: RequestVerifyPhoneDTO) {
+    const { mobilePhone } = requestResetPasswordDTO;
+    const authCredential = await this.authCredentialRepository.findOneBy({
+      cred_login: mobilePhone,
+    });
+
+    if (!authCredential) {
+      throw new BadRequestException('mobile phone is not existed');
+    }
+
+    const newOTP = generateOTP(6);
+
+    authCredential.password_reset_otp = hash(newOTP);
+    authCredential.password_reset_expiry = new Date(
+      Date.now() + parseInt(process.env.OTP_EXPIRY_DURATION, 10),
+    );
+
+    await this.authCredentialRepository.save(authCredential);
+
+    return {
+      password_reset_otp: newOTP,
+    };
+  }
+
+  async resetPassword(resetPasswordDTO: ResetPasswordDTO) {
+    const { mobilePhone, newPassword, otp } = resetPasswordDTO;
+    const authCredential = await this.authCredentialRepository.findOneBy({
+      cred_login: mobilePhone,
+    });
+
+    if (!authCredential) {
+      throw new BadRequestException('mobile phone is not existed');
+    }
+
+    if (
+      authCredential.password_reset_expiry &&
+      authCredential.password_reset_expiry > new Date()
+    ) {
+      if (compare(otp, authCredential.password_reset_otp)) {
+        authCredential.cred_password = hash(newPassword);
+        authCredential.password_reset_otp = null;
+        authCredential.password_reset_expiry = null;
+
+        this.authCredentialRepository.save(authCredential);
+
+        return {
+          message: 'reset password successfully',
+        };
+      }
+    }
+
+    throw new BadRequestException('invalid otp');
   }
 }

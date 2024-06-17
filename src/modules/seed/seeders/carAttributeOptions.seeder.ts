@@ -28,12 +28,14 @@ export class CarAttributeOptionsSeeder implements SeederInterface {
       attribute_name: string;
       option_value: string;
       option_param: string;
+      option_icon: string;
     }[] = JSON.parse(fs.readFileSync(brandModelsPath, 'utf-8'));
 
     const carAttributeOptions = brandModelsJson.map((carAttributeOption) => {
       return this.carAttributeOptionRepository.create({
         option_param: carAttributeOption.option_param,
         option_value: carAttributeOption.option_value,
+        option_icon: carAttributeOption.option_icon,
         attribute: this.returnCarAttributeOfOption(
           carAttributes,
           carAttributeOption.attribute_name,

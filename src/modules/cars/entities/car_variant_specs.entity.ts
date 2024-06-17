@@ -27,6 +27,9 @@ export class CarVariantSpec {
   @Column({ type: 'int', nullable: true })
   total_seating: number;
 
+  @Column({ type: 'int', nullable: true })
+  total_doors: number;
+
   @Column({ type: 'real', nullable: true })
   wheelbase: number;
 
@@ -40,7 +43,7 @@ export class CarVariantSpec {
   touque: number;
 
   @Column({ type: 'varchar', nullable: true })
-  drive_type: string;
+  drivetrain: string;
 
   @Column({ type: 'varchar', nullable: true })
   transmission: string;

@@ -21,13 +21,13 @@ import { CarPostQueriesService } from './carPostQueries.service';
 export class CarPostsController {
   constructor(
     private carPostsService: CarPostsServices,
-    private CarPostQueriesService: CarPostQueriesService,
+    private carPostQueriesService: CarPostQueriesService,
   ) {}
 
   @Get('/query-table')
   async getFilter() {
     return {
-      data: await this.CarPostQueriesService.getFilters(),
+      data: await this.carPostQueriesService.getFilters(),
     };
   }
 

@@ -2,126 +2,169 @@
     {
         "attribute_name": "transmission",
         "option_value": "FWD - Dẫn động cầu trước",
-        "option_param": "fwd"
+        "option_param": "fwd",
+        "option_icon": null
     },
     {
         "attribute_name": "transmission",
         "option_value": "RWD - Dẫn động cầu sau",
-        "option_param": "rwd"
+        "option_param": "rwd",
+        "option_icon": null
     },
     {
         "attribute_name": "transmission",
         "option_value": "4WD - Dẫn động 4 bánh",
-        "option_param": "4wd"
+        "option_param": "4wd",
+        "option_icon": null
+    },
+    {
+        "attribute_name": "transmission",
+        "option_value": "AWD - Dẫn động 4 bánh toàn thời gian",
+        "option_param": "awd",
+        "option_icon": null
     },
     {
         "attribute_name": "drivetrain",
         "option_value": "Số tay",
-        "option_param": "so-tay"
+        "option_param": "so-tay",
+        "option_icon": null
     },
     {
         "attribute_name": "drivetrain",
         "option_value": "Số tự động",
-        "option_param": "so-tu-dong"
+        "option_param": "so-tu-dong",
+        "option_icon": null
     },
     {
         "attribute_name": "car_origin",
         "option_value": "Nhập khẩu",
-        "option_param": "nhap-khau"
+        "option_param": "nhap-khau",
+        "option_icon": null
     },
     {
         "attribute_name": "car_origin",
         "option_value": "Lắp ráp trong nước",
-        "option_param": "lap-rap-trong-nuoc"
+        "option_param": "lap-rap-trong-nuoc",
+        "option_icon": null
     },
     {
         "attribute_name": "car_status",
         "option_value": "Đã qua sử dụng",
-        "option_param": "da-qua-su-dung"
+        "option_param": "da-qua-su-dung",
+        "option_icon": null
     },
     {
         "attribute_name": "car_status",
         "option_value": "Xe mới",
-        "option_param": "xe-moi"
+        "option_param": "xe-moi",
+        "option_icon": null
     },
     {
         "attribute_name": "engine_type",
         "option_value": "Xăng",
-        "option_param": "xang"
+        "option_param": "xang",
+        "option_icon": null
     },
     {
         "attribute_name": "engine_type",
         "option_value": "Diesel",
-        "option_param": "diesel"
+        "option_param": "diesel",
+        "option_icon": null
     },
     {
         "attribute_name": "engine_type",
         "option_value": "Điện",
-        "option_param": "dien"
+        "option_param": "dien",
+        "option_icon": null
     },
     {
         "attribute_name": "engine_type",
         "option_value": "Hybrid",
-        "option_param": "hybrid"
+        "option_param": "hybrid",
+        "option_icon": null
     },
     {
         "attribute_name": "out_color",
         "option_value": "Đen",
-        "option_param": "1"
+        "option_param": "1",
+        "option_icon": null
     },
     {
         "attribute_name": "out_color",
         "option_value": "Trắng",
-        "option_param": "2"
+        "option_param": "2",
+        "option_icon": null
     },
     {
         "attribute_name": "out_color",
         "option_value": "Bạc",
-        "option_param": "3"
+        "option_param": "3",
+        "option_icon": null
     },
     {
         "attribute_name": "out_color",
         "option_value": "Đỏ",
-        "option_param": "4"
+        "option_param": "4",
+        "option_icon": null
     },
     {
         "attribute_name": "out_color",
         "option_value": "Nâu",
-        "option_param": "5"
+        "option_param": "5",
+        "option_icon": null
     },
     {
         "attribute_name": "out_color",
         "option_value": "Xám",
-        "option_param": "6"
+        "option_param": "6",
+        "option_icon": null
     },
     {
         "attribute_name": "body_type",
         "option_value": "Sedan",
-        "option_param": "sedan"
+        "option_param": "sedan",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-1.13344a4.svg"
     },
     {
         "attribute_name": "body_type",
         "option_value": "SUV / Crossover",
-        "option_param": "suv-crossover"
+        "option_param": "suv-crossover",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-4.f886c59.svg"
     },
     {
         "attribute_name": "body_type",
         "option_value": "Hatchback",
-        "option_param": "hatchback"
+        "option_param": "hatchback",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-2.c07aad8.svg"
     },
     {
         "attribute_name": "body_type",
         "option_value": "Bán tải / Pickup",
-        "option_param": "ban-tai-pickup"
+        "option_param": "ban-tai-pickup",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-5.64fcac5.svg"
     },
     {
         "attribute_name": "body_type",
         "option_value": "Coupe",
-        "option_param": "coupe"
+        "option_param": "coupe",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-6-active.28a5d24.svg"
     },
     {
         "attribute_name": "body_type",
         "option_value": "Van / Minivan",
-        "option_param": "van-minivan"
+        "option_param": "van-minivan",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-7.9f1dff8.svg"
+    },
+    {
+        "attribute_name": "body_type",
+        "option_value": "Wagon",
+        "option_param": "wagon",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-8-active.471d264.svg"
+    },
+    {
+        "attribute_name": "body_type",
+        "option_value": "convertible",
+        "option_param": "Convertible",
+        "option_icon": "https://www.carsome.my/_nuxt/img/body-type-8-active.471d264.svg"
     }
 ]

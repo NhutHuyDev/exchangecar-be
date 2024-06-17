@@ -12,6 +12,9 @@ export class CarAttributeOption {
   @Column({ type: 'varchar', unique: true })
   option_param: string;
 
+  @Column({ type: 'text', nullable: true })
+  option_icon: string;
+
   @ManyToOne(
     () => CarAttribute,
     (CarAttribute) => CarAttribute.attribute_options,

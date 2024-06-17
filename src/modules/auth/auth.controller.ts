@@ -12,6 +12,8 @@ import { SignUpDTO } from './dto/sign-up.dto';
 import { LocalAuthGuard } from './guards/local.guard';
 import { RequestWithUser } from '@/types/requests.type';
 import { JwtRefreshTokenGuard } from './guards/jwt-refresh-token.guard';
+import { RequestResetPasswordDTO } from './dto/request-reset-password.dto';
+import { ResetPasswordDTO } from './dto/reset-password.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -50,6 +52,26 @@ export class AuthController {
   async refresh(@Req() request: RequestWithUser) {
     return {
       accessToken: this.authService.generateRefreshToken(request.user),
+    };
+  }
+
+  @Post('request-reset-password')
+  @HttpCode(200)
+  async requestResetPassword(
+    @Body() requestResetPasswordDTO: RequestResetPasswordDTO,
+  ) {
+    return {
+      accessToken: await this.authService.requestResetPassword(
+        requestResetPasswordDTO,
+      ),
+    };
+  }
+
+  @Post('reset-password')
+  @HttpCode(200)
+  async resetPassword(@Body() resetPasswordDTO: ResetPasswordDTO) {
+    return {
+      accessToken: await this.authService.resetPassword(resetPasswordDTO),
     };
   }
 }

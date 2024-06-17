@@ -30,13 +30,13 @@ export class CarVariantSpecsSeeder implements SeederInterface {
       car_model: string;
       manufacturing_date: number;
       body_type: string;
-      doors: number;
+      total_doors: number;
       total_seating: number;
       wheelbase: number;
       engine_size: number;
       horsepower_hp: number;
       touque: number;
-      drive_type: string;
+      drivetrain: string;
       transmission: string;
       engine_type: string;
       fuel_type: string;
@@ -48,13 +48,13 @@ export class CarVariantSpecsSeeder implements SeederInterface {
         variant_fullname: carVariantSpec.variant_fullname,
         manufacturing_date: carVariantSpec.manufacturing_date,
         body_type: carVariantSpec.body_type,
-        doors: carVariantSpec.doors,
         total_seating: carVariantSpec.total_seating,
+        total_doors: carVariantSpec.total_doors,
         wheelbase: carVariantSpec.wheelbase,
         engine_size: carVariantSpec.engine_size,
         horsepower_hp: carVariantSpec.horsepower_hp,
         touque: carVariantSpec.touque,
-        drive_type: carVariantSpec.drive_type,
+        drivetrain: carVariantSpec.drivetrain,
         transmission: carVariantSpec.transmission,
         engine_type: carVariantSpec.engine_type,
         fuel_type: carVariantSpec.fuel_type,

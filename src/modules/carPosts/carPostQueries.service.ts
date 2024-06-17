@@ -42,6 +42,7 @@ export class CarPostQueriesService {
 
       const brandValue = {
         value: carBrand.brand_name,
+        logo: carBrand.logo_url,
         car_model: { options: modelOptions },
       };
 
@@ -193,7 +194,10 @@ export class CarPostQueriesService {
 
     const bodyTypeOptions = {};
     for (const option of carBodyTypeOptions) {
-      bodyTypeOptions[option.option_param] = option.option_value;
+      bodyTypeOptions[option.option_param] = {
+        value: option.option_value,
+        icon: option.option_icon,
+      };
     }
 
     bodyTypeFilter['options'] = bodyTypeOptions;
