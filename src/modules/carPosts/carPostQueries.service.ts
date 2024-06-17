@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CarBrand } from '../cars/entities/car_brand.entity';
-import { Repository } from 'typeorm';
+import { Repository, SelectQueryBuilder } from 'typeorm';
 import { CarModel } from '../cars/entities/car_model.entity';
 import { City } from '../customer/entities/city.entity';
 import { CarAttributeOption } from '../cars/entities/car_attribute_option.entity';
 import SortOptions from '@/constraints/sortOptions.constaint';
 
 @Injectable()
-export class FiltersService {
+export class CarPostQueriesService {
   constructor(
     @InjectRepository(CarBrand)
     private carBrandRepository: Repository<CarBrand>,
@@ -41,7 +41,7 @@ export class FiltersService {
       }
 
       const brandValue = {
-        title: carBrand.brand_name,
+        value: carBrand.brand_name,
         car_model: { options: modelOptions },
       };
 
@@ -63,26 +63,27 @@ export class FiltersService {
       city_options[city.city_param] = city.city_name;
     }
 
-    citiesFilter['city_options'] = city_options;
+    citiesFilter['options'] = city_options;
 
     /**
      * @description Filter by manufacturing_date
      **/
-    const startYear = 2000;
+    const minYear = 2000;
     const currentYear = new Date().getFullYear();
     const manufacturingDateFilter = {
       title: 'Thành phố',
-      options: Array.from(
-        { length: currentYear - startYear + 1 },
-        (_, i) => startYear + i,
-      ),
+      range: [minYear, currentYear],
     };
 
     /**
      * @description Filter by selling_price
      **/
+    const minPrice = 0;
+    const maxPrice = 99999;
     const sellingPriceFilter = {
       title: 'Giá',
+      unit: 'Triệu',
+      range: [minPrice, maxPrice],
     };
 
     /**
@@ -122,9 +123,46 @@ export class FiltersService {
     /**
      * @description Filter by car_mileage
      **/
+    const minMileage = 0;
+    const maxMileage = 9999999;
     const carMileageFilter = {
       title: 'Quãng đường đã đi',
+      range: [minMileage, maxMileage],
     };
+
+    /**
+     * @description Filter by transmission
+     **/
+    const carTransmissionOptions =
+      await this.findOptionsByAttributeName('transmission');
+
+    const transmissionFilter = {
+      title: 'Dẫn động',
+    };
+
+    const transmissionOptions = {};
+    for (const option of carTransmissionOptions) {
+      transmissionOptions[option.option_param] = option.option_value;
+    }
+
+    transmissionFilter['options'] = transmissionOptions;
+
+    /**
+     * @description Filter by drivetrain
+     **/
+    const carDrivetrainOptions =
+      await this.findOptionsByAttributeName('drivetrain');
+
+    const drivetrainFilter = {
+      title: 'Hộp số',
+    };
+
+    const drivetrainOptions = {};
+    for (const option of carDrivetrainOptions) {
+      drivetrainOptions[option.option_param] = option.option_value;
+    }
+
+    drivetrainFilter['options'] = drivetrainOptions;
 
     /**
      * @description Filter by engine_type
@@ -208,7 +246,7 @@ export class FiltersService {
       options: Object.values(SortOptions),
     };
 
-    const filters = {
+    const query_table = {
       car_brand: carBrandModelFilter,
       city: citiesFilter,
       manufacturing_date: manufacturingDateFilter,
@@ -216,6 +254,8 @@ export class FiltersService {
       car_origin: carOriginFilter,
       car_status: carStatusFilter,
       car_mileage: carMileageFilter,
+      transmission: transmissionFilter,
+      drivetrain: drivetrainFilter,
       engine_type: engineTypeFilter,
       body_type: bodyTypeFilter,
       out_color: outColorFilter,
@@ -226,8 +266,47 @@ export class FiltersService {
     };
 
     return {
-      filters,
+      query_table,
     };
+  }
+
+  queryByNumberValue<T>(
+    query: SelectQueryBuilder<T>,
+    field: string,
+    value: number,
+  ) {
+    query.andWhere(`${field} = ${value}`);
+  }
+
+  queryByStringValue<T>(
+    query: SelectQueryBuilder<T>,
+    field: string,
+    value: string,
+  ) {
+    query.andWhere(` unaccent(${field}) ILIKE unaccent('${value}')`);
+  }
+
+  queryByRange<T>(
+    query: SelectQueryBuilder<T>,
+    field: string,
+    rangeQuery: string,
+  ) {
+    const valueRange = rangeQuery.split(',');
+    if (valueRange.length == 2) {
+      if (valueRange[1] == '') {
+        query.andWhere(`${field} >= ${valueRange[0]}`);
+      } else if (valueRange[0] == '') {
+        query.andWhere(`${field} <= ${valueRange[1]}`);
+      } else {
+        query.andWhere(
+          `${field} BETWEEN ${valueRange[0]} AND ${valueRange[1]}`,
+        );
+      }
+    }
+
+    if (valueRange.length == 1) {
+      query.andWhere(`${field} >= ${valueRange[0]}`);
+    }
   }
 
   private async findOptionsByAttributeName(attributeName: string) {

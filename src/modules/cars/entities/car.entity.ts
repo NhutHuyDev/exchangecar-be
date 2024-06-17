@@ -1,4 +1,10 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  Index,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { CarGallery } from './car_galleries.entity';
 
 export enum CarOrigin {
@@ -16,6 +22,7 @@ export class Car {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Index({ fulltext: true })
   @Column({ type: 'varchar' })
   car_name: string;
 
@@ -61,18 +68,13 @@ export class Car {
   @Column({ type: 'varchar', nullable: true })
   district: string;
 
-  @Column({
-    type: 'enum',
-    enum: CarOrigin,
-  })
+  @Column({ type: 'varchar' })
   car_origin: CarOrigin;
 
-  @Column({
-    type: 'enum',
-    enum: CarStatus,
-  })
+  @Column({ type: 'varchar' })
   car_status: CarStatus;
 
+  @Index({ fulltext: true })
   @Column({ type: 'text' })
   description: string;
 

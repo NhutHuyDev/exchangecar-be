@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from '../../customer/entities/address.entity';
-import { CarPost } from 'src/modules/posts/entities/car_post.entity';
+import { CarPost } from '@/modules/carPosts/entities/car_post.entity';
 
 @Entity('Staffs')
 export class Staff {

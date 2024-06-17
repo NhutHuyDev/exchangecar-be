@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from './address.entity';
-import { CarPost } from 'src/modules/posts/entities/car_post.entity';
+import { CarPost } from '@/modules/carPosts/entities/car_post.entity';
 import { Exclude } from 'class-transformer';
 
 @Entity('Customers')

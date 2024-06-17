@@ -15,6 +15,16 @@
         "option_param": "4wd"
     },
     {
+        "attribute_name": "drivetrain",
+        "option_value": "Số tay",
+        "option_param": "so-tay"
+    },
+    {
+        "attribute_name": "drivetrain",
+        "option_value": "Số tự động",
+        "option_param": "so-tu-dong"
+    },
+    {
         "attribute_name": "car_origin",
         "option_value": "Nhập khẩu",
         "option_param": "nhap-khau"

@@ -11,7 +11,7 @@ import { Staff } from '@/modules/staffs/entities/staff.entity';
 import {
   CarPost,
   CarPostStatus,
-} from '@/modules/posts/entities/car_post.entity';
+} from '@/modules/carPosts/entities/car_post.entity';
 
 @Injectable()
 export class CarPostsSeeder implements SeederInterface {
@@ -98,6 +98,7 @@ export class CarPostsSeeder implements SeederInterface {
       const car_post = await this.carPostRepository.save({
         customer: this.pickRandomCustomer(customers),
         staff: this.pickRandomStaff(staffs),
+        car: car,
         created_at: new Date(postInfo.created_at * 1000),
         posted_at: new Date(postInfo.posted_at * 1000),
         post_status: postInfo.post_status,

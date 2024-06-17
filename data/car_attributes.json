@@ -4,6 +4,10 @@
         "attribute_title": "Dẫn động"
     },
     {
+        "attribute_name": "drivetrain",
+        "attribute_title": "Hộp số"
+    },
+    {
         "attribute_name": "car_origin",
         "attribute_title": "Xuất xứ"
     },

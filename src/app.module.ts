@@ -3,14 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/customer/users.module';
-import { PostsModule } from './modules/posts/posts.module';
+import { CarPostsModule } from './modules/carPosts/carPosts.module';
 import { CarsModule } from './modules/cars/cars.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { StaffsModule } from './modules/staffs/staffs.module';
 import postgres from './configs/postgres.config';
-import { FiltersModule } from './modules/filters/filters.module';
 
 @Module({
   imports: [
@@ -30,10 +29,9 @@ import { FiltersModule } from './modules/filters/filters.module';
     }),
     AuthModule,
     UsersModule,
-    PostsModule,
+    CarPostsModule,
     CarsModule,
     StaffsModule,
-    FiltersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

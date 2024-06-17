@@ -27,7 +27,7 @@ import { Customer } from '../customer/entities/customer.entity';
 import { CustomersSeeder } from './seeders/customers.seeder';
 import { CarPostsSeeder } from './seeders/carPosts.seeder';
 import { Car } from '../cars/entities/car.entity';
-import { CarPost } from '../posts/entities/car_post.entity';
+import { CarPost } from '../carPosts/entities/car_post.entity';
 import { CarGallery } from '../cars/entities/car_galleries.entity';
 
 @Module({
