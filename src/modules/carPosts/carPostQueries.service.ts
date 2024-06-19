@@ -72,7 +72,7 @@ export class CarPostQueriesService {
     const minYear = 2000;
     const currentYear = new Date().getFullYear();
     const manufacturingDateFilter = {
-      title: 'Thành phố',
+      title: 'Năm sản xuất',
       range: [minYear, currentYear],
     };
 
@@ -138,7 +138,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('transmission');
 
     const transmissionFilter = {
-      title: 'Dẫn động',
+      title: 'Hộp số',
     };
 
     const transmissionOptions = {};
@@ -155,7 +155,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('drivetrain');
 
     const drivetrainFilter = {
-      title: 'Hộp số',
+      title: 'Dẫn động',
     };
 
     const drivetrainOptions = {};

@@ -1,6 +1,5 @@
 import { Car } from 'src/modules/cars/entities/car.entity';
 import { Customer } from '@/modules/customer/entities/customer.entity';
-import { Staff } from 'src/modules/staffs/entities/staff.entity';
 import {
   Column,
   Entity,
@@ -30,9 +29,6 @@ export class CarPost {
   @ManyToOne(() => Customer, (Customer) => Customer.car_posts)
   customer: Customer;
 
-  @ManyToOne(() => Staff, (Staff) => Staff.car_posts)
-  staff: Staff;
-
   @OneToOne(() => Car)
   @JoinColumn()
   car: Car;
@@ -46,7 +42,7 @@ export class CarPost {
   @Column({ type: 'timestamp', default: new Date() })
   created_at: Date;
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamp', nullable: true })
   posted_at: Date;
 
   @Column({ type: 'timestamp', nullable: true })

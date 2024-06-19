@@ -1,36 +1,36 @@
 [
     {
-        "attribute_name": "transmission",
+        "attribute_name": "drivetrain",
         "option_value": "FWD - Dẫn động cầu trước",
         "option_param": "fwd",
         "option_icon": null
     },
     {
-        "attribute_name": "transmission",
+        "attribute_name": "drivetrain",
         "option_value": "RWD - Dẫn động cầu sau",
         "option_param": "rwd",
         "option_icon": null
     },
     {
-        "attribute_name": "transmission",
+        "attribute_name": "drivetrain",
         "option_value": "4WD - Dẫn động 4 bánh",
         "option_param": "4wd",
         "option_icon": null
     },
     {
-        "attribute_name": "transmission",
+        "attribute_name": "drivetrain",
         "option_value": "AWD - Dẫn động 4 bánh toàn thời gian",
         "option_param": "awd",
         "option_icon": null
     },
     {
-        "attribute_name": "drivetrain",
+        "attribute_name": "transmission",
         "option_value": "Số tay",
         "option_param": "so-tay",
         "option_icon": null
     },
     {
-        "attribute_name": "drivetrain",
+        "attribute_name": "transmission",
         "option_value": "Số tự động",
         "option_param": "so-tu-dong",
         "option_icon": null

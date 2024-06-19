@@ -1,11 +1,11 @@
 [
     {
         "attribute_name": "transmission",
-        "attribute_title": "Dẫn động"
+        "attribute_title": "Hộp số"
     },
     {
         "attribute_name": "drivetrain",
-        "attribute_title": "Hộp số"
+        "attribute_title": "Dẫn động"
     },
     {
         "attribute_name": "car_origin",

@@ -3,12 +3,10 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from '../../customer/entities/address.entity';
-import { CarPost } from '@/modules/carPosts/entities/car_post.entity';
 
 @Entity('Staffs')
 export class Staff {
@@ -37,9 +35,6 @@ export class Staff {
   @OneToOne(() => AuthCredential)
   @JoinColumn()
   auth_credential: AuthCredential;
-
-  @OneToMany(() => CarPost, (CarPost) => CarPost.staff)
-  car_posts: CarPost[];
 
   @Column({
     type: 'timestamp',

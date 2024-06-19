@@ -91,6 +91,7 @@ export class CarPostsSeeder implements SeederInterface {
         await this.carGalleryRepository.save({
           car: car,
           gallery_url: carGallery,
+          file_name: 'seed-image.png',
         });
       }
 

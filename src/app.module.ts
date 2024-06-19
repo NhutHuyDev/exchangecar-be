@@ -10,6 +10,7 @@ import { DataSource } from 'typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { StaffsModule } from './modules/staffs/staffs.module';
 import postgres from './configs/postgres.config';
+import s3 from './configs/s3.config';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import postgres from './configs/postgres.config';
         process.env.NODE_ENV.trim() === 'development'
           ? '.env.development.local'
           : '.env',
-      load: [postgres],
+      load: [postgres, s3],
       cache: true,
     }),
     TypeOrmModule.forRootAsync({

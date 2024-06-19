@@ -1,17 +1,34 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { CarPost } from './entities/car_post.entity';
-import { Repository } from 'typeorm';
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { CarPostQueryDto } from './dto/carPostQuery.dto';
+import { CarPost, CarPostStatus } from './entities/car_post.entity';
+import { DataSource, Repository } from 'typeorm';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+import { CarPostQueryDto } from './dto/query-car-post.dto';
 import { CarPostQueriesService } from './carPostQueries.service';
 import { mapSortParam } from '@/constraints/sortOptions.constaint';
+import { CreateCarPostDto } from './dto/create-car-post.dto';
+import { S3Service } from '../s3/s3.service';
+import { CarGallery } from '../cars/entities/car_galleries.entity';
+import { Customer } from '../customer/entities/customer.entity';
+import { Car } from '../cars/entities/car.entity';
 
 @Injectable()
 export class CarPostsServices {
   constructor(
     @InjectRepository(CarPost)
     private carPostRepository: Repository<CarPost>,
+    @InjectRepository(Car)
+    private carRepository: Repository<Car>,
+    @InjectRepository(CarGallery)
+    private carGalleryRepository: Repository<CarGallery>,
+    @InjectRepository(Customer)
+    private customerRepository: Repository<Customer>,
+    private dataSource: DataSource,
     private carPostQueriesService: CarPostQueriesService,
+    private s3Service: S3Service,
   ) {}
 
   async getPosts(carPostquery: CarPostQueryDto) {
@@ -224,5 +241,76 @@ export class CarPostsServices {
       next_page:
         carPostquery.page + 1 <= totalPages ? carPostquery.page + 1 : null,
     };
+  }
+
+  async createCarPost(
+    authId: number,
+    carInfo: CreateCarPostDto,
+    carGallerieFiles: Array<Express.Multer.File>,
+  ) {
+    const customer = await this.customerRepository.findOneBy({
+      auth_credential: {
+        id: authId,
+      },
+    });
+
+    if (!customer) {
+      throw new BadRequestException();
+    }
+
+    return await this.dataSource.transaction(async (manager) => {
+      const car = await manager.save(Car, {
+        car_name: `xe ${carInfo.car_brand} ${carInfo.car_model} ${carInfo.car_variant} ${carInfo.manufacturing_date}`,
+        car_brand: carInfo.car_brand,
+        car_model: carInfo.car_model,
+        car_variant: carInfo.car_variant,
+        manufacturing_date: carInfo.manufacturing_date,
+        body_type: carInfo.body_type,
+        car_mileage: carInfo.car_mileage,
+        transmission: carInfo.transmission,
+        drivetrain: carInfo.drivetrain,
+        engine_type: carInfo.engine_type,
+        out_color: carInfo.out_color,
+        total_seating: carInfo.total_seating,
+        total_doors: carInfo.total_doors,
+        city: carInfo.city,
+        district: carInfo.district,
+        car_origin: carInfo.car_origin,
+        car_status: carInfo.car_status,
+        description: carInfo.description,
+        selling_price: carInfo.selling_price,
+      });
+
+      const carGalleries = await Promise.all(
+        carGallerieFiles.map(async (carGallerieFile) => {
+          const [fileName, fileType] = carGallerieFile.originalname.split('.');
+
+          const uniqueFileName =
+            fileName.split(' ').join('') + '-' + Date.now() + '.' + fileType;
+
+          const galleryUrl = await this.s3Service.uploadImageToBucket(
+            carGallerieFile.buffer,
+            uniqueFileName,
+            carGallerieFile.mimetype,
+          );
+
+          return this.carGalleryRepository.create({
+            gallery_url: galleryUrl,
+            car: car,
+          });
+        }),
+      );
+
+      await manager.save(CarGallery, carGalleries);
+
+      const carPost = await manager.save(CarPost, {
+        customer: customer,
+        car: car,
+        created_at: new Date(),
+        post_status: CarPostStatus.WAITING_APPROVAL,
+      });
+
+      return { newCarPost: carPost };
+    });
   }
 }
