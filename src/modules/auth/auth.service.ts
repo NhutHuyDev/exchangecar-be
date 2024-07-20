@@ -21,7 +21,6 @@ import { LocalAuthGuard } from './guards/local.guard';
 import { compare, hash } from '@/utils/hash.util';
 import SystemRole from '@/constraints/systemRoles.enum.constraint';
 import { Session } from './entities/session.entity';
-import { Staff } from '../staffs/entities/staff.entity';
 import {
   access_token_private_key,
   refresh_token_private_key,
@@ -41,17 +40,15 @@ export class AuthService {
     private authCredentialRepository: Repository<AuthCredential>,
     @InjectRepository(Session)
     private sessionRepository: Repository<Session>,
-    @InjectRepository(Staff)
-    private staffRepository: Repository<Staff>,
     private dataSource: DataSource,
     private jwtService: JwtService,
   ) {}
 
   async requestVerifyPhone(requestVerifyPhoneDTO: RequestVerifyPhoneDTO) {
-    const { mobilePhone } = requestVerifyPhoneDTO;
+    const { mobile_phone } = requestVerifyPhoneDTO;
 
     const isUsedPhoneNumber = await this.customerRepository.findOneBy({
-      mobile_phone: mobilePhone,
+      mobile_phone: mobile_phone,
     });
 
     if (isUsedPhoneNumber) {
@@ -60,7 +57,7 @@ export class AuthService {
 
     let currentVerify = await this.verifyOTPRepository.findOneBy({
       verify_type: VerifyType.PHONE,
-      verify_info: mobilePhone,
+      verify_info: mobile_phone,
     });
 
     const newOTP = generateOTP(6);
@@ -74,7 +71,7 @@ export class AuthService {
     } else {
       currentVerify = new VerifyOTP();
       currentVerify.verify_type = VerifyType.PHONE;
-      currentVerify.verify_info = mobilePhone;
+      currentVerify.verify_info = mobile_phone;
       currentVerify.current_otp = hash(newOTP);
       currentVerify.otp_expiry = expiry;
     }
@@ -82,16 +79,17 @@ export class AuthService {
     await this.verifyOTPRepository.save(currentVerify);
 
     return {
-      mobilePhone: mobilePhone,
-      currentOTP: newOTP,
+      mobile_phone: mobile_phone,
+      otp: newOTP,
     };
   }
 
   async signUp(signUpDTO: SignUpDTO) {
-    const { firstName, lastName, mobilePhone, password, verifyOTP } = signUpDTO;
+    const { first_name, last_name, mobile_phone, password, verify_otp } =
+      signUpDTO;
 
     const isUsedPhoneNumber = await this.customerRepository.findOneBy({
-      mobile_phone: mobilePhone,
+      mobile_phone: mobile_phone,
     });
 
     if (isUsedPhoneNumber) {
@@ -100,7 +98,7 @@ export class AuthService {
 
     const infoOTP = await this.verifyOTPRepository.findOneBy({
       verify_type: VerifyType.PHONE,
-      verify_info: mobilePhone,
+      verify_info: mobile_phone,
       otp_expiry: MoreThanOrEqual(new Date()),
     });
 
@@ -108,7 +106,7 @@ export class AuthService {
       throw new BadRequestException('phone number is not verified');
     }
 
-    const isValidOTP = compare(verifyOTP, infoOTP.current_otp);
+    const isValidOTP = compare(verify_otp, infoOTP.current_otp);
 
     if (isValidOTP === false) {
       throw new BadRequestException('otp is not valid');
@@ -120,16 +118,16 @@ export class AuthService {
       });
 
       const authCredential = await manager.save(AuthCredential, {
-        cred_login: mobilePhone,
+        cred_login: mobile_phone,
         cred_password: hash(password),
         roles: [individualCustomerRole],
       });
 
       const newCustomer = await manager.save(Customer, {
-        first_name: firstName,
-        last_name: lastName,
+        first_name: first_name,
+        last_name: last_name,
         auth_credential: authCredential,
-        mobile_phone: mobilePhone,
+        mobile_phone: mobile_phone,
       });
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -137,7 +135,7 @@ export class AuthService {
         customer: newCustomer,
       });
 
-      return { newCustomer: plainToClass(Customer, newCustomer) };
+      return { customer: plainToClass(Customer, newCustomer) };
     });
   }
 
@@ -149,8 +147,8 @@ export class AuthService {
     await this.storeRefreshToken(jwtPayload.authId, refreshToken);
 
     return {
-      accessToken,
-      refreshToken,
+      access_token: accessToken,
+      refresh_token: refreshToken,
     };
   }
 
@@ -258,9 +256,9 @@ export class AuthService {
   }
 
   async requestResetPassword(requestResetPasswordDTO: RequestVerifyPhoneDTO) {
-    const { mobilePhone } = requestResetPasswordDTO;
+    const { mobile_phone } = requestResetPasswordDTO;
     const authCredential = await this.authCredentialRepository.findOneBy({
-      cred_login: mobilePhone,
+      cred_login: mobile_phone,
     });
 
     if (!authCredential) {
@@ -277,14 +275,14 @@ export class AuthService {
     await this.authCredentialRepository.save(authCredential);
 
     return {
-      password_reset_otp: newOTP,
+      otp: newOTP,
     };
   }
 
   async resetPassword(resetPasswordDTO: ResetPasswordDTO) {
-    const { mobilePhone, newPassword, otp } = resetPasswordDTO;
+    const { mobile_phone, new_password, otp } = resetPasswordDTO;
     const authCredential = await this.authCredentialRepository.findOneBy({
-      cred_login: mobilePhone,
+      cred_login: mobile_phone,
     });
 
     if (!authCredential) {
@@ -296,7 +294,7 @@ export class AuthService {
       authCredential.password_reset_expiry > new Date()
     ) {
       if (compare(otp, authCredential.password_reset_otp)) {
-        authCredential.cred_password = hash(newPassword);
+        authCredential.cred_password = hash(new_password);
         authCredential.password_reset_otp = null;
         authCredential.password_reset_expiry = null;
 

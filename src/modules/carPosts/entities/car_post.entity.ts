@@ -16,8 +16,9 @@ import { CustomerWishlist } from '@/modules/customer/entities/customer_wishlist.
 
 export enum CarPostStatus {
   DRAFT = 'draft',
-  WAITING_APPROVAL = 'waiting approval',
+  WAITING_TO_PAY = 'Wait to pay',
   POSTED = 'posted',
+  UN_POSTED = 'unposted',
   EXPRIED = 'expired',
 }
 
@@ -48,10 +49,7 @@ export class CarPost {
   @Column({ type: 'timestamp', nullable: true })
   expired_at: Date;
 
-  @Column({
-    type: 'enum',
-    enum: CarPostStatus,
-  })
+  @Column({ type: 'varchar', default: CarPostStatus.DRAFT })
   post_status: CarPostStatus;
 
   @ManyToMany(

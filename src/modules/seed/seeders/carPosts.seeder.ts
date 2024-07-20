@@ -12,6 +12,7 @@ import {
   CarPost,
   CarPostStatus,
 } from '@/modules/carPosts/entities/car_post.entity';
+import { generateCarSlug } from '@/utils/common.utils';
 
 @Injectable()
 export class CarPostsSeeder implements SeederInterface {
@@ -70,6 +71,11 @@ export class CarPostsSeeder implements SeederInterface {
         car_brand: postInfo.car_brand,
         car_model: postInfo.car_model,
         car_variant: postInfo.car_variant,
+        car_slug: generateCarSlug(
+          postInfo.car_brand,
+          postInfo.car_model,
+          postInfo.manufacturing_date,
+        ),
         manufacturing_date: postInfo.manufacturing_date,
         body_type: postInfo.body_type,
         car_mileage: postInfo.car_mileage,

@@ -24,26 +24,20 @@ export class AuthController {
   async requestVerifyPhone(
     @Body() requestVerifyPhoneDTO: RequestVerifyPhoneDTO,
   ) {
-    return {
-      data: await this.authService.requestVerifyPhone(requestVerifyPhoneDTO),
-    };
+    return await this.authService.requestVerifyPhone(requestVerifyPhoneDTO);
   }
 
   @Post('sign-up')
   @HttpCode(201)
   async signUp(@Body() signUpDTO: SignUpDTO) {
-    return {
-      data: await this.authService.signUp(signUpDTO),
-    };
+    return await this.authService.signUp(signUpDTO);
   }
 
   @UseGuards(LocalAuthGuard)
   @Post('sign-in')
   @HttpCode(200)
   async signIn(@Req() request: RequestWithUser) {
-    return {
-      data: await this.authService.signIn(request.user),
-    };
+    return await this.authService.signIn(request.user);
   }
 
   @UseGuards(JwtRefreshTokenGuard)
@@ -51,7 +45,7 @@ export class AuthController {
   @HttpCode(200)
   async refresh(@Req() request: RequestWithUser) {
     return {
-      accessToken: this.authService.generateRefreshToken(request.user),
+      access_token: this.authService.generateRefreshToken(request.user),
     };
   }
 
@@ -60,18 +54,12 @@ export class AuthController {
   async requestResetPassword(
     @Body() requestResetPasswordDTO: RequestResetPasswordDTO,
   ) {
-    return {
-      accessToken: await this.authService.requestResetPassword(
-        requestResetPasswordDTO,
-      ),
-    };
+    return await this.authService.requestResetPassword(requestResetPasswordDTO);
   }
 
   @Post('reset-password')
   @HttpCode(200)
   async resetPassword(@Body() resetPasswordDTO: ResetPasswordDTO) {
-    return {
-      accessToken: await this.authService.resetPassword(resetPasswordDTO),
-    };
+    return await this.authService.resetPassword(resetPasswordDTO);
   }
 }

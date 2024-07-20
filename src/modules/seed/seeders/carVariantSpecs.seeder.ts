@@ -5,7 +5,7 @@ import { SeederInterface } from '../seeder.interface';
 import * as path from 'node:path';
 import * as fs from 'fs';
 import { CarModel } from '@/modules/cars/entities/car_model.entity';
-import { CarVariantSpec } from '@/modules/cars/entities/Car_Variant_Specs.entity';
+import { CarVariantSpec } from '@/modules/cars/entities/car_variant_specs.entity';
 
 @Injectable()
 export class CarVariantSpecsSeeder implements SeederInterface {

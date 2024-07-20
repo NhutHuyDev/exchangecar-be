@@ -3,7 +3,7 @@ import { CarBrand } from './entities/car_brand.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ILike, Repository } from 'typeorm';
 import { CarModel } from './entities/car_model.entity';
-import { CarVariantSpec } from './entities/Car_Variant_Specs.entity';
+import { CarVariantSpec } from './entities/car_variant_specs.entity';
 
 @Injectable()
 export class CarsService {

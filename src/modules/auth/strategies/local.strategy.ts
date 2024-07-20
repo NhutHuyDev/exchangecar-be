@@ -8,12 +8,12 @@ import SystemRole from '@/constraints/systemRoles.enum.constraint';
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly authService: AuthService) {
-    super({ usernameField: 'mobilePhone' });
+    super({ usernameField: 'mobile_phone' });
   }
 
-  async validate(mobilePhone: string, password: string) {
+  async validate(mobile_phone: string, password: string) {
     const authCredential = await this.authService.getAuthenticationWithRole(
-      mobilePhone,
+      mobile_phone,
       password,
     );
 

@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { CarBrand } from './car_brand.entity';
-import { CarVariantSpec } from './Car_Variant_Specs.entity';
+import { CarVariantSpec } from './car_variant_specs.entity';
 
 @Entity('Car_Models')
 export class CarModel {

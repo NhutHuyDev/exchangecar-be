@@ -3,7 +3,7 @@ import { IsNotEmpty, IsPhoneNumber, IsString, Length } from 'class-validator';
 export class SignInDTO {
   @IsPhoneNumber()
   @IsNotEmpty()
-  readonly mobilePhone: string;
+  readonly mobile_phone: string;
 
   @IsString()
   @Length(6)

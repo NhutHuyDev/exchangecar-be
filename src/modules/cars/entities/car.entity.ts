@@ -35,6 +35,9 @@ export class Car {
   @Column({ type: 'varchar', nullable: true })
   car_variant: string;
 
+  @Column({ type: 'text' })
+  car_slug: string;
+
   @Column({ type: 'int' })
   manufacturing_date: number;
 

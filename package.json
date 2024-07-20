@@ -14,7 +14,7 @@
     "seed": "SET NODE_ENV=development && nest start --entryFile seed",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "SET NODE_ENV=development & nest start",
     "start:dev": "SET NODE_ENV=development & nest start --watch",
     "start:debug": "SET NODE_ENV=development & nest start --debug --watch",
     "start:prod": "SET NODE_ENV=production & node dist/main",

@@ -4,5 +4,5 @@ export class RequestResetPasswordDTO {
   @Length(10)
   @IsPhoneNumber()
   @IsNotEmpty()
-  readonly mobilePhone: string;
+  readonly mobile_phone: string;
 }

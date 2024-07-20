@@ -12,7 +12,7 @@ import { CarBrand } from '../cars/entities/car_brand.entity';
 import { CarBrandsSeeder } from './seeders/carBrands.seeder';
 import { CarModel } from '../cars/entities/car_model.entity';
 import { CarModelsSeeder } from './seeders/carModels.seeder';
-import { CarVariantSpec } from '../cars/entities/Car_Variant_Specs.entity';
+import { CarVariantSpec } from '../cars/entities/car_variant_specs.entity';
 import { CarVariantSpecsSeeder } from './seeders/carVariantSpecs.seeder';
 import { City } from '../customer/entities/city.entity';
 import { District } from '../customer/entities/district.entity';

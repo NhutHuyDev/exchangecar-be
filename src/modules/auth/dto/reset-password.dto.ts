@@ -3,12 +3,12 @@ import { IsNotEmpty, IsPhoneNumber, IsString, Length } from 'class-validator';
 export class ResetPasswordDTO {
   @IsPhoneNumber()
   @IsNotEmpty()
-  readonly mobilePhone: string;
+  readonly mobile_phone: string;
 
   @IsString()
   @Length(6)
   @IsNotEmpty()
-  readonly newPassword: string;
+  readonly new_password: string;
 
   @IsString()
   @Length(6)

@@ -14,6 +14,7 @@ import { S3Service } from '../s3/s3.service';
 import { CarGallery } from '../cars/entities/car_galleries.entity';
 import { Customer } from '../customer/entities/customer.entity';
 import { Car } from '../cars/entities/car.entity';
+import { generateCarSlug } from '@/utils/common.utils';
 
 @Injectable()
 export class CarPostsServices {
@@ -32,8 +33,6 @@ export class CarPostsServices {
   ) {}
 
   async getPosts(carPostquery: CarPostQueryDto) {
-    console.log(carPostquery);
-
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
@@ -243,6 +242,44 @@ export class CarPostsServices {
     };
   }
 
+  async getLatestPosts() {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'customer');
+
+    const latestPosts = await query
+      .orderBy('car_post.posted_at', 'DESC')
+      .take(15)
+      .getMany();
+
+    return {
+      latestPosts: latestPosts,
+    };
+  }
+
+  async getPostByCarSlug(slug: string) {
+    const car = await this.carPostRepository.findOne({
+      where: {
+        car: {
+          car_slug: slug,
+        },
+      },
+      relations: {
+        car: {
+          car_galleries: true,
+        },
+      },
+    });
+
+    if (car) {
+      return car;
+    } else {
+      throw new NotFoundException();
+    }
+  }
+
   async createCarPost(
     authId: number,
     carInfo: CreateCarPostDto,
@@ -265,6 +302,11 @@ export class CarPostsServices {
         car_model: carInfo.car_model,
         car_variant: carInfo.car_variant,
         manufacturing_date: carInfo.manufacturing_date,
+        car_slug: generateCarSlug(
+          carInfo.car_brand,
+          carInfo.car_model,
+          carInfo.manufacturing_date,
+        ),
         body_type: carInfo.body_type,
         car_mileage: carInfo.car_mileage,
         transmission: carInfo.transmission,
@@ -281,7 +323,7 @@ export class CarPostsServices {
         selling_price: carInfo.selling_price,
       });
 
-      const carGalleries = await Promise.all(
+      const carGalleryObj = await Promise.all(
         carGallerieFiles.map(async (carGallerieFile) => {
           const [fileName, fileType] = carGallerieFile.originalname.split('.');
 
@@ -296,21 +338,25 @@ export class CarPostsServices {
 
           return this.carGalleryRepository.create({
             gallery_url: galleryUrl,
+            file_name: uniqueFileName,
             car: car,
           });
         }),
       );
 
-      await manager.save(CarGallery, carGalleries);
+      const carGalleries = await manager.save(CarGallery, carGalleryObj);
 
       const carPost = await manager.save(CarPost, {
         customer: customer,
         car: car,
         created_at: new Date(),
-        post_status: CarPostStatus.WAITING_APPROVAL,
+        post_status: CarPostStatus.WAITING_TO_PAY,
       });
 
-      return { newCarPost: carPost };
+      return {
+        newCarPost: carPost,
+        carGalleries: carGalleries.map((carGallery) => carGallery.gallery_url),
+      };
     });
   }
 }

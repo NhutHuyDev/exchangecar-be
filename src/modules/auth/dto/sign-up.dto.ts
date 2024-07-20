@@ -9,17 +9,17 @@ import {
 export class SignUpDTO {
   @IsPhoneNumber()
   @IsNotEmpty()
-  readonly mobilePhone: string;
+  readonly mobile_phone: string;
 
   @IsString()
   @Length(3)
   @IsNotEmpty()
-  readonly firstName: string;
+  readonly first_name: string;
 
   @IsString()
   @Length(3)
   @IsNotEmpty()
-  readonly lastName: string;
+  readonly last_name: string;
 
   @IsString()
   @Length(6)
@@ -29,5 +29,5 @@ export class SignUpDTO {
   @IsNumberString()
   @Length(6, 6, { message: 'Mobile phone must be exactly 6 characters long' })
   @IsNotEmpty()
-  readonly verifyOTP: string;
+  readonly verify_otp: string;
 }

@@ -12,6 +12,7 @@ import { CarAttributeOption } from '../cars/entities/car_attribute_option.entity
 import { S3Module } from '../s3/s3.module';
 import { CarGallery } from '../cars/entities/car_galleries.entity';
 import { Customer } from '../customer/entities/customer.entity';
+import { CarPostsOwnerController } from './carPosts.owner.controller';
 
 @Module({
   imports: [
@@ -27,7 +28,7 @@ import { Customer } from '../customer/entities/customer.entity';
     ]),
     S3Module,
   ],
-  controllers: [CarPostsController],
+  controllers: [CarPostsController, CarPostsOwnerController],
   providers: [CarPostsServices, CarPostQueriesService],
 })
 export class CarPostsModule {}
