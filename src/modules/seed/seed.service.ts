@@ -32,7 +32,11 @@ export class SeedService {
     private readonly carAttributeOptionsSeeder: CarAttributeOptionsSeeder,
     private readonly carPostsSeeder: CarPostsSeeder,
   ) {
-    this.seeders = [carPostsSeeder];
+    this.seeders = [
+      carVariantSpecsSeeder,
+      carAttributesSeeder,
+      carAttributeOptionsSeeder,
+    ];
   }
 
   async seed() {

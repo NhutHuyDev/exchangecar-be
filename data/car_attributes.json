@@ -1,38 +1,38 @@
 [
     {
         "attribute_name": "transmission",
-        "attribute_title": "Hộp số"
+        "attribute_title": "Transmission"
     },
     {
         "attribute_name": "drivetrain",
-        "attribute_title": "Dẫn động"
+        "attribute_title": "Drivetrain"
     },
     {
         "attribute_name": "car_origin",
-        "attribute_title": "Xuất xứ"
+        "attribute_title": "Car Origin"
     },
     {
         "attribute_name": "car_status",
-        "attribute_title": "Tình trạng"
+        "attribute_title": "Car Status"
     },
     {
         "attribute_name": "engine_type",
-        "attribute_title": "Loại nhiên liệu"
+        "attribute_title": "Engine Type"
     },
     {
         "attribute_name": "out_color",
-        "attribute_title": "Màu ngoại thất"
+        "attribute_title": "Out Color"
     },
     {
         "attribute_name": "body_type",
-        "attribute_title": "Kiểu dáng"
+        "attribute_title": "Body Type"
     },
     {
         "attribute_name": "total_seating",
-        "attribute_title": "Số chổ"
+        "attribute_title": "Total Seating"
     },
     {
         "attribute_name": "total_door",
-        "attribute_title": "Số cửa"
+        "attribute_title": "Total Door"
     }
 ]

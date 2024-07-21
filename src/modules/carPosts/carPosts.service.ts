@@ -259,6 +259,30 @@ export class CarPostsServices {
     };
   }
 
+  async getRelevantPosts(carBrand: string) {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'customer');
+
+    carBrand &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_brand',
+        carBrand,
+      );
+
+    const relevantPosts = await query
+      .orderBy('car_post.posted_at', 'DESC')
+      .take(15)
+      .getMany();
+
+    return {
+      relevantPosts: relevantPosts,
+    };
+  }
+
   async getPostByCarSlug(slug: string) {
     const car = await this.carPostRepository.findOne({
       where: {
@@ -270,6 +294,7 @@ export class CarPostsServices {
         car: {
           car_galleries: true,
         },
+        customer: true,
       },
     });
 

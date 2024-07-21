@@ -1,68 +1,68 @@
 [
     {
         "attribute_name": "drivetrain",
-        "option_value": "FWD - Dẫn động cầu trước",
+        "option_value": "FWD - Front Wheel Drive",
         "option_param": "fwd",
         "option_icon": null
     },
     {
         "attribute_name": "drivetrain",
-        "option_value": "RWD - Dẫn động cầu sau",
+        "option_value": "RWD - Rear Wheel Drive",
         "option_param": "rwd",
         "option_icon": null
     },
     {
         "attribute_name": "drivetrain",
-        "option_value": "4WD - Dẫn động 4 bánh",
+        "option_value": "4WD - Four Wheel Drive",
         "option_param": "4wd",
         "option_icon": null
     },
     {
         "attribute_name": "drivetrain",
-        "option_value": "AWD - Dẫn động 4 bánh toàn thời gian",
+        "option_value": "AWD - All Wheel Drive",
         "option_param": "awd",
         "option_icon": null
     },
     {
         "attribute_name": "transmission",
-        "option_value": "Số tay",
-        "option_param": "so-tay",
+        "option_value": "Manual",
+        "option_param": "manual",
         "option_icon": null
     },
     {
         "attribute_name": "transmission",
-        "option_value": "Số tự động",
-        "option_param": "so-tu-dong",
+        "option_value": "Automatic ",
+        "option_param": "automatic",
         "option_icon": null
     },
     {
         "attribute_name": "car_origin",
-        "option_value": "Nhập khẩu",
-        "option_param": "nhap-khau",
+        "option_value": "Imported",
+        "option_param": "imported",
         "option_icon": null
     },
     {
         "attribute_name": "car_origin",
-        "option_value": "Lắp ráp trong nước",
-        "option_param": "lap-rap-trong-nuoc",
+        "option_value": "Locally Assembled",
+        "option_param": "locally-assembled",
         "option_icon": null
     },
     {
         "attribute_name": "car_status",
-        "option_value": "Đã qua sử dụng",
-        "option_param": "da-qua-su-dung",
+        "option_value": "Old",
+        "option_param": "old",
         "option_icon": null
     },
     {
         "attribute_name": "car_status",
-        "option_value": "Xe mới",
-        "option_param": "xe-moi",
+        "option_value": "New",
+        "option_param": "new",
         "option_icon": null
     },
     {
         "attribute_name": "engine_type",
-        "option_value": "Xăng",
-        "option_param": "xang",
+        "option_value": "Fuel",
+        "option_param": "fuel",
         "option_icon": null
     },
     {
@@ -73,8 +73,8 @@
     },
     {
         "attribute_name": "engine_type",
-        "option_value": "Điện",
-        "option_param": "dien",
+        "option_value": "Electric",
+        "option_param": "electric",
         "option_icon": null
     },
     {
@@ -85,38 +85,44 @@
     },
     {
         "attribute_name": "out_color",
-        "option_value": "Đen",
+        "option_value": "Black",
         "option_param": "1",
         "option_icon": null
     },
     {
         "attribute_name": "out_color",
-        "option_value": "Trắng",
+        "option_value": "White",
         "option_param": "2",
         "option_icon": null
     },
     {
         "attribute_name": "out_color",
-        "option_value": "Bạc",
+        "option_value": "Silver",
         "option_param": "3",
         "option_icon": null
     },
     {
         "attribute_name": "out_color",
-        "option_value": "Đỏ",
+        "option_value": "Red",
         "option_param": "4",
         "option_icon": null
     },
     {
         "attribute_name": "out_color",
-        "option_value": "Nâu",
+        "option_value": "Brown",
         "option_param": "5",
         "option_icon": null
     },
     {
         "attribute_name": "out_color",
-        "option_value": "Xám",
+        "option_value": "Grey",
         "option_param": "6",
+        "option_icon": null
+    },
+    {
+        "attribute_name": "out_color",
+        "option_value": "Blue",
+        "option_param": "7",
         "option_icon": null
     },
     {
@@ -139,8 +145,8 @@
     },
     {
         "attribute_name": "body_type",
-        "option_value": "Bán tải / Pickup",
-        "option_param": "ban-tai-pickup",
+        "option_value": "Truck / Pickup",
+        "option_param": "truck-pickup",
         "option_icon": "https://www.carsome.my/_nuxt/img/body-type-5.64fcac5.svg"
     },
     {
@@ -163,8 +169,8 @@
     },
     {
         "attribute_name": "body_type",
-        "option_value": "convertible",
-        "option_param": "Convertible",
+        "option_value": "Convertible",
+        "option_param": "convertible",
         "option_icon": "https://www.carsome.my/_nuxt/img/body-type-8-active.471d264.svg"
     }
 ]

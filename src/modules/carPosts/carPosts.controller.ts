@@ -54,6 +54,13 @@ export class CarPostsController {
     };
   }
 
+  @Get('/relevant')
+  async getRelevantPosts(@Query() query: any) {
+    return {
+      data: await this.carPostsService.getRelevantPosts(query.car_brand),
+    };
+  }
+
   @Get('/:slug')
   async getPostByCarSlug(@Param() param: GetPostByCarSlugDto) {
     return {

@@ -26,7 +26,7 @@ export class CarPostQueriesService {
      **/
     const carBrands = await this.carBrandRepository.find();
     const carBrandModelFilter = {
-      title: 'Hãng xe',
+      title: 'Brand',
     };
 
     const brand_options = {};
@@ -56,7 +56,7 @@ export class CarPostQueriesService {
      **/
     const cities = await this.cityRepository.find();
     const citiesFilter = {
-      title: 'Thành phố',
+      title: 'City',
     };
 
     const city_options = {};
@@ -72,7 +72,7 @@ export class CarPostQueriesService {
     const minYear = 2000;
     const currentYear = new Date().getFullYear();
     const manufacturingDateFilter = {
-      title: 'Năm sản xuất',
+      title: 'Manufacturing Date',
       range: [minYear, currentYear],
     };
 
@@ -82,8 +82,8 @@ export class CarPostQueriesService {
     const minPrice = 0;
     const maxPrice = 99999;
     const sellingPriceFilter = {
-      title: 'Giá',
-      unit: 'Triệu',
+      title: 'Selling Price',
+      unit: 'milion',
       range: [minPrice, maxPrice],
     };
 
@@ -94,7 +94,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('car_origin');
 
     const carOriginFilter = {
-      title: 'Xuất xứ',
+      title: 'Origin',
     };
 
     const originOptions = {};
@@ -111,7 +111,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('car_status');
 
     const carStatusFilter = {
-      title: 'Tình trạng',
+      title: 'Status',
     };
 
     const statusOptions = {};
@@ -127,7 +127,7 @@ export class CarPostQueriesService {
     const minMileage = 0;
     const maxMileage = 9999999;
     const carMileageFilter = {
-      title: 'Quãng đường đã đi',
+      title: 'Car Mileage',
       range: [minMileage, maxMileage],
     };
 
@@ -138,7 +138,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('transmission');
 
     const transmissionFilter = {
-      title: 'Hộp số',
+      title: 'Transmission',
     };
 
     const transmissionOptions = {};
@@ -155,7 +155,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('drivetrain');
 
     const drivetrainFilter = {
-      title: 'Dẫn động',
+      title: 'Drivetrain',
     };
 
     const drivetrainOptions = {};
@@ -172,7 +172,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('engine_type');
 
     const engineTypeFilter = {
-      title: 'Nhiên liệu',
+      title: 'Engine Type',
     };
 
     const engineTypeOptions = {};
@@ -189,7 +189,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('body_type');
 
     const bodyTypeFilter = {
-      title: 'Kiểu dáng',
+      title: 'Body_Type',
     };
 
     const bodyTypeOptions = {};
@@ -209,7 +209,7 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('out_color');
 
     const outColorFilter = {
-      title: 'Màu ngoại thất',
+      title: 'Out Color',
     };
 
     const outColorOptions = {};
@@ -223,7 +223,7 @@ export class CarPostQueriesService {
      * @description Filter by total_seating
      **/
     const totalSeatingFilter = {
-      title: 'Số ghế',
+      title: 'Total Seating',
       options: [2, 4, 7, 8, 9, 12],
     };
 
@@ -231,7 +231,7 @@ export class CarPostQueriesService {
      * @description Filter by total_doors
      **/
     const totalDoorsFilter = {
-      title: 'Số cửa',
+      title: 'Total Doors',
       options: [2, 3, 4, 5],
     };
 
@@ -239,14 +239,14 @@ export class CarPostQueriesService {
      * @description Filter by search
      **/
     const search = {
-      title: 'Tìm kiếm',
+      title: 'Search',
     };
 
     /**
      * @description order_by
      **/
     const orderBy = {
-      title: 'Sắp xếp',
+      title: 'Sort',
       options: Object.values(SortOptions),
     };
 
