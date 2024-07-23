@@ -247,7 +247,18 @@ export class CarPostQueriesService {
      **/
     const orderBy = {
       title: 'Sort',
-      options: Object.values(SortOptions),
+      options: {
+        [SortOptions.ASC_POSTED_DATE]: 'Sort by Date Posted (Oldest First)',
+        [SortOptions.DES_POSTED_DATE]: 'Sort by Date Posted (Newest First)',
+        [SortOptions.ASC_SELLING_PRICE]: 'Sort by Price (Lowest First)',
+        [SortOptions.DES_SELLING_PRICE]: 'Sort by Price (Highest First)',
+        [SortOptions.ASC_CAR_MILEAGE]: 'Sort by Mileage (Lowest First)',
+        [SortOptions.DES_CAR_MILEAGE]: 'Sort by Mileage (Highest First)',
+        [SortOptions.ASC_MANUFACTURING_DATE]:
+          'Sort by Manufacturing Date (Oldest First)',
+        [SortOptions.DES_MANUFACTURING_DATE]:
+          'Sort by Manufacturing Date (Newest First)',
+      },
     };
 
     const query_table = {

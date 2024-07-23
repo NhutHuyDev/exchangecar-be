@@ -217,7 +217,7 @@ export class CarPostsServices {
     /**
      * @description Pagination
      **/
-    const limit = 7;
+    const limit = 9;
 
     const totalCars = await query.getCount();
     const totalPages = Math.ceil(totalCars / limit);
