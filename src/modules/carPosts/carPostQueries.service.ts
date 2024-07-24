@@ -209,12 +209,15 @@ export class CarPostQueriesService {
       await this.findOptionsByAttributeName('out_color');
 
     const outColorFilter = {
-      title: 'Out Color',
+      title: 'Out Color 2',
     };
 
     const outColorOptions = {};
     for (const option of carOutColorOptions) {
-      outColorOptions[option.option_param] = option.option_value;
+      outColorOptions[option.option_param] = {
+        value: option.option_value,
+        colorCode: option.option_icon,
+      };
     }
 
     outColorFilter['options'] = outColorOptions;
