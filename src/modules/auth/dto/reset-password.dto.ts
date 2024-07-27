@@ -13,5 +13,10 @@ export class ResetPasswordDTO {
   @IsString()
   @Length(6)
   @IsNotEmpty()
+  readonly confirmed_password: string;
+
+  @IsString()
+  @Length(6)
+  @IsNotEmpty()
   readonly otp: string;
 }

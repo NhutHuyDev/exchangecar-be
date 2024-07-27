@@ -14,12 +14,21 @@ import { RequestWithUser } from '@/types/requests.type';
 import { JwtRefreshTokenGuard } from './guards/jwt-refresh-token.guard';
 import { RequestResetPasswordDTO } from './dto/request-reset-password.dto';
 import { ResetPasswordDTO } from './dto/reset-password.dto';
+import { ChangePasswordDTO } from './dto/change-password.dto';
+import { JwtAccessTokenGuard } from './guards/jwt-access-token.guard';
 
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @Post('request-verify-phone')
+  @UseGuards(LocalAuthGuard)
+  @Post('sign-in')
+  @HttpCode(200)
+  async signIn(@Req() request: RequestWithUser) {
+    return await this.authService.signIn(request.user);
+  }
+
+  @Post('request-otp/sign-up')
   @HttpCode(200)
   async requestVerifyPhone(
     @Body() requestVerifyPhoneDTO: RequestVerifyPhoneDTO,
@@ -33,23 +42,7 @@ export class AuthController {
     return await this.authService.signUp(signUpDTO);
   }
 
-  @UseGuards(LocalAuthGuard)
-  @Post('sign-in')
-  @HttpCode(200)
-  async signIn(@Req() request: RequestWithUser) {
-    return await this.authService.signIn(request.user);
-  }
-
-  @UseGuards(JwtRefreshTokenGuard)
-  @Post('refresh')
-  @HttpCode(200)
-  async refresh(@Req() request: RequestWithUser) {
-    return {
-      access_token: this.authService.generateRefreshToken(request.user),
-    };
-  }
-
-  @Post('request-reset-password')
+  @Post('request-otp/reset-password')
   @HttpCode(200)
   async requestResetPassword(
     @Body() requestResetPasswordDTO: RequestResetPasswordDTO,
@@ -61,5 +54,27 @@ export class AuthController {
   @HttpCode(200)
   async resetPassword(@Body() resetPasswordDTO: ResetPasswordDTO) {
     return await this.authService.resetPassword(resetPasswordDTO);
+  }
+
+  @UseGuards(JwtAccessTokenGuard)
+  @Post('change-password')
+  @HttpCode(200)
+  async changePassword(
+    @Req() request: RequestWithUser,
+    @Body() changePasswordDTO: ChangePasswordDTO,
+  ) {
+    return await this.authService.changePassword(
+      request.user,
+      changePasswordDTO,
+    );
+  }
+
+  @UseGuards(JwtRefreshTokenGuard)
+  @Post('refresh')
+  @HttpCode(200)
+  async refresh(@Req() request: RequestWithUser) {
+    return {
+      access_token: this.authService.generateRefreshToken(request.user),
+    };
   }
 }

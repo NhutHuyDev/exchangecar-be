@@ -2,7 +2,6 @@ import {
   BadRequestException,
   Injectable,
   UnauthorizedException,
-  UseGuards,
 } from '@nestjs/common';
 import { RequestVerifyPhoneDTO } from './dto/request-verify-phone.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -17,7 +16,6 @@ import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './interfaces/jwtPayload.interface';
 import { Role } from './entities/role.entity';
 import { CustomerWishlist } from '../customer/entities/customer_wishlist.entity';
-import { LocalAuthGuard } from './guards/local.guard';
 import { compare, hash } from '@/utils/hash.util';
 import SystemRole from '@/constraints/systemRoles.enum.constraint';
 import { Session } from './entities/session.entity';
@@ -26,6 +24,7 @@ import {
   refresh_token_private_key,
 } from '@/constraints/jwt.constraint';
 import { ResetPasswordDTO } from './dto/reset-password.dto';
+import { ChangePasswordDTO } from './dto/change-password.dto';
 
 @Injectable()
 export class AuthService {
@@ -43,6 +42,18 @@ export class AuthService {
     private dataSource: DataSource,
     private jwtService: JwtService,
   ) {}
+
+  async signIn(jwtPayload: JwtPayload) {
+    const accessToken = this.generateAccessToken(jwtPayload);
+    const refreshToken = this.generateRefreshToken(jwtPayload);
+
+    await this.storeRefreshToken(jwtPayload.authId, refreshToken);
+
+    return {
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    };
+  }
 
   async requestVerifyPhone(requestVerifyPhoneDTO: RequestVerifyPhoneDTO) {
     const { mobile_phone } = requestVerifyPhoneDTO;
@@ -130,8 +141,7 @@ export class AuthService {
         mobile_phone: mobile_phone,
       });
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const customerWishlist = await manager.save(CustomerWishlist, {
+      await manager.save(CustomerWishlist, {
         customer: newCustomer,
       });
 
@@ -139,17 +149,86 @@ export class AuthService {
     });
   }
 
-  @UseGuards(LocalAuthGuard)
-  async signIn(jwtPayload: JwtPayload) {
-    const accessToken = this.generateAccessToken(jwtPayload);
-    const refreshToken = this.generateRefreshToken(jwtPayload);
+  async requestResetPassword(requestResetPasswordDTO: RequestVerifyPhoneDTO) {
+    const { mobile_phone } = requestResetPasswordDTO;
+    const authCredential = await this.authCredentialRepository.findOneBy({
+      cred_login: mobile_phone,
+    });
 
-    await this.storeRefreshToken(jwtPayload.authId, refreshToken);
+    if (!authCredential) {
+      throw new BadRequestException('mobile phone is not existed');
+    }
+
+    const newOTP = generateOTP(6);
+
+    authCredential.password_reset_otp = hash(newOTP);
+    authCredential.password_reset_expiry = new Date(
+      Date.now() + parseInt(process.env.OTP_EXPIRY_DURATION, 10),
+    );
+
+    await this.authCredentialRepository.save(authCredential);
 
     return {
-      access_token: accessToken,
-      refresh_token: refreshToken,
+      otp: newOTP,
     };
+  }
+
+  async resetPassword(resetPasswordDTO: ResetPasswordDTO) {
+    const { mobile_phone, new_password, confirmed_password, otp } =
+      resetPasswordDTO;
+    const authCredential = await this.authCredentialRepository.findOneBy({
+      cred_login: mobile_phone,
+    });
+
+    if (!authCredential) {
+      throw new BadRequestException('mobile phone is not existed');
+    }
+
+    if (
+      authCredential.password_reset_expiry &&
+      authCredential.password_reset_expiry > new Date()
+    ) {
+      if (compare(otp, authCredential.password_reset_otp)) {
+        if (confirmed_password === new_password) {
+          authCredential.cred_password = hash(new_password);
+          authCredential.password_reset_otp = null;
+          authCredential.password_reset_expiry = null;
+
+          this.authCredentialRepository.save(authCredential);
+
+          return {
+            message: 'reset password successfully',
+          };
+        } else {
+          throw new BadRequestException('confirm password is not matched');
+        }
+      }
+    }
+
+    throw new BadRequestException('invalid otp');
+  }
+
+  async changePassword(user: JwtPayload, changePasswordDTO: ChangePasswordDTO) {
+    const { authId } = user;
+    const { current_password, confirmed_password, new_password } =
+      changePasswordDTO;
+
+    const authCredential = await this.authCredentialRepository.findOneBy({
+      id: authId,
+    });
+
+    if (compare(current_password, authCredential.cred_password)) {
+      if (confirmed_password === new_password) {
+        authCredential.cred_password = hash(new_password);
+        await this.authCredentialRepository.save(authCredential);
+
+        return { message: 'change password successfully' };
+      } else {
+        throw new BadRequestException('confirm password is not matched');
+      }
+    } else {
+      throw new UnauthorizedException();
+    }
   }
 
   async getAuthentication(mobilePhone: string, password: string) {
@@ -253,59 +332,5 @@ export class AuthService {
       authId: authCredential.id,
       roles: roles,
     };
-  }
-
-  async requestResetPassword(requestResetPasswordDTO: RequestVerifyPhoneDTO) {
-    const { mobile_phone } = requestResetPasswordDTO;
-    const authCredential = await this.authCredentialRepository.findOneBy({
-      cred_login: mobile_phone,
-    });
-
-    if (!authCredential) {
-      throw new BadRequestException('mobile phone is not existed');
-    }
-
-    const newOTP = generateOTP(6);
-
-    authCredential.password_reset_otp = hash(newOTP);
-    authCredential.password_reset_expiry = new Date(
-      Date.now() + parseInt(process.env.OTP_EXPIRY_DURATION, 10),
-    );
-
-    await this.authCredentialRepository.save(authCredential);
-
-    return {
-      otp: newOTP,
-    };
-  }
-
-  async resetPassword(resetPasswordDTO: ResetPasswordDTO) {
-    const { mobile_phone, new_password, otp } = resetPasswordDTO;
-    const authCredential = await this.authCredentialRepository.findOneBy({
-      cred_login: mobile_phone,
-    });
-
-    if (!authCredential) {
-      throw new BadRequestException('mobile phone is not existed');
-    }
-
-    if (
-      authCredential.password_reset_expiry &&
-      authCredential.password_reset_expiry > new Date()
-    ) {
-      if (compare(otp, authCredential.password_reset_otp)) {
-        authCredential.cred_password = hash(new_password);
-        authCredential.password_reset_otp = null;
-        authCredential.password_reset_expiry = null;
-
-        this.authCredentialRepository.save(authCredential);
-
-        return {
-          message: 'reset password successfully',
-        };
-      }
-    }
-
-    throw new BadRequestException('invalid otp');
   }
 }
