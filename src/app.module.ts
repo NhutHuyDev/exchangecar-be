@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
-import { UsersModule } from './modules/customer/users.module';
+import { CustomersModule } from './modules/customer/customers.module';
 import { CarPostsModule } from './modules/carPosts/carPosts.module';
 import { CarsModule } from './modules/cars/cars.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -29,7 +29,7 @@ import s3 from './configs/s3.config';
         configService.get('postgres'),
     }),
     AuthModule,
-    UsersModule,
+    CustomersModule,
     CarPostsModule,
     CarsModule,
     StaffsModule,

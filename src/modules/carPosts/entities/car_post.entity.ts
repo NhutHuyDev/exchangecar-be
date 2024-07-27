@@ -27,7 +27,9 @@ export class CarPost {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Customer, (Customer) => Customer.car_posts)
+  @ManyToOne(() => Customer, (Customer) => Customer.car_posts, {
+    onDelete: 'CASCADE',
+  })
   customer: Customer;
 
   @OneToOne(() => Car)
@@ -58,5 +60,5 @@ export class CarPost {
     { cascade: true },
   )
   @JoinTable({ name: 'Wishlist_Posts' })
-  customer_wishlists: CustomerWishlist[];
+  wishlist: CustomerWishlist[];
 }

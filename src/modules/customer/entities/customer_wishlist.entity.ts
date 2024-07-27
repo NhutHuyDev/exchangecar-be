@@ -13,10 +13,12 @@ export class CustomerWishlist {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Customer)
+  @OneToOne(() => Customer, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   customer: Customer;
 
-  @ManyToMany(() => CarPost, (CarPost) => CarPost.customer_wishlists)
+  @ManyToMany(() => CarPost, (CarPost) => CarPost.wishlist)
   car_posts: CarPost[];
 }

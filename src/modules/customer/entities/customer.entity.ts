@@ -28,7 +28,9 @@ export class Customer {
   @Column({ type: 'text', nullable: true })
   email: string;
 
-  @OneToOne(() => Address)
+  @OneToOne(() => Address, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   address: Address;
 
@@ -39,11 +41,15 @@ export class Customer {
   about: string;
 
   @Exclude()
-  @OneToOne(() => AuthCredential)
+  @OneToOne(() => AuthCredential, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   auth_credential: AuthCredential;
 
-  @OneToMany(() => CarPost, (CarPost) => CarPost.customer)
+  @OneToMany(() => CarPost, (CarPost) => CarPost.customer, {
+    onDelete: 'CASCADE',
+  })
   car_posts: CarPost[];
 
   @Column({
