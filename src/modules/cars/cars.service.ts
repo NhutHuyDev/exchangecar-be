@@ -4,6 +4,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ILike, Repository } from 'typeorm';
 import { CarModel } from './entities/car_model.entity';
 import { CarVariantSpec } from './entities/car_variant_specs.entity';
+import { City } from '../customer/entities/city.entity';
+import { District } from '../customer/entities/district.entity';
 
 @Injectable()
 export class CarsService {
@@ -14,6 +16,10 @@ export class CarsService {
     private carModelRepository: Repository<CarModel>,
     @InjectRepository(CarVariantSpec)
     private carVariantSpecRepository: Repository<CarVariantSpec>,
+    @InjectRepository(City)
+    private cityRepository: Repository<City>,
+    @InjectRepository(District)
+    private districtRepository: Repository<District>,
   ) {}
 
   async getCarBrands() {
@@ -70,6 +76,26 @@ export class CarsService {
         total_seating: carSpecs.total_seating,
         total_doors: carSpecs.total_doors,
       },
+    };
+  }
+
+  async getCities() {
+    const cities = await this.cityRepository.find();
+
+    return {
+      cities: cities.map((city) => city.city_name),
+    };
+  }
+
+  async getDistricts(cityName: string) {
+    const districts = await this.districtRepository.findBy({
+      city: {
+        city_name: cityName,
+      },
+    });
+
+    return {
+      districts: districts.map((district) => district.district_name),
     };
   }
 }

@@ -7,7 +7,6 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Address } from './address.entity';
 import { CarPost } from '@/modules/carPosts/entities/car_post.entity';
 import { Exclude } from 'class-transformer';
 
@@ -28,11 +27,14 @@ export class Customer {
   @Column({ type: 'text', nullable: true })
   email: string;
 
-  @OneToOne(() => Address, {
-    onDelete: 'CASCADE',
-  })
-  @JoinColumn()
-  address: Address;
+  @Column({ type: 'text', nullable: true })
+  city_address: string;
+
+  @Column({ type: 'text', nullable: true })
+  district_address: string;
+
+  @Column({ type: 'text', nullable: true })
+  specific_address: string;
 
   @Column({ type: 'text', nullable: true })
   avatar_url: string;

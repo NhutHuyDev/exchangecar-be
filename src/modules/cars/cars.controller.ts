@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { CarsService } from './cars.service';
 import { GetCarModelDTO } from './dto/get-car-models.dto';
 import { GetCarVariantDTO } from './dto/get-car-variants.dto';
@@ -8,21 +8,21 @@ import { GetCarSpecsDTO } from './dto/get-car-specs.dto';
 export class CarsController {
   constructor(private carsService: CarsService) {}
 
-  @Get('brands')
+  @Post('brands')
   async getCarBrands() {
     return {
       data: await this.carsService.getCarBrands(),
     };
   }
 
-  @Get('models')
+  @Post('models')
   async getCarModels(@Body() getCarModelDTO: GetCarModelDTO) {
     return {
       data: await this.carsService.getCarModels(getCarModelDTO.brand_name),
     };
   }
 
-  @Get('variants')
+  @Post('variants')
   async getCarVariants(@Body() getCarVariants: GetCarVariantDTO) {
     return {
       data: await this.carsService.getCarVariants(
@@ -32,13 +32,27 @@ export class CarsController {
     };
   }
 
-  @Get('specs')
+  @Post('specs')
   async getCarSpecs(@Body() getCarSpecsDTO: GetCarSpecsDTO) {
     return {
       data: await this.carsService.getCarSpecs(
         getCarSpecsDTO.variant_name,
         getCarSpecsDTO.manufacturing_date,
       ),
+    };
+  }
+
+  @Post('cities')
+  async getCity() {
+    return {
+      data: await this.carsService.getCities(),
+    };
+  }
+
+  @Post('districts')
+  async getDistricts(@Body() getDistrictDTO: { city_name: string }) {
+    return {
+      data: await this.carsService.getDistricts(getDistrictDTO.city_name),
     };
   }
 }
