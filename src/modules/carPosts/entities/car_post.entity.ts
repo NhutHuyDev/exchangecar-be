@@ -32,7 +32,7 @@ export class CarPost {
   })
   customer: Customer;
 
-  @OneToOne(() => Car)
+  @OneToOne(() => Car, { cascade: true, onUpdate: 'CASCADE' })
   @JoinColumn()
   car: Car;
 

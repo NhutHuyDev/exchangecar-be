@@ -44,12 +44,14 @@ export class Customer {
 
   @Exclude()
   @OneToOne(() => AuthCredential, {
+    cascade: true,
     onDelete: 'CASCADE',
   })
   @JoinColumn()
   auth_credential: AuthCredential;
 
   @OneToMany(() => CarPost, (CarPost) => CarPost.customer, {
+    cascade: true,
     onDelete: 'CASCADE',
   })
   car_posts: CarPost[];

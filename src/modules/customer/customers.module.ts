@@ -6,10 +6,16 @@ import { Customer } from './entities/customer.entity';
 import { CustomerWishlist } from './entities/customer_wishlist.entity';
 import { CarPost } from '../carPosts/entities/car_post.entity';
 import { S3Module } from '../s3/s3.module';
+import { AuthCredential } from '../auth/entities/auth_credential.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Customer, CustomerWishlist, CarPost]),
+    TypeOrmModule.forFeature([
+      Customer,
+      CustomerWishlist,
+      CarPost,
+      AuthCredential,
+    ]),
     S3Module,
   ],
   controllers: [CustomersController],

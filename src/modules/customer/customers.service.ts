@@ -110,11 +110,18 @@ export class CustomersServices {
   async deleteMe(user: JwtPayload) {
     const { authId } = user;
 
-    await this.customerRepository.delete({
-      auth_credential: {
-        id: authId,
+    const currentUser = await this.customerRepository.findOne({
+      where: {
+        auth_credential: {
+          id: authId,
+        },
+      },
+      relations: {
+        auth_credential: true,
       },
     });
+
+    await this.customerRepository.remove(currentUser);
 
     return {
       message: `Delete user successfully`,

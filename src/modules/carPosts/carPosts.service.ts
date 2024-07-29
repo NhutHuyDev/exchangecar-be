@@ -16,6 +16,7 @@ import { Customer } from '../customer/entities/customer.entity';
 import { Car } from '../cars/entities/car.entity';
 import { generateCarSlug } from '@/utils/common.utils';
 import { JwtPayload } from '../auth/interfaces/jwtPayload.interface';
+import { UpdateCarPostDto } from './dto/update-car-post.dto';
 
 @Injectable()
 export class CarPostsServices {
@@ -436,6 +437,88 @@ export class CarPostsServices {
         })),
       };
     });
+  }
+
+  async updateCarPost(
+    user: JwtPayload,
+    postId: number,
+    carInfoUpdate: UpdateCarPostDto,
+    carGallerieFiles: Array<Express.Multer.File>,
+  ) {
+    const { authId } = user;
+
+    const currentPost = await this.carPostRepository.findOne({
+      where: {
+        id: postId,
+        customer: {
+          auth_credential: {
+            id: authId,
+          },
+        },
+      },
+      relations: {
+        car: {
+          car_galleries: true,
+        },
+      },
+    });
+
+    // car_brand
+    currentPost.car.car_brand = carInfoUpdate.car_brand
+      ? carInfoUpdate.car_brand
+      : currentPost.car.car_brand;
+
+    // car_model
+    currentPost.car.car_model = carInfoUpdate.car_model
+      ? carInfoUpdate.car_model
+      : currentPost.car.car_model;
+
+    // car_variant
+    currentPost.car.car_variant = carInfoUpdate.car_variant
+      ? carInfoUpdate.car_variant
+      : currentPost.car.car_variant;
+
+    // manufacturing_date
+    currentPost.car.manufacturing_date = carInfoUpdate.manufacturing_date
+      ? carInfoUpdate.manufacturing_date
+      : currentPost.car.manufacturing_date;
+
+    // body_type
+    currentPost.car.body_type = carInfoUpdate.body_type
+      ? carInfoUpdate.body_type
+      : currentPost.car.body_type;
+
+    // car_mileage
+    currentPost.car.car_mileage = carInfoUpdate.car_mileage
+      ? carInfoUpdate.car_mileage
+      : currentPost.car.car_mileage;
+
+    // transmission
+    currentPost.car.transmission = carInfoUpdate.transmission
+      ? carInfoUpdate.transmission
+      : currentPost.car.transmission;
+
+    // drivetrain
+    currentPost.car.drivetrain = carInfoUpdate.drivetrain
+      ? carInfoUpdate.drivetrain
+      : currentPost.car.drivetrain;
+
+    // engine_type
+    currentPost.car.engine_type = carInfoUpdate.engine_type
+      ? carInfoUpdate.engine_type
+      : currentPost.car.engine_type;
+
+    // out_color
+    // total_seating
+    // total_doors
+    // city
+    // district
+    // car_origin
+    // car_status
+    // description
+    // selling_price
+
+    return { updatedCar: await this.carPostRepository.save(currentPost) };
   }
 
   async deleteCarPost(user: JwtPayload, postId: number) {

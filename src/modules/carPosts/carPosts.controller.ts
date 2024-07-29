@@ -26,6 +26,7 @@ import { CreateCarPostDto } from './dto/create-car-post.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { GetPostByCarSlugDto } from './dto/get-post-by-car-slug.dto';
 import { GetPostsByCustomerDto } from './dto/get-posts-by-customer.dto';
+import { UpdateCarPostDto } from './dto/update-car-post.dto';
 
 @Controller('posts')
 export class CarPostsController {
@@ -111,13 +112,31 @@ export class CarPostsController {
   }
 
   @Patch('/:post_id')
+  @UseInterceptors(FilesInterceptor('car_galleries'))
   @Roles(SystemRole.Individual_Customer)
   @UseGuards(RolesGuard)
   @UseGuards(JwtAccessTokenGuard)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  updatePost(@Req() request: RequestWithUser) {
+  async updatePost(
+    @Req() request: RequestWithUser,
+    @Param() param: { post_id: number },
+    @Body() updateCarPostDto: UpdateCarPostDto,
+    @UploadedFiles(
+      new ParseFilePipe({
+        validators: [
+          new FileTypeValidator({ fileType: '.(png|jpeg|jpg|webp)' }),
+        ],
+        fileIsRequired: false,
+      }),
+    )
+    car_galleries: Array<Express.Multer.File>,
+  ) {
     return {
-      post: 'updated',
+      data: await this.carPostsService.updateCarPost(
+        request.user,
+        param.post_id,
+        updateCarPostDto,
+        car_galleries,
+      ),
     };
   }
 
