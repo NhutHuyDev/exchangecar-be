@@ -32,7 +32,10 @@ export class Staff {
   @Column({ type: 'text', nullable: true })
   avatar_url: string;
 
-  @OneToOne(() => AuthCredential)
+  @OneToOne(() => AuthCredential, {
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   auth_credential: AuthCredential;
 

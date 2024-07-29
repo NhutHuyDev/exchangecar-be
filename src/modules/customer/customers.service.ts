@@ -8,10 +8,13 @@ import { CarPost } from '../carPosts/entities/car_post.entity';
 import { plainToInstance } from 'class-transformer';
 import { CustomerUpdateInformationDto } from './dto/update-information.dto';
 import { S3Service } from '../s3/s3.service';
+import { AuthCredential } from '../auth/entities/auth_credential.entity';
 
 @Injectable()
 export class CustomersServices {
   constructor(
+    @InjectRepository(AuthCredential)
+    private authCredentialRepository: Repository<AuthCredential>,
     @InjectRepository(Customer)
     private customerRepository: Repository<Customer>,
     @InjectRepository(CustomerWishlist)
@@ -110,18 +113,13 @@ export class CustomersServices {
   async deleteMe(user: JwtPayload) {
     const { authId } = user;
 
-    const currentUser = await this.customerRepository.findOne({
+    const currentUser = await this.authCredentialRepository.findOne({
       where: {
-        auth_credential: {
-          id: authId,
-        },
-      },
-      relations: {
-        auth_credential: true,
+        id: authId,
       },
     });
 
-    await this.customerRepository.remove(currentUser);
+    await this.authCredentialRepository.remove(currentUser);
 
     return {
       message: `Delete user successfully`,

@@ -12,7 +12,10 @@ export class Session {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => AuthCredential)
+  @ManyToOne(() => AuthCredential, {
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
   @JoinColumn()
   auth_credential: AuthCredential;
 
