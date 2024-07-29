@@ -21,6 +21,8 @@ export class CustomerWishlist {
   @JoinColumn()
   customer: Customer;
 
-  @ManyToMany(() => CarPost, (CarPost) => CarPost.wishlist)
+  @ManyToMany(() => CarPost, (CarPost) => CarPost.wishlist, {
+    onDelete: 'CASCADE',
+  })
   car_posts: CarPost[];
 }

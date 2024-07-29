@@ -24,6 +24,7 @@ import { JwtRefreshTokenStrategy } from './strategies/jwt-refresh-token.stategy'
       AuthCredential,
       Role,
       Session,
+      Customer,
     ]),
     JwtModule.register({}),
   ],

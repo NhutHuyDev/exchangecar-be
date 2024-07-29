@@ -110,14 +110,14 @@ export class CustomersServices {
   async deleteMe(user: JwtPayload) {
     const { authId } = user;
 
-    const deleteResult = await this.customerRepository.delete({
+    await this.customerRepository.delete({
       auth_credential: {
         id: authId,
       },
     });
 
     return {
-      deleteResult: deleteResult,
+      message: `Delete user successfully`,
     };
   }
 

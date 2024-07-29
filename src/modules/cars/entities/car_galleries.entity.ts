@@ -6,7 +6,7 @@ export class CarGallery {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Car, (Car) => Car.car_galleries)
+  @ManyToOne(() => Car, (Car) => Car.car_galleries, { onDelete: 'CASCADE' })
   car: Car;
 
   @Column({ type: 'varchar' })

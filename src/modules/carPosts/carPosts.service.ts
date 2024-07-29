@@ -15,6 +15,7 @@ import { CarGallery } from '../cars/entities/car_galleries.entity';
 import { Customer } from '../customer/entities/customer.entity';
 import { Car } from '../cars/entities/car.entity';
 import { generateCarSlug } from '@/utils/common.utils';
+import { JwtPayload } from '../auth/interfaces/jwtPayload.interface';
 
 @Injectable()
 export class CarPostsServices {
@@ -235,7 +236,7 @@ export class CarPostsServices {
       total_cars: totalCars,
       car_posts: carPosts,
       total_pages: totalPages,
-      previous_page: carPostquery.page - 1 > 1 ? carPostquery.page - 1 : null,
+      previous_page: carPostquery.page - 1 >= 1 ? carPostquery.page - 1 : null,
       current_page: carPostquery.page,
       next_page:
         carPostquery.page + 1 <= totalPages ? carPostquery.page + 1 : null,
@@ -303,6 +304,55 @@ export class CarPostsServices {
     } else {
       throw new NotFoundException();
     }
+  }
+
+  async getPostByCustomer(customerId: number, carPostquery: CarPostQueryDto) {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'customer')
+      .andWhere(`customer.id = ${customerId}`);
+
+    /**
+     * @description Sorting
+     **/
+    let fieldToOrder = null;
+    const order_by = mapSortParam[carPostquery.order_by];
+    if (order_by.includes('-')) {
+      fieldToOrder = order_by.split('-')[1];
+      query.orderBy(fieldToOrder, 'DESC');
+    } else {
+      fieldToOrder = order_by;
+      query.orderBy(fieldToOrder, 'ASC');
+    }
+
+    /**
+     * @description Pagination
+     **/
+    const limit = 9;
+
+    const totalCars = await query.getCount();
+    const totalPages = Math.ceil(totalCars / limit);
+
+    if (carPostquery.page > totalPages) {
+      throw new NotFoundException();
+    }
+
+    const carPosts = await query
+      .skip(limit * (carPostquery.page - 1))
+      .take(limit)
+      .getMany();
+
+    return {
+      total_cars: totalCars,
+      car_posts: carPosts,
+      total_pages: totalPages,
+      previous_page: carPostquery.page - 1 >= 1 ? carPostquery.page - 1 : null,
+      current_page: carPostquery.page,
+      next_page:
+        carPostquery.page + 1 <= totalPages ? carPostquery.page + 1 : null,
+    };
   }
 
   async createCarPost(
@@ -380,8 +430,43 @@ export class CarPostsServices {
 
       return {
         newCarPost: carPost,
-        carGalleries: carGalleries.map((carGallery) => carGallery.gallery_url),
+        carGalleries: carGalleries.map((carGallery) => ({
+          file_name: carGallery.file_name,
+          gallery_url: carGallery.gallery_url,
+        })),
       };
     });
+  }
+
+  async deleteCarPost(user: JwtPayload, postId: number) {
+    const { authId } = user;
+
+    const currentPost = await this.carPostRepository.findOne({
+      where: {
+        id: postId,
+        customer: {
+          auth_credential: {
+            id: authId,
+          },
+        },
+      },
+      relations: {
+        car: {
+          car_galleries: true,
+        },
+      },
+    });
+
+    await Promise.all(
+      currentPost.car.car_galleries.map(async (car_gallery) => {
+        await this.s3Service.deleteImageToBucket(car_gallery.file_name);
+      }),
+    );
+
+    await this.carPostRepository.remove(currentPost);
+
+    return {
+      message: `Delete post - id: ${postId} successfully`,
+    };
   }
 }

@@ -1,5 +1,9 @@
 import { S3Config } from '@/configs/s3.config';
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import {
+  DeleteObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from '@aws-sdk/client-s3';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
@@ -36,5 +40,14 @@ export class S3Service {
     await this.s3Client.send(new PutObjectCommand(uploadParams));
 
     return `https://${s3Config.name}.s3.${s3Config.region}.amazonaws.com/${fileName}`;
+  }
+
+  async deleteImageToBucket(fileName: string) {
+    const deleteParams = {
+      Bucket: this.configService.get<S3Config>('s3').name,
+      Key: fileName,
+    };
+
+    await this.s3Client.send(new DeleteObjectCommand(deleteParams));
   }
 }

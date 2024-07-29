@@ -25,6 +25,7 @@ import { CarPostQueriesService } from './carPostQueries.service';
 import { CreateCarPostDto } from './dto/create-car-post.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { GetPostByCarSlugDto } from './dto/get-post-by-car-slug.dto';
+import { GetPostsByCustomerDto } from './dto/get-posts-by-customer.dto';
 
 @Controller('posts')
 export class CarPostsController {
@@ -61,6 +62,19 @@ export class CarPostsController {
     };
   }
 
+  @Get('/customer/:customer_id')
+  async getPostsByCustomer(
+    @Param() param: GetPostsByCustomerDto,
+    @Query() query: CarPostQueryDto,
+  ) {
+    return {
+      data: await this.carPostsService.getPostByCustomer(
+        param.customer_id,
+        query,
+      ),
+    };
+  }
+
   @Get('/:slug')
   async getPostByCarSlug(@Param() param: GetPostByCarSlugDto) {
     return {
@@ -88,13 +102,11 @@ export class CarPostsController {
     const authId = request.user.authId;
 
     return {
-      data: {
-        newCarPost: await this.carPostsService.createCarPost(
-          authId,
-          createCarPostDTO,
-          car_galleries,
-        ),
-      },
+      data: await this.carPostsService.createCarPost(
+        authId,
+        createCarPostDTO,
+        car_galleries,
+      ),
     };
   }
 
@@ -113,10 +125,15 @@ export class CarPostsController {
   @Roles(SystemRole.Individual_Customer)
   @UseGuards(RolesGuard)
   @UseGuards(JwtAccessTokenGuard)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  deletePost(@Req() request: RequestWithUser) {
+  async deletePost(
+    @Req() request: RequestWithUser,
+    @Param() param: { post_id: number },
+  ) {
     return {
-      post: 'deleted',
+      data: await this.carPostsService.deleteCarPost(
+        request.user,
+        param.post_id,
+      ),
     };
   }
 }
