@@ -463,6 +463,10 @@ export class CarPostsServices {
       },
     });
 
+    if (!currentPost) {
+      throw new NotFoundException('car is not found');
+    }
+
     // car_brand
     currentPost.car.car_brand = carInfoUpdate.car_brand
       ? carInfoUpdate.car_brand
@@ -509,14 +513,86 @@ export class CarPostsServices {
       : currentPost.car.engine_type;
 
     // out_color
+    currentPost.car.out_color = carInfoUpdate.out_color
+      ? carInfoUpdate.out_color
+      : currentPost.car.out_color;
+
     // total_seating
+    currentPost.car.total_seating = carInfoUpdate.total_seating
+      ? carInfoUpdate.total_seating
+      : currentPost.car.total_seating;
+
     // total_doors
+    currentPost.car.total_doors = carInfoUpdate.total_doors
+      ? carInfoUpdate.total_doors
+      : currentPost.car.total_doors;
+
     // city
+    currentPost.car.city = carInfoUpdate.city
+      ? carInfoUpdate.city
+      : currentPost.car.city;
+
     // district
+    currentPost.car.district = carInfoUpdate.district
+      ? carInfoUpdate.district
+      : currentPost.car.district;
+
     // car_origin
+    currentPost.car.car_origin = carInfoUpdate.car_origin
+      ? carInfoUpdate.car_origin
+      : currentPost.car.car_origin;
+
     // car_status
+    currentPost.car.car_status = carInfoUpdate.car_status
+      ? carInfoUpdate.car_status
+      : currentPost.car.car_status;
+
     // description
+    currentPost.car.description = carInfoUpdate.description
+      ? carInfoUpdate.description
+      : currentPost.car.description;
+
     // selling_price
+    currentPost.car.selling_price = carInfoUpdate.selling_price
+      ? carInfoUpdate.selling_price
+      : currentPost.car.selling_price;
+
+    // car_gallery
+    if (carGallerieFiles) {
+      await Promise.all(
+        currentPost.car.car_galleries.map(async (car_gallery) => {
+          await this.s3Service.deleteImageToBucket(car_gallery.file_name);
+        }),
+      );
+
+      await this.carGalleryRepository.remove(currentPost.car.car_galleries);
+
+      const carGalleries = await Promise.all(
+        carGallerieFiles.map(async (carGallerieFile) => {
+          const [fileName, fileType] = carGallerieFile.originalname.split('.');
+
+          const uniqueFileName =
+            fileName.split(' ').join('') + '-' + Date.now() + '.' + fileType;
+
+          const galleryUrl = await this.s3Service.uploadImageToBucket(
+            carGallerieFile.buffer,
+            uniqueFileName,
+            carGallerieFile.mimetype,
+          );
+
+          return this.carGalleryRepository.create({
+            gallery_url: galleryUrl,
+            file_name: uniqueFileName,
+            car: currentPost.car,
+          });
+        }),
+      );
+
+      console.log(carGalleries);
+
+      currentPost.car.car_galleries = carGalleries;
+      await this.carGalleryRepository.save(currentPost.car.car_galleries);
+    }
 
     return { updatedCar: await this.carPostRepository.save(currentPost) };
   }
