@@ -33,6 +33,7 @@ export class AdminSeeder implements SeederInterface {
     const authCredential = await this.authCredentialRepository.save({
       cred_login: process.env.ADMIN_PHONE_NUMBER,
       cred_password: hash(process.env.ADMIN_PASSWORD),
+      roles: [adminRole],
     });
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

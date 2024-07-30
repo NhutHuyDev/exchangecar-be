@@ -49,10 +49,10 @@ export class StaffsSeeder implements SeederInterface {
       const authCredential = await this.authCredentialRepository.save({
         cred_login: staffInfo.mobile_phone,
         cred_password: hash(staffInfo.password),
+        roles: [staffRole],
       });
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const staff = await this.staffRepository.save({
+      await this.staffRepository.save({
         first_name: staffInfo.first_name,
         last_name: staffInfo.last_name,
         mobile_phone: staffInfo.mobile_phone,

@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from '../../customer/entities/address.entity';
+import { Exclude } from 'class-transformer';
 
 @Entity('Staffs')
 export class Staff {
@@ -32,6 +33,7 @@ export class Staff {
   @Column({ type: 'text', nullable: true })
   avatar_url: string;
 
+  @Exclude()
   @OneToOne(() => AuthCredential, {
     cascade: true,
     onDelete: 'CASCADE',

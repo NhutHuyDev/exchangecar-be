@@ -34,6 +34,20 @@ export class CarPostsServices {
     private s3Service: S3Service,
   ) {}
 
+  async getAllPosts() {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'customer');
+
+    const carPosts = await query.getMany();
+
+    return {
+      car_posts: carPosts,
+    };
+  }
+
   async getPosts(carPostquery: CarPostQueryDto) {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
@@ -356,6 +370,21 @@ export class CarPostsServices {
     };
   }
 
+  async getAllPostByCustomer(customerId: number) {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'customer')
+      .andWhere(`customer.id = ${customerId}`);
+
+    const carPosts = await query.getMany();
+
+    return {
+      car_posts: carPosts,
+    };
+  }
+
   async createCarPost(
     authId: number,
     carInfo: CreateCarPostDto,
@@ -587,8 +616,6 @@ export class CarPostsServices {
           });
         }),
       );
-
-      console.log(carGalleries);
 
       currentPost.car.car_galleries = carGalleries;
       await this.carGalleryRepository.save(currentPost.car.car_galleries);

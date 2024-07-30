@@ -9,6 +9,8 @@ import { plainToInstance } from 'class-transformer';
 import { CustomerUpdateInformationDto } from './dto/update-information.dto';
 import { S3Service } from '../s3/s3.service';
 import { AuthCredential } from '../auth/entities/auth_credential.entity';
+import SystemRole from '@/constraints/systemRoles.enum.constraint';
+import { Staff } from '../staffs/entities/staff.entity';
 
 @Injectable()
 export class CustomersServices {
@@ -17,6 +19,8 @@ export class CustomersServices {
     private authCredentialRepository: Repository<AuthCredential>,
     @InjectRepository(Customer)
     private customerRepository: Repository<Customer>,
+    @InjectRepository(Staff)
+    private staffRepository: Repository<Staff>,
     @InjectRepository(CustomerWishlist)
     private customerWishlistRepository: Repository<CustomerWishlist>,
     @InjectRepository(CarPost)
@@ -25,17 +29,66 @@ export class CustomersServices {
   ) {}
 
   async getMe(user: JwtPayload) {
-    const { authId } = user;
-    const currentUser = await this.customerRepository.findOne({
-      where: {
-        auth_credential: {
-          id: authId,
-        },
-      },
-    });
+    const { authId, roles } = user;
 
-    if (currentUser) {
-      return { currentUser: currentUser };
+    console.log(roles);
+
+    if (roles.includes(SystemRole.Individual_Customer)) {
+      const currentUser: Customer & { user_roles?: SystemRole[] } =
+        await this.customerRepository.findOne({
+          where: {
+            auth_credential: {
+              id: authId,
+            },
+          },
+
+          relations: {
+            auth_credential: {
+              roles: true,
+            },
+          },
+        });
+
+      if (currentUser) {
+        const userRoles: SystemRole[] = currentUser.auth_credential.roles.map(
+          (role) => role.role_title,
+        );
+
+        currentUser.user_roles = userRoles;
+
+        return {
+          currentUser: plainToInstance(Customer, currentUser),
+        };
+      }
+    }
+
+    if (roles.includes(SystemRole.Staff)) {
+      const currentUser: Staff & { user_roles?: SystemRole[] } =
+        await this.staffRepository.findOne({
+          where: {
+            auth_credential: {
+              id: authId,
+            },
+          },
+
+          relations: {
+            auth_credential: {
+              roles: true,
+            },
+          },
+        });
+
+      if (currentUser) {
+        const userRoles: SystemRole[] = currentUser.auth_credential.roles.map(
+          (role) => role.role_title,
+        );
+
+        currentUser.user_roles = userRoles;
+
+        return {
+          currentUser: plainToInstance(Staff, currentUser),
+        };
+      }
     }
 
     throw new NotFoundException('user is not found');

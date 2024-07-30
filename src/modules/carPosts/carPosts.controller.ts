@@ -42,6 +42,13 @@ export class CarPostsController {
     };
   }
 
+  @Get('/all')
+  async getAllPosts() {
+    return {
+      data: await this.carPostsService.getAllPosts(),
+    };
+  }
+
   @Get()
   async getPosts(@Query() query: CarPostQueryDto) {
     return {
@@ -60,6 +67,13 @@ export class CarPostsController {
   async getRelevantPosts(@Query() query: any) {
     return {
       data: await this.carPostsService.getRelevantPosts(query.car_brand),
+    };
+  }
+
+  @Get('/customer/:customer_id/all')
+  async getAllPostsByCustomer(@Param() param: GetPostsByCustomerDto) {
+    return {
+      data: await this.carPostsService.getAllPostByCustomer(param.customer_id),
     };
   }
 
