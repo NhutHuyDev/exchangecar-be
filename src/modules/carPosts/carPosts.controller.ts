@@ -97,12 +97,12 @@ export class CarPostsController {
     };
   }
 
-  @Post()
+  @Post('/draft')
   @UseInterceptors(FilesInterceptor('car_galleries'))
   @Roles(SystemRole.Individual_Customer)
   @UseGuards(RolesGuard)
   @UseGuards(JwtAccessTokenGuard)
-  async createPost(
+  async createDraftPost(
     @Req() request: RequestWithUser,
     @Body() createCarPostDTO: CreateCarPostDto,
     @UploadedFiles(
@@ -110,6 +110,7 @@ export class CarPostsController {
         validators: [
           new FileTypeValidator({ fileType: '.(png|jpeg|jpg|webp)' }),
         ],
+        fileIsRequired: false,
       }),
     )
     car_galleries: Array<Express.Multer.File>,
@@ -117,7 +118,36 @@ export class CarPostsController {
     const authId = request.user.authId;
 
     return {
-      data: await this.carPostsService.createCarPost(
+      data: await this.carPostsService.createDraftCarPost(
+        authId,
+        createCarPostDTO,
+        car_galleries,
+      ),
+    };
+  }
+
+  @Post('/publish')
+  @UseInterceptors(FilesInterceptor('car_galleries'))
+  @Roles(SystemRole.Individual_Customer)
+  @UseGuards(RolesGuard)
+  @UseGuards(JwtAccessTokenGuard)
+  async createPublishPost(
+    @Req() request: RequestWithUser,
+    @Body() createCarPostDTO: CreateCarPostDto,
+    @UploadedFiles(
+      new ParseFilePipe({
+        validators: [
+          new FileTypeValidator({ fileType: '.(png|jpeg|jpg|webp)' }),
+        ],
+        fileIsRequired: false,
+      }),
+    )
+    car_galleries: Array<Express.Multer.File>,
+  ) {
+    const authId = request.user.authId;
+
+    return {
+      data: await this.carPostsService.createPublishCarPost(
         authId,
         createCarPostDTO,
         car_galleries,

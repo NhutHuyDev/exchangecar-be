@@ -11,6 +11,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { StaffsModule } from './modules/staffs/staffs.module';
 import postgres from './configs/postgres.config';
 import s3 from './configs/s3.config';
+import momoPayment from '@/configs/momo.payment.config';
+import { PaymentModule } from './modules/payment/payment.module';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import s3 from './configs/s3.config';
         process.env.NODE_ENV.trim() === 'development'
           ? '.env.development.local'
           : '.env',
-      load: [postgres, s3],
+      load: [postgres, s3, momoPayment],
       cache: true,
     }),
     TypeOrmModule.forRootAsync({
@@ -33,6 +35,7 @@ import s3 from './configs/s3.config';
     CarPostsModule,
     CarsModule,
     StaffsModule,
+    PaymentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

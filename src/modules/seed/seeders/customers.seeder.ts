@@ -49,15 +49,14 @@ export class CustomersSeeder implements SeederInterface {
       const authCredential = await this.authCredentialRepository.save({
         cred_login: customerInfo.mobile_phone,
         cred_password: hash(customerInfo.password),
+        roles: [customerRole],
       });
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const staff = await this.customerRepository.save({
+      await this.customerRepository.save({
         first_name: customerInfo.first_name,
         last_name: customerInfo.last_name,
         mobile_phone: customerInfo.mobile_phone,
         email: customerInfo.email,
-        roles: [customerRole],
         auth_credential: authCredential,
       });
     }

@@ -13,13 +13,13 @@ import {
 } from 'typeorm';
 import { CarPostCommitments } from './post_commitment.entity';
 import { CustomerWishlist } from '@/modules/customer/entities/customer_wishlist.entity';
+import { PostTransaction } from '@/modules/payment/entities/transaction.entity';
 
 export enum CarPostStatus {
-  DRAFT = 'draft',
-  WAITING_TO_PAY = 'Wait to pay',
-  POSTED = 'posted',
-  UN_POSTED = 'unposted',
-  EXPRIED = 'expired',
+  DRAFT = 'Draft',
+  ACTIVE = 'Active',
+  EXPRIED = 'Expired',
+  Deleted = 'Soft Deleted',
 }
 
 @Entity('Car_Posts')
@@ -48,11 +48,24 @@ export class CarPost {
   @Column({ type: 'timestamp', nullable: true })
   posted_at: Date;
 
+  @Column({ type: 'int', nullable: true })
+  days_displayed: number;
+
   @Column({ type: 'timestamp', nullable: true })
   expired_at: Date;
 
   @Column({ type: 'varchar', default: CarPostStatus.DRAFT })
   post_status: CarPostStatus;
+
+  @OneToMany(
+    () => PostTransaction,
+    (PostTransaction) => PostTransaction.car_post,
+    {
+      cascade: true,
+      onDelete: 'NO ACTION',
+    },
+  )
+  post_transactions: PostTransaction[];
 
   @ManyToMany(
     () => CustomerWishlist,

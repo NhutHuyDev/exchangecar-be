@@ -62,7 +62,7 @@ export class CustomersServices {
       }
     }
 
-    if (roles.includes(SystemRole.Staff)) {
+    if (roles.includes(SystemRole.Staff) || roles.includes(SystemRole.Admin)) {
       const currentUser: Staff & { user_roles?: SystemRole[] } =
         await this.staffRepository.findOne({
           where: {
