@@ -100,11 +100,20 @@ export class CustomersServices {
     avatar?: Express.Multer.File,
   ) {
     const { authId } = user;
-    const currentUser = await this.customerRepository.findOneBy({
-      auth_credential: {
-        id: authId,
-      },
-    });
+    const currentUser: Customer & { user_roles?: SystemRole[] } =
+      await this.customerRepository.findOne({
+        where: {
+          auth_credential: {
+            id: authId,
+          },
+        },
+
+        relations: {
+          auth_credential: {
+            roles: true,
+          },
+        },
+      });
 
     // first_name
     currentUser.first_name = customerUpdateInformationDto.first_name
@@ -156,10 +165,16 @@ export class CustomersServices {
       currentUser.avatar_url = avatarUrl;
     }
 
-    const updatedUser = await this.customerRepository.save(currentUser);
+    await this.customerRepository.save(currentUser);
+
+    const userRoles: SystemRole[] = currentUser.auth_credential.roles.map(
+      (role) => role.role_title,
+    );
+
+    currentUser.user_roles = userRoles;
 
     return {
-      updatedUser,
+      updatedUser: plainToInstance(Staff, currentUser),
     };
   }
 

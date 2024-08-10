@@ -1,12 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PostTransaction } from './entities/transaction.entity';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { MoMoPaymentConfig } from '@/configs/momo.payment.config';
-import { CreatePayment } from './dto/create-payment';
+import { CreatePayment } from './dto/create-payment.dto';
 import * as crypto from 'crypto';
 import axios from 'axios';
+import { MomoPaymenInfo } from './dto/momo-payment-info.dto';
+import { DaysPublishOptionTable } from '@/constraints/pricing.table';
 
 @Injectable()
 export class PaymentServices {
@@ -28,9 +30,17 @@ export class PaymentServices {
   }
 
   async createMomoURL(momoPaymentInfo: CreatePayment) {
-    const { amount, order_info, order_id } = momoPaymentInfo;
+    const { days_publish, order_info, post_id, car_slug } = momoPaymentInfo;
 
-    const request_id = this.momoPartnerCode + order_id + new Date().getTime();
+    const order_id = this.momoPartnerCode + post_id + new Date().getTime();
+    const request_id = order_id;
+    const amount = DaysPublishOptionTable[days_publish].price;
+
+    const extraData = JSON.stringify({
+      post_id: post_id,
+      car_slug: car_slug,
+      days_publish: days_publish,
+    });
 
     const rawSignature =
       'accessKey=' +
@@ -38,16 +48,16 @@ export class PaymentServices {
       '&amount=' +
       amount +
       '&extraData=' +
-      '' +
+      extraData +
       '&ipnUrl=' +
-      'https://74f8-104-28-237-72.ngrok-free.app/callback' +
+      'https://15a4-104-28-205-70.ngrok-free.app/api/v1/payment/momo-hook' +
       '&orderId=' +
       order_id +
       '&orderInfo=' +
       order_info +
       '&partnerCode=' +
       this.momoPartnerCode +
-      '&redirectUrl=http://localhost:5000/views/home.html' +
+      '&redirectUrl=http://localhost:4000/cars' +
       '&requestId=' +
       request_id +
       '&requestType=payWithMethod';
@@ -65,12 +75,13 @@ export class PaymentServices {
       amount: String(amount),
       orderId: order_id,
       orderInfo: order_info,
-      redirectUrl: 'http://localhost:5000/views/home.html',
-      ipnUrl: 'https://74f8-104-28-237-72.ngrok-free.app/callback',
+      redirectUrl: 'http://localhost:4000/cars',
+      ipnUrl:
+        'https://15a4-104-28-205-70.ngrok-free.app/api/v1/payment/momo-hook',
       lang: 'en',
       requestType: 'payWithMethod',
       autoCapture: true,
-      extraData: '',
+      extraData: extraData,
       orderGroupId: '',
       signature: signature,
     });
@@ -87,9 +98,27 @@ export class PaymentServices {
 
     try {
       const result = await axios(options);
-      console.log(result.data);
+
+      return result.data as MomoPaymenInfo;
     } catch (error) {
-      console.log(error);
+      throw new InternalServerErrorException();
     }
+  }
+
+  async createMomoTransaction(
+    post_id: number,
+    amount: number,
+    days_displayed: number,
+    transaction_id: string,
+  ) {
+    await this.postTransactionRepository.save({
+      car_post: {
+        id: post_id,
+      },
+      amount,
+      days_displayed,
+      payment_method: 'Pay with MoMo',
+      transaction_id: transaction_id,
+    });
   }
 }

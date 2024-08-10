@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { CarPost, CarPostStatus } from './entities/car_post.entity';
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, LessThan, Repository } from 'typeorm';
 import {
   BadRequestException,
   Injectable,
@@ -18,6 +18,10 @@ import { generateCarSlug } from '@/utils/common.utils';
 import { JwtPayload } from '../auth/interfaces/jwtPayload.interface';
 import { UpdateCarPostDto } from './dto/update-car-post.dto';
 import { PaymentServices } from '../payment/payment.service';
+import { MomoPaymenInfo } from '../payment/dto/momo-payment-info.dto';
+import { CreatePublishPostDto } from './dto/create-published-post.dto';
+import { DaysPublishOptionTable } from '@/constraints/pricing.table';
+import { Cron } from '@nestjs/schedule';
 
 @Injectable()
 export class CarPostsServices {
@@ -392,177 +396,218 @@ export class CarPostsServices {
     carInfo: CreateCarPostDto,
     carGallerieFiles: Array<Express.Multer.File>,
   ) {
-    // const customer = await this.customerRepository.findOneBy({
-    //   auth_credential: {
-    //     id: authId,
-    //   },
-    // });
+    const customer = await this.customerRepository.findOneBy({
+      auth_credential: {
+        id: authId,
+      },
+    });
 
-    // if (!customer) {
-    //   throw new BadRequestException();
-    // }
+    if (!customer) {
+      throw new BadRequestException();
+    }
 
-    // return await this.dataSource.transaction(async (manager) => {
-    //   const car = await manager.save(Car, {
-    //     car_name: `xe ${carInfo.car_brand} ${carInfo.car_model} ${carInfo.car_variant} ${carInfo.manufacturing_date}`,
-    //     car_brand: carInfo.car_brand,
-    //     car_model: carInfo.car_model,
-    //     car_variant: carInfo.car_variant,
-    //     manufacturing_date: carInfo.manufacturing_date,
-    //     car_slug: generateCarSlug(
-    //       carInfo.car_brand,
-    //       carInfo.car_model,
-    //       carInfo.manufacturing_date,
-    //     ),
-    //     body_type: carInfo.body_type,
-    //     car_mileage: carInfo.car_mileage,
-    //     transmission: carInfo.transmission,
-    //     drivetrain: carInfo.drivetrain,
-    //     engine_type: carInfo.engine_type,
-    //     out_color: carInfo.out_color,
-    //     total_seating: carInfo.total_seating,
-    //     total_doors: carInfo.total_doors,
-    //     city: carInfo.city,
-    //     district: carInfo.district,
-    //     car_origin: carInfo.car_origin,
-    //     car_status: carInfo.car_status,
-    //     description: carInfo.description,
-    //     selling_price: carInfo.selling_price,
-    //   });
+    return await this.dataSource.transaction(async (manager) => {
+      const car = await manager.save(Car, {
+        car_name: `xe ${carInfo.car_brand} ${carInfo.car_model} ${carInfo.car_variant} ${carInfo.manufacturing_date}`,
+        car_brand: carInfo.car_brand,
+        car_model: carInfo.car_model,
+        car_variant: carInfo.car_variant,
+        manufacturing_date: carInfo.manufacturing_date,
+        car_slug: generateCarSlug(
+          carInfo.car_brand,
+          carInfo.car_model,
+          carInfo.manufacturing_date,
+        ),
+        body_type: carInfo.body_type,
+        car_mileage: carInfo.car_mileage,
+        transmission: carInfo.transmission,
+        drivetrain: carInfo.drivetrain,
+        engine_type: carInfo.engine_type,
+        out_color: carInfo.out_color,
+        total_seating: carInfo.total_seating,
+        total_doors: carInfo.total_doors,
+        city: carInfo.city,
+        district: carInfo.district,
+        car_origin: carInfo.car_origin,
+        car_status: carInfo.car_status,
+        description: carInfo.description,
+        selling_price: carInfo.selling_price,
+      });
 
-    //   const carGalleryObj = await Promise.all(
-    //     carGallerieFiles.map(async (carGallerieFile) => {
-    //       const [fileName, fileType] = carGallerieFile.originalname.split('.');
+      const carGalleryObj = await Promise.all(
+        carGallerieFiles.map(async (carGallerieFile) => {
+          const [fileName, fileType] = carGallerieFile.originalname.split('.');
 
-    //       const uniqueFileName =
-    //         fileName.split(' ').join('') + '-' + Date.now() + '.' + fileType;
+          const uniqueFileName =
+            fileName.split(' ').join('') + '-' + Date.now() + '.' + fileType;
 
-    //       const galleryUrl = await this.s3Service.uploadImageToBucket(
-    //         carGallerieFile.buffer,
-    //         uniqueFileName,
-    //         carGallerieFile.mimetype,
-    //       );
+          const galleryUrl = await this.s3Service.uploadImageToBucket(
+            carGallerieFile.buffer,
+            uniqueFileName,
+            carGallerieFile.mimetype,
+          );
 
-    //       return this.carGalleryRepository.create({
-    //         gallery_url: galleryUrl,
-    //         file_name: uniqueFileName,
-    //         car: car,
-    //       });
-    //     }),
-    //   );
+          return this.carGalleryRepository.create({
+            gallery_url: galleryUrl,
+            file_name: uniqueFileName,
+            car: car,
+          });
+        }),
+      );
 
-    //   const carGalleries = await manager.save(CarGallery, carGalleryObj);
+      const carGalleries = await manager.save(CarGallery, carGalleryObj);
 
-    //   const carPost = await manager.save(CarPost, {
-    //     customer: customer,
-    //     car: car,
-    //     created_at: new Date(),
-    //     post_status: CarPostStatus.DRAFT,
-    //   });
+      const carPost = await manager.save(CarPost, {
+        customer: customer,
+        car: car,
+        created_at: new Date(),
+        post_status: CarPostStatus.DRAFT,
+      });
 
-    // return {
-    //   newCarPost: carPost,
-    //   carGalleries: carGalleries.map((carGallery) => ({
-    //     file_name: carGallery.file_name,
-    //     gallery_url: carGallery.gallery_url,
-    //   })),
-    // };
-    // });
-    return 'OK - create draft post';
+      return {
+        newCarPost: carPost,
+        carGalleries: carGalleries.map((carGallery) => ({
+          file_name: carGallery.file_name,
+          gallery_url: carGallery.gallery_url,
+        })),
+      };
+    });
+  }
+
+  async publishCarPostFromDraft(postId: number, days_publish: number) {
+    const currentPost = await this.carPostRepository.findOne({
+      where: {
+        id: postId,
+      },
+      relations: {
+        car: true,
+      },
+    });
+
+    if (!currentPost) {
+      throw new BadRequestException();
+    }
+
+    const paymentUrl: MomoPaymenInfo = await this.paymentServices.createMomoURL(
+      {
+        days_publish: DaysPublishOptionTable[days_publish]
+          ? DaysPublishOptionTable[days_publish].numberDays
+          : 7,
+        post_id: postId,
+        car_slug: currentPost.car.car_slug,
+        order_info: 'pay with MoMo',
+      },
+    );
+
+    return {
+      momoPaymentUrl: paymentUrl.payUrl,
+    };
   }
 
   async createPublishCarPost(
     authId: number,
-    carInfo: CreateCarPostDto,
+    carInfo: CreatePublishPostDto,
     carGallerieFiles: Array<Express.Multer.File>,
   ) {
-    // const customer = await this.customerRepository.findOneBy({
-    //   auth_credential: {
-    //     id: authId,
-    //   },
-    // });
-
-    // if (!customer) {
-    //   throw new BadRequestException();
-    // }
-
-    // return await this.dataSource.transaction(async (manager) => {
-    //   const car = await manager.save(Car, {
-    //     car_name: `xe ${carInfo.car_brand} ${carInfo.car_model} ${carInfo.car_variant} ${carInfo.manufacturing_date}`,
-    //     car_brand: carInfo.car_brand,
-    //     car_model: carInfo.car_model,
-    //     car_variant: carInfo.car_variant,
-    //     manufacturing_date: carInfo.manufacturing_date,
-    //     car_slug: generateCarSlug(
-    //       carInfo.car_brand,
-    //       carInfo.car_model,
-    //       carInfo.manufacturing_date,
-    //     ),
-    //     body_type: carInfo.body_type,
-    //     car_mileage: carInfo.car_mileage,
-    //     transmission: carInfo.transmission,
-    //     drivetrain: carInfo.drivetrain,
-    //     engine_type: carInfo.engine_type,
-    //     out_color: carInfo.out_color,
-    //     total_seating: carInfo.total_seating,
-    //     total_doors: carInfo.total_doors,
-    //     city: carInfo.city,
-    //     district: carInfo.district,
-    //     car_origin: carInfo.car_origin,
-    //     car_status: carInfo.car_status,
-    //     description: carInfo.description,
-    //     selling_price: carInfo.selling_price,
-    //   });
-
-    //   const carGalleryObj = await Promise.all(
-    //     carGallerieFiles.map(async (carGallerieFile) => {
-    //       const [fileName, fileType] = carGallerieFile.originalname.split('.');
-
-    //       const uniqueFileName =
-    //         fileName.split(' ').join('') + '-' + Date.now() + '.' + fileType;
-
-    //       const galleryUrl = await this.s3Service.uploadImageToBucket(
-    //         carGallerieFile.buffer,
-    //         uniqueFileName,
-    //         carGallerieFile.mimetype,
-    //       );
-
-    //       return this.carGalleryRepository.create({
-    //         gallery_url: galleryUrl,
-    //         file_name: uniqueFileName,
-    //         car: car,
-    //       });
-    //     }),
-    //   );
-
-    //   const carGalleries = await manager.save(CarGallery, carGalleryObj);
-
-    //   const carPost = await manager.save(CarPost, {
-    //     customer: customer,
-    //     car: car,
-    //     created_at: new Date(),
-    //     post_status: CarPostStatus.DRAFT,
-    //   });
-
-    const paymentUrl = this.paymentServices.createMomoURL({
-      amount: 10000,
-      order_id: '10ihiuh',
-      order_info: 'pay with MoMo',
+    const customer = await this.customerRepository.findOneBy({
+      auth_credential: {
+        id: authId,
+      },
     });
 
-    //   return {
-    //     newCarPost: carPost,
-    //     carGalleries: carGalleries.map((carGallery) => ({
-    //       file_name: carGallery.file_name,
-    //       gallery_url: carGallery.gallery_url,
-    //     })),
-    //   };
-    // });
+    if (!customer) {
+      throw new BadRequestException();
+    }
 
-    return {
-      momoPaymentUrl: paymentUrl,
-      message: 'OK - create publish post',
-    };
+    return await this.dataSource.transaction(async (manager) => {
+      const car = await manager.save(Car, {
+        car_name: `xe ${carInfo.car_brand} ${carInfo.car_model} ${carInfo.car_variant} ${carInfo.manufacturing_date}`,
+        car_brand: carInfo.car_brand,
+        car_model: carInfo.car_model,
+        car_variant: carInfo.car_variant,
+        manufacturing_date: carInfo.manufacturing_date,
+        car_slug: generateCarSlug(
+          carInfo.car_brand,
+          carInfo.car_model,
+          carInfo.manufacturing_date,
+        ),
+        body_type: carInfo.body_type,
+        car_mileage: carInfo.car_mileage,
+        transmission: carInfo.transmission,
+        drivetrain: carInfo.drivetrain,
+        engine_type: carInfo.engine_type,
+        out_color: carInfo.out_color,
+        total_seating: carInfo.total_seating,
+        total_doors: carInfo.total_doors,
+        city: carInfo.city,
+        district: carInfo.district,
+        car_origin: carInfo.car_origin,
+        car_status: carInfo.car_status,
+        description: carInfo.description,
+        selling_price: carInfo.selling_price,
+      });
+
+      const carGalleryObj = await Promise.all(
+        carGallerieFiles.map(async (carGallerieFile) => {
+          const [fileName, fileType] = carGallerieFile.originalname.split('.');
+
+          const uniqueFileName =
+            fileName.split(' ').join('') + '-' + Date.now() + '.' + fileType;
+
+          const galleryUrl = await this.s3Service.uploadImageToBucket(
+            carGallerieFile.buffer,
+            uniqueFileName,
+            carGallerieFile.mimetype,
+          );
+
+          return this.carGalleryRepository.create({
+            gallery_url: galleryUrl,
+            file_name: uniqueFileName,
+            car: car,
+          });
+        }),
+      );
+
+      await manager.save(CarGallery, carGalleryObj);
+
+      const carPost = await manager.save(CarPost, {
+        customer: customer,
+        car: car,
+        created_at: new Date(),
+        post_status: CarPostStatus.DRAFT,
+      });
+
+      const paymentUrl: MomoPaymenInfo =
+        await this.paymentServices.createMomoURL({
+          days_publish: DaysPublishOptionTable[carInfo.days_publish]
+            ? DaysPublishOptionTable[carInfo.days_publish].numberDays
+            : 7,
+          post_id: carPost.id,
+          car_slug: carPost.car.car_slug,
+          order_info: 'pay with MoMo',
+        });
+
+      return {
+        momoPaymentUrl: paymentUrl.payUrl,
+      };
+    });
+  }
+
+  async publishCarPost(postId: number, days_publish: number) {
+    const currentPost = await this.carPostRepository.findOne({
+      where: {
+        id: postId,
+      },
+    });
+
+    currentPost.days_displayed = days_publish;
+    currentPost.post_status = CarPostStatus.ACTIVE;
+    currentPost.expired_at = new Date(
+      Date.now() + Number(days_publish) * 86400000,
+    );
+    currentPost.posted_at = new Date();
+
+    await this.carPostRepository.save(currentPost);
   }
 
   async updateCarPost(
@@ -751,5 +796,22 @@ export class CarPostsServices {
     return {
       message: `Delete post - id: ${postId} successfully`,
     };
+  }
+
+  @Cron('0 0 * * *')
+  async checkExpiredPost() {
+    await this.carPostRepository.update(
+      {
+        post_status: CarPostStatus.ACTIVE,
+        expired_at: LessThan(new Date()),
+      },
+      {
+        post_status: CarPostStatus.EXPRIED,
+        posted_at: null,
+        expired_at: null,
+        days_displayed: null,
+      },
+    );
+    console.log('check expired post');
   }
 }

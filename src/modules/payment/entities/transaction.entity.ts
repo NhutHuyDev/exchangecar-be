@@ -6,8 +6,8 @@ export class PostTransaction {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'int', unique: true })
-  transaction_id: number;
+  @Column({ type: 'varchar', unique: true })
+  transaction_id: string;
 
   @ManyToOne(() => CarPost, (CarPost) => CarPost.post_transactions, {
     onDelete: 'CASCADE',
@@ -20,8 +20,8 @@ export class PostTransaction {
   @Column({ type: 'int' })
   amount: number;
 
-  @Column({ type: 'timestamp' })
-  expired_at: Date;
+  @Column({ type: 'timestamp', default: new Date() })
+  created_at: Date;
 
   @Column({ type: 'varchar' })
   payment_method: string;

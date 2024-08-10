@@ -13,6 +13,7 @@ import { S3Module } from '../s3/s3.module';
 import { CarGallery } from '../cars/entities/car_galleries.entity';
 import { Customer } from '../customer/entities/customer.entity';
 import { PaymentModule } from '../payment/payment.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -28,8 +29,10 @@ import { PaymentModule } from '../payment/payment.module';
     ]),
     S3Module,
     PaymentModule,
+    ScheduleModule.forRoot(),
   ],
   controllers: [CarPostsController],
   providers: [CarPostsServices, CarPostQueriesService],
+  exports: [CarPostsServices],
 })
 export class CarPostsModule {}

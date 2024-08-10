@@ -27,6 +27,7 @@ import { FilesInterceptor } from '@nestjs/platform-express';
 import { GetPostByCarSlugDto } from './dto/get-post-by-car-slug.dto';
 import { GetPostsByCustomerDto } from './dto/get-posts-by-customer.dto';
 import { UpdateCarPostDto } from './dto/update-car-post.dto';
+import { CreatePublishPostDto } from './dto/create-published-post.dto';
 
 @Controller('posts')
 export class CarPostsController {
@@ -110,7 +111,6 @@ export class CarPostsController {
         validators: [
           new FileTypeValidator({ fileType: '.(png|jpeg|jpg|webp)' }),
         ],
-        fileIsRequired: false,
       }),
     )
     car_galleries: Array<Express.Multer.File>,
@@ -126,6 +126,23 @@ export class CarPostsController {
     };
   }
 
+  @Post('/publish/:post_id')
+  @Roles(SystemRole.Individual_Customer)
+  @UseGuards(RolesGuard)
+  @UseGuards(JwtAccessTokenGuard)
+  async publishPost(
+    @Req() request: RequestWithUser,
+    @Param() publishPostParamDto: { post_id: number },
+    @Body() publishPostBodyDto: { days_publish: number },
+  ) {
+    return {
+      data: await this.carPostsService.publishCarPostFromDraft(
+        publishPostParamDto.post_id,
+        publishPostBodyDto.days_publish,
+      ),
+    };
+  }
+
   @Post('/publish')
   @UseInterceptors(FilesInterceptor('car_galleries'))
   @Roles(SystemRole.Individual_Customer)
@@ -133,13 +150,12 @@ export class CarPostsController {
   @UseGuards(JwtAccessTokenGuard)
   async createPublishPost(
     @Req() request: RequestWithUser,
-    @Body() createCarPostDTO: CreateCarPostDto,
+    @Body() createPublishPostDto: CreatePublishPostDto,
     @UploadedFiles(
       new ParseFilePipe({
         validators: [
           new FileTypeValidator({ fileType: '.(png|jpeg|jpg|webp)' }),
         ],
-        fileIsRequired: false,
       }),
     )
     car_galleries: Array<Express.Multer.File>,
@@ -149,7 +165,7 @@ export class CarPostsController {
     return {
       data: await this.carPostsService.createPublishCarPost(
         authId,
-        createCarPostDTO,
+        createPublishPostDto,
         car_galleries,
       ),
     };
