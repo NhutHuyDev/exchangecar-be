@@ -25,6 +25,7 @@ import {
 } from '@/constraints/jwt.constraint';
 import { ResetPasswordDTO } from './dto/reset-password.dto';
 import { ChangePasswordDTO } from './dto/change-password.dto';
+import { Twilio } from 'twilio';
 
 @Injectable()
 export class AuthService {
@@ -89,9 +90,19 @@ export class AuthService {
 
     await this.verifyOTPRepository.save(currentVerify);
 
+    const twilioClient = new Twilio(
+      process.env.TWILIO_SID,
+      process.env.TWILIO_AUTH_TOKEn,
+    );
+
+    await twilioClient.messages.create({
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to: mobile_phone,
+      body: `your OTP to create account on ExchangeCar: ${newOTP}`,
+    });
+
     return {
       mobile_phone: mobile_phone,
-      otp: newOTP,
     };
   }
 
