@@ -179,8 +179,19 @@ export class AuthService {
 
     await this.authCredentialRepository.save(authCredential);
 
+    const twilioClient = new Twilio(
+      process.env.TWILIO_SID,
+      process.env.TWILIO_AUTH_TOKEN,
+    );
+
+    await twilioClient.messages.create({
+      from: process.env.TWILIO_PHONE_NUMBER,
+      to: mobile_phone,
+      body: `your OTP to reset your password on ExchangeCar: ${newOTP}`,
+    });
+
     return {
-      otp: newOTP,
+      mobile_phone: mobile_phone,
     };
   }
 
