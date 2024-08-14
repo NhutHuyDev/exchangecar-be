@@ -61,6 +61,12 @@ export class CarPostsServices {
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer');
 
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.post_status',
+      CarPostStatus.ACTIVE,
+    );
+
     /**
      * @description Filter by car_brand
      **/
@@ -271,6 +277,12 @@ export class CarPostsServices {
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer');
 
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.post_status',
+      CarPostStatus.ACTIVE,
+    );
+
     const latestPosts = await query
       .orderBy('car_post.posted_at', 'DESC')
       .take(15)
@@ -287,6 +299,12 @@ export class CarPostsServices {
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer');
+
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.post_status',
+      CarPostStatus.ACTIVE,
+    );
 
     carBrand &&
       this.carPostQueriesService.queryByStringValue(
@@ -311,6 +329,7 @@ export class CarPostsServices {
         car: {
           car_slug: slug,
         },
+        post_status: CarPostStatus.ACTIVE,
       },
       relations: {
         car: {
@@ -334,6 +353,12 @@ export class CarPostsServices {
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer')
       .andWhere(`customer.id = ${customerId}`);
+
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.post_status',
+      CarPostStatus.ACTIVE,
+    );
 
     /**
      * @description Sorting
@@ -791,13 +816,15 @@ export class CarPostsServices {
       },
     });
 
-    await Promise.all(
-      currentPost.car.car_galleries.map(async (car_gallery) => {
-        await this.s3Service.deleteImageToBucket(car_gallery.file_name);
-      }),
-    );
+    currentPost.post_status = CarPostStatus.DELETED;
 
-    await this.carPostRepository.remove(currentPost);
+    // await Promise.all(
+    //   currentPost.car.car_galleries.map(async (car_gallery) => {
+    //     await this.s3Service.deleteImageToBucket(car_gallery.file_name);
+    //   }),
+    // );
+
+    await this.carPostRepository.save(currentPost);
 
     return {
       message: `Delete post - id: ${postId} successfully`,
@@ -818,6 +845,5 @@ export class CarPostsServices {
         days_displayed: null,
       },
     );
-    console.log('check expired post');
   }
 }

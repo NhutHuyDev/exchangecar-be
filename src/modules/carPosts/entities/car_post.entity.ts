@@ -19,7 +19,7 @@ export enum CarPostStatus {
   DRAFT = 'Draft',
   ACTIVE = 'Active',
   EXPRIED = 'Expired',
-  Deleted = 'Soft Deleted',
+  DELETED = 'Soft Deleted',
 }
 
 @Entity('Car_Posts')

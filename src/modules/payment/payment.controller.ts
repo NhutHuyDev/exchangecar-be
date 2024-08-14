@@ -15,28 +15,30 @@ export class PaymentController {
   async getMomoPaymentNotification(@Body() momoPaymenNofity: MomoPaymenNofity) {
     console.log('momo-hook:', momoPaymenNofity);
 
-    const { amount, requestId } = momoPaymenNofity;
+    if (momoPaymenNofity.resultCode === 0) {
+      const { amount, requestId } = momoPaymenNofity;
 
-    const extra_data = JSON.parse(momoPaymenNofity.extraData) as {
-      post_id: number;
-      days_publish: number;
-    };
-
-    const { post_id, days_publish } = extra_data;
-
-    if (!momoPaymenNofity.resultCode) {
-      await this.carPostsService.publishCarPost(post_id, days_publish);
-
-      await this.paymentService.createMomoTransaction(
-        post_id,
-        amount,
-        days_publish,
-        requestId,
-      );
-
-      return {
-        payment_status: momoPaymenNofity,
+      const extra_data = JSON.parse(momoPaymenNofity.extraData) as {
+        post_id: number;
+        days_publish: number;
       };
+
+      const { post_id, days_publish } = extra_data;
+
+      if (!momoPaymenNofity.resultCode) {
+        await this.carPostsService.publishCarPost(post_id, days_publish);
+
+        await this.paymentService.createMomoTransaction(
+          post_id,
+          amount,
+          days_publish,
+          requestId,
+        );
+      }
     }
+
+    return {
+      payment_status: momoPaymenNofity,
+    };
   }
 }
