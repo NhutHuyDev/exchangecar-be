@@ -2,10 +2,13 @@ import {
   Column,
   Entity,
   Index,
+  JoinColumn,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { CarGallery } from './car_galleries.entity';
+import { CarPost } from '@/modules/carPosts/entities/car_post.entity';
 
 export enum CarOrigin {
   CKD = 'Nhập khẩu',
@@ -86,4 +89,8 @@ export class Car {
 
   @OneToMany(() => CarGallery, (CarGallery) => CarGallery.car)
   car_galleries: CarGallery[];
+
+  @OneToOne(() => CarPost, { cascade: true, onUpdate: 'CASCADE' })
+  @JoinColumn()
+  car_post: CarPost;
 }

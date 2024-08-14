@@ -44,7 +44,7 @@ export class CarPostsServices {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
-      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer');
 
     const carPosts = await query.getMany();
@@ -58,7 +58,7 @@ export class CarPostsServices {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
-      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer');
 
     /**
@@ -268,7 +268,7 @@ export class CarPostsServices {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
-      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer');
 
     const latestPosts = await query
@@ -285,7 +285,7 @@ export class CarPostsServices {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
-      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer');
 
     carBrand &&
@@ -331,7 +331,7 @@ export class CarPostsServices {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
-      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer')
       .andWhere(`customer.id = ${customerId}`);
 
@@ -380,7 +380,7 @@ export class CarPostsServices {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
-      .innerJoinAndSelect('car.car_galleries', 'car_gallery')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer')
       .andWhere(`customer.id = ${customerId}`);
 
@@ -729,7 +729,9 @@ export class CarPostsServices {
       : currentPost.car.selling_price;
 
     // car_gallery
-    if (carGallerieFiles) {
+    if (carGallerieFiles.length >= 1) {
+      console.log('Nguyen Nhut Huy dep trai');
+
       await Promise.all(
         currentPost.car.car_galleries.map(async (car_gallery) => {
           await this.s3Service.deleteImageToBucket(car_gallery.file_name);
@@ -763,7 +765,11 @@ export class CarPostsServices {
       await this.carGalleryRepository.save(currentPost.car.car_galleries);
     }
 
-    return { updatedCar: await this.carPostRepository.save(currentPost) };
+    await this.carPostRepository.save(currentPost);
+
+    return {
+      updatedCar: currentPost,
+    };
   }
 
   async deleteCarPost(user: JwtPayload, postId: number) {
