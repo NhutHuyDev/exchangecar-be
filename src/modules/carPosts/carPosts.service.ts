@@ -329,7 +329,6 @@ export class CarPostsServices {
         car: {
           car_slug: slug,
         },
-        post_status: CarPostStatus.ACTIVE,
       },
       relations: {
         car: {
@@ -353,12 +352,6 @@ export class CarPostsServices {
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer')
       .andWhere(`customer.id = ${customerId}`);
-
-    this.carPostQueriesService.queryByStringValue(
-      query,
-      'car_post.post_status',
-      CarPostStatus.ACTIVE,
-    );
 
     /**
      * @description Sorting
@@ -818,13 +811,13 @@ export class CarPostsServices {
 
     currentPost.post_status = CarPostStatus.DELETED;
 
-    // await Promise.all(
-    //   currentPost.car.car_galleries.map(async (car_gallery) => {
-    //     await this.s3Service.deleteImageToBucket(car_gallery.file_name);
-    //   }),
-    // );
+    await Promise.all(
+      currentPost.car.car_galleries.map(async (car_gallery) => {
+        await this.s3Service.deleteImageToBucket(car_gallery.file_name);
+      }),
+    );
 
-    await this.carPostRepository.save(currentPost);
+    await this.carPostRepository.remove(currentPost);
 
     return {
       message: `Delete post - id: ${postId} successfully`,
