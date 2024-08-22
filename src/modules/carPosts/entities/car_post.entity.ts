@@ -14,6 +14,8 @@ import {
 import { CarPostCommitments } from './post_commitment.entity';
 import { CustomerWishlist } from '@/modules/customer/entities/customer_wishlist.entity';
 import { PostTransaction } from '@/modules/payment/entities/transaction.entity';
+import { Staff } from '@/modules/staffs/entities/staff.entity';
+import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
 
 export enum CarPostStatus {
   DRAFT = 'Draft',
@@ -31,6 +33,11 @@ export class CarPost {
     onDelete: 'CASCADE',
   })
   customer: Customer;
+
+  @ManyToOne(() => Staff, (Staff) => Staff.car_posts, {
+    onDelete: 'CASCADE',
+  })
+  staff: Staff;
 
   @OneToOne(() => Car, { cascade: true, onUpdate: 'CASCADE' })
   @JoinColumn()
@@ -56,6 +63,15 @@ export class CarPost {
 
   @Column({ type: 'varchar', default: CarPostStatus.DRAFT })
   post_status: CarPostStatus;
+
+  @Column({ type: 'varchar', nullable: true })
+  package_option: SystemPackageOptions;
+
+  @Column({ type: 'int', default: 0 })
+  total_view: number;
+
+  @Column({ type: 'int', default: 0 })
+  total_like: number;
 
   @OneToMany(
     () => PostTransaction,

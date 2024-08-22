@@ -2,6 +2,7 @@ import { Body, Controller, forwardRef, Inject, Post } from '@nestjs/common';
 import { MomoPaymenNofity } from './dto/momo-payment-notify.dto';
 import { CarPostsServices } from '../carPosts/carPosts.service';
 import { PaymentServices } from './payment.service';
+import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
 
 @Controller('payment')
 export class PaymentController {
@@ -16,24 +17,29 @@ export class PaymentController {
     console.log('momo-hook:', momoPaymenNofity);
 
     if (momoPaymenNofity.resultCode === 0) {
-      const { amount, requestId } = momoPaymenNofity;
+      // const { amount, requestId } = momoPaymenNofity;
 
       const extra_data = JSON.parse(momoPaymenNofity.extraData) as {
         post_id: number;
         days_publish: number;
+        package_option: SystemPackageOptions;
       };
 
-      const { post_id, days_publish } = extra_data;
+      const { post_id, days_publish, package_option } = extra_data;
 
       if (!momoPaymenNofity.resultCode) {
-        await this.carPostsService.publishCarPost(post_id, days_publish);
-
-        await this.paymentService.createMomoTransaction(
+        await this.carPostsService.publishCarPost(
           post_id,
-          amount,
+          package_option,
           days_publish,
-          requestId,
         );
+
+        // await this.paymentService.createMomoTransaction(
+        //   post_id,
+        //   amount,
+        //   days_publish,
+        //   requestId,
+        // );
       }
     }
 

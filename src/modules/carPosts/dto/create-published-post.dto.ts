@@ -1,3 +1,4 @@
+import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
 import { CarOrigin, CarStatus } from '@/modules/cars/entities/car.entity';
 import { Optional } from '@nestjs/common';
 import { Type } from 'class-transformer';
@@ -77,6 +78,10 @@ export class CreatePublishPostDto {
   @IsString()
   @IsNotEmpty()
   selling_price: number;
+
+  @IsString()
+  @IsNotEmpty()
+  package_option: SystemPackageOptions;
 
   @IsString()
   @IsNotEmpty()

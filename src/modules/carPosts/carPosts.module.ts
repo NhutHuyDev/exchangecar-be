@@ -14,6 +14,7 @@ import { CarGallery } from '../cars/entities/car_galleries.entity';
 import { Customer } from '../customer/entities/customer.entity';
 import { PaymentModule } from '../payment/payment.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { Staff } from '../staffs/entities/staff.entity';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ScheduleModule } from '@nestjs/schedule';
       City,
       CarAttributeOption,
       Customer,
+      Staff,
     ]),
     S3Module,
     PaymentModule,

@@ -3,11 +3,13 @@ import {
   Column,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from '../../customer/entities/address.entity';
 import { Exclude } from 'class-transformer';
+import { CarPost } from '@/modules/carPosts/entities/car_post.entity';
 
 @Entity('Staffs')
 export class Staff {
@@ -33,6 +35,9 @@ export class Staff {
   @Column({ type: 'text', nullable: true })
   avatar_url: string;
 
+  @Column({ type: 'int', default: 0 })
+  total_sold_car: number;
+
   @Exclude()
   @OneToOne(() => AuthCredential, {
     cascade: true,
@@ -40,6 +45,12 @@ export class Staff {
   })
   @JoinColumn()
   auth_credential: AuthCredential;
+
+  @OneToMany(() => CarPost, (CarPost) => CarPost.staff, {
+    cascade: true,
+    onDelete: 'CASCADE',
+  })
+  car_posts: CarPost[];
 
   @Column({
     type: 'timestamp',

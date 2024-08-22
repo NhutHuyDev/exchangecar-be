@@ -28,6 +28,7 @@ import { GetPostByCarSlugDto } from './dto/get-post-by-car-slug.dto';
 import { GetPostsByCustomerDto } from './dto/get-posts-by-customer.dto';
 import { UpdateCarPostDto } from './dto/update-car-post.dto';
 import { CreatePublishPostDto } from './dto/create-published-post.dto';
+import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
 
 @Controller('posts')
 export class CarPostsController {
@@ -54,6 +55,27 @@ export class CarPostsController {
   async getPosts(@Query() query: CarPostQueryDto) {
     return {
       data: await this.carPostsService.getPosts(query),
+    };
+  }
+
+  @Get('/powered')
+  async getPoweredPosts(@Query() query: CarPostQueryDto) {
+    return {
+      data: await this.carPostsService.getPoweredPosts(query),
+    };
+  }
+
+  @Get('/powered/latest')
+  async getLatestPoweredPosts() {
+    return {
+      data: await this.carPostsService.getLatestPoweredPosts(),
+    };
+  }
+
+  @Get('/premium-and-higher')
+  async getPremiumAndHigherPosts(@Query() query: CarPostQueryDto) {
+    return {
+      data: await this.carPostsService.getPremiumAndHigherPosts(query),
     };
   }
 
@@ -133,12 +155,17 @@ export class CarPostsController {
   async publishPost(
     @Req() request: RequestWithUser,
     @Param() publishPostParamDto: { post_id: number },
-    @Body() publishPostBodyDto: { days_publish: number },
+    @Body()
+    publishPostBodyDto: {
+      days_publish: number;
+      package_option: SystemPackageOptions;
+    },
   ) {
     return {
       data: await this.carPostsService.publishCarPostFromDraft(
         publishPostParamDto.post_id,
         publishPostBodyDto.days_publish,
+        publishPostBodyDto.package_option,
       ),
     };
   }

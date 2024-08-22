@@ -30,15 +30,17 @@ export class PaymentServices {
   }
 
   async createMomoURL(momoPaymentInfo: CreatePayment) {
-    const { days_publish, order_info, post_id, car_slug } = momoPaymentInfo;
+    const { days_publish, order_info, post_id, car_slug, package_option } =
+      momoPaymentInfo;
 
     const order_id = this.momoPartnerCode + post_id + new Date().getTime();
     const request_id = order_id;
-    const amount = DaysPublishOptionTable[days_publish].price;
+    const amount = DaysPublishOptionTable[days_publish][package_option].price;
 
     const extraData = JSON.stringify({
       post_id: post_id,
       car_slug: car_slug,
+      package_option: package_option,
       days_publish: days_publish,
     });
 
@@ -50,7 +52,7 @@ export class PaymentServices {
       '&extraData=' +
       extraData +
       '&ipnUrl=' +
-      'https://exchangecar-be.nguyennhuthuy.com/api/v1/payment/momo-hook' +
+      'https://518c-104-28-237-72.ngrok-free.app/api/v1/payment/momo-hook' +
       '&orderId=' +
       order_id +
       '&orderInfo=' +
@@ -77,7 +79,7 @@ export class PaymentServices {
       orderInfo: order_info,
       redirectUrl: 'https://exchangecar-management.vercel.app/cars',
       ipnUrl:
-        'https://exchangecar-be.nguyennhuthuy.com/api/v1/payment/momo-hook',
+        'https://518c-104-28-237-72.ngrok-free.app/api/v1/payment/momo-hook',
       lang: 'en',
       requestType: 'payWithMethod',
       autoCapture: true,

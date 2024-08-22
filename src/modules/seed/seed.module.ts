@@ -29,6 +29,8 @@ import { CarPostsSeeder } from './seeders/carPosts.seeder';
 import { Car } from '../cars/entities/car.entity';
 import { CarPost } from '../carPosts/entities/car_post.entity';
 import { CarGallery } from '../cars/entities/car_galleries.entity';
+import { CarPostsAttach } from './seeders/carPosts.attach';
+import { CarPostsAttachPackage } from './seeders/carPosts.attach-package';
 
 @Module({
   imports: [
@@ -73,6 +75,8 @@ import { CarGallery } from '../cars/entities/car_galleries.entity';
     CarAttributesSeeder,
     CarAttributeOptionsSeeder,
     CarPostsSeeder,
+    CarPostsAttach,
+    CarPostsAttachPackage,
   ],
 })
 export class SeedModule {}

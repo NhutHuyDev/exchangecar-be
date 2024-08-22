@@ -1,3 +1,4 @@
+import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreatePayment {
@@ -11,6 +12,10 @@ export class CreatePayment {
 
   @IsString()
   order_info: string;
+
+  @IsString()
+  @IsNotEmpty()
+  package_option: SystemPackageOptions;
 
   @IsNumber()
   @IsNotEmpty()

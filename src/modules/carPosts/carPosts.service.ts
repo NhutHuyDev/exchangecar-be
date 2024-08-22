@@ -22,6 +22,8 @@ import { MomoPaymenInfo } from '../payment/dto/momo-payment-info.dto';
 import { CreatePublishPostDto } from './dto/create-published-post.dto';
 import { DaysPublishOptionTable } from '@/constraints/pricing.table';
 import { Cron } from '@nestjs/schedule';
+import { Staff } from '../staffs/entities/staff.entity';
+import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
 
 @Injectable()
 export class CarPostsServices {
@@ -34,6 +36,8 @@ export class CarPostsServices {
     private carGalleryRepository: Repository<CarGallery>,
     @InjectRepository(Customer)
     private customerRepository: Repository<Customer>,
+    @InjectRepository(Staff)
+    private staffRepository: Repository<Staff>,
     private dataSource: DataSource,
     private carPostQueriesService: CarPostQueriesService,
     private s3Service: S3Service,
@@ -45,7 +49,8 @@ export class CarPostsServices {
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
-      .innerJoinAndSelect('car_post.customer', 'customer');
+      .innerJoinAndSelect('car_post.customer', 'customer')
+      .innerJoinAndSelect('car_post.customer', 'staff');
 
     const carPosts = await query.getMany();
 
@@ -59,7 +64,8 @@ export class CarPostsServices {
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
-      .innerJoinAndSelect('car_post.customer', 'customer');
+      .innerJoinAndSelect('car_post.customer', 'customer')
+      .innerJoinAndSelect('car_post.staff', 'staff');
 
     this.carPostQueriesService.queryByStringValue(
       query,
@@ -270,11 +276,488 @@ export class CarPostsServices {
     };
   }
 
+  async getPoweredPosts(carPostquery: CarPostQueryDto) {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'customer')
+      .innerJoinAndSelect('car_post.staff', 'staff');
+
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.post_status',
+      CarPostStatus.ACTIVE,
+    );
+
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.package_option',
+      SystemPackageOptions.Vip,
+    );
+
+    /**
+     * @description Filter by car_brand
+     **/
+    carPostquery.car_brand &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_brand',
+        carPostquery.car_brand,
+      );
+
+    /**
+     * @description Filter by car_model
+     **/
+    carPostquery.car_model &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_model',
+        carPostquery.car_model,
+      );
+
+    /**
+     * @description Filter by city
+     **/
+    carPostquery.city &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.city',
+        carPostquery.city,
+      );
+
+    /**
+     * @description Filter by manufacturing_date
+     **/
+    carPostquery.manufacturing_date &&
+      this.carPostQueriesService.queryByRange(
+        query,
+        'car.manufacturing_date',
+        carPostquery.manufacturing_date,
+      );
+
+    /**
+     * @description Filter by selling_price
+     **/
+    carPostquery.selling_price &&
+      this.carPostQueriesService.queryByRange(
+        query,
+        'car.selling_price',
+        carPostquery.selling_price,
+      );
+
+    /**
+     * @description Filter by car_origin
+     **/
+    carPostquery.car_origin &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_origin',
+        carPostquery.car_origin,
+      );
+
+    /**
+     * @description Filter by car_status
+     **/
+    carPostquery.car_status &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_status',
+        carPostquery.car_status,
+      );
+
+    /**
+     * @description Filter by car_mileage
+     **/
+    carPostquery.car_mileage &&
+      this.carPostQueriesService.queryByRange(
+        query,
+        'car.car_mileage',
+        carPostquery.car_mileage,
+      );
+
+    /**
+     * @description Filter by transmission
+     **/
+    carPostquery.transmission &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.transmission',
+        carPostquery.transmission,
+      );
+
+    /**
+     * @description Filter by car_mileage
+     **/
+    carPostquery.drivetrain &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.drivetrain',
+        carPostquery.drivetrain,
+      );
+
+    /**
+     * @description Filter by engine_type
+     **/
+    carPostquery.engine_type &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.engine_type',
+        carPostquery.engine_type,
+      );
+
+    /**
+     * @description Filter by body_type
+     **/
+    carPostquery.body_type &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.body_type',
+        carPostquery.body_type,
+      );
+
+    /**
+     * @description Filter by out_color
+     **/
+    carPostquery.out_color &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.out_color',
+        carPostquery.out_color,
+      );
+
+    /**
+     * @description Filter by total_seating
+     **/
+    carPostquery.total_seating &&
+      this.carPostQueriesService.queryByNumberValue(
+        query,
+        'car.total_seating',
+        carPostquery.total_seating,
+      );
+
+    /**
+     * @description Filter by total_doors
+     **/
+    carPostquery.total_doors &&
+      this.carPostQueriesService.queryByNumberValue(
+        query,
+        'car.total_doors',
+        carPostquery.total_doors,
+      );
+
+    /**
+     * @description Filter by search
+     **/
+    if (carPostquery.search) {
+      const searchValue = carPostquery.search.trim().replace(/\s+/g, '&');
+      query.andWhere(
+        `to_tsvector('simple', unaccent(car.car_name)) @@ to_tsquery('simple', unaccent(:searchValue)) OR
+         to_tsvector('simple', unaccent(car.description)) @@ to_tsquery('simple', unaccent(:searchValue))`,
+        { searchValue },
+      );
+    }
+
+    /**
+     * @description Sorting
+     **/
+    let fieldToOrder = null;
+    const order_by = mapSortParam[carPostquery.order_by];
+    if (order_by.includes('-')) {
+      fieldToOrder = order_by.split('-')[1];
+      query.orderBy(fieldToOrder, 'DESC');
+    } else {
+      fieldToOrder = order_by;
+      query.orderBy(fieldToOrder, 'ASC');
+    }
+
+    /**
+     * @description Pagination
+     **/
+    const limit = 9;
+
+    const totalCars = await query.getCount();
+    const totalPages = Math.ceil(totalCars / limit);
+
+    if (carPostquery.page > totalPages) {
+      throw new NotFoundException();
+    }
+
+    const carPosts = await query
+      .skip(limit * (carPostquery.page - 1))
+      .take(limit)
+      .getMany();
+
+    return {
+      total_cars: totalCars,
+      car_posts: carPosts,
+      total_pages: totalPages,
+      previous_page: carPostquery.page - 1 >= 1 ? carPostquery.page - 1 : null,
+      current_page: carPostquery.page,
+      next_page:
+        carPostquery.page + 1 <= totalPages ? carPostquery.page + 1 : null,
+    };
+  }
+
+  async getPremiumAndHigherPosts(carPostquery: CarPostQueryDto) {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'customer')
+      .innerJoinAndSelect('car_post.staff', 'staff');
+
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.post_status',
+      CarPostStatus.ACTIVE,
+    );
+
+    query.andWhere(
+      `unaccent(car_post.package_option) ILIKE ANY 
+      (ARRAY[unaccent('${SystemPackageOptions.Vip}'), 
+      unaccent('${SystemPackageOptions.Premium}')])`,
+    );
+
+    /**
+     * @description Filter by car_brand
+     **/
+    carPostquery.car_brand &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_brand',
+        carPostquery.car_brand,
+      );
+
+    /**
+     * @description Filter by car_model
+     **/
+    carPostquery.car_model &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_model',
+        carPostquery.car_model,
+      );
+
+    /**
+     * @description Filter by city
+     **/
+    carPostquery.city &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.city',
+        carPostquery.city,
+      );
+
+    /**
+     * @description Filter by manufacturing_date
+     **/
+    carPostquery.manufacturing_date &&
+      this.carPostQueriesService.queryByRange(
+        query,
+        'car.manufacturing_date',
+        carPostquery.manufacturing_date,
+      );
+
+    /**
+     * @description Filter by selling_price
+     **/
+    carPostquery.selling_price &&
+      this.carPostQueriesService.queryByRange(
+        query,
+        'car.selling_price',
+        carPostquery.selling_price,
+      );
+
+    /**
+     * @description Filter by car_origin
+     **/
+    carPostquery.car_origin &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_origin',
+        carPostquery.car_origin,
+      );
+
+    /**
+     * @description Filter by car_status
+     **/
+    carPostquery.car_status &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.car_status',
+        carPostquery.car_status,
+      );
+
+    /**
+     * @description Filter by car_mileage
+     **/
+    carPostquery.car_mileage &&
+      this.carPostQueriesService.queryByRange(
+        query,
+        'car.car_mileage',
+        carPostquery.car_mileage,
+      );
+
+    /**
+     * @description Filter by transmission
+     **/
+    carPostquery.transmission &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.transmission',
+        carPostquery.transmission,
+      );
+
+    /**
+     * @description Filter by car_mileage
+     **/
+    carPostquery.drivetrain &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.drivetrain',
+        carPostquery.drivetrain,
+      );
+
+    /**
+     * @description Filter by engine_type
+     **/
+    carPostquery.engine_type &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.engine_type',
+        carPostquery.engine_type,
+      );
+
+    /**
+     * @description Filter by body_type
+     **/
+    carPostquery.body_type &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.body_type',
+        carPostquery.body_type,
+      );
+
+    /**
+     * @description Filter by out_color
+     **/
+    carPostquery.out_color &&
+      this.carPostQueriesService.queryByStringValue(
+        query,
+        'car.out_color',
+        carPostquery.out_color,
+      );
+
+    /**
+     * @description Filter by total_seating
+     **/
+    carPostquery.total_seating &&
+      this.carPostQueriesService.queryByNumberValue(
+        query,
+        'car.total_seating',
+        carPostquery.total_seating,
+      );
+
+    /**
+     * @description Filter by total_doors
+     **/
+    carPostquery.total_doors &&
+      this.carPostQueriesService.queryByNumberValue(
+        query,
+        'car.total_doors',
+        carPostquery.total_doors,
+      );
+
+    /**
+     * @description Filter by search
+     **/
+    if (carPostquery.search) {
+      const searchValue = carPostquery.search.trim().replace(/\s+/g, '&');
+      query.andWhere(
+        `to_tsvector('simple', unaccent(car.car_name)) @@ to_tsquery('simple', unaccent(:searchValue)) OR
+         to_tsvector('simple', unaccent(car.description)) @@ to_tsquery('simple', unaccent(:searchValue))`,
+        { searchValue },
+      );
+    }
+
+    /**
+     * @description Sorting
+     **/
+    let fieldToOrder = null;
+    const order_by = mapSortParam[carPostquery.order_by];
+    if (order_by.includes('-')) {
+      fieldToOrder = order_by.split('-')[1];
+      query.orderBy(fieldToOrder, 'DESC');
+    } else {
+      fieldToOrder = order_by;
+      query.orderBy(fieldToOrder, 'ASC');
+    }
+
+    /**
+     * @description Pagination
+     **/
+    const limit = 9;
+
+    const totalCars = await query.getCount();
+    const totalPages = Math.ceil(totalCars / limit);
+
+    if (carPostquery.page > totalPages) {
+      throw new NotFoundException();
+    }
+
+    const carPosts = await query
+      .skip(limit * (carPostquery.page - 1))
+      .take(limit)
+      .getMany();
+
+    return {
+      total_cars: totalCars,
+      car_posts: carPosts,
+      total_pages: totalPages,
+      previous_page: carPostquery.page - 1 >= 1 ? carPostquery.page - 1 : null,
+      current_page: carPostquery.page,
+      next_page:
+        carPostquery.page + 1 <= totalPages ? carPostquery.page + 1 : null,
+    };
+  }
+
+  async getLatestPoweredPosts() {
+    const query = this.carPostRepository
+      .createQueryBuilder('car_post')
+      .innerJoinAndSelect('car_post.car', 'car')
+      .leftJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'staff')
+      .innerJoinAndSelect('car_post.customer', 'customer');
+
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.post_status',
+      CarPostStatus.ACTIVE,
+    );
+
+    this.carPostQueriesService.queryByStringValue(
+      query,
+      'car_post.package_option',
+      SystemPackageOptions.Vip,
+    );
+
+    const latestPoweredPosts = await query
+      .orderBy('car_post.posted_at', 'DESC')
+      .take(15)
+      .getMany();
+
+    return {
+      latestPoweredPosts: latestPoweredPosts,
+    };
+  }
+
   async getLatestPosts() {
     const query = this.carPostRepository
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
+      .innerJoinAndSelect('car_post.customer', 'staff')
       .innerJoinAndSelect('car_post.customer', 'customer');
 
     this.carPostQueriesService.queryByStringValue(
@@ -298,7 +781,8 @@ export class CarPostsServices {
       .createQueryBuilder('car_post')
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
-      .innerJoinAndSelect('car_post.customer', 'customer');
+      .innerJoinAndSelect('car_post.customer', 'customer')
+      .innerJoinAndSelect('car_post.customer', 'staff');
 
     this.carPostQueriesService.queryByStringValue(
       query,
@@ -335,6 +819,7 @@ export class CarPostsServices {
           car_galleries: true,
         },
         customer: true,
+        staff: true,
       },
     });
 
@@ -351,6 +836,7 @@ export class CarPostsServices {
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer')
+      .innerJoinAndSelect('car_post.customer', 'staff')
       .andWhere(`customer.id = ${customerId}`);
 
     /**
@@ -400,6 +886,7 @@ export class CarPostsServices {
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer')
+      .innerJoinAndSelect('car_post.customer', 'staff')
       .andWhere(`customer.id = ${customerId}`);
 
     const carPosts = await query.getMany();
@@ -492,7 +979,11 @@ export class CarPostsServices {
     });
   }
 
-  async publishCarPostFromDraft(postId: number, days_publish: number) {
+  async publishCarPostFromDraft(
+    postId: number,
+    days_publish: number,
+    package_option: SystemPackageOptions,
+  ) {
     const currentPost = await this.carPostRepository.findOne({
       where: {
         id: postId,
@@ -514,6 +1005,7 @@ export class CarPostsServices {
         post_id: postId,
         car_slug: currentPost.car.car_slug,
         order_info: 'pay with MoMo',
+        package_option: package_option,
       },
     );
 
@@ -603,6 +1095,7 @@ export class CarPostsServices {
           post_id: carPost.id,
           car_slug: carPost.car.car_slug,
           order_info: 'pay with MoMo',
+          package_option: carInfo.package_option,
         });
 
       return {
@@ -611,13 +1104,18 @@ export class CarPostsServices {
     });
   }
 
-  async publishCarPost(postId: number, days_publish: number) {
+  async publishCarPost(
+    postId: number,
+    package_option: SystemPackageOptions,
+    days_publish: number,
+  ) {
     const currentPost = await this.carPostRepository.findOne({
       where: {
         id: postId,
       },
     });
 
+    currentPost.package_option = package_option;
     currentPost.days_displayed = days_publish;
     currentPost.post_status = CarPostStatus.ACTIVE;
     currentPost.expired_at = new Date(
@@ -625,7 +1123,14 @@ export class CarPostsServices {
     );
     currentPost.posted_at = new Date();
 
+    const staffs = await this.staffRepository.find();
+    currentPost.staff = this.pickRandomStaff(staffs);
+
     await this.carPostRepository.save(currentPost);
+  }
+
+  private pickRandomStaff(customers: Staff[]) {
+    return customers[Math.floor(Math.random() * customers.length)];
   }
 
   async updateCarPost(
