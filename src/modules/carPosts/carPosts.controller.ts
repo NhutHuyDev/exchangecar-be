@@ -29,6 +29,7 @@ import { GetPostsByCustomerDto } from './dto/get-posts-by-customer.dto';
 import { UpdateCarPostDto } from './dto/update-car-post.dto';
 import { CreatePublishPostDto } from './dto/create-published-post.dto';
 import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
+import { GenerateDescriptionDto } from './dto/generate-description.dto';
 
 @Controller('posts')
 export class CarPostsController {
@@ -117,6 +118,18 @@ export class CarPostsController {
   async getPostByCarSlug(@Param() param: GetPostByCarSlugDto) {
     return {
       data: await this.carPostsService.getPostByCarSlug(param.slug),
+    };
+  }
+
+  @Post('/generate-description')
+  @Roles(SystemRole.Individual_Customer)
+  @UseGuards(RolesGuard)
+  @UseGuards(JwtAccessTokenGuard)
+  async generateCarPost(
+    @Body() generateDescriptionDto: GenerateDescriptionDto,
+  ) {
+    return {
+      data: await this.carPostsService.generateCarPost(generateDescriptionDto),
     };
   }
 

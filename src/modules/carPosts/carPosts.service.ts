@@ -4,6 +4,7 @@ import { DataSource, LessThan, Repository } from 'typeorm';
 import {
   BadRequestException,
   Injectable,
+  InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
 import { CarPostQueryDto } from './dto/query-car-post.dto';
@@ -13,7 +14,7 @@ import { CreateCarPostDto } from './dto/create-car-post.dto';
 import { S3Service } from '../s3/s3.service';
 import { CarGallery } from '../cars/entities/car_galleries.entity';
 import { Customer } from '../customer/entities/customer.entity';
-import { Car } from '../cars/entities/car.entity';
+import { Car, CarStatus } from '../cars/entities/car.entity';
 import { generateCarSlug } from '@/utils/common.utils';
 import { JwtPayload } from '../auth/interfaces/jwtPayload.interface';
 import { UpdateCarPostDto } from './dto/update-car-post.dto';
@@ -24,6 +25,8 @@ import { DaysPublishOptionTable } from '@/constraints/pricing.table';
 import { Cron } from '@nestjs/schedule';
 import { Staff } from '../staffs/entities/staff.entity';
 import SystemPackageOptions from '@/constraints/systemPackage.enum.constraint';
+import Groq from 'groq-sdk';
+import { GenerateDescriptionDto } from './dto/generate-description.dto';
 
 @Injectable()
 export class CarPostsServices {
@@ -50,7 +53,7 @@ export class CarPostsServices {
       .innerJoinAndSelect('car_post.car', 'car')
       .leftJoinAndSelect('car.car_galleries', 'car_gallery')
       .innerJoinAndSelect('car_post.customer', 'customer')
-      .innerJoinAndSelect('car_post.customer', 'staff');
+      .innerJoinAndSelect('car_post.staff', 'staff');
 
     const carPosts = await query.getMany();
 
@@ -1343,5 +1346,67 @@ export class CarPostsServices {
         days_displayed: null,
       },
     );
+  }
+
+  async generateCarPost(generateCarDescriptionDto: GenerateDescriptionDto) {
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+    const {
+      car_brand,
+      car_model,
+      manufacturing_date,
+      body_type,
+      out_color,
+      city,
+      car_origin,
+      car_status,
+      car_mileage,
+      selling_price,
+      short_description,
+      mobile_phone,
+    } = generateCarDescriptionDto;
+
+    let mileageText = '';
+    if (car_status === CarStatus.OLD && car_mileage) {
+      mileageText = `- Số km đã đi: ${car_mileage}`;
+    }
+
+    const prompt = `
+      Please write a short description in Vietnamese for a car that is for sale, using the following information:
+        - Brand: ${car_brand}
+        - Model: ${car_model}
+        - Manufacturing Year: ${manufacturing_date}
+        - Body Type: ${body_type}
+        - Color: ${out_color}
+        - Location: ${city}
+        - Car Origin: ${car_origin}
+        - Condition: ${car_status} ${mileageText}
+        - Selling Price: ${selling_price}
+        - Contact Phone Number: ${mobile_phone}
+
+      Convert the selling price to 'tỷ VNĐ' and round to 1 decimal place if it exceeds 1000; otherwise, keep the unit as 'triệu VNĐ'.
+
+      Ensure the following key points are included in the description: ${short_description}
+
+      The description should highlight the car's key features, showcase its uniqueness, and create an appeal for buyers. Use friendly and accessible language.
+
+      Tags: #${car_brand} #${car_model} #${car_status} #${city} #${body_type}**
+    `;
+
+    const chatCompletion = await groq.chat.completions.create({
+      messages: [
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      model: 'gemma2-9b-it',
+    });
+
+    if (chatCompletion.choices[0]?.message?.content) {
+      return chatCompletion.choices[0]?.message?.content;
+    } else {
+      throw new InternalServerErrorException();
+    }
   }
 }
