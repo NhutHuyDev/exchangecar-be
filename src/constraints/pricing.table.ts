@@ -11,8 +11,8 @@ const DaysPublishOptionTable = {
   [DaysPublishOptions.Seven]: {
     numberDays: 7,
     [SystemPackageOptions.Standard]: { price: 14000 },
-    [SystemPackageOptions.Premium]: { price: 14000 },
-    [SystemPackageOptions.Vip]: { price: 14000 },
+    [SystemPackageOptions.Premium]: { price: 42000 },
+    [SystemPackageOptions.Vip]: { price: 70000 },
   },
 
   [DaysPublishOptions.Fifteen]: {

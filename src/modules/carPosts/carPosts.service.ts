@@ -1363,7 +1363,6 @@ export class CarPostsServices {
       car_mileage,
       selling_price,
       short_description,
-      mobile_phone,
     } = generateCarDescriptionDto;
 
     let mileageText = '';
@@ -1382,11 +1381,10 @@ export class CarPostsServices {
         - Car Origin: ${car_origin}
         - Condition: ${car_status} ${mileageText}
         - Selling Price: ${selling_price}
-        - Contact Phone Number: ${mobile_phone}
 
       Convert the selling price to 'tỷ VNĐ' and round to 1 decimal place if it exceeds 1000; otherwise, keep the unit as 'triệu VNĐ'.
-
-      Ensure the following key points are included in the description: ${short_description}
+      
+      Ensure the following key points are included in the description: ${short_description}, If you're interested in this post, please contact the staff using the phone number provided in the details. 
 
       The description should highlight the car's key features, showcase its uniqueness, and create an appeal for buyers. Use friendly and accessible language.
 

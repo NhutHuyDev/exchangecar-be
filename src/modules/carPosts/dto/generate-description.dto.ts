@@ -48,8 +48,4 @@ export class GenerateDescriptionDto {
   @IsInt()
   @Type(() => Number)
   selling_price: number;
-
-  @IsString()
-  @IsNotEmpty()
-  mobile_phone: string;
 }

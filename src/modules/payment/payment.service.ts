@@ -52,7 +52,7 @@ export class PaymentServices {
       '&extraData=' +
       extraData +
       '&ipnUrl=' +
-      'https://518c-104-28-237-72.ngrok-free.app/api/v1/payment/momo-hook' +
+      'https://exchangecar-be.nguyennhuthuy.com/api/v1/payment/momo-hook' +
       '&orderId=' +
       order_id +
       '&orderInfo=' +
@@ -79,7 +79,7 @@ export class PaymentServices {
       orderInfo: order_info,
       redirectUrl: 'https://exchangecar-management.vercel.app/cars',
       ipnUrl:
-        'https://518c-104-28-237-72.ngrok-free.app/api/v1/payment/momo-hook',
+        'https://exchangecar-be.nguyennhuthuy.com/api/v1/payment/momo-hook',
       lang: 'en',
       requestType: 'payWithMethod',
       autoCapture: true,
