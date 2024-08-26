@@ -1,7 +1,7 @@
 enum SystemPackageOptions {
   Standard = 'Standard',
   Premium = 'Premium',
-  Vip = 'Vip',
+  Vip = 'VIP',
 }
 
 export default SystemPackageOptions;
