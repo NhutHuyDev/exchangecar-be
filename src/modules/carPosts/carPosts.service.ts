@@ -1032,6 +1032,37 @@ export class CarPostsServices {
       throw new BadRequestException();
     }
 
+    const {
+      car_brand,
+      car_model,
+      manufacturing_date,
+      body_type,
+      out_color,
+      city,
+      car_origin,
+      car_status,
+      car_mileage,
+      selling_price,
+      description,
+    } = carInfo;
+
+    let generateDescription = carInfo.description;
+    if (carInfo.package_option === SystemPackageOptions.Vip) {
+      generateDescription = await this.generateCarPost({
+        car_brand,
+        car_model,
+        manufacturing_date,
+        body_type,
+        out_color,
+        city,
+        car_origin,
+        car_status,
+        car_mileage,
+        selling_price,
+        short_description: description,
+      });
+    }
+
     return await this.dataSource.transaction(async (manager) => {
       const car = await manager.save(Car, {
         car_name: `xe ${carInfo.car_brand} ${carInfo.car_model} ${carInfo.car_variant} ${carInfo.manufacturing_date}`,
@@ -1056,7 +1087,7 @@ export class CarPostsServices {
         district: carInfo.district,
         car_origin: carInfo.car_origin,
         car_status: carInfo.car_status,
-        description: carInfo.description,
+        description: generateDescription,
         selling_price: carInfo.selling_price,
       });
 
