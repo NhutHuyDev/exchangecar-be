@@ -1363,6 +1363,30 @@ export class CarPostsServices {
     };
   }
 
+  async unActivePost(user: JwtPayload, postId: number) {
+    const { authId } = user;
+
+    const currentPost = await this.carPostRepository.findOne({
+      where: {
+        id: postId,
+        customer: {
+          auth_credential: {
+            id: authId,
+          },
+        },
+      },
+    });
+
+    currentPost.posted_at = null;
+    currentPost.expired_at = null;
+    currentPost.days_displayed = null;
+    currentPost.post_status = CarPostStatus.DRAFT;
+    currentPost.package_option = null;
+    currentPost.staff = null;
+
+    return await this.carPostRepository.save(currentPost);
+  }
+
   @Cron('0 0 * * *')
   async checkExpiredPost() {
     await this.carPostRepository.update(

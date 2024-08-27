@@ -211,6 +211,22 @@ export class CarPostsController {
     };
   }
 
+  @Post('/unactive/:post_id')
+  @Roles(SystemRole.Individual_Customer)
+  @UseGuards(RolesGuard)
+  @UseGuards(JwtAccessTokenGuard)
+  async unactivePost(
+    @Req() request: RequestWithUser,
+    @Param() unActivePostParamDto: { post_id: number },
+  ) {
+    return {
+      data: await this.carPostsService.unActivePost(
+        request.user,
+        unActivePostParamDto.post_id,
+      ),
+    };
+  }
+
   @Patch('/:post_id')
   @UseInterceptors(FilesInterceptor('car_galleries'))
   @Roles(SystemRole.Individual_Customer)
