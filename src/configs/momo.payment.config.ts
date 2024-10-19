@@ -3,9 +3,9 @@ import { config as dotenvConfig } from 'dotenv';
 
 dotenvConfig({
   path:
-    process.env.NODE_ENV.trim() === 'development'
-      ? '.env.development.local'
-      : '.env',
+    process.env.NODE_ENV.trim() === 'dev'
+      ? '.env'
+      : '.env.production.local',
 });
 
 export type MoMoPaymentConfig = {

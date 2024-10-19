@@ -29,8 +29,8 @@ import { CarPostsSeeder } from './seeders/carPosts.seeder';
 import { Car } from '../cars/entities/car.entity';
 import { CarPost } from '../carPosts/entities/car_post.entity';
 import { CarGallery } from '../cars/entities/car_galleries.entity';
-import { CarPostsAttach } from './seeders/carPosts.attach';
 import { CarPostsAttachPackage } from './seeders/carPosts.attach-package';
+import { CustomerWishlist } from '../customer/entities/customer_wishlist.entity';
 
 @Module({
   imports: [
@@ -47,6 +47,7 @@ import { CarPostsAttachPackage } from './seeders/carPosts.attach-package';
       Role,
       AuthCredential,
       Customer,
+      CustomerWishlist,
       Staff,
       CarBrand,
       CarModel,
@@ -75,7 +76,6 @@ import { CarPostsAttachPackage } from './seeders/carPosts.attach-package';
     CarAttributesSeeder,
     CarAttributeOptionsSeeder,
     CarPostsSeeder,
-    CarPostsAttach,
     CarPostsAttachPackage,
   ],
 })

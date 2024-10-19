@@ -19,7 +19,7 @@ export class CarAttributeOptionsSeeder implements SeederInterface {
   async seed() {
     const brandModelsPath = path.join(
       __dirname,
-      '../../../../data/car_attribute_options.json',
+      '../../../../docs/mock_data/car_attribute_options.json',
     );
 
     const carAttributes = await this.carAttributeRepository.find();

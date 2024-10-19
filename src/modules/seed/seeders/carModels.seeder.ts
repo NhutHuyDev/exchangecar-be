@@ -20,7 +20,7 @@ export class CarModelsSeeder implements SeederInterface {
   async seed() {
     const brandModelsPath = path.join(
       __dirname,
-      '../../../../data/car_models.json',
+      '../../../../docs/mock_data/car_models.json',
     );
 
     const carBrands = await this.carBrandRepository.find();

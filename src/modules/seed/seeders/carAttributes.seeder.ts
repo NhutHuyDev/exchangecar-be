@@ -16,7 +16,7 @@ export class CarAttributesSeeder implements SeederInterface {
   async seed() {
     const carAttributesPath = path.join(
       __dirname,
-      '../../../../data/car_attributes.json',
+      '../../../../docs/mock_data/car_attributes.json',
     );
 
     const carAttributesJson: CarAttribute[] = JSON.parse(

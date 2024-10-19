@@ -34,7 +34,7 @@ export class StaffsSeeder implements SeederInterface {
 
     const staffsPath = path.join(
       __dirname,
-      '../../../../data/mock_staffs.json',
+      '../../../../docs/mock_data/mock_staffs.json',
     );
 
     const staffsJson: {

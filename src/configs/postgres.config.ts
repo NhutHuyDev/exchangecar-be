@@ -4,9 +4,9 @@ import { DataSource, DataSourceOptions } from 'typeorm';
 
 dotenvConfig({
   path:
-    process.env.NODE_ENV.trim() === 'development'
-      ? '.env.development.local'
-      : '.env',
+    process.env.NODE_ENV.trim() === 'dev'
+      ? '.env'
+      : '.env.production.local',
 });
 
 export const config: DataSourceOptions = {
@@ -20,6 +20,9 @@ export const config: DataSourceOptions = {
   migrations: ['dist/migrations/*{.ts,.js}'],
   synchronize: true,
 };
+
+
+console.log(config)
 
 export default registerAs('postgres', () => config);
 export const postgresDataSource = new DataSource(config);

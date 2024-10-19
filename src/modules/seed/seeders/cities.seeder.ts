@@ -14,7 +14,7 @@ export class CitiesSeeder implements SeederInterface {
   ) {}
 
   async seed() {
-    const citiesPath = path.join(__dirname, '../../../../data/cities.json');
+    const citiesPath = path.join(__dirname, '../../../../docs/mock_data/cities.json');
 
     const citiesJson: {
       city_code: number;

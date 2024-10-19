@@ -35,7 +35,7 @@ export class CarPostsSeeder implements SeederInterface {
 
     const carPostsPath = path.join(
       __dirname,
-      '../../../../data/car_posts.json',
+      '../../../../docs/mock_data/car_posts.json',
     );
 
     const carPostsJson: {

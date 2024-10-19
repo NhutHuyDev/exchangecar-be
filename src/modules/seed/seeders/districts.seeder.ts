@@ -19,7 +19,7 @@ export class DistrictsSeeder implements SeederInterface {
   async seed() {
     const brandModelsPath = path.join(
       __dirname,
-      '../../../../data/districts.json',
+      '../../../../docs/mock_data/districts.json',
     );
 
     const cities = await this.cityRepository.find();

@@ -17,7 +17,7 @@ export class CarBrandsSeeder implements SeederInterface {
   async seed() {
     const carBrandPath = path.join(
       __dirname,
-      '../../../../data/car_brands.json',
+      '../../../../docs/mock_data/car_brands.json',
     );
 
     const carBrandJson: CarBrand[] = JSON.parse(

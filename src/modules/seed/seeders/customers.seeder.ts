@@ -9,6 +9,7 @@ import { hash } from '@/utils/hash.util';
 import * as path from 'node:path';
 import * as fs from 'fs';
 import { Customer } from '@/modules/customer/entities/customer.entity';
+import { CustomerWishlist } from '@/modules/customer/entities/customer_wishlist.entity';
 
 @Injectable()
 export class CustomersSeeder implements SeederInterface {
@@ -17,6 +18,8 @@ export class CustomersSeeder implements SeederInterface {
     private readonly roleRepository: Repository<Role>,
     @InjectRepository(Customer)
     private readonly customerRepository: Repository<Customer>,
+    @InjectRepository(CustomerWishlist)
+    private readonly customerWishlistRepository: Repository<CustomerWishlist>,
     @InjectRepository(AuthCredential)
     private readonly authCredentialRepository: Repository<AuthCredential>,
   ) {}
@@ -34,7 +37,7 @@ export class CustomersSeeder implements SeederInterface {
 
     const customersPath = path.join(
       __dirname,
-      '../../../../data/mock_customers.json',
+      '../../../../docs/mock_data/mock_customers.json',
     );
 
     const customersJson: {
@@ -52,13 +55,17 @@ export class CustomersSeeder implements SeederInterface {
         roles: [customerRole],
       });
 
-      await this.customerRepository.save({
+      const customer = await this.customerRepository.save({
         first_name: customerInfo.first_name,
         last_name: customerInfo.last_name,
         mobile_phone: customerInfo.mobile_phone,
         email: customerInfo.email,
         auth_credential: authCredential,
       });
+
+      await this.customerWishlistRepository.save({
+        customer: customer
+      })
     }
   }
 }

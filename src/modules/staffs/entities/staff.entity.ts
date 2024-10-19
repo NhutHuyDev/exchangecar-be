@@ -28,10 +28,6 @@ export class Staff {
   @Column({ type: 'text' })
   email: string;
 
-  @OneToOne(() => Address)
-  @JoinColumn()
-  address: Address;
-
   @Column({ type: 'text', nullable: true })
   avatar_url: string;
 
