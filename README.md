@@ -8,7 +8,6 @@ ExchangeCar is a platform designed for creating and managing car-related posts. 
 - Search and Filter: The platform enables users to search and filter posts based on criteria like brand, model, city, and other car attributes to find relevant content easily.
 
 - Wishlist and Favorites: Users can save posts to their wishlist, allowing them to easily access and track posts they are interested in.
-Location Integration: The platform includes location data, helping users organize posts by city or district, which aids in local engagement and relevance.
 
 ## How to Run
 ### Prerequisites
