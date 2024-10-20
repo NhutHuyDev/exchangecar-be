@@ -40,37 +40,27 @@ export class CarPostsController {
 
   @Get('/query-table')
   async getFilter() {
-    return {
-      data: await this.carPostQueriesService.getFilters(),
-    };
+    return await this.carPostQueriesService.getFilters()
   }
 
   @Get('/all')
   async getAllPosts() {
-    return {
-      data: await this.carPostsService.getAllPosts(),
-    };
+    return await this.carPostsService.getAllPosts()
   }
 
   @Get()
   async getPosts(@Query() query: CarPostQueryDto) {
-    return {
-      data: await this.carPostsService.getPosts(query),
-    };
+    return await this.carPostsService.getPosts(query)
   }
 
   @Get('/powered')
   async getPoweredPosts(@Query() query: CarPostQueryDto) {
-    return {
-      data: await this.carPostsService.getPoweredPosts(query),
-    };
+    return await this.carPostsService.getPoweredPosts(query)
   }
 
   @Get('/powered/latest')
   async getLatestPoweredPosts() {
-    return {
-      data: await this.carPostsService.getLatestPoweredPosts(),
-    };
+    return await this.carPostsService.getLatestPoweredPosts()
   }
 
   @Get('/premium-and-higher')

@@ -31,10 +31,8 @@ export class CustomersServices {
   async getMe(user: JwtPayload) {
     const { authId, roles } = user;
 
-    console.log(roles);
-
     if (roles.includes(SystemRole.Individual_Customer)) {
-      const currentUser: Customer & { user_roles?: SystemRole[] } =
+      const currentUser: Customer & { roles?: SystemRole[] } =
         await this.customerRepository.findOne({
           where: {
             auth_credential: {
@@ -54,10 +52,10 @@ export class CustomersServices {
           (role) => role.role_title,
         );
 
-        currentUser.user_roles = userRoles;
+        currentUser.roles = userRoles;
 
         return {
-          currentUser: plainToInstance(Customer, currentUser),
+          user: plainToInstance(Customer, currentUser),
         };
       }
     }
@@ -86,7 +84,7 @@ export class CustomersServices {
         currentUser.user_roles = userRoles;
 
         return {
-          currentUser: plainToInstance(Staff, currentUser),
+          user: plainToInstance(Staff, currentUser),
         };
       }
     }
@@ -174,7 +172,7 @@ export class CustomersServices {
     currentUser.user_roles = userRoles;
 
     return {
-      updatedUser: plainToInstance(Staff, currentUser),
+      user: plainToInstance(Staff, currentUser),
     };
   }
 

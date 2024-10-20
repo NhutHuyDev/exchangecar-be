@@ -78,4 +78,26 @@ make server
 
 ## API appendix
 
+### Authentication & Authorization module
+  
+|Method|Endpoint|Description| Authentication |
+|---|---|---|---|
+|POST|/auth/request-otp/sign-up|Request to get OTP to verify user's email| No |
+|POST|/auth/sign-up|Sign up| No |
+|POST|/auth/sign-in/|Sign in| No |
+|POST|/auth/refresh|Refresh access token by using refresh token rotation technique| No |
+|POST|/auth/request-otp/reset-password|Request to get password reset code to reset user's password| No |
+|POST|/auth/reset-password|Update new password| No |
+|POST|/auth/change-password|Update new password| Yes |
+
+### Customer module
+|Method|Endpoint|Description| Authentication |
+|---|---|---|---|
+|POST|/customers/me|Get current customer's information| Yes |
+
+### Post module
+|Method|Endpoint|Description| Authentication |
+|---|---|---|---|
+|POST|/posts/query-table|Get query options for post filtering | No |
+
 ## References

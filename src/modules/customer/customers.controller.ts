@@ -26,9 +26,7 @@ export class CustomersController {
   @UseGuards(JwtAccessTokenGuard)
   @Get('/me')
   async getMe(@Req() request: RequestWithUser) {
-    return {
-      data: await this.customersServices.getMe(request.user),
-    };
+    return await this.customersServices.getMe(request.user)
   }
 
   @Patch('/me')
@@ -47,29 +45,23 @@ export class CustomersController {
     )
     avatar?: Express.Multer.File,
   ) {
-    return {
-      data: await this.customersServices.uploadInformation(
+    return await this.customersServices.uploadInformation(
         request.user,
         customerUpdateInformationDto,
         avatar,
-      ),
-    };
+      )
   }
 
   @UseGuards(JwtAccessTokenGuard)
   @Delete('/me')
   async deleteMe(@Req() request: RequestWithUser) {
-    return {
-      data: await this.customersServices.deleteMe(request.user),
-    };
+    return await this.customersServices.deleteMe(request.user)
   }
 
   @UseGuards(JwtAccessTokenGuard)
   @Get('/wishlist')
   async getWishlist(@Req() request: RequestWithUser) {
-    return {
-      data: await this.customersServices.getWishlist(request.user),
-    };
+    return await this.customersServices.getWishlist(request.user)
   }
 
   @UseGuards(JwtAccessTokenGuard)
@@ -78,12 +70,10 @@ export class CustomersController {
     @Req() request: RequestWithUser,
     @Param() params: { post_id: number },
   ) {
-    return {
-      data: await this.customersServices.addToWishlist(
+    return await this.customersServices.addToWishlist(
         request.user,
         params.post_id,
-      ),
-    };
+      )
   }
 
   @UseGuards(JwtAccessTokenGuard)
@@ -92,22 +82,18 @@ export class CustomersController {
     @Req() request: RequestWithUser,
     @Param() params: { post_id: number },
   ) {
-    return {
-      data: await this.customersServices.removeFromWishlist(
+    return await this.customersServices.removeFromWishlist(
         request.user,
         params.post_id,
-      ),
-    };
+      )
   }
 
   @Get('/others/:customer_id')
   async getOtherCustomer(
     @Param() getOtherCustomerParams: { customer_id: number },
   ) {
-    return {
-      data: await this.customersServices.getOtherCustomer(
+    return await this.customersServices.getOtherCustomer(
         getOtherCustomerParams.customer_id,
-      ),
-    };
+      )
   }
 }
