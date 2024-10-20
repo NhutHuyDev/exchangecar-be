@@ -4,6 +4,9 @@ postgres:
 createdb: 	
 	docker exec -it exchangecar-pg createdb --username=root --owner=root exchangecar
 
+unaccent:
+	npm run migration:run
+
 seed:
 	npm run seed
 

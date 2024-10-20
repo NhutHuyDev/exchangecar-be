@@ -1,0 +1,1570 @@
+{
+	"info": {
+		"_postman_id": "6ddaaaa7-adfb-457f-a26f-2a14f81586fe",
+		"name": "ExchangeCar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28197704",
+		"_collection_link": "https://citicar.postman.co/workspace/DuAn2---ExchangeCar~8aa1b424-f0e1-425b-b4e7-37c133ebd8f3/collection/28197704-6ddaaaa7-adfb-457f-a26f-2a14f81586fe?action=share&source=collection_link&creator=28197704"
+	},
+	"item": [
+		{
+			"name": "Auth module",
+			"item": [
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile_phone\": \"+840301119991\",\r\n    \"password\": \"12345689\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/sign-in/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"sign-in",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request OTP to Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/request-otp/sign-up",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"request-otp",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\",\r\n    \"first_name\": \"Nguyen\",\r\n    \"last_name\": \"Nhut Huy (225)\",\r\n    \"password\": \"nguyenhuy@999\",\r\n    \"verify_otp\": \"845707\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/sign-up",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request OTP to Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile_phone\": \"+840311111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/request-otp/reset-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"request-otp",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\",\r\n    \"new_password\": \"999999\",\r\n    \"confirmed_password\": \"999999\",\r\n    \"otp\": \"321833\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/reset-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjQwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzY1Mjc2OCwiZXhwIjoxNzI0MjU3NTY4fQ.MUOfYPmV1UPKzASFVQpBjKLQ5NqViRleRTptPKkLKV0LYsBwZECNS6xwlztPapkU8WqPdGRFZfQTKvCsUTXcRE2voV_4EAWPM_jHTv5noihg928s_egp4DOWsfAiuX3NvK-42oUxjDx2oDwFx6Zl3namvyJ5Ze-Z2ga3PP4FQCpy7osguZXJgZVg6gfqOkMf2gDuZzTJeYwpNrExhRMM5u-7noi8cFUXLSAHyjzBoMHVgLLVQuC864tdd6LVN35rnlG1IreWKdfR1_I1I7Tyssc2px1ZXt9A2EQajno-K5odREIRSKL6jcTbre_9CaSOMNuuIJXXEhIgWzjpuNPk7A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\": \"nguyennhuthuy\",\r\n    \"new_password\": \"nguyenhuy@123\",\r\n    \"confirmed_password\": \"nguyenhuy@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/change-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjExLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjA1Nzk4MywiZXhwIjoxNzI0NjQ5OTgzfQ.dig_RvjSNUjQUhFd8bFfCWc1EfhzyjSAg_Zyk2THXCdFUnta8KAsWjuWD4PzEJ5xjiJ373EdvUWhMixzW2Fa4tsH-GA8GLyNV8ICCuLG0VY46XRWNBQSQNeqPvMdnmE5MhMRTzxrg-9IcxnbFe4bmZoIIQf_97IE0218pQ030--rSXc6VifdZJSJzjLVjvVils37VMF_mCFsl6FlcjrxM6JZio9x1jCMd6Up1OLf3eOY0fRHqwlcNllABbDijS-6XT_MjrfMenZfB6nnLqf4DpLknJBkd7uaob8CmKIlOLqsXe6Q3NS44oywETbLF-5usUU6rbe_GkmJUGSgxAtMJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer module",
+			"item": [
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0ODYyNzU4LCJleHAiOjE3MjU0Njc1NTh9.VPmb5OU-HkDOt0qTNatWbiZWKV1vhgGomGtqUPHZ7Og97VKQRQGkoa4EMn73Fem0bPts1Dm1vhYHvZ0JsRDiWcSc35H7i4kL8emJkBPMpA0U4I3d0sUMnIfEbyvGRZNlvp47kfvxC_132CKPN8zQgGr3zXsQkZFE1UQE7itogwMXYP2NwTQnadb9_HjruVAAjzjbaWPuKN4f1KLcrREHAVxlZmMCuyT3p-wz0Y66seGJU8GFyyjDfm0aAaZ-7LfUFeH2A4eVdIsy_gatw_quGYpMauuh60QgLXoZxOFxxiYPeGA_ackhS2C9fmlPYDHkwfUqCsUYLlPjVJxJK53HXg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/customers/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"customers",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update information",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzI4NTc5OCwiZXhwIjoxNzIzODkwNTk4fQ.tjaEgEmsjz1fdgCUQsaqOV18KkscgiTjksYNV1cB6J9QbNywAR3Ee2pnvZphn5bOTU2bliDs_C_EWH87ek-AGgK3XrNpNai90Zk3dp0GxPZq9tr24sxNjg-u2wlyA26EQ5VrrXAD91iiWBxBtzQcCw-y7gQT_u_Bs20RbyxfWbhWeV3H5Z3Z60jlWjbrycS4gJw7OynP8XltiVGn90NGYINURdq2AOYhdzdgokoRll6fzHKnMSP3_XH93Pn-du8Fy-jHIugr9UJs8NeHzbOI_5NlYTrbTC8DOtn94RYqnkL4YA0DVMMILQAAYNRyKIiWIXtXejV_W73WA2xp-iAccg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Nguyen Nhut",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "Huy (Trà Vinh)",
+									"type": "text"
+								},
+								{
+									"key": "about",
+									"value": "Mua bán xe uy tín giá rẻ giá học sinh sinh viên",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "nguyennhuthuy.dev@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "city_address",
+									"value": "Hà Nội",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "district_address",
+									"value": "Hà Tây",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "specific_address",
+									"value": "123, Phan Đình Phùng, Hà Tây, Hà Nội",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/nnh24/workspace02/dacntt/car-img/330i-01.jpg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/customers/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"customers",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjIyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjI3MTQzOCwiZXhwIjoxNzIyODc2MjM4fQ.vXsq1d3tph-mamApKqWXtvHmYFebMQ6oeAm9rbl6W7D-pePUgWtIiwVNmChweq_g0M0TOA542Xm3yiHefv-UHxdjGlLxBheDkSJiumow5gff4JQE0-Id5bcUxGBA6URzFFt7IGo1xPtVT2buRznzszsYlMoAyAaPB0i7Asc3O-z6OYmYHpeLMFRQqRjDw4JiYwweO2fXE9OyAWR-qCVX2-K4zS8qWfhPmzmfOuDzb_cmGHneuhavp3QkeQ9mq2PDmE2UQqzbTBTM1ntYQ0tU_3gh75CXNL1TV4bFTpLlOGgSC6FAy1Pju72JlkAMaBB3m5et2n2NMN7NmNokt6__xg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/customers/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"customers",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get wishlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzIyMDI4NiwiZXhwIjoxNzIzODI1MDg2fQ.QJ-B7jhjn1AU-eIl6gaLd8cWIcntTWjfceGsYADy5bxn3N_dWHaRKZCF4HHOGozAwhEWDB8KwDaB_DY5MvX5fFP8NldLvc30fVTzGoPy3ogi13FLLpZrwhyujS8XgLKaYgPAeg4sua6qPhxqQqQzeuXbjhW-kJrEVBnPGW9AppuVXs09XnmsuYF-PEaWmLkeSA7qX5wPPXi333lCUTL8EYvMj16feuC1W1RnzXVeayXP_cTQWVfaBOIEORsmBm63VsZqW9Oj4vFhGKuTXFtLvFs3-lYnfusOcIsRRcq_xUnLOH9M9UGaKQVhdfaX8Pl8uQ4IMNdUMB7XR7qg3BNZ9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/customers/wishlist",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"customers",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add to wishlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzIyMDI4NiwiZXhwIjoxNzIzODI1MDg2fQ.QJ-B7jhjn1AU-eIl6gaLd8cWIcntTWjfceGsYADy5bxn3N_dWHaRKZCF4HHOGozAwhEWDB8KwDaB_DY5MvX5fFP8NldLvc30fVTzGoPy3ogi13FLLpZrwhyujS8XgLKaYgPAeg4sua6qPhxqQqQzeuXbjhW-kJrEVBnPGW9AppuVXs09XnmsuYF-PEaWmLkeSA7qX5wPPXi333lCUTL8EYvMj16feuC1W1RnzXVeayXP_cTQWVfaBOIEORsmBm63VsZqW9Oj4vFhGKuTXFtLvFs3-lYnfusOcIsRRcq_xUnLOH9M9UGaKQVhdfaX8Pl8uQ4IMNdUMB7XR7qg3BNZ9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/customers/wishlist/:post_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"customers",
+								"wishlist",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove from wishlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjA5NjMzNCwiZXhwIjoxNzIyNzAxMTM0fQ.tL9OvV7HND1S9Xd5V_F2U08_8MqwWKVyc8xssuPDyEc8SBZ_jeExzALo6oqcCnQPUJiCf-MiUoXxEzDOPNq8F6PF35BcITU0jPokDfSb5na__9gNcWoplXyIGTR__Qm7ibIFK4UaTNeGnzHaUWb5pLHlVY0DctizLsI64dPneYJOsqOqF7CBk7IGOpRWondZsvhxdDpQIB2BPlqZyRDpFou6hudQTlCGZ1QMqVEDsHpivPDX7MWV-gmhhLTmS6dNFOWOFusS8TuuaaFnlhj9oA2x1NO-K0PE7a5duKQVjTJ5acJQE373kYEP4Aeh4IwSBBGrGQ99WLwI1ja9hPNDlw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/customers/wishlist/:post_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"customers",
+								"wishlist",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get other user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/customers/others/:customer_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"customers",
+								"others",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post module",
+			"item": [
+				{
+					"name": "Get query table",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/query-table",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"query-table"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/all/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"all",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get posts",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts"
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "Hồ chí Minh",
+									"disabled": true
+								},
+								{
+									"key": "manufacturing_date",
+									"value": "2013,2024",
+									"disabled": true
+								},
+								{
+									"key": "selling_price",
+									"value": "350,550",
+									"disabled": true
+								},
+								{
+									"key": "car_origin",
+									"value": "nhập khẩu",
+									"disabled": true
+								},
+								{
+									"key": "car_status",
+									"value": "old",
+									"disabled": true
+								},
+								{
+									"key": "car_mileage",
+									"value": "306000,542000",
+									"disabled": true
+								},
+								{
+									"key": "engine_type",
+									"value": "fuel",
+									"disabled": true
+								},
+								{
+									"key": "body_type",
+									"value": "Van / Minivan",
+									"disabled": true
+								},
+								{
+									"key": "out_color",
+									"value": "Đen",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "Xe Toyota Camry",
+									"disabled": true
+								},
+								{
+									"key": "order_by",
+									"value": "-manufacturing_date",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "car_brand",
+									"value": "BMW",
+									"disabled": true
+								},
+								{
+									"key": "car_model",
+									"value": "lux A2.0",
+									"disabled": true
+								},
+								{
+									"key": "total_seating",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "update",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get powered posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/powered?car_brand=honda",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"powered"
+							],
+							"query": [
+								{
+									"key": "car_brand",
+									"value": "honda"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get latest posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/latest",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get premium and higher posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/premium-and-higher",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"premium-and-higher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get latest powered posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/powered/latest",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"powered",
+								"latest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get relevant posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/relevant?car_brand=Toyota",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"relevant"
+							],
+							"query": [
+								{
+									"key": "car_brand",
+									"value": "Toyota"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by slug",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/bmw-3-series-2022-8627280",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"bmw-3-series-2022-8627280"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get posts by customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/customer/:customer_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"customer",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all posts by customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/customer/:customer_id/all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"customer",
+								":customer_id",
+								"all"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create draft post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0Mjk1MzYyLCJleHAiOjE3MjQ5MDAxNjJ9.rFdAPmtJSiWH7YcG1INHfK5MSsIr6iAtBwi9gixMTSVxe2AFZTarwXnjMCs1gnL6JfYyzBhjFu9Yf8Jyn4bODpzNrY8M83sBmEYWZpZdWNYDMi0ov4UL0jIKLeddEkMUei_hFHCggn5vfO5xNoccptvAsTDOLjK9SAtv2PMjT4axXCm5KM9U-BkP0LWREGDpK1U5dSbzZ9wwwPpS2fhxTVPTLlmXuQ5sG8vOSUI-OcMsht7N5l88yylBoPDLzep0RO1g7-aY-gGHdkywdjvV5T1CCfjLYE2MURUr4ajp2h8JFqKGYCwTCQ-eMrIVU10yji-s2jAqAHOo6H6Fp4t9oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "car_galleries",
+									"type": "file",
+									"src": [
+										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-01.jpg",
+										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-02.jpg"
+									]
+								},
+								{
+									"key": "car_brand",
+									"value": "BMW",
+									"type": "text"
+								},
+								{
+									"key": "car_model",
+									"value": "3 Class",
+									"type": "text"
+								},
+								{
+									"key": "car_variant",
+									"value": "330i",
+									"type": "text"
+								},
+								{
+									"key": "manufacturing_date",
+									"value": "2023",
+									"type": "text"
+								},
+								{
+									"key": "body_type",
+									"value": "Sedan",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Automatic",
+									"type": "text"
+								},
+								{
+									"key": "drivetrain",
+									"value": "RWD - Rear wheel drive",
+									"type": "text"
+								},
+								{
+									"key": "engine_type",
+									"value": "Fuel",
+									"type": "text"
+								},
+								{
+									"key": "out_color",
+									"value": "Red",
+									"type": "text"
+								},
+								{
+									"key": "total_seating",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "total_doors",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Hồ Chí Minh",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "Quận 7",
+									"type": "text"
+								},
+								{
+									"key": "car_origin",
+									"value": "Imported",
+									"type": "text"
+								},
+								{
+									"key": "car_status",
+									"value": "Old",
+									"type": "text"
+								},
+								{
+									"key": "car_mileage",
+									"value": "55000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+									"type": "text"
+								},
+								{
+									"key": "selling_price",
+									"value": "1500",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/draft",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"draft"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0Mjk1MzYyLCJleHAiOjE3MjQ5MDAxNjJ9.rFdAPmtJSiWH7YcG1INHfK5MSsIr6iAtBwi9gixMTSVxe2AFZTarwXnjMCs1gnL6JfYyzBhjFu9Yf8Jyn4bODpzNrY8M83sBmEYWZpZdWNYDMi0ov4UL0jIKLeddEkMUei_hFHCggn5vfO5xNoccptvAsTDOLjK9SAtv2PMjT4axXCm5KM9U-BkP0LWREGDpK1U5dSbzZ9wwwPpS2fhxTVPTLlmXuQ5sG8vOSUI-OcMsht7N5l88yylBoPDLzep0RO1g7-aY-gGHdkywdjvV5T1CCfjLYE2MURUr4ajp2h8JFqKGYCwTCQ-eMrIVU10yji-s2jAqAHOo6H6Fp4t9oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"days_publish\": 20,\r\n    \"package_option\": \"Premium\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/publish/:post_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"publish",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "578"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create publish post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0NzU3NTEzLCJleHAiOjE3MjUzNjIzMTN9.rI_5M3VxFPHKAt6Dp9JLa4_lhhUthDx_lb0rR_HTzUxAOpiORu503zF3F1rfBNf1uHcy8Vdoa7ZxY-83IX4IJ2WPWQx9LJnNZH1Q1pMa0PyRquddoXu50ZIIGgomGZW8AuFdkNcNpQelXa8YRPmWC0ZdOwrVfmWteNer3AnUbXxL2NaIDP5DYVNzHIJQquwY5sN-s9dLPwycJ0O9sOlXHStyPDaz9kSVu6L6mQn_5uyYxbhT_-ff_x7ZJUXT6EkzI7aYxmwKE92rQlG0aMCO0A2ycrV3-HuwHd0NN5x08Zg9UmVmx0roUqu2CTJeOyr9__KMUP2IbNr8HQhB3Ad46g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "car_galleries",
+									"type": "file",
+									"src": [
+										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-02.jpg",
+										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-03.jpg"
+									]
+								},
+								{
+									"key": "car_brand",
+									"value": "BMW",
+									"type": "text"
+								},
+								{
+									"key": "car_model",
+									"value": "3 Class",
+									"type": "text"
+								},
+								{
+									"key": "car_variant",
+									"value": "330i",
+									"type": "text"
+								},
+								{
+									"key": "manufacturing_date",
+									"value": "2023",
+									"type": "text"
+								},
+								{
+									"key": "body_type",
+									"value": "Sedan",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Automatic",
+									"type": "text"
+								},
+								{
+									"key": "drivetrain",
+									"value": "RWD - Rear wheel drive",
+									"type": "text"
+								},
+								{
+									"key": "engine_type",
+									"value": "Fuel",
+									"type": "text"
+								},
+								{
+									"key": "out_color",
+									"value": "Red",
+									"type": "text"
+								},
+								{
+									"key": "total_seating",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "total_doors",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Hồ Chí Minh",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "Quận 7",
+									"type": "text"
+								},
+								{
+									"key": "car_origin",
+									"value": "Imported",
+									"type": "text"
+								},
+								{
+									"key": "car_status",
+									"value": "Old",
+									"type": "text"
+								},
+								{
+									"key": "car_mileage",
+									"value": "55000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "hỗ trợ trả góp",
+									"type": "text"
+								},
+								{
+									"key": "selling_price",
+									"value": "1500",
+									"type": "text"
+								},
+								{
+									"key": "days_publish",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "package_option",
+									"value": "VIP",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/publish",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzYzNDY4NCwiZXhwIjoxNzI0MjM5NDg0fQ.j4Sp0_7lZpkt0MU1kjqfnVDwWDEPtIwTq0_JMY61udj2xEaH067WnpcqlwwyrN-Menw9ecLv2IRi3XXKlhlk7tMlcmyCa1W3TRigYbaYpyca0MKTgbCFsAewdwfCS5KsdvASx-ufIcA6LGhX3gPgVQs-x_5xzZg3sLYDbmk01xRFuC4BA2B43qs7acqk-7yB58Nx37SxjJYM7AGcMjs1AOBk8hYfyqPBMFig7-a86f5UrV-dyB6lAdqQm1K-eH5mDuh2jI3vTqnH_HFtkyWSLnlYUvF0FnFoeSmlAW7S2LRaAcDXpnLOpEKA4MipiemPWl2KiWbT2XvilFBsCPBvig",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "car_galleries",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "car_brand",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "car_model",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "car_variant",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "manufacturing_date",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "body_type",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "transmission",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "drivetrain",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "engine_type",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "out_color",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "total_seating",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "total_doors",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "city",
+									"value": "Hà Nội",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "district",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "car_origin",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "car_status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "car_mileage",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "update update update update",
+									"type": "text"
+								},
+								{
+									"key": "selling_price",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/:post_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjIyNDEzNCwiZXhwIjoxNzIyODI4OTM0fQ.jMrgEmKrIfdZSK8FRGvS2B8fRxgI2jOopYbzi580CQgs_40VDxyuciiPodcw6mn8gCckki_Q9IOVEVyiaN_hNxILsFOqGoSQgImR-d93g1i_vOLhK8zowbz1zMXIjaBTpZetcpSv7JqXF1Vf46Rlylx4kQKrZRFjSeSR9AOGifEvb45t_hQJ9cCVG8zikwAxGpHK1IuGVAkjSR4MEBkPadSE693mUHgsGAxuGf40LZ5AnXa3-8c1kna9r9POlbvEejJJmyXXysJNYVPuzeN_G5EVA8s51ifyWVg92Ri_OPSSI3n5JU8AtpbyAdxAJIGcWIekKtD546w6qL7pIy3mNg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/:post_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "521"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get brands",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars/brands/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars",
+								"brands",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get models",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand_name\": \"Kia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cars/models/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars",
+								"models",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get variants",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model_name\": \"3-Series\",\r\n    \"manufacturing_date\": 2022\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cars/variants/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars",
+								"variants",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get car's specifications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"variant_name\": \"330i\",\r\n    \"manufacturing_date\": 2022\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cars/specs/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars",
+								"specs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get city",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars/cities/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars",
+								"cities",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get districts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city_name\": \"Hồ Chí Minh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cars/districts/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars",
+								"districts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0NzU3NTEzLCJleHAiOjE3MjUzNjIzMTN9.rI_5M3VxFPHKAt6Dp9JLa4_lhhUthDx_lb0rR_HTzUxAOpiORu503zF3F1rfBNf1uHcy8Vdoa7ZxY-83IX4IJ2WPWQx9LJnNZH1Q1pMa0PyRquddoXu50ZIIGgomGZW8AuFdkNcNpQelXa8YRPmWC0ZdOwrVfmWteNer3AnUbXxL2NaIDP5DYVNzHIJQquwY5sN-s9dLPwycJ0O9sOlXHStyPDaz9kSVu6L6mQn_5uyYxbhT_-ff_x7ZJUXT6EkzI7aYxmwKE92rQlG0aMCO0A2ycrV3-HuwHd0NN5x08Zg9UmVmx0roUqu2CTJeOyr9__KMUP2IbNr8HQhB3Ad46g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"car_brand\": \"BMW\",\r\n\t\"car_model\": \"3 Class\",\r\n\t\"manufacturing_date\": 2023,\r\n\t\"body_type\": \"Sedan\",\r\n\t\"out_color\": \"Red\",\r\n\t\"city\": \"Hồ Chí Minh\",\r\n\t\"car_origin\": \"Imported\",\r\n\t\"car_status\": \"Old\",\r\n\t\"car_mileage\": 55000,\r\n\t\"short_description\": \"Hỗ trợ trả góp\",\r\n\t\"selling_price\": 500,\r\n    \"mobile_phone\": \"+840301119991\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/posts/generate-description",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"generate-description"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unactive post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0ODYyNzU4LCJleHAiOjE3MjU0Njc1NTh9.VPmb5OU-HkDOt0qTNatWbiZWKV1vhgGomGtqUPHZ7Og97VKQRQGkoa4EMn73Fem0bPts1Dm1vhYHvZ0JsRDiWcSc35H7i4kL8emJkBPMpA0U4I3d0sUMnIfEbyvGRZNlvp47kfvxC_132CKPN8zQgGr3zXsQkZFE1UQE7itogwMXYP2NwTQnadb9_HjruVAAjzjbaWPuKN4f1KLcrREHAVxlZmMCuyT3p-wz0Y66seGJU8GFyyjDfm0aAaZ-7LfUFeH2A4eVdIsy_gatw_quGYpMauuh60QgLXoZxOFxxiYPeGA_ackhS2C9fmlPYDHkwfUqCsUYLlPjVJxJK53HXg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/posts/unactive/:post_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"posts",
+								"unactive",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "check health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://exchangecar-be.nguyennhuthuy.com/api/v1"
+		}
+	]
+}
