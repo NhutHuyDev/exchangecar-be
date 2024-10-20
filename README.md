@@ -9,17 +9,34 @@ ExchangeCar is a platform designed for creating and managing car-related posts. 
 
 - Wishlist and Favorites: Users can save posts to their wishlist, allowing them to easily access and track posts they are interested in.
 
+### Technologies used in the project
+- RESTful APIs using JSON format via [NestJS](https://nestjs.com/) 
+
+- Request validation handled via [class-validator](https://github.com/typestack/class-validator)
+
+- Postgres, [TypeORM](https://typeorm.io/)
+
+- Token-based authentication with JWT
+
+- Schedule task using ```Cron``` from [@nestjs/schedule](https://docs.nestjs.com/techniques/task-scheduling) 
+
+- Utilizes [Amazon S3](https://aws.amazon.com/pm/serv-s3/) 
+
+- Handle SMS via [Twilio](https://www.twilio.com/en-us)
+
+- Generate car description based on LLMs using [Groq](https://groq.com/)
+
 ## How to Run
 ### Prerequisites
 - Node v20
 
 - ```Docker``` installed
 
-- [AWS](https://aws.amazon.com/free/) account for S3
+- AWS account for S3
 
-- [Twilio](https://www.twilio.com/en-us) account for SMS API
+- Twilio account for SMS API
 
-- [Groq](https://groq.com/) account for LLM-based generation 
+- Groq account for LLM-based generation 
 
 - ```ngrok``` installed to expose the IPN URL for MoMo payments in a development environment
 
@@ -140,8 +157,8 @@ make server
 |POST|/posts/publish| Creates a new car post and publishes it immediately, combining the draft and publish steps in one action | Yes |
 |PATCH|/posts/:post_id| Allows the user to update the details of an existing car post | Yes |
 |DELETE|/posts/:post_id| Deletes a specified car post, removing it from the platform | Yes |
-|POST|/posts/unactive/:post_id| Temporarily deactivates a post, making it invisible to other users without deleting it | Yes |
-|POST|/posts/generate-description| Automatically generates a descriptive text for a car post using the specified car details and other information | Yes |
+|POST|/posts/unactive/:post_id| gGet query options for post filterin | Yes |
+|POST|/posts/generate-description|Get query options for post filtering | Yes |
 
 ### Car module
 |Method|Endpoint|Description| Authentication |
@@ -156,7 +173,7 @@ make server
 ### Notes:
 - All responses are in JSON format as well.
 
-- For endpoints marked with "Yes" in the Authentication column, a valid JWT token is required.
+- For endpoints marked with "Yes" in the Authentication column, a valid token is required.
 
 - Can use [Postman](https://www.postman.com/) extension to test these APIs with the given postman_collection.json in '/docs' folder
 
