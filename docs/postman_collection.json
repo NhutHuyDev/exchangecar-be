@@ -1,43 +1,14 @@
 {
 	"info": {
-		"_postman_id": "6ddaaaa7-adfb-457f-a26f-2a14f81586fe",
+		"_postman_id": "77b73179-cd6b-48b2-a302-4dc5267d7690",
 		"name": "ExchangeCar",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28197704",
-		"_collection_link": "https://citicar.postman.co/workspace/DuAn2---ExchangeCar~8aa1b424-f0e1-425b-b4e7-37c133ebd8f3/collection/28197704-6ddaaaa7-adfb-457f-a26f-2a14f81586fe?action=share&source=collection_link&creator=28197704"
+		"_exporter_id": "28197704"
 	},
 	"item": [
 		{
 			"name": "Auth module",
 			"item": [
-				{
-					"name": "Sign in",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"mobile_phone\": \"+840301119991\",\r\n    \"password\": \"12345689\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/auth/sign-in/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"auth",
-								"sign-in",
-								""
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "Request OTP to Sign up",
 					"request": {
@@ -53,11 +24,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/request-otp/sign-up",
+							"raw": "http://localhost:8080/api/v1/auth/request-otp/sign-up",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"auth",
 								"request-otp",
 								"sign-up"
@@ -73,7 +48,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\",\r\n    \"first_name\": \"Nguyen\",\r\n    \"last_name\": \"Nhut Huy (225)\",\r\n    \"password\": \"nguyenhuy@999\",\r\n    \"verify_otp\": \"845707\"\r\n}",
+							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\",\r\n    \"first_name\": \"Nguyen\",\r\n    \"last_name\": \"Nhut Huy (225)\",\r\n    \"password\": \"nguyenhuy@999\",\r\n    \"verify_otp\": \"489173\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -81,13 +56,81 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/sign-up",
+							"raw": "http://localhost:8080/api/v1/auth/sign-up",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"auth",
 								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\",\r\n    \"password\": \"nguyenhuy@999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/sign-in/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"sign-in",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTM5MTcxOSwiZXhwIjoxNzMxOTgzNzE5fQ.Azvql-LcjF3rjk3LDQhhsL9iMYdUSAlwOjGC2MeHHTxwvYVboIvOkWZhTCLHVJ1dTjmx0VBiNV6s8cg0pbacBOfINJ2hQQ5EzN3aVhz6Oo-FRqn5XChVEofWQEku-AaAqKCtvK-rmI24elhO54NPnahq1ZCRQuUnZWOPux4Q6TJmPIRUD_gGfgQrosrq0xjXYga2P0Im5lEcK584ZLw1Vx8CN-CKbH5Th73EoXF6g9rKG3CEfV3jXEkbfe9W2aTQtu-qThXVgi1eIwfUNOAcIferDhQBQtEWRhF2AiOTxDBoSu0QJKEQohQZXi6Pe36hJf8kat1lwQcO-QH1p-Apww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh"
 							]
 						}
 					},
@@ -100,7 +143,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"mobile_phone\": \"+840311111111\"\r\n}",
+							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,11 +151,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/request-otp/reset-password",
+							"raw": "http://localhost:8080/api/v1/auth/request-otp/reset-password",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"auth",
 								"request-otp",
 								"reset-password"
@@ -128,7 +175,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\",\r\n    \"new_password\": \"999999\",\r\n    \"confirmed_password\": \"999999\",\r\n    \"otp\": \"321833\"\r\n}",
+							"raw": "{\r\n    \"mobile_phone\": \"+840366599225\",\r\n    \"new_password\": \"999999\",\r\n    \"confirmed_password\": \"999999\",\r\n    \"otp\": \"027479\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -136,11 +183,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/reset-password",
+							"raw": "http://localhost:8080/api/v1/auth/reset-password",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"auth",
 								"reset-password"
 							]
@@ -156,7 +207,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjQwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzY1Mjc2OCwiZXhwIjoxNzI0MjU3NTY4fQ.MUOfYPmV1UPKzASFVQpBjKLQ5NqViRleRTptPKkLKV0LYsBwZECNS6xwlztPapkU8WqPdGRFZfQTKvCsUTXcRE2voV_4EAWPM_jHTv5noihg928s_egp4DOWsfAiuX3NvK-42oUxjDx2oDwFx6Zl3namvyJ5Ze-Z2ga3PP4FQCpy7osguZXJgZVg6gfqOkMf2gDuZzTJeYwpNrExhRMM5u-7noi8cFUXLSAHyjzBoMHVgLLVQuC864tdd6LVN35rnlG1IreWKdfR1_I1I7Tyssc2px1ZXt9A2EQajno-K5odREIRSKL6jcTbre_9CaSOMNuuIJXXEhIgWzjpuNPk7A",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTM5MTYxMywiZXhwIjoxNzI5OTk2NDEzfQ.qhHtRe3w9wfIJQXdIkffb9nuAXSn4k7OLJxMxl3vh1rORm-OGghDRf-F9XK4OrIS1_Y7qsq3m1IKJ_9_CBshnIJitkKWXf_BxEM7Ct9qZ9R3Gh55kU-prIS3Ce92Shcze1hJB6CumQSIAPeaZ2qeeRVMl-Db9IjVErJNib15ehpcxwsJOkltSDoogN40cLCnp4d7CNgaig6cG2hBncmjZIej9urDIIkbU5MIszLadFRarYlMc2rcZomPLf5A-wTpL6hzwBxADlKc9oQuYBpp--jAt11kj2EAcW1hRb-re62CZd0wkQaljk9vYcz5MnAZDZwL3JdxXaSA1y6Ye4BGbg",
 									"type": "string"
 								}
 							]
@@ -165,7 +216,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"current_password\": \"nguyennhuthuy\",\r\n    \"new_password\": \"nguyenhuy@123\",\r\n    \"confirmed_password\": \"nguyenhuy@123\"\r\n}",
+							"raw": "{\r\n    \"current_password\": \"999999\",\r\n    \"new_password\": \"nguyenhuy@123\",\r\n    \"confirmed_password\": \"nguyenhuy@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -173,41 +224,17 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/change-password",
+							"raw": "http://localhost:8080/api/v1/auth/change-password",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"auth",
 								"change-password"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Refresh token",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjExLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjA1Nzk4MywiZXhwIjoxNzI0NjQ5OTgzfQ.dig_RvjSNUjQUhFd8bFfCWc1EfhzyjSAg_Zyk2THXCdFUnta8KAsWjuWD4PzEJ5xjiJ373EdvUWhMixzW2Fa4tsH-GA8GLyNV8ICCuLG0VY46XRWNBQSQNeqPvMdnmE5MhMRTzxrg-9IcxnbFe4bmZoIIQf_97IE0218pQ030--rSXc6VifdZJSJzjLVjvVils37VMF_mCFsl6FlcjrxM6JZio9x1jCMd6Up1OLf3eOY0fRHqwlcNllABbDijS-6XT_MjrfMenZfB6nnLqf4DpLknJBkd7uaob8CmKIlOLqsXe6Q3NS44oywETbLF-5usUU6rbe_GkmJUGSgxAtMJg",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/auth/refresh",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"auth",
-								"refresh"
 							]
 						}
 					},
@@ -226,7 +253,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0ODYyNzU4LCJleHAiOjE3MjU0Njc1NTh9.VPmb5OU-HkDOt0qTNatWbiZWKV1vhgGomGtqUPHZ7Og97VKQRQGkoa4EMn73Fem0bPts1Dm1vhYHvZ0JsRDiWcSc35H7i4kL8emJkBPMpA0U4I3d0sUMnIfEbyvGRZNlvp47kfvxC_132CKPN8zQgGr3zXsQkZFE1UQE7itogwMXYP2NwTQnadb9_HjruVAAjzjbaWPuKN4f1KLcrREHAVxlZmMCuyT3p-wz0Y66seGJU8GFyyjDfm0aAaZ-7LfUFeH2A4eVdIsy_gatw_quGYpMauuh60QgLXoZxOFxxiYPeGA_ackhS2C9fmlPYDHkwfUqCsUYLlPjVJxJK53HXg",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjExLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxMTg0MCwiZXhwIjoxNzMwMDE2NjQwfQ.tpT3sJi4QpxkucEbGIdxXRv6cRa2P7JogczVlzze1GFP8773Pi-FM6hlHeezZfwEF8au77ZPduCTd_hg-p-LxB5KCTJqPY1vM_aTdbrFcVJMR8sawD790kWgS0dBAFZonW4dLH-ZKfHJ-9E974WqVoY4ZAy11s63TCHlcO5W9iS1ToX7uhp6YSmtylR72N3XReVC8pjIyaHhU4pUFkvlFnFsfePWso0j131iEnhkl1UyYy7ia_J5ypcSmHHCJGi8B7KEcE8_US9iflCILf-jBEFLFdCCY6kt7eoy_SB4Stw3wp0pygAlfmwknnAm5BxXB_48x8DqhH86qw4jpjpWyQ",
 									"type": "string"
 								}
 							]
@@ -234,11 +261,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/customers/me",
+							"raw": "http://localhost:8080/api/v1/customers/me",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"customers",
 								"me"
 							]
@@ -254,7 +285,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzI4NTc5OCwiZXhwIjoxNzIzODkwNTk4fQ.tjaEgEmsjz1fdgCUQsaqOV18KkscgiTjksYNV1cB6J9QbNywAR3Ee2pnvZphn5bOTU2bliDs_C_EWH87ek-AGgK3XrNpNai90Zk3dp0GxPZq9tr24sxNjg-u2wlyA26EQ5VrrXAD91iiWBxBtzQcCw-y7gQT_u_Bs20RbyxfWbhWeV3H5Z3Z60jlWjbrycS4gJw7OynP8XltiVGn90NGYINURdq2AOYhdzdgokoRll6fzHKnMSP3_XH93Pn-du8Fy-jHIugr9UJs8NeHzbOI_5NlYTrbTC8DOtn94RYqnkL4YA0DVMMILQAAYNRyKIiWIXtXejV_W73WA2xp-iAccg",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTM5MjMzNiwiZXhwIjoxNzI5OTk3MTM2fQ.L22nsuWr6Kr4UNBAmHa2iN38y1c-5Q3GFAyZE6J90BJLc8EHdoDl59FdvnDDlJapYfR0YIEK7mwpkSPRAC5jou5hxaLG5N6gh-P4llX-ZP6FIkArUGyMQbUEEnwmV7JU_YWTnnjgWuzDA9l0nlh9G38atOdM0PIlqBelJL5H-9mJgJ6OJ9wR8_1Zz1Fzt1zu6Ah6tYu6cas3ajzpPq-002mp5WdcI-92Qj-SZMhRIR_aqfhjRFOCLwYmEi3RWWD9kqwSfrErJ_g3eAFmjgQ4Gaitkx0QMI4MhkHZfliBi0BIzDuCitfTneO1Xhl9WQWMrB3W5ucuto__6HDBDr9rxw",
 									"type": "string"
 								}
 							]
@@ -272,7 +303,7 @@
 								},
 								{
 									"key": "last_name",
-									"value": "Huy (Trà Vinh)",
+									"value": "Huy",
 									"type": "text"
 								},
 								{
@@ -308,17 +339,20 @@
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": "/C:/Users/nnh24/workspace02/dacntt/car-img/330i-01.jpg",
-									"disabled": true
+									"src": "/C:/Users/nnh24/OneDrive/Desktop/avatar.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/customers/me",
+							"raw": "http://localhost:8080/api/v1/customers/me",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"customers",
 								"me"
 							]
@@ -334,7 +368,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjIyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjI3MTQzOCwiZXhwIjoxNzIyODc2MjM4fQ.vXsq1d3tph-mamApKqWXtvHmYFebMQ6oeAm9rbl6W7D-pePUgWtIiwVNmChweq_g0M0TOA542Xm3yiHefv-UHxdjGlLxBheDkSJiumow5gff4JQE0-Id5bcUxGBA6URzFFt7IGo1xPtVT2buRznzszsYlMoAyAaPB0i7Asc3O-z6OYmYHpeLMFRQqRjDw4JiYwweO2fXE9OyAWR-qCVX2-K4zS8qWfhPmzmfOuDzb_cmGHneuhavp3QkeQ9mq2PDmE2UQqzbTBTM1ntYQ0tU_3gh75CXNL1TV4bFTpLlOGgSC6FAy1Pju72JlkAMaBB3m5et2n2NMN7NmNokt6__xg",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTM5MjMzNiwiZXhwIjoxNzI5OTk3MTM2fQ.L22nsuWr6Kr4UNBAmHa2iN38y1c-5Q3GFAyZE6J90BJLc8EHdoDl59FdvnDDlJapYfR0YIEK7mwpkSPRAC5jou5hxaLG5N6gh-P4llX-ZP6FIkArUGyMQbUEEnwmV7JU_YWTnnjgWuzDA9l0nlh9G38atOdM0PIlqBelJL5H-9mJgJ6OJ9wR8_1Zz1Fzt1zu6Ah6tYu6cas3ajzpPq-002mp5WdcI-92Qj-SZMhRIR_aqfhjRFOCLwYmEi3RWWD9kqwSfrErJ_g3eAFmjgQ4Gaitkx0QMI4MhkHZfliBi0BIzDuCitfTneO1Xhl9WQWMrB3W5ucuto__6HDBDr9rxw",
 									"type": "string"
 								}
 							]
@@ -342,11 +376,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/customers/me",
+							"raw": "http://localhost:8080/api/v1/customers/me",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"customers",
 								"me"
 							]
@@ -362,7 +400,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzIyMDI4NiwiZXhwIjoxNzIzODI1MDg2fQ.QJ-B7jhjn1AU-eIl6gaLd8cWIcntTWjfceGsYADy5bxn3N_dWHaRKZCF4HHOGozAwhEWDB8KwDaB_DY5MvX5fFP8NldLvc30fVTzGoPy3ogi13FLLpZrwhyujS8XgLKaYgPAeg4sua6qPhxqQqQzeuXbjhW-kJrEVBnPGW9AppuVXs09XnmsuYF-PEaWmLkeSA7qX5wPPXi333lCUTL8EYvMj16feuC1W1RnzXVeayXP_cTQWVfaBOIEORsmBm63VsZqW9Oj4vFhGKuTXFtLvFs3-lYnfusOcIsRRcq_xUnLOH9M9UGaKQVhdfaX8Pl8uQ4IMNdUMB7XR7qg3BNZ9w",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjExLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTM5OTQ2NCwiZXhwIjoxNzMwMDA0MjY0fQ.GKo_Iw6DMberHNwceqa0S7kjN0ss4tXvM8F3J8w0KAch0uaMsqU2w0tiUiiYwAVh8O1nZqeZEdUPApYOFYf3xKHQJKMYSa2cqg6iwBAL1CHQbDWPV6A-iqEneBqbk_7I68OJ2lmgOUKIj3d7JdVvww6NRpaKlF2o08NaUvf1klehZk4idDUtnP01ugBzIuhVQNUfWuQYDzBIRWe7G3jfNvjslDUMASQLahrhim27evVfeL1aQc27mUKqkq4iiJYYcyy-52liTAZJ1uHE5JdPSsLeyyWl5ydkjFZt0m-QARpp8t7LQHo03C8Z5t9OMmUKc1dRBNqO8vdZudepgoKgtg",
 									"type": "string"
 								}
 							]
@@ -370,11 +408,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/customers/wishlist",
+							"raw": "http://localhost:8080/api/v1/customers/wishlist",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"customers",
 								"wishlist"
 							]
@@ -390,7 +432,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzIyMDI4NiwiZXhwIjoxNzIzODI1MDg2fQ.QJ-B7jhjn1AU-eIl6gaLd8cWIcntTWjfceGsYADy5bxn3N_dWHaRKZCF4HHOGozAwhEWDB8KwDaB_DY5MvX5fFP8NldLvc30fVTzGoPy3ogi13FLLpZrwhyujS8XgLKaYgPAeg4sua6qPhxqQqQzeuXbjhW-kJrEVBnPGW9AppuVXs09XnmsuYF-PEaWmLkeSA7qX5wPPXi333lCUTL8EYvMj16feuC1W1RnzXVeayXP_cTQWVfaBOIEORsmBm63VsZqW9Oj4vFhGKuTXFtLvFs3-lYnfusOcIsRRcq_xUnLOH9M9UGaKQVhdfaX8Pl8uQ4IMNdUMB7XR7qg3BNZ9w",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQyNjA3MCwiZXhwIjoxNzMwMDMwODcwfQ.rTXBtiA0k1XaSV11UuDKSVZScVXE2ZdVYfLgJv2qFoY7H2T0ELPiiQU0ZNwX9BEJ26mRZ0C6zfXZ9_KusQSJV0nhNV8NrtTcRZJnytNK-k6zHDBosEcSvHY7IsQkgrDuftp6tAK1byKahW2_OmDvWflWesQ_NkLxghRMpzVwLteMax6V6gWp1SpO_ITToKx14kaTziixKMOKt1DutOLnaOFlUiFvYV_kEAootm0GJuEOI4dM54QYpjudEFpeYn9wC7YNC07uIZpFMT0HGW93XMZ9YZxa_XEm84R7zpPDcraNLpa2S5_ShAqZarKRyscXp7wUtHHnK7Omczm09U9iJg",
 									"type": "string"
 								}
 							]
@@ -398,11 +440,15 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/customers/wishlist/:post_id",
+							"raw": "http://localhost:8080/api/v1/customers/wishlist/:post_id",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"customers",
 								"wishlist",
 								":post_id"
@@ -410,7 +456,7 @@
 							"variable": [
 								{
 									"key": "post_id",
-									"value": "1"
+									"value": "400"
 								}
 							]
 						}
@@ -425,7 +471,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjA5NjMzNCwiZXhwIjoxNzIyNzAxMTM0fQ.tL9OvV7HND1S9Xd5V_F2U08_8MqwWKVyc8xssuPDyEc8SBZ_jeExzALo6oqcCnQPUJiCf-MiUoXxEzDOPNq8F6PF35BcITU0jPokDfSb5na__9gNcWoplXyIGTR__Qm7ibIFK4UaTNeGnzHaUWb5pLHlVY0DctizLsI64dPneYJOsqOqF7CBk7IGOpRWondZsvhxdDpQIB2BPlqZyRDpFou6hudQTlCGZ1QMqVEDsHpivPDX7MWV-gmhhLTmS6dNFOWOFusS8TuuaaFnlhj9oA2x1NO-K0PE7a5duKQVjTJ5acJQE373kYEP4Aeh4IwSBBGrGQ99WLwI1ja9hPNDlw",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQyNjA3MCwiZXhwIjoxNzMwMDMwODcwfQ.rTXBtiA0k1XaSV11UuDKSVZScVXE2ZdVYfLgJv2qFoY7H2T0ELPiiQU0ZNwX9BEJ26mRZ0C6zfXZ9_KusQSJV0nhNV8NrtTcRZJnytNK-k6zHDBosEcSvHY7IsQkgrDuftp6tAK1byKahW2_OmDvWflWesQ_NkLxghRMpzVwLteMax6V6gWp1SpO_ITToKx14kaTziixKMOKt1DutOLnaOFlUiFvYV_kEAootm0GJuEOI4dM54QYpjudEFpeYn9wC7YNC07uIZpFMT0HGW93XMZ9YZxa_XEm84R7zpPDcraNLpa2S5_ShAqZarKRyscXp7wUtHHnK7Omczm09U9iJg",
 									"type": "string"
 								}
 							]
@@ -433,11 +479,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/customers/wishlist/:post_id",
+							"raw": "http://localhost:8080/api/v1/customers/wishlist/:post_id",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"customers",
 								"wishlist",
 								":post_id"
@@ -445,7 +495,7 @@
 							"variable": [
 								{
 									"key": "post_id",
-									"value": "3"
+									"value": "500"
 								}
 							]
 						}
@@ -458,11 +508,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/customers/others/:customer_id",
+							"raw": "http://localhost:8080/api/v1/customers/others/:customer_id",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"customers",
 								"others",
 								":customer_id"
@@ -470,7 +524,7 @@
 							"variable": [
 								{
 									"key": "customer_id",
-									"value": "4"
+									"value": "2"
 								}
 							]
 						}
@@ -488,32 +542,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts/query-table",
+							"raw": "http://localhost:8080/api/v1/posts/query-table",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"query-table"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all posts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/posts/all/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"posts",
-								"all",
-								""
 							]
 						}
 					},
@@ -528,11 +567,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts",
+							"raw": "http://localhost:8080/api/v1/posts",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts"
 							],
 							"query": [
@@ -592,11 +635,6 @@
 									"disabled": true
 								},
 								{
-									"key": "page",
-									"value": "1",
-									"disabled": true
-								},
-								{
 									"key": "car_brand",
 									"value": "BMW",
 									"disabled": true
@@ -622,78 +660,21 @@
 					"response": []
 				},
 				{
-					"name": "Get powered posts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/posts/powered?car_brand=honda",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"posts",
-								"powered"
-							],
-							"query": [
-								{
-									"key": "car_brand",
-									"value": "honda"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Get latest posts",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts/latest",
+							"raw": "http://localhost:8080/api/v1/posts/latest",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
-								"latest"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get premium and higher posts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/posts/premium-and-higher",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"posts",
-								"premium-and-higher"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get latest powered posts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/posts/powered/latest",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"posts",
-								"powered",
 								"latest"
 							]
 						}
@@ -706,11 +687,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts/relevant?car_brand=Toyota",
+							"raw": "http://localhost:8080/api/v1/posts/relevant?car_brand=Toyota",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"relevant"
 							],
@@ -730,58 +715,72 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts/bmw-3-series-2022-8627280",
+							"raw": "http://localhost:8080/api/v1/posts/toyota-camry-2022-3229546",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
-								"bmw-3-series-2022-8627280"
+								"toyota-camry-2022-3229546"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get posts by customer",
+					"name": "Get your posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxNTczOSwiZXhwIjoxNzMwMDIwNTM5fQ.iMef3_ceE2gQBuFnqGXqqSv3bvX0Z8TqAsZonYr44gyEcxFG1vHHKKYhJs9t1n0zD0brrzqXB2k4qxrVC_tr_0oeQzOvMauAyNMDegJEZzSdWVocs8znST59jUn7Adi3KpDSnymJ5mSYrmq957_1fhFloC9j725ADpoN3PEIvE6wbuv8Iktwho6QotVWoKtUZTH56sywljAjV0KHeb6D0NOlRvromRf9sFNH9wC1e2wceqE4bSighINFokIwgb2JaH9IXGN-rv-QLG6xG3JaYXbCVIV45bpEJbu5l_diT-Mz-HgNFVQcZ2ux4-ZK1IqvKy5Fhtoickbrx0kmZLCz9g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/posts/own",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"own"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get posts of others",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts/customer/:customer_id",
+							"raw": "http://localhost:8080/api/v1/posts/customer/:customer_id",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"customer",
 								":customer_id"
-							],
-							"variable": [
-								{
-									"key": "customer_id",
-									"value": "6"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all posts by customer",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/posts/customer/:customer_id/all",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"posts",
-								"customer",
-								":customer_id",
-								"all"
 							],
 							"variable": [
 								{
@@ -801,7 +800,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0Mjk1MzYyLCJleHAiOjE3MjQ5MDAxNjJ9.rFdAPmtJSiWH7YcG1INHfK5MSsIr6iAtBwi9gixMTSVxe2AFZTarwXnjMCs1gnL6JfYyzBhjFu9Yf8Jyn4bODpzNrY8M83sBmEYWZpZdWNYDMi0ov4UL0jIKLeddEkMUei_hFHCggn5vfO5xNoccptvAsTDOLjK9SAtv2PMjT4axXCm5KM9U-BkP0LWREGDpK1U5dSbzZ9wwwPpS2fhxTVPTLlmXuQ5sG8vOSUI-OcMsht7N5l88yylBoPDLzep0RO1g7-aY-gGHdkywdjvV5T1CCfjLYE2MURUr4ajp2h8JFqKGYCwTCQ-eMrIVU10yji-s2jAqAHOo6H6Fp4t9oA",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxNTczOSwiZXhwIjoxNzMwMDIwNTM5fQ.iMef3_ceE2gQBuFnqGXqqSv3bvX0Z8TqAsZonYr44gyEcxFG1vHHKKYhJs9t1n0zD0brrzqXB2k4qxrVC_tr_0oeQzOvMauAyNMDegJEZzSdWVocs8znST59jUn7Adi3KpDSnymJ5mSYrmq957_1fhFloC9j725ADpoN3PEIvE6wbuv8Iktwho6QotVWoKtUZTH56sywljAjV0KHeb6D0NOlRvromRf9sFNH9wC1e2wceqE4bSighINFokIwgb2JaH9IXGN-rv-QLG6xG3JaYXbCVIV45bpEJbu5l_diT-Mz-HgNFVQcZ2ux4-ZK1IqvKy5Fhtoickbrx0kmZLCz9g",
 									"type": "string"
 								}
 							]
@@ -815,8 +814,9 @@
 									"key": "car_galleries",
 									"type": "file",
 									"src": [
-										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-01.jpg",
-										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-02.jpg"
+										"/C:/Users/nnh24/OneDrive/Desktop/330i-01.jpg",
+										"/C:/Users/nnh24/OneDrive/Desktop/330i-02.jpg",
+										"/C:/Users/nnh24/OneDrive/Desktop/330i-03.jpg"
 									]
 								},
 								{
@@ -912,11 +912,15 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/posts/draft",
+							"raw": "http://localhost:8080/api/v1/posts/draft",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"draft"
 							]
@@ -932,7 +936,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0Mjk1MzYyLCJleHAiOjE3MjQ5MDAxNjJ9.rFdAPmtJSiWH7YcG1INHfK5MSsIr6iAtBwi9gixMTSVxe2AFZTarwXnjMCs1gnL6JfYyzBhjFu9Yf8Jyn4bODpzNrY8M83sBmEYWZpZdWNYDMi0ov4UL0jIKLeddEkMUei_hFHCggn5vfO5xNoccptvAsTDOLjK9SAtv2PMjT4axXCm5KM9U-BkP0LWREGDpK1U5dSbzZ9wwwPpS2fhxTVPTLlmXuQ5sG8vOSUI-OcMsht7N5l88yylBoPDLzep0RO1g7-aY-gGHdkywdjvV5T1CCfjLYE2MURUr4ajp2h8JFqKGYCwTCQ-eMrIVU10yji-s2jAqAHOo6H6Fp4t9oA",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxNTczOSwiZXhwIjoxNzMwMDIwNTM5fQ.iMef3_ceE2gQBuFnqGXqqSv3bvX0Z8TqAsZonYr44gyEcxFG1vHHKKYhJs9t1n0zD0brrzqXB2k4qxrVC_tr_0oeQzOvMauAyNMDegJEZzSdWVocs8znST59jUn7Adi3KpDSnymJ5mSYrmq957_1fhFloC9j725ADpoN3PEIvE6wbuv8Iktwho6QotVWoKtUZTH56sywljAjV0KHeb6D0NOlRvromRf9sFNH9wC1e2wceqE4bSighINFokIwgb2JaH9IXGN-rv-QLG6xG3JaYXbCVIV45bpEJbu5l_diT-Mz-HgNFVQcZ2ux4-ZK1IqvKy5Fhtoickbrx0kmZLCz9g",
 									"type": "string"
 								}
 							]
@@ -949,11 +953,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/posts/publish/:post_id",
+							"raw": "http://localhost:8080/api/v1/posts/publish/:post_id",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"publish",
 								":post_id"
@@ -961,7 +969,7 @@
 							"variable": [
 								{
 									"key": "post_id",
-									"value": "578"
+									"value": "509"
 								}
 							]
 						}
@@ -976,7 +984,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0NzU3NTEzLCJleHAiOjE3MjUzNjIzMTN9.rI_5M3VxFPHKAt6Dp9JLa4_lhhUthDx_lb0rR_HTzUxAOpiORu503zF3F1rfBNf1uHcy8Vdoa7ZxY-83IX4IJ2WPWQx9LJnNZH1Q1pMa0PyRquddoXu50ZIIGgomGZW8AuFdkNcNpQelXa8YRPmWC0ZdOwrVfmWteNer3AnUbXxL2NaIDP5DYVNzHIJQquwY5sN-s9dLPwycJ0O9sOlXHStyPDaz9kSVu6L6mQn_5uyYxbhT_-ff_x7ZJUXT6EkzI7aYxmwKE92rQlG0aMCO0A2ycrV3-HuwHd0NN5x08Zg9UmVmx0roUqu2CTJeOyr9__KMUP2IbNr8HQhB3Ad46g",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxNTczOSwiZXhwIjoxNzMwMDIwNTM5fQ.iMef3_ceE2gQBuFnqGXqqSv3bvX0Z8TqAsZonYr44gyEcxFG1vHHKKYhJs9t1n0zD0brrzqXB2k4qxrVC_tr_0oeQzOvMauAyNMDegJEZzSdWVocs8znST59jUn7Adi3KpDSnymJ5mSYrmq957_1fhFloC9j725ADpoN3PEIvE6wbuv8Iktwho6QotVWoKtUZTH56sywljAjV0KHeb6D0NOlRvromRf9sFNH9wC1e2wceqE4bSighINFokIwgb2JaH9IXGN-rv-QLG6xG3JaYXbCVIV45bpEJbu5l_diT-Mz-HgNFVQcZ2ux4-ZK1IqvKy5Fhtoickbrx0kmZLCz9g",
 									"type": "string"
 								}
 							]
@@ -990,8 +998,9 @@
 									"key": "car_galleries",
 									"type": "file",
 									"src": [
-										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-02.jpg",
-										"/C:/Users/nnh24/workspace02/dacntt/test/car-img/330i-03.jpg"
+										"/C:/Users/nnh24/OneDrive/Desktop/330i-01.jpg",
+										"/C:/Users/nnh24/OneDrive/Desktop/330i-02.jpg",
+										"/C:/Users/nnh24/OneDrive/Desktop/330i-03.jpg"
 									]
 								},
 								{
@@ -1076,7 +1085,7 @@
 								},
 								{
 									"key": "description",
-									"value": "hỗ trợ trả góp",
+									"value": "hỗ trợ trả góp 0%",
 									"type": "text"
 								},
 								{
@@ -1097,11 +1106,15 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/posts/publish",
+							"raw": "http://localhost:8080/api/v1/posts/publish",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								"publish"
 							]
@@ -1117,7 +1130,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMzYzNDY4NCwiZXhwIjoxNzI0MjM5NDg0fQ.j4Sp0_7lZpkt0MU1kjqfnVDwWDEPtIwTq0_JMY61udj2xEaH067WnpcqlwwyrN-Menw9ecLv2IRi3XXKlhlk7tMlcmyCa1W3TRigYbaYpyca0MKTgbCFsAewdwfCS5KsdvASx-ufIcA6LGhX3gPgVQs-x_5xzZg3sLYDbmk01xRFuC4BA2B43qs7acqk-7yB58Nx37SxjJYM7AGcMjs1AOBk8hYfyqPBMFig7-a86f5UrV-dyB6lAdqQm1K-eH5mDuh2jI3vTqnH_HFtkyWSLnlYUvF0FnFoeSmlAW7S2LRaAcDXpnLOpEKA4MipiemPWl2KiWbT2XvilFBsCPBvig",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxNTczOSwiZXhwIjoxNzMwMDIwNTM5fQ.iMef3_ceE2gQBuFnqGXqqSv3bvX0Z8TqAsZonYr44gyEcxFG1vHHKKYhJs9t1n0zD0brrzqXB2k4qxrVC_tr_0oeQzOvMauAyNMDegJEZzSdWVocs8znST59jUn7Adi3KpDSnymJ5mSYrmq957_1fhFloC9j725ADpoN3PEIvE6wbuv8Iktwho6QotVWoKtUZTH56sywljAjV0KHeb6D0NOlRvromRf9sFNH9wC1e2wceqE4bSighINFokIwgb2JaH9IXGN-rv-QLG6xG3JaYXbCVIV45bpEJbu5l_diT-Mz-HgNFVQcZ2ux4-ZK1IqvKy5Fhtoickbrx0kmZLCz9g",
 									"type": "string"
 								}
 							]
@@ -1231,7 +1244,7 @@
 								},
 								{
 									"key": "description",
-									"value": "update update update update",
+									"value": "Hỗ trợ trả góp 0%",
 									"type": "text"
 								},
 								{
@@ -1243,18 +1256,22 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/posts/:post_id",
+							"raw": "http://localhost:8080/api/v1/posts/:post_id",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								":post_id"
 							],
 							"variable": [
 								{
 									"key": "post_id",
-									"value": "8"
+									"value": "511"
 								}
 							]
 						}
@@ -1269,7 +1286,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEyLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyMjIyNDEzNCwiZXhwIjoxNzIyODI4OTM0fQ.jMrgEmKrIfdZSK8FRGvS2B8fRxgI2jOopYbzi580CQgs_40VDxyuciiPodcw6mn8gCckki_Q9IOVEVyiaN_hNxILsFOqGoSQgImR-d93g1i_vOLhK8zowbz1zMXIjaBTpZetcpSv7JqXF1Vf46Rlylx4kQKrZRFjSeSR9AOGifEvb45t_hQJ9cCVG8zikwAxGpHK1IuGVAkjSR4MEBkPadSE693mUHgsGAxuGf40LZ5AnXa3-8c1kna9r9POlbvEejJJmyXXysJNYVPuzeN_G5EVA8s51ifyWVg92Ri_OPSSI3n5JU8AtpbyAdxAJIGcWIekKtD546w6qL7pIy3mNg",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQyNjIzNCwiZXhwIjoxNzMwMDMxMDM0fQ.YPHcfo5BHLkqKjYkjoHK_KVqs3uQj4NbGJK5G9RGuVbUge-xkKkQiw1hI27LODbAVv8cvzs7Pb_8FHGCrvh_OMy6aDlKsxqB65ZonuVJfZPW06q4q9U4gsdh0ZIkqKiW2nneWd4Nv__lgCyy_dEOaM7urkcAT5cZXKBnVN4MxLyldpsvUmMSWBumkEbPF4xis-BW-hHPr34J7ve9UarfIfBo9mT1xdKoS9oKO9qauDuWN3Cv7HSDy5lHF1sutcJfqjidnJHZKuXxAtZ_v3u4cVC0e6_zDhBppgmgdRnZKsg4twLLZUQjePJCjuKEyAWpvkfugX0eVUFe54q_W8Y02g",
 									"type": "string"
 								}
 							]
@@ -1277,18 +1294,22 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts/:post_id",
+							"raw": "http://localhost:8080/api/v1/posts/:post_id",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"posts",
 								":post_id"
 							],
 							"variable": [
 								{
 									"key": "post_id",
-									"value": "521"
+									"value": "510"
 								}
 							]
 						}
@@ -1296,16 +1317,105 @@
 					"response": []
 				},
 				{
-					"name": "Get brands",
+					"name": "Unactive post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxNTczOSwiZXhwIjoxNzMwMDIwNTM5fQ.iMef3_ceE2gQBuFnqGXqqSv3bvX0Z8TqAsZonYr44gyEcxFG1vHHKKYhJs9t1n0zD0brrzqXB2k4qxrVC_tr_0oeQzOvMauAyNMDegJEZzSdWVocs8znST59jUn7Adi3KpDSnymJ5mSYrmq957_1fhFloC9j725ADpoN3PEIvE6wbuv8Iktwho6QotVWoKtUZTH56sywljAjV0KHeb6D0NOlRvromRf9sFNH9wC1e2wceqE4bSighINFokIwgb2JaH9IXGN-rv-QLG6xG3JaYXbCVIV45bpEJbu5l_diT-Mz-HgNFVQcZ2ux4-ZK1IqvKy5Fhtoickbrx0kmZLCz9g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/posts/unactive/:post_id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"unactive",
+								":post_id"
+							],
+							"variable": [
+								{
+									"key": "post_id",
+									"value": "511"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate car description",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjEwLCJyb2xlcyI6WyJJbmRpdmlkdWFsIEN1c3RvbWVyIl0sImlhdCI6MTcyOTQxNTczOSwiZXhwIjoxNzMwMDIwNTM5fQ.iMef3_ceE2gQBuFnqGXqqSv3bvX0Z8TqAsZonYr44gyEcxFG1vHHKKYhJs9t1n0zD0brrzqXB2k4qxrVC_tr_0oeQzOvMauAyNMDegJEZzSdWVocs8znST59jUn7Adi3KpDSnymJ5mSYrmq957_1fhFloC9j725ADpoN3PEIvE6wbuv8Iktwho6QotVWoKtUZTH56sywljAjV0KHeb6D0NOlRvromRf9sFNH9wC1e2wceqE4bSighINFokIwgb2JaH9IXGN-rv-QLG6xG3JaYXbCVIV45bpEJbu5l_diT-Mz-HgNFVQcZ2ux4-ZK1IqvKy5Fhtoickbrx0kmZLCz9g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"car_brand\": \"BMW\",\r\n\t\"car_model\": \"3 Class\",\r\n\t\"manufacturing_date\": 2023,\r\n\t\"body_type\": \"Sedan\",\r\n\t\"out_color\": \"Red\",\r\n\t\"city\": \"Hồ Chí Minh\",\r\n\t\"car_origin\": \"Imported\",\r\n\t\"car_status\": \"Old\",\r\n\t\"car_mileage\": 55000,\r\n\t\"short_description\": \"Hỗ trợ trả góp\",\r\n\t\"selling_price\": 500,\r\n    \"mobile_phone\": \"+840301119991\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/posts/generate-description",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"generate-description"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car module",
+			"item": [
+				{
+					"name": "Get car brands",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/cars/brands/",
+							"raw": "http://localhost:8080/api/v1/cars/brands/",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"cars",
 								"brands",
 								""
@@ -1315,7 +1425,7 @@
 					"response": []
 				},
 				{
-					"name": "Get models",
+					"name": "Get car models",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1329,11 +1439,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/cars/models/",
+							"raw": "http://localhost:8080/api/v1/cars/models/",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"cars",
 								"models",
 								""
@@ -1343,7 +1457,7 @@
 					"response": []
 				},
 				{
-					"name": "Get variants",
+					"name": "Get car variants",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1357,11 +1471,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/cars/variants/",
+							"raw": "http://localhost:8080/api/v1/cars/variants/",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"cars",
 								"variants",
 								""
@@ -1371,7 +1489,7 @@
 					"response": []
 				},
 				{
-					"name": "Get car's specifications",
+					"name": "Get car specifications",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1385,11 +1503,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/cars/specs/",
+							"raw": "http://localhost:8080/api/v1/cars/specs/",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"cars",
 								"specs",
 								""
@@ -1399,16 +1521,20 @@
 					"response": []
 				},
 				{
-					"name": "Get city",
+					"name": "Get cities",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/cars/cities/",
+							"raw": "http://localhost:8080/api/v1/cars/cities/",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"cars",
 								"cities",
 								""
@@ -1432,86 +1558,18 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/cars/districts/",
+							"raw": "http://localhost:8080/api/v1/cars/districts/",
+							"protocol": "http",
 							"host": [
-								"{{base_url}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"cars",
 								"districts",
 								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Generate description",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0NzU3NTEzLCJleHAiOjE3MjUzNjIzMTN9.rI_5M3VxFPHKAt6Dp9JLa4_lhhUthDx_lb0rR_HTzUxAOpiORu503zF3F1rfBNf1uHcy8Vdoa7ZxY-83IX4IJ2WPWQx9LJnNZH1Q1pMa0PyRquddoXu50ZIIGgomGZW8AuFdkNcNpQelXa8YRPmWC0ZdOwrVfmWteNer3AnUbXxL2NaIDP5DYVNzHIJQquwY5sN-s9dLPwycJ0O9sOlXHStyPDaz9kSVu6L6mQn_5uyYxbhT_-ff_x7ZJUXT6EkzI7aYxmwKE92rQlG0aMCO0A2ycrV3-HuwHd0NN5x08Zg9UmVmx0roUqu2CTJeOyr9__KMUP2IbNr8HQhB3Ad46g",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"car_brand\": \"BMW\",\r\n\t\"car_model\": \"3 Class\",\r\n\t\"manufacturing_date\": 2023,\r\n\t\"body_type\": \"Sedan\",\r\n\t\"out_color\": \"Red\",\r\n\t\"city\": \"Hồ Chí Minh\",\r\n\t\"car_origin\": \"Imported\",\r\n\t\"car_status\": \"Old\",\r\n\t\"car_mileage\": 55000,\r\n\t\"short_description\": \"Hỗ trợ trả góp\",\r\n\t\"selling_price\": 500,\r\n    \"mobile_phone\": \"+840301119991\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/posts/generate-description",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"posts",
-								"generate-description"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Unactive post",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoSWQiOjYsInJvbGVzIjpbIkluZGl2aWR1YWwgQ3VzdG9tZXIiXSwiaWF0IjoxNzI0ODYyNzU4LCJleHAiOjE3MjU0Njc1NTh9.VPmb5OU-HkDOt0qTNatWbiZWKV1vhgGomGtqUPHZ7Og97VKQRQGkoa4EMn73Fem0bPts1Dm1vhYHvZ0JsRDiWcSc35H7i4kL8emJkBPMpA0U4I3d0sUMnIfEbyvGRZNlvp47kfvxC_132CKPN8zQgGr3zXsQkZFE1UQE7itogwMXYP2NwTQnadb9_HjruVAAjzjbaWPuKN4f1KLcrREHAVxlZmMCuyT3p-wz0Y66seGJU8GFyyjDfm0aAaZ-7LfUFeH2A4eVdIsy_gatw_quGYpMauuh60QgLXoZxOFxxiYPeGA_ackhS2C9fmlPYDHkwfUqCsUYLlPjVJxJK53HXg",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/posts/unactive/:post_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"posts",
-								"unactive",
-								":post_id"
-							],
-							"variable": [
-								{
-									"key": "post_id",
-									"value": "14"
-								}
 							]
 						}
 					},

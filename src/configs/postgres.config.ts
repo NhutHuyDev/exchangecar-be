@@ -21,8 +21,5 @@ export const config: DataSourceOptions = {
   synchronize: true,
 };
 
-
-console.log(config)
-
 export default registerAs('postgres', () => config);
 export const postgresDataSource = new DataSource(config);

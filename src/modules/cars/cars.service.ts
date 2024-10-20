@@ -40,7 +40,7 @@ export class CarsService {
     });
 
     return {
-      car_brands: carModels.map((carModel) => carModel.model_name),
+      car_models: carModels.map((carModel) => carModel.model_name),
     };
   }
 

@@ -72,22 +72,24 @@ export class CarPostsController {
 
   @Get('/latest')
   async getLatestPosts() {
-    return {
-      data: await this.carPostsService.getLatestPosts(),
-    };
+    return await this.carPostsService.getLatestPosts()
   }
 
   @Get('/relevant')
-  async getRelevantPosts(@Query() query: any) {
-    return {
-      data: await this.carPostsService.getRelevantPosts(query.car_brand),
-    };
+  async getRelevantPosts(@Query() query: CarPostQueryDto) {
+    return await this.carPostsService.getRelevantPosts(query.car_brand)
   }
 
-  @Get('/customer/:customer_id/all')
-  async getAllPostsByCustomer(@Param() param: GetPostsByCustomerDto) {
+  @Get('/own')
+  @Roles(SystemRole.Individual_Customer)
+  @UseGuards(RolesGuard)
+  @UseGuards(JwtAccessTokenGuard)
+  async getAllPostsByCustomer(
+    @Req() request: RequestWithUser,
+    @Query() query: CarPostQueryDto
+  ) {
     return {
-      data: await this.carPostsService.getAllPostByCustomer(param.customer_id),
+      data: await this.carPostsService.getYourPosts(request.user.authId, query),
     };
   }
 
@@ -96,19 +98,15 @@ export class CarPostsController {
     @Param() param: GetPostsByCustomerDto,
     @Query() query: CarPostQueryDto,
   ) {
-    return {
-      data: await this.carPostsService.getPostByCustomer(
+    return await this.carPostsService.getPostByCustomer(
         param.customer_id,
         query,
-      ),
-    };
+      )
   }
 
   @Get('/:slug')
   async getPostByCarSlug(@Param() param: GetPostByCarSlugDto) {
-    return {
-      data: await this.carPostsService.getPostByCarSlug(param.slug),
-    };
+    return await this.carPostsService.getPostByCarSlug(param.slug)
   }
 
   @Post('/generate-description')
@@ -118,11 +116,9 @@ export class CarPostsController {
   async generateCarPost(
     @Body() generateDescriptionDto: GenerateDescriptionDto,
   ) {
-    return {
-      data: await this.carPostsService.generateCarPost(generateDescriptionDto),
-    };
+    return await this.carPostsService.generateCarPost(generateDescriptionDto)
   }
-
+  
   @Post('/draft')
   @UseInterceptors(FilesInterceptor('car_galleries'))
   @Roles(SystemRole.Individual_Customer)
@@ -142,13 +138,11 @@ export class CarPostsController {
   ) {
     const authId = request.user.authId;
 
-    return {
-      data: await this.carPostsService.createDraftCarPost(
+    return await this.carPostsService.createDraftCarPost(
         authId,
         createCarPostDTO,
         car_galleries,
-      ),
-    };
+      )
   }
 
   @Post('/publish/:post_id')
@@ -164,13 +158,11 @@ export class CarPostsController {
       package_option: SystemPackageOptions;
     },
   ) {
-    return {
-      data: await this.carPostsService.publishCarPostFromDraft(
+    return await this.carPostsService.publishCarPostFromDraft(
         publishPostParamDto.post_id,
         publishPostBodyDto.days_publish,
         publishPostBodyDto.package_option,
-      ),
-    };
+      )
   }
 
   @Post('/publish')
@@ -192,13 +184,11 @@ export class CarPostsController {
   ) {
     const authId = request.user.authId;
 
-    return {
-      data: await this.carPostsService.createPublishCarPost(
+    return await this.carPostsService.createPublishCarPost(
         authId,
         createPublishPostDto,
         car_galleries,
-      ),
-    };
+      )
   }
 
   @Post('/unactive/:post_id')
@@ -209,12 +199,10 @@ export class CarPostsController {
     @Req() request: RequestWithUser,
     @Param() unActivePostParamDto: { post_id: number },
   ) {
-    return {
-      data: await this.carPostsService.unActivePost(
+    return await this.carPostsService.unActivePost(
         request.user,
         unActivePostParamDto.post_id,
-      ),
-    };
+      )
   }
 
   @Patch('/:post_id')
@@ -236,14 +224,12 @@ export class CarPostsController {
     )
     car_galleries: Array<Express.Multer.File>,
   ) {
-    return {
-      data: await this.carPostsService.updateCarPost(
+    return await this.carPostsService.updateCarPost(
         request.user,
         param.post_id,
         updateCarPostDto,
         car_galleries,
-      ),
-    };
+      )
   }
 
   @Delete('/:post_id')
@@ -254,11 +240,9 @@ export class CarPostsController {
     @Req() request: RequestWithUser,
     @Param() param: { post_id: number },
   ) {
-    return {
-      data: await this.carPostsService.deleteCarPost(
+    return await this.carPostsService.deleteCarPost(
         request.user,
         param.post_id,
-      ),
-    };
+      )
   }
 }

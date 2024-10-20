@@ -15,7 +15,8 @@ export class PaymentServices {
   private momoAccessKey: string;
   private momoPartnerCode: string;
   private momoSecretKey: string;
-
+  private ipnUrl: string;
+  private redirectUrl: string;
   constructor(
     @InjectRepository(PostTransaction)
     private postTransactionRepository: Repository<PostTransaction>,
@@ -27,6 +28,8 @@ export class PaymentServices {
     this.momoAccessKey = momoPayment.momoAccessKey;
     this.momoPartnerCode = momoPayment.momoPartnerCode;
     this.momoSecretKey = momoPayment.momoSecretKey;
+    this.ipnUrl = momoPayment.ipnUrl;
+    this.redirectUrl = momoPayment.redirectUrl;
   }
 
   async createMomoURL(momoPaymentInfo: CreatePayment) {
@@ -52,14 +55,14 @@ export class PaymentServices {
       '&extraData=' +
       extraData +
       '&ipnUrl=' +
-      'https://exchangecar-be.nguyennhuthuy.com/api/v1/payment/momo-hook' +
+      this.ipnUrl +
       '&orderId=' +
       order_id +
       '&orderInfo=' +
       order_info +
       '&partnerCode=' +
       this.momoPartnerCode +
-      '&redirectUrl=https://exchangecar-management.vercel.app/cars' +
+      '&redirectUrl='+ this.redirectUrl +
       '&requestId=' +
       request_id +
       '&requestType=payWithMethod';
@@ -77,9 +80,8 @@ export class PaymentServices {
       amount: String(amount),
       orderId: order_id,
       orderInfo: order_info,
-      redirectUrl: 'https://exchangecar-management.vercel.app/cars',
-      ipnUrl:
-        'https://exchangecar-be.nguyennhuthuy.com/api/v1/payment/momo-hook',
+      redirectUrl: this.redirectUrl,
+      ipnUrl: this.ipnUrl,
       lang: 'en',
       requestType: 'payWithMethod',
       autoCapture: true,
@@ -103,6 +105,7 @@ export class PaymentServices {
 
       return result.data as MomoPaymenInfo;
     } catch (error) {
+      console.log(error)
       throw new InternalServerErrorException();
     }
   }

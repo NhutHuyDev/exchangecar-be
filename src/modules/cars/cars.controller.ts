@@ -10,49 +10,37 @@ export class CarsController {
 
   @Post('brands')
   async getCarBrands() {
-    return {
-      data: await this.carsService.getCarBrands(),
-    };
+    return await this.carsService.getCarBrands()
   }
 
   @Post('models')
   async getCarModels(@Body() getCarModelDTO: GetCarModelDTO) {
-    return {
-      data: await this.carsService.getCarModels(getCarModelDTO.brand_name),
-    };
+    return await this.carsService.getCarModels(getCarModelDTO.brand_name)
   }
 
   @Post('variants')
   async getCarVariants(@Body() getCarVariants: GetCarVariantDTO) {
-    return {
-      data: await this.carsService.getCarVariants(
+    return await this.carsService.getCarVariants(
         getCarVariants.model_name,
         getCarVariants.manufacturing_date,
-      ),
-    };
+      )
   }
 
   @Post('specs')
   async getCarSpecs(@Body() getCarSpecsDTO: GetCarSpecsDTO) {
-    return {
-      data: await this.carsService.getCarSpecs(
+    return await this.carsService.getCarSpecs(
         getCarSpecsDTO.variant_name,
         getCarSpecsDTO.manufacturing_date,
-      ),
-    };
+      )
   }
 
   @Post('cities')
   async getCity() {
-    return {
-      data: await this.carsService.getCities(),
-    };
+    return await this.carsService.getCities()
   }
 
   @Post('districts')
   async getDistricts(@Body() getDistrictDTO: { city_name: string }) {
-    return {
-      data: await this.carsService.getDistricts(getDistrictDTO.city_name),
-    };
+    return await this.carsService.getDistricts(getDistrictDTO.city_name)
   }
 }

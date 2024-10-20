@@ -17,7 +17,7 @@ export class PaymentController {
     console.log('momo-hook:', momoPaymenNofity);
 
     if (momoPaymenNofity.resultCode === 0) {
-      // const { amount, requestId } = momoPaymenNofity;
+      const { amount, requestId } = momoPaymenNofity;
 
       const extra_data = JSON.parse(momoPaymenNofity.extraData) as {
         post_id: number;
@@ -34,12 +34,12 @@ export class PaymentController {
           days_publish,
         );
 
-        // await this.paymentService.createMomoTransaction(
-        //   post_id,
-        //   amount,
-        //   days_publish,
-        //   requestId,
-        // );
+        await this.paymentService.createMomoTransaction(
+          post_id,
+          amount,
+          days_publish,
+          requestId,
+        );
       }
     }
 
